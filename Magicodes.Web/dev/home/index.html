@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 <title>Magicodes</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -11,32 +11,37 @@
 <body class="m-home">
 
 <div class="topbar">
-  <div class="top-menu">
-    <div>
-      <img src="img/logo-l.png" alt="Magicodes" height="20">
-    </div>
-    <div>
-      <i class="fa fa-home"></i>
+  <img class="topbar-logo" src="img/logo-l.png" alt="Magicodes.NET" height="20">
+  <span class="title text-center">Magicodes.NET</span>
+  <button class="top-menu-button-r pull-right">
+    <i class="fa fa-navicon fa-fw"></i>
+  </button>
+  <button class="top-user-button-r pull-right">
+    <i class="fa fa-user fa-fw"></i>
+  </button>
+  <ul class="top-menu-list">
+    <li>
+      <i class="fa fa-home fa-fw"></i>
       <a href="#">首页</a>
-    </div>
-    <div>
-      <i class="fa fa-star"></i>
+    </li>
+    <li>
+      <i class="fa fa-star fa-fw"></i>
       <a href="#">开始使用</a>
-    </div>
-    <div>
-      <i class="fa fa-flag"></i>
+    </li>
+    <li>
+      <i class="fa fa-flag fa-fw"></i>
       <a href="#">版本历史</a>
-    </div>
-    <div>
-      <i class="fa fa-code"></i>
+    </li>
+    <li>
+      <i class="fa fa-code fa-fw"></i>
       <a href="#">文档</a>
-    </div>
-    <div>
-      <i class="fa fa-edit"></i>
+    </li>
+    <li>
+      <i class="fa fa-edit fa-fw"></i>
       <a href="#">官方博客</a>
-    </div>
-    <div class="dropdown">
-      <i class="fa fa-users"></i>
+    </li>
+    <li class="dropdown">
+      <i class="fa fa-users fa-fw"></i>
       <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         社区
         <span class="caret"></span>
@@ -44,39 +49,39 @@
       <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
         <li>
           <a href="#">
-            <i class="fa fa-comments-o"></i>
+            <i class="fa fa-comments-o fa-fw"></i>
             FAQ
           </a>
         </li>
         <li>
           <a href="#">
-            <i class="fa fa-meh-o"></i>
+            <i class="fa fa-meh-o fa-fw"></i>
             反馈
           </a>
         </li>
       </ul>
-    </div>
-    <div>
-      <i class="fa fa-dollar"></i>
+    </li>
+    <li>
+      <i class="fa fa-dollar fa-fw"></i>
       <a href="#">赞助</a>
-    </div>
-  </div>
-  <div class="top-user-menu">
-    <div>
+    </li>
+  </ul>
+  <ul class="top-user-menu pull-right">
+    <li>
       <i class="fa fa-user"></i>
       <a href="#">登录</a>
-    </div>
-    <div>
+    </li>
+    <li>
       <i class="fa fa-university"></i>
       <a href="#">加入我们</a>
-    </div>
-  </div>
+    </li>
+  </ul>
 </div>
 
 <div class="face">
   <div class="face-m-group">
     <div class="face-m-logo">
-      <img src="img/logo.png" width="128" alt="Magicodes.NET">
+      <img src="img/logo.png" alt="Magicodes.NET">
     </div>
     <div class="face-m-title">
       <span>Magicodes.NET</span>
@@ -152,6 +157,7 @@
           <i class="fa fa-code fa-fw"></i>
           T4代码生成
         </div>
+        <div class="clearfix"></div>
       </div>
       <div class="col-md-9">
         <div class="intro-text" data-btextid="1" style="display:block;">
@@ -258,6 +264,7 @@
           <i class="fa fa-th-large fa-fw"></i>
           MVVM
         </div>
+        <div class="clearfix"></div>
       </div>
     </div>
   </div>
@@ -287,11 +294,11 @@
         <p>
           <i class="fa fa-qq fa-fw"></i>.NET技术交流1群 
           <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=4c998913f2aec27dfcfabaf075377d699b415c79a5ee4dd759ecc49469bb0055">
-            <img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt=".NET交流1（.NET）" title=".NET交流1（.NET）">
+            <img src="http://pub.idqqimg.com/wpa/images/group.png" alt=".NET交流1（.NET）" title=".NET交流1（.NET）">
           </a>
         </p>
         <p>
-          <i class="fa fa-envelope-o fa-fw"></i>官方邮箱：<mailto>xxx<i class="fa fa-at"></i>magicodes.net</mailto>
+          <i class="fa fa-envelope-o fa-fw"></i>官方邮箱：<a href="mailto:">xxx<i class="fa fa-at"></i>magicodes.net</a>
         </p>
       </div>
       <div class="col-md-4">
