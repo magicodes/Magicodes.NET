@@ -1,0 +1,39 @@
+﻿@model Magicodes.Mvc.Default.Models.ExternalLoginConfirmationViewModel
+@{
+    ViewBag.Title = "关联表单";
+}
+<div class="am-g" style="margin-top:80px;">
+    <div class="col-lg-6 col-md-8 col-sm-centered">
+        @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "am-form", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <h2>@ViewBag.Title。</h2>
+            <h3>激活你的 @ViewBag.LoginProvider 帐户。</h3>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <p class="text-info">
+                你已成功地使用 <strong>@ViewBag.LoginProvider</strong> 进行身份验证。
+                请在下面输入此站点的用户名，然后单击“注册”按钮完成
+                登录。
+            </p>
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(m => m.UserNickName, new { @class = "col-md-2 control-label" })
+            @Html.TextBoxFor(m => m.UserNickName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            <br />
+            <div class="am-cf">
+                <input type="submit" name="" value="注  册" class="am-btn am-btn-primary am-btn-sm am-fl">
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

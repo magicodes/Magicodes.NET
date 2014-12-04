@@ -1,0 +1,67 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="$(SolutionDir)\Magicodes.Web\bin\Magicodes.Web.Interfaces.dll" #>
+<#@ import namespace="Magicodes.Web.Interfaces.Config.Info" #>
+<#@ import namespace="Magicodes.Web.Interfaces.Config" #>
+<#@ assembly name="$(SolutionDir)\Magicodes.Web\bin\Magicodes.Core.dll" #>
+<#@ import namespace="Magicodes.Core.Plus" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Reflection" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Magicodes.Core.Web.Controllers;
+//======================================================================
+//
+//        Copyright (C) 2014-2016 Magicodes团队    
+//        All rights reserved
+//
+//        filename :ConfigController
+//        description :配置视图 控制器
+//
+//        created by 雪雁 at  <#=        DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") #>
+//        http://www.magicodes.net
+//
+//======================================================================
+namespace Magicodes.Mvc.Default.Areas.Admin.Controllers
+{
+    /// <summary>
+    /// 配置页面控制器
+    /// </summary>
+    public class ConfigController : AdminControllerBase
+    {
+<# 
+    var assembly=typeof(SiteConfigInfo).Assembly;
+    var types=assembly.GetTypes().Where(p => p.IsClass && p.IsSubclassOf(typeof(ConfigBase)));
+    foreach(var config in types)
+    {
+        //是否忽略生成此类
+        var T4GenerationIgnoreAttribute=AssemblyManager.GetAttribute<Magicodes.Web.Interfaces.T4.T4GenerationIgnoreAttribute>(config,false);
+        if(T4GenerationIgnoreAttribute!=null) continue;
+        var descriptionAttr=AssemblyManager.GetAttribute<System.ComponentModel.DescriptionAttribute>(config,false);
+        var title=descriptionAttr == null ? "" : descriptionAttr.Description;
+        var name=config.Name;
+    
+#>
+        /// <summary>
+        /// <#=            title #>
+        /// </summary>
+        /// <returns><#=            title #>配置视图</returns>
+        [HttpGet]
+        public ActionResult <#=            name #>()
+        {
+            return View();
+        }
+
+
+<#
+    }
+#>
+    }
+}

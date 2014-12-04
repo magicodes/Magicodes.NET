@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6711F3C-70B0-468B-A8E3-E0B3A1DF9D49}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Magicodes.Glimpse</RootNamespace>
+    <AssemblyName>Magicodes.Glimpse</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\packages\Common.Logging.2.3.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Ado">
+      <HintPath>..\..\packages\Glimpse.Ado.1.7.3\lib\net45\Glimpse.Ado.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.AspNet">
+      <HintPath>..\..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Common.Logging">
+      <HintPath>..\..\packages\Glimpse.Common.Logging.1.2.0.0\lib\net45\Glimpse.Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Core">
+      <HintPath>..\..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.EF6">
+      <HintPath>..\..\packages\Glimpse.EF6.1.6.5\lib\net45\Glimpse.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Mvc5">
+      <HintPath>..\..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.SignalR">
+      <HintPath>..\..\packages\Glimpse.SignalR.1.0.0\lib\net40\Glimpse.SignalR.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\..\packages\Microsoft.AspNet.SignalR.Core.1.0.1\lib\net40\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Glimpse">
+      <HintPath>..\..\packages\Newtonsoft.Json.Glimpse.1.0.2\lib\net35\Newtonsoft.Json.Glimpse.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlimpseRouteHandler.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
+    <Compile Include="Plus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Magicodes.Core.Web\Magicodes.Core.Web.csproj">
+      <Project>{41dec0e9-15d8-4b2b-825a-3352c7fe909a}</Project>
+      <Name>Magicodes.Core.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Magicodes.Web.Interfaces\Magicodes.Web.Interfaces.csproj">
+      <Project>{a6c24c78-7185-4a57-ae23-9e12e5c30118}</Project>
+      <Name>Magicodes.Web.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <EmbeddedResource Include="Plus.config">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。启用“NuGet 程序包还原”可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>set "targetDir=$(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)"
+if not exist %25targetDir%25 md %25targetDir%25
+echo f | xcopy "$(TargetPath)" %25targetDir%25 /Y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

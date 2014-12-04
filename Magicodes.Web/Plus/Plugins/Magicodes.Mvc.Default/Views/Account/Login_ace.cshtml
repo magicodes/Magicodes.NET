@@ -1,0 +1,184 @@
+﻿@using Magicodes.Services.Mvc.ViewModels
+@model LoginViewModel
+@{
+    ViewBag.Title = "登录";
+}
+@section HeaderScripts {
+    <script type="text/javascript">
+        require(["magicodes"], function () {
+            var mForm = new magicodes.form({
+                api: '/api/Account/Login',
+                loadData: false,
+                bindElement: $('.widget-body:eq(0)').get(0),
+                onsaved: function (data, statusCode, v) {
+                    if (data.IsSuccess) {
+                        v.enable(false);
+                        magicodes.messager.showInfoMessage('温馨提示', data.Message);
+                        setTimeout(function () { window.location.href = '/'; }, 500);
+                    } else {
+                        v.enable(true);
+                        magicodes.messager.showErrorMessage('错误', data.Message);
+                    }
+                },
+                onViewModelCreated: function (v) {
+                    $('body').attr('class', 'login-layout light-login').fadeIn();
+                    v.enable = ko.observable(true);
+                    v.formData({ LoginName: '', Password: '', RememberMe: false });
+                },
+                saveMethod: "POST"
+            });
+            mForm.bindingModel();
+        });
+    </script>
+}
+<div class="main-container" id="main-container">
+    <div class="main-content">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="login-container" style="margin-top: 100px;">
+                    <div class="center">
+                        <h1>
+                            <i class="ace-icon fa fa-cloud-upload green"></i>
+                            <span class="grey" id="id-text2">@ViewBag.SiteInfo.SiteName</span>
+                        </h1>
+                        @*<h4 class="blue" id="id-company-text">&copy; </h4>*@
+                    </div>
+
+                    <div class="space-6"></div>
+
+                    <div class="position-relative">
+                        <div id="login-box" class="login-box visible widget-box no-border">
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <h4 class="header blue lighter bigger">
+                                        <i class="ace-icon fa fa-coffee green"></i>
+                                        请在此登录
+                                    </h4>
+                                    <div class="space-6"></div>
+                                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <fieldset data-bind="with: formData">
+                                            <div class="form-group" hiderequired>
+                                                <label class="block clearfix">
+                                                    <span class="block input-icon input-icon-right">
+                                                        <input type="text" class="form-control" placeholder="@Html.DisplayNameFor(m => m.LoginName)" data-bind="value: LoginName, valueUpdate: 'afterkeydown'" required="true" />
+                                                        <i class="ace-icon fa fa-user"></i>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group" hiderequired>
+                                                <label class="block clearfix">
+                                                    <span class="block input-icon input-icon-right">
+                                                        <i class="ace-icon fa fa-lock"></i>
+                                                        <input type="password" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Password)" data-bind="value: Password, valueUpdate: 'afterkeydown'" required="true" />
+                                                        
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div class="space"></div>
+
+                                            <div class="clearfix">
+                                                <label class="inline">
+                                                    <input type="checkbox" class="ace" data-bind="checked: RememberMe" />
+                                                    <span class="lbl">记住密码</span>
+                                                </label>
+
+                                                <button type="button" id="btnLogin" class="width-35 pull-right btn btn-sm btn-primary"
+                                                        data-bind="click: $root.save, enable: $root.enable">
+                                                    <i class="ace-icon fa fa-key"></i>
+                                                    <span class="bigger-110">登录</span>
+                                                </button>
+                                            </div>
+
+                                            <div class="space-4"></div>
+                                        </fieldset>
+                                    }
+                                </div>
+                                <!-- /.widget-main -->
+
+                                <div class="toolbar clearfix">
+                                    <div>
+                                        <a href="#" data-target="#forgot-box" class="forgot-password-link">
+                                            <i class="ace-icon fa fa-arrow-left"></i>
+                                            忘记密码
+                                        </a>
+                                    </div>
+
+                                    <div>
+                                        <a href='@Url.Action("Register")' class="user-signup-link">
+                                            没有账号？点此注册
+                                            <i class="ace-icon fa fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.widget-body -->
+                        </div>
+                    </div>
+                    <!-- /.position-relative -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
+
+@*<h2>@ViewBag.Title。</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <section id="loginForm">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <h4>使用本地帐户登录。</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="登录" class="btn btn-default" />
+                        </div>
+                    </div>
+                    <p>
+                        @Html.ActionLink("注册为新用户", "Register")
+                    </p>
+                    在为密码重置功能启用帐户确认后启用此项
+                        <p>
+                            @Html.ActionLink("忘记了密码?", "ForgotPassword")
+                        </p>
+                }
+            </section>
+        </div>
+        <div class="col-md-4">
+            <section id="socialLoginForm">
+                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+        </div>
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

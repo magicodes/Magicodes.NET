@@ -1,0 +1,41 @@
+﻿@model Magicodes.Mvc.Default.Models.ExternalLoginListViewModel
+@using Microsoft.Owin.Security
+
+<h4>使用其他服务登录。</h4>
+<hr />
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    if (loginProviders.Count() == 0)
+    {
+        <div>
+            <p>
+                未配置外部身份验证服务。请参见<a href="http://go.microsoft.com/fwlink/?LinkId=313242">此文章</a>，
+                以详细了解如何将此 ASP.NET 应用程序设置为支持通过外部服务登录。
+            </p>
+        </div>
+    }
+    else
+    {
+        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            <div id="socialLoginList">
+                <p>
+                    @foreach (AuthenticationDescription p in loginProviders)
+                    {
+                        if (@p.Caption == "QQ账号")
+                        {
+                            <a href="javascript:document.getElementById('qqLogin').click();" class="am-btn am-btn-secondary am-btn-sm"><span><img src="/images/QQ.png" alt="QQ">QQ登录</span></a>
+                            <button style="display:none;" id="qqLogin" type="submit" class="am-btn am-btn-secondary am-btn-sm" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="使用你的 @p.Caption 帐户登录">@p.Caption</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="am-btn am-btn-secondary am-btn-sm" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="使用你的 @p.Caption 帐户登录">@p.Caption</button>
+                        }
+
+                    }
+                </p>
+            </div>
+        }
+    }
+}

@@ -1,0 +1,185 @@
+﻿@{
+    var SiteInfo = Magicodes.Web.Interfaces.GlobalApplicationObject.Current.ApplicationContext.ConfigManager.GetConfig<Magicodes.Web.Interfaces.Config.Info.SiteConfigInfo>();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title——移动版</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="@SiteInfo.SEOKeyword" />
+    <meta name="description" content="@SiteInfo.SEODescription" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta property="qc:admins" content="55612520571374536654" />
+    <link rel="alternate icon" type="image/png" href="/assets/i/favicon.png">
+    <link rel="stylesheet" href="/assets/css/amui.all.min.css" />
+    <link rel="stylesheet" href="/assets/css/amaze.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css" />
+    <style>
+        .head-fixed {
+            padding-top: 50px;
+        }
+
+        .head {
+            margin-bottom: 0;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+        }
+
+        .get {
+            background: #1E5B94;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .get-title {
+            font-size: 200%;
+            border: 2px solid #fff;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        .get-btn {
+            background: #fff;
+        }
+
+        .detail {
+            background: #fff;
+        }
+
+        .detail-h2 {
+            text-align: center;
+            font-size: 150%;
+            margin: 40px 0;
+        }
+
+        .detail-h3 {
+            color: #1f8dd6;
+        }
+
+        .detail-p {
+            color: #7f8c8d;
+        }
+
+        .detail-mb {
+            margin-bottom: 30px;
+        }
+
+        .hope {
+            background: #0bb59b;
+            padding: 50px 0;
+        }
+
+        .hope-img {
+            text-align: center;
+        }
+
+        .hope-hr {
+            border-color: #149C88;
+        }
+
+        .hope-title {
+            font-size: 140%;
+        }
+
+        .about {
+            background: #fff;
+            padding: 40px 0;
+            color: #7f8c8d;
+        }
+
+        .about-color {
+            color: #34495e;
+        }
+
+        .about-title {
+            font-size: 180%;
+            padding: 30px 0 50px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #7f8c8d;
+            margin: 0;
+            padding: 15px 0;
+            text-align: center;
+            background: #2d3e50;
+        }
+
+        .validation-summary-errors {
+            color: red;
+        }
+    </style>
+</head>
+<body class="head-fixed">
+    <header class="am-topbar-inverse head">
+        <h1 class="am-topbar-brand">
+            <img src="~/assets/i/mgclogo.png" style="height:32px;" />&nbsp;
+            @*<a href="#">Magicodes</a>*@
+        </h1>
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only"
+                data-am-collapse="{target: '#collapse-head'}">
+            <span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
+        </button>
+        <div class="am-collapse am-topbar-collapse" id="collapse-head">
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+                <li class="am-active"><a href="/">首页</a></li>
+                @*<li class="am-dropdown" data-am-dropdown>
+                        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                            项目 <span class="am-icon-caret-down"></span>
+                        </a>
+                        <ul class="am-dropdown-content">
+                            <li><a href="#"><i class="am-icon-tachometer"></i> 系统管理框架</a></li>
+                            <li><a href="#"><i class="am-icon-globe"></i> 前台页面框架</a></li>
+                            <li><a href="#"><i class="am-icon-apple"></i> 移动端框架</a></li>
+                        </ul>
+                    </li>*@
+                <li><a href="/home/start">开始使用</a></li>
+                <li><a href="/home/VersionHistory">版本历史</a></li>
+
+                <li><a href="#">文档</a></li>
+                <li><a href="http://www.cnblogs.com/codelove/" target="_blank"><i class="am-icon-wordpress"></i> 官方博客</a></li>
+                <li class="am-dropdown" data-am-dropdown>
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                        社区 <span class="am-icon-caret-down"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <!--<li class="am-dropdown-header">文档</li>-->
+                        <li><a href="http://www.cnblogs.com/codelove/" target="_blank"><i class="am-icon-wordpress"></i> 官方博客</a></li>
+                        <li><a href="#"><i class="am-icon-comments-o"></i> FAQ</a></li>
+                        <li><a href="#"><i class="am-icon-meh-o"></i> 反馈</a></li>
+                    </ul>
+                </li>
+                <li><a href="/home/Contact"><i class="am-icon-group"></i> 加入我们</a></li>
+                <li><a href="http://shop113059108.taobao.com/shop/view_shop.htm?spm=a1z0e.1.10010.4.jsfP12" target="_blank">赞助</a></li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </header>
+
+    @RenderBody()
+
+
+    <footer class="footer footer-fixed">
+        <p>
+            © 2014 <a href="#" target="_blank">Magicodes.NET</a> Licensed under <a href="/Home/License" target="_blank">License</a>. Powered by the <a href="http://www.magicodes.net" target="_blank">Magicodes.NET团队</a>.
+            <script type="text/javascript">
+                var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F1e2bac9de51e2c8f3a95fd9eda7a87b9' type='text/javascript'%3E%3C/script%3E"));
+            </script>
+        </p>
+    </footer>
+    <script src="~/assets/js/jquery-2.1.1.min.js"></script>
+    <script src="/assets/js/zepto.min.js"></script>
+    <script src="/assets/js/amui.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

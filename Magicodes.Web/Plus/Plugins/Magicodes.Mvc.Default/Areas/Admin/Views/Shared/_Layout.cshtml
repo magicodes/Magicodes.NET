@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    @Styles.Render("~/Content/ace")
+    <script src="/scripts/require.js"></script>
+    <script src="/scripts/config.min.js"></script>
+    @RenderSection("HeaderScripts", required: false)
+</head>
+<body class="no-skin">
+    @RenderBody();
+    @RenderSection("FootScripts", required: false)
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

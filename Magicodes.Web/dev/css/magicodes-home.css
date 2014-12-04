@@ -1,0 +1,651 @@
+﻿@charset "UTF-8";
+/* ========================================
+ * Magicodes.Home CSS
+ * ver. 0.0.100
+ * by taojiachun
+ * ======================================== */
+
+
+
+
+/* ========================================
+ * reset
+ * ======================================== */
+
+body,
+div,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+legend,
+fieldset,
+input,
+textarea,
+p,
+q,
+blockquote,
+caption,
+th,
+td,
+header,
+nav,
+aside,
+section,
+hgroup,
+article,
+footer {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+img,
+button,
+fieldset {
+  border:0;
+}
+button {
+  cursor: pointer;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 0;
+  -webkit-border-horizontal-spacing: 0;
+  -webkit-border-vertical-spacing: 0;
+}
+caption,
+th {
+  text-align: left;
+  font-style: normal;
+  font-weight: normal;
+}
+td {
+  vertical-align: top;
+}
+ul {
+  list-style: none;
+}
+/* ol: only for webkit */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  ol {
+    margin-left: 1.5rem;
+  }
+}
+/* ol: only for firefox */
+@-moz-document url-prefix(){
+  ol {
+    margin-left: 1.2rem;
+  }
+}
+/* ol: only for ie8 to ie11 */
+@media screen\0 {
+  ol {
+    margin-left: 1.7rem;
+  }
+}
+input,
+select,
+textarea {
+  border: 1px solid #000;
+  box-shadow: none;
+  outline: none;
+}
+a {
+  outline: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+h1 {
+  font-size: 2.6rem;
+}
+h2 {
+  font-size: 2.4rem;
+}
+h3 {
+  font-size: 2.2rem;
+}
+h4 {
+  font-size: 2.0rem;
+}
+h5 {
+  font-size: 1.8rem;
+}
+h6 {
+  font-size: 1.6rem;
+}
+label,
+i,
+span {
+  display: inline-block;
+}
+
+
+
+
+/* ========================================
+ * theme
+ * ======================================== */
+
+
+/* 通用：顶部菜单 */
+
+.topbar {
+  position: fixed;
+  width: 100%;
+  padding: 10px;
+  background: none;
+  z-index: 999;
+}
+.top-menu {
+  color: #fff;
+  font-size: 1.4rem;
+}
+.top-menu > div {
+  float: left;
+  margin-right: 30px;
+}
+.top-menu > div:first-child {
+  margin-right: 15px;
+}
+.top-menu a {
+  color: #fff;
+  text-decoration: none;
+}
+.top-menu a:active {
+  color: rgb(128, 176, 232);
+}
+.top-user-menu {
+  float: right;
+  color: #ddd;
+}
+.top-user-menu > div {
+  float: left;
+  margin-right: 10px;
+  padding: 0 10px;
+  background: rgba(25, 61, 103, 0.8);
+  border-radius: 4px;
+}
+.top-user-menu a {
+  color: #ddd;
+  text-decoration: none;
+}
+.top-user-menu a:hover {
+  color: #fff;
+}
+.top-user-menu a:active {
+  color: rgb(128, 176, 232);
+}
+
+
+/* 首页：淡入 */
+.m-home {
+  opacity: 0;
+}
+
+
+/* 首页：巨幕 */
+
+.face {
+  width: 100%;
+  height: 100%;
+  background: url(../img/bg-index2.png) no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+}
+.face-m-group {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+}
+.face-m-logo {
+  float: left;
+  width: 128px;
+}
+.face-m-title {
+  float: left;
+  margin: 0 0 0 10px;
+}
+.face-m-title > span {
+  color: #fff;
+  font-size: 6.4rem;
+  font-weight: bold;
+  font-family: Courier;
+  text-shadow: 2px 1px 0 rgb(81, 130, 186);
+}
+.face-m-title > .face-m-subtitle {
+  margin: -10px 0 0 0;
+  color: #fff;
+  font-size: 2.8rem;
+}
+.face-m-about {
+  clear: both;
+  padding: 40px 100px;
+  color: #fff;
+  font-size: 1.8rem;
+}
+.face-btn-group {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+}
+.face-btn-group > button {
+  display: block;
+  width: 198px;
+  margin: 5px auto;
+  padding: 10px 0 10px 30px;
+  background: rgba(17, 17, 17, 0.6);
+  border-radius: 4px;
+  border: 1px solid #333;
+  font-size: 1.4rem;
+  color: #fff;
+  text-align: left;
+}
+.face-btn-group > button:hover {
+  background: rgba(25, 61, 103, 0.8);
+  border-color: #ccc;
+}
+.face-btn-group > button:active {
+  border-color: rgba(25, 61, 103, 0.8);
+}
+.face-btn-group > button i:after {
+  content: "\00a0"
+}
+.face-btn-group > button:first-child {
+  margin-top: 0;
+}
+.face-btn-group > button:last-child {
+  margin-bottom: 0;
+}
+
+
+/* 首页：宣传文字 */
+
+.m-introduce {
+  padding: 20px 60px 40px 60px;
+}
+.m-intro-style1 {
+  background: rgb(25, 61, 103);
+}
+.m-intro-style2 {
+  background: rgb(14, 67, 28);
+}
+.m-intro-style3 {
+  background: url(../img/bg-grain1.png) repeat, rgb(131, 24, 24);
+}
+.m-introduce > h2 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  font-size: 1.8rem;
+/*
+  border-bottom: 1px solid rgb(25, 61, 103);
+  color: rgb(25, 61, 103);
+*/
+}
+.m-intro-style1 h2 {
+  border-bottom: 1px solid rgb(52, 91, 142);
+  color: rgb(255, 255, 255);
+}
+.m-intro-style2 h2 {
+  border-bottom: 1px solid rgb(38, 106, 38);
+  color: rgb(255, 255, 255);
+}
+.m-intro-style3 h2 {
+  padding: 20px 0;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 2.8rem;
+  text-shadow: 1px 1px 1px #000;
+}
+.m-intro-style3 h3 {
+  padding: 10px 0;
+  text-align: center;
+  color: rgb(239, 239, 239);
+  font-size: 2.2rem;
+}
+.m-intro-style3 p {
+  padding: 5px 0;
+  text-align: center;
+  color: rgb(239, 239, 239);
+  font-size: 1.6rem;
+}
+.m-introduce .intro-title {
+  float: left;
+  margin: 4px; 
+  padding: 10px;
+  background: #efefef;
+  border-radius: 6px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.m-intro-style1 .intro-title {
+  width: 120px;
+  background: rgb(22, 48, 77);
+  color: #ccc;
+}
+.m-intro-style2 .intro-title {
+  width: 230px;
+  margin: 4px auto;
+  padding: 10px 20px;
+  background: rgb(10, 46, 19);
+  color: #ccc;
+}
+.m-intro-style1 .intro-title:hover {
+  background: rgb(25, 61, 103);
+  color: #fff;
+}
+.m-intro-style2 .intro-title:hover {
+  background: rgb(14, 67, 28);
+  color: #fff;
+}
+.m-introduce .intro-text {
+  display: none;
+  padding: 40px;
+  font-size: 1.6rem;
+  line-height: 2.8rem;
+  text-shadow: 1px 1px 1px #000;
+}
+.m-intro-style1 .intro-text {
+  color: #fff;
+}
+.m-intro-style2 .intro-text {
+  color: #fff;
+}
+.m-introduce .intro-text h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: -6px;
+}
+.m-introduce .intro-text h3:first-child {
+  margin-top: 0;
+}
+.m-introduce .intro-text p {
+  margin: 0;
+  padding: 5px 10px 5px 10px;
+}
+.m-introduce .intro-text ul > li {
+  margin:5px 0 10px 80px;
+}
+.m-introduce .intro-text ul > li {
+  float: left;
+  list-style: disc;
+  margin-right: 40px;
+}
+
+
+/* 通用页面 */
+
+.m-page-title {
+  width: 100%;
+  height: 180px;
+  padding: 80px 0 0 0;
+  background: url(../img/bg-grain1.png) repeat, rgb(0, 0, 0);
+}
+.m-page-title h1 {
+  position: absolute;
+  left: 8%;
+  color: #fff;
+  font-size: 3.0rem;
+  text-shadow: 2px 1px 0 rgb(0, 0, 0);
+}
+.m-page-title h2 {
+  position: absolute;
+  left: 8%;
+  margin-top: 4.2rem;
+  color: rgb(109, 109, 109);
+  font-size: 1.8rem;
+}
+.m-page-main {
+  margin-left:  8%;
+  margin-right: 8%;
+  padding: 40px;
+  background: #fff;
+}
+.m-page-main h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  padding: 30px 0 10px 0;
+  border-bottom: 1px dotted #ddd;
+  color: #000;
+}
+.m-page-main h2:first-child {
+  padding-top: 0;
+}
+.m-page-main h3 {
+  font-size: 2.0rem;
+  font-weight: bold;
+  padding: 10px 0 5px 0;
+  color: #000;
+}
+.m-page-main h4 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 10px 0 5px 0;
+  color: #000;
+}
+.m-page-main h5 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 10px 0 5px 0;
+  color: #000;
+}
+.m-page-main h6 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 10px 0 5px 0;
+  color: #333;
+}
+.m-page-main p {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  padding: 5px 0;
+  color: #333;
+}
+.m-page-main ul,
+.m-page-main ol {
+  margin-left: 2.8rem;
+}
+.m-page-main ul > li,
+.m-page-main ol > li {
+  line-height: 2.4rem;
+}
+.m-page-main ul > li {
+  list-style: disc;
+}
+
+
+/* 通用页面：侧边栏 aside */
+
+.m-page-main .aside {
+  float: left;
+  width: 180px;
+  padding: 0 1.0rem;
+  border-right: 1px solid rgba(194, 199, 209, 0.7);
+}
+.m-page-main .aside ul {
+  margin: 0;
+}
+.m-page-main .aside li {
+  list-style: none;
+}
+.m-page-main .aside a {
+  color: #999;
+}
+.m-page-main .aside > ul > li > a {
+  display: block;
+  padding: 0.4rem 1.0rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+.m-page-main .aside > ul > .active > a,
+.m-page-main .aside > ul > li > a:hover {
+  background: #efefef;
+  border-radius: 4px;
+  color: #0d3284;
+  font-weight: bold;
+}
+.m-page-main .aside > ul > li > a:active {
+  background: #ddd;
+}
+.m-page-main .aside > ul > li > .nav > li > a {
+  padding: 0;
+}
+.m-page-main .aside > ul > li > .nav > li > a:hover {
+  background: none;
+}
+.m-page-main .aside > ul > li > ul {
+  display: none;
+  margin: 0.5rem 2.2rem;
+}
+.m-page-main .aside > ul > li > ul > .active > a,
+.m-page-main .aside > ul > li > ul > li > a:hover {
+  font-weight: bold;
+  color: #0d3284;
+  text-decoration: none;
+}
+
+.m-page-main .with-aside {
+  position: relative;
+  margin-left: 220px;
+}
+
+.m-page-main .copyright {
+  padding: 40px;
+}
+
+.m-page-main .ts {
+  font-size: 1.2rem;
+}
+.m-page-main .tl {
+  font-size: 1.6rem;
+}
+.m-page-main .tc {
+  text-align: center;
+}
+.m-page-main .tb {
+  font-weight: bold;
+}
+.m-page-main .tgray {
+  color: #999;
+}
+.m-page-main .tred {
+  color: #b12b2b;
+}
+.m-page-main .tgreen {
+  color: #207c2e;
+}
+.m-page-main .tblue {
+  color: #24589f;
+}
+
+
+/* 表单 */
+
+.form-small {
+  width: 50rem;
+  margin: auto;
+  padding: 40px 0;
+}
+.form-small .m-alert {
+  margin-top: 5px;
+}
+
+
+
+
+/* 底部 */
+
+.footer {
+  padding: 20px 0 0 0;
+  background: rgba(0, 0, 0, 1);
+}
+.footer > .container {
+  padding-bottom: 60px;
+}
+.footer h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  padding: 20px 0 10px 0;
+  color: #fff;
+  border-bottom: 1px solid #222;
+}
+.footer p {
+  font-size: 1.4rem;
+  padding: 5px;
+  color: #ccc;
+}
+.footer a {
+  color: #efefef;
+}
+.footer a:hover {
+  color: rgb(128, 176, 232);
+  text-decoration: none;
+}
+.footer a:before {
+  content: "\00a0";
+}
+.footer img {
+  height: 1.6rem;
+}
+
+.footer-sole {
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.4rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  z-index: 998;
+}
+.m-home > .footer-sole {
+  position: fixed;
+  background: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

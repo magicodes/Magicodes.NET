@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{43731149-3E37-4530-94E7-EE6FF9C5F55D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Magicodes.Core</RootNamespace>
+    <AssemblyName>Magicodes.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.2.2.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\packages\Common.Logging.Core.2.2.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.NLog20">
+      <HintPath>..\packages\Common.Logging.NLog20.2.2.0\lib\net40\Common.Logging.NLog20.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Core, Version=6.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.OData.Core.6.8.1\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm, Version=6.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.OData.Edm.6.8.1\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=6.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Spatial.6.8.1\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=3.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.OData, Version=5.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.OData.5.3.1\lib\net45\System.Web.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\WebAPIBase.cs" />
+    <Compile Include="API\WebAPIHelper.cs" />
+    <Compile Include="ApplicationContext.cs" />
+    <Compile Include="Config\ConfigManager.cs" />
+    <Compile Include="Handlers\WebHandlersProcess.cs" />
+    <Compile Include="Handlers\WebHandlersManager.cs" />
+    <Compile Include="Handlers\WebHandlerInfo.cs" />
+    <Compile Include="Performance\Watch\CodeWatch.cs" />
+    <Compile Include="Plus\AssemblyManager.cs" />
+    <Compile Include="Plus\PlusAssemblys.cs" />
+    <Compile Include="Plus\PlusInfo.cs" />
+    <Compile Include="Plus\PlusManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Res\ManifestResourceManager.cs" />
+    <Compile Include="Res\ResourceHelper.cs" />
+    <Compile Include="Res\ResourceManager.cs" />
+    <Compile Include="Res\ResourceMinHelper.cs" />
+    <Compile Include="Res\ResourceUrl.cs" />
+    <Compile Include="Routing\CoreModule.cs" />
+    <Compile Include="Routing\MagicCodeUrlProvider.cs" />
+    <Compile Include="Routing\RouteHandler.cs" />
+    <Compile Include="Routing\RoutingManager.cs" />
+    <Compile Include="Starter.cs" />
+    <Compile Include="Strategy\Email\EmailStrategy.cs" />
+    <Compile Include="Strategy\Logger\LoggerHelper.cs" />
+    <Compile Include="Strategy\Logger\LoggerStrategy.cs" />
+    <Compile Include="Strategy\StrategyManager.cs" />
+    <Compile Include="WebContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Magicodes.Core.Web\Magicodes.Core.Web.csproj">
+      <Project>{41dec0e9-15d8-4b2b-825a-3352c7fe909a}</Project>
+      <Name>Magicodes.Core.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Magicodes.Utility\Magicodes.Utility.csproj">
+      <Project>{efb58a12-b054-4b8f-b3c7-863fa648b437}</Project>
+      <Name>Magicodes.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Magicodes.Web.Interfaces\Magicodes.Web.Interfaces.csproj">
+      <Project>{a6c24c78-7185-4a57-ae23-9e12e5c30118}</Project>
+      <Name>Magicodes.Web.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。启用“NuGet 程序包还原”可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

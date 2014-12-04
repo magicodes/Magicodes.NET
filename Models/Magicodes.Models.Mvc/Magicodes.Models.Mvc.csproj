@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E9A6AE7-2F2C-4815-B302-8F3B923D7C9E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Magicodes.Models.Mvc</RootNamespace>
+    <AssemblyName>Magicodes.Models.Mvc</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppDbContext.cs" />
+    <Compile Include="Migrations\201410230606129_AccountDb.cs" />
+    <Compile Include="Migrations\201410230606129_AccountDb.Designer.cs">
+      <DependentUpon>201410230606129_AccountDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410231457128_Account_RoleMenuLinksUpdate.cs" />
+    <Compile Include="Migrations\201410231457128_Account_RoleMenuLinksUpdate.Designer.cs">
+      <DependentUpon>201410231457128_Account_RoleMenuLinksUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410281340505_Add_Table_SiteLeaveMessage.cs" />
+    <Compile Include="Migrations\201410281340505_Add_Table_SiteLeaveMessage.Designer.cs">
+      <DependentUpon>201410281340505_Add_Table_SiteLeaveMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411040316256_CreateTable_Publish.cs" />
+    <Compile Include="Migrations\201411040316256_CreateTable_Publish.Designer.cs">
+      <DependentUpon>201411040316256_CreateTable_Publish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\Publish.cs" />
+    <Compile Include="Models\Site.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <EmbeddedResource Include="Migrations\201410230606129_AccountDb.resx">
+      <DependentUpon>201410230606129_AccountDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410231457128_Account_RoleMenuLinksUpdate.resx">
+      <DependentUpon>201410231457128_Account_RoleMenuLinksUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410281340505_Add_Table_SiteLeaveMessage.resx">
+      <DependentUpon>201410281340505_Add_Table_SiteLeaveMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411040316256_CreateTable_Publish.resx">
+      <DependentUpon>201411040316256_CreateTable_Publish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plus.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Magicodes.Web.Interfaces\Magicodes.Web.Interfaces.csproj">
+      <Project>{a6c24c78-7185-4a57-ae23-9e12e5c30118}</Project>
+      <Name>Magicodes.Web.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。启用“NuGet 程序包还原”可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>set "targetDir=$(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)"
+if not exist %25targetDir%25 md %25targetDir%25
+echo f | xcopy "$(TargetPath)" %25targetDir%25 /Y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

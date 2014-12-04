@@ -1,0 +1,69 @@
+﻿@model System.Collections.Generic.IEnumerable<Magicodes.Models.Mvc.Models.PublishVersion>
+@{
+    ViewBag.Title = "版本发布 | Magicodes";
+}
+
+<div class="amz-banner">
+    <div class="amz-container am-scrollspy-init am-scrollspy-inview am-animation-scale-up" data-am-scrollspy="{animation: 'scale-up', repeat: false}">
+        <h1>版本发布</h1>
+        <p>这里提供最新版本的下载，以及版本更新历史。</p>
+    </div>
+</div>
+<section id="amz-main" data-tag="getting-started">
+    <div class="am-g amz-container">
+        <div class="col-md-3">
+            <div class="am-sticky-placeholder" style="height: 503px; margin: 0px;">
+                <div id="amz-offcanvas" class="am-offcanvas doc-offcanvas" style="margin: 0px;">
+                    <section class="amz-sidebar am-offcanvas-bar" style="">
+                        <ul class="am-nav">
+                            <li class="am-nav-header">最新版本</li>
+                            <li><a href="#">Nuget获取</a></li>
+                            <li><a href="#">源码下载<span class="am-nav-en">v1.0.0.1 Beta</span></a></li>
+                        </ul>
+                    </section>
+                    <div class="amz-pager am-active" style="top: 251.5px;">
+                        <a href="#up" class="am-icon-caret-up" data-rel="scrollUp"></a>
+                        <a href="#down" class="am-icon-caret-down" data-rel="&quot;scrollDown"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <h1 id="">Nuget获取</h1>
+            <hr />
+            <div class="am-g">
+                <div class="col-md-12 col-md-centered am-padding-bottom">
+                    <a href="#" class="am-btn am-btn-block am-btn-success am-btn-lg" onclick="">PM> Install-Package Magicodes.Core</a>
+                </div>
+                <div class="col-md-12 col-md-centered am-padding-bottom">
+                    <a href="#" class="am-btn am-btn-block am-btn-success am-btn-lg" onclick="">PM> Install-Package Magicodes.Utility</a>
+                </div>
+                <div class="col-md-12 col-md-centered am-padding-bottom">
+                    <a href="#" class="am-btn am-btn-block am-btn-success am-btn-lg" onclick="">PM> Install-Package Magicodes.Web.Interfaces</a>
+                </div>
+                <div class="col-md-12 col-md-centered">
+                    <a href="#" class="am-btn am-btn-block am-btn-success am-btn-lg" onclick="">PM> Install-Package Magicodes.Web.Default</a>
+                </div>
+            </div>
+            <h1 id="">源码下载</h1>
+            <hr>
+            <div class="am-g">
+                <div class="col-md-12 col-md-centered">
+                    <a href="/Download" class="am-btn am-btn-block am-btn-success am-btn-lg" onclick="">下载 Magicodes 最新版源码</a>
+                </div>
+            </div>
+           
+    
+            @foreach (var item in Model)
+            {
+
+                <h2>  @Html.DisplayFor(modelItem => item.Title)</h2>
+
+                 
+                
+                @Html.Raw(item.Content);
+            }
+
+</div>
+    </div>
+</section>

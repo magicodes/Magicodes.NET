@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6C24C78-7185-4A57-AE23-9E12E5C30118}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Magicodes.Web.Interfaces</RootNamespace>
+    <AssemblyName>Magicodes.Web.Interfaces</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\ActionResult.cs" />
+    <Compile Include="API\APIAccessAttribute.cs" />
+    <Compile Include="API\APIActionNameAttribute.cs" />
+    <Compile Include="API\APINameAttribute.cs" />
+    <Compile Include="API\HttpActions.cs" />
+    <Compile Include="API\ICustomAPI.cs" />
+    <Compile Include="ApplicationContextBase.cs" />
+    <Compile Include="ApplicationModes.cs" />
+    <Compile Include="Config\ConfigManagerBase.cs" />
+    <Compile Include="Config\ConfigBase.cs" />
+    <Compile Include="Config\Info\AccountAuthenticationInfo.cs" />
+    <Compile Include="Config\Info\AdminSiteConfigInfo.cs" />
+    <Compile Include="Config\Info\MailConfigInfo.cs" />
+    <Compile Include="Config\Info\SiteConfigInfo.cs" />
+    <Compile Include="Config\Info\SystemConfigInfo.cs" />
+    <Compile Include="Events\ApplicationArgs.cs" />
+    <Compile Include="Events\ApplicationEvents.cs" />
+    <Compile Include="Events\EventsManager.cs" />
+    <Compile Include="GlobalApplicationObject.cs" />
+    <Compile Include="MC.cs" />
+    <Compile Include="MagicodesException.cs" />
+    <Compile Include="Models\CommonBusinessModelBase.cs" />
+    <Compile Include="Models\ICommonBusinessModelBase.cs" />
+    <Compile Include="Operation\OperationResult.cs" />
+    <Compile Include="Operation\OperationResultType.cs" />
+    <Compile Include="Paths\SitePaths.cs" />
+    <Compile Include="Performance\WatchPanel\WatchMessage.cs" />
+    <Compile Include="Performance\WatchPanel\WatchPanel.cs" />
+    <Compile Include="Performance\WatchPanel\WatchTab.cs" />
+    <Compile Include="Plus\PlusManagerBase.cs" />
+    <Compile Include="Routing\IRoutingManager.cs" />
+    <Compile Include="Routing\RouteWebHandlerInfo.cs" />
+    <Compile Include="Routing\RoutingDictonaryInfo.cs" />
+    <Compile Include="Routing\RoutingInfo.cs" />
+    <Compile Include="Strategy\Email\IMailStrategy.cs" />
+    <Compile Include="Strategy\Email\MailInfo.cs" />
+    <Compile Include="Strategy\IStrategyBase.cs" />
+    <Compile Include="Strategy\Logger\FormatMessageHandler.cs" />
+    <Compile Include="Strategy\Logger\LoggerStrategyBase.cs" />
+    <Compile Include="Plus\Info\AssemblyTypes.cs" />
+    <Compile Include="Plus\IPlus.cs" />
+    <Compile Include="Plus\IPlusAssemblys.cs" />
+    <Compile Include="Plus\IPlusInfo.cs" />
+    <Compile Include="Plus\Info\PlusConfigInfo.cs" />
+    <Compile Include="Plus\Resource\IManifestResourceManager.cs" />
+    <Compile Include="Plus\Resource\IResourceHelper.cs" />
+    <Compile Include="Plus\Resource\IResourceUrl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategy\Cache\ICacheStrategy.cs" />
+    <Compile Include="Strategy\Logger\LogArgs.cs" />
+    <Compile Include="Strategy\Logger\LoggerLevels.cs" />
+    <Compile Include="Strategy\StrategyManagerBase.cs" />
+    <Compile Include="Strategy\Resource\IScriptMinStrategy.cs" />
+    <Compile Include="Strategy\Sesstion\ISessionStrategy.cs" />
+    <Compile Include="Strategy\SMS\ISMSStrategy.cs" />
+    <Compile Include="T4\T4DataType.cs" />
+    <Compile Include="T4\T4GenerationIgnoreAttribute.cs" />
+    <Compile Include="T4\T4Helper.cs" />
+    <Compile Include="T4\T4OnlyVerificationAttribute.cs" />
+    <Compile Include="Themes\ITheme.cs" />
+    <Compile Include="Strategy\User\AuthStatus.cs" />
+    <Compile Include="Strategy\User\IUser.cs" />
+    <Compile Include="Strategy\User\IUserAuthenticationStrategy.cs" />
+    <Compile Include="WebContextBase.cs" />
+    <Compile Include="WebHandler\JSON\JSONFormatHanding.cs" />
+    <Compile Include="WebHandler\Resource\IResourceMin.cs" />
+    <Compile Include="API\IWebAPI.cs" />
+    <Compile Include="WebHandler\WebHandlerTypes.cs" />
+    <Compile Include="WebHandler\IWebHandlerInfo.cs" />
+    <Compile Include="WebHandler\JSON\JSONDataReturnValueBase.cs" />
+    <Compile Include="WebHandler\JSON\IJSONHandler.cs" />
+    <Compile Include="WebHandler\IWebHandler.cs" />
+    <Compile Include="WebHandler\Resource\IResourceHandler.cs" />
+    <Compile Include="WebHandler\Resource\WebResourceReturnValueBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,41 @@
+/* Write your styles */
+
+body {
+  font-family: "Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+}
+
+
+.get-bg {
+  background:url(../i/get-bg1.jpg) no-repeat center fixed;
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+}
+.get-text-plus {
+  font-family: "Helvetica Neue","Helvetica","Arial","Verdana","sans-serif"; 
+  text-shadow: 2px 3.464px 4px rgb( 0, 0, 0 );
+  background:rgba( 255, 255, 255, 0.1 );
+}
+
+/*@font-face {
+  font-family:'PingHei';
+  font-style:normal;
+  font-weight:200;
+  src:url("../font/PingHei-light.woff") format("woff"),
+      url("../font/PingHei-light.ttf") format("truetype");
+  *src:url('');
+}*/
+
+.index-hd-p {
+  margin-bottom:40px;
+}
+.index-hd-p p {
+  padding:40px;
+}
+.index-hd-p .ihpu {
+  padding:40px;
+}
+
+.footer-fixed {
+    width:100%;
+}

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Magicodes.Web.Interfaces.Events.EventsManager">
+    <Position X="0.5" Y="0.5" Width="4" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="Magicodes.Web.Interfaces.Events.EventsManager.ApplicationEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Events\EventsManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABQAAAAEAAAQAAAAIAAAAACAACAAABAA=</HashCode>
+      <FileName>Events\EventsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

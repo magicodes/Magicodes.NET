@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "后台站点配置";
+}
+@section HeaderScripts {
+   <script type="text/javascript">
+       require(["magicodes"], function () {
+           var mForm = new magicodes.form({
+               api: '/api/config/AdminSiteConfigInfo',
+               onloaded: function () {
+                   require(["jq.autosize"], function () {
+                       $('textarea[class*=autosize]').autosize({ append: "\n" });
+                   });
+                   require(["jq.inputlimiter"], function () {
+                       $('textarea.limited').inputlimiter({
+                           remText: '您还可以输入 %n 字符%s ...',
+                           limitText: '最大允许字符数： %n。'
+                       });
+                   });
+                   var scrollHeight = $(document).height() - 500;
+                   $('.scrollable').ace_scroll({
+                       size: scrollHeight
+                   });
+               }
+           });
+           mForm.bindingModel();
+       });
+</script>
+}
+<form>
+    <div class="main-container" id="main-container">
+        <div>
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 widget-container-col ui-sortable">
+                        <div class="widget-box">
+                            <div class="widget-header ui-sortable-handle">
+                                <h5 class="widget-title">后台站点配置</h5>
+                            </div>
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <div class="scrollable" data-height="500" data-bind="if: formData != null">
+                                        <div class="form-horizontal" id="editForm" role="form" data-bind="with: formData">
+                                            <div class="space-2"></div>
+                                            <div class="form-group">
+                                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="AdminAccessIps">后台访问IP，以逗号分隔：</label>
+
+                                                <div class="col-xs-12 col-sm-9">
+                                                    <div class="clearfix">
+                                                        <textarea name="AdminAccessIps" id="AdminAccessIps" placeholder="后台访问IP，以逗号分隔" data-bind="value: AdminAccessIps" class="col-xs-12 col-sm-6 limited autosize-transition" maxlength="4000" ></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="space-2"></div>
+                                            <div class="form-group">
+                                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="AdminRoles">后台登陆角色，多个请以“,”号分隔【慎重更改】：</label>
+
+                                                <div class="col-xs-12 col-sm-9">
+                                                    <div class="clearfix">
+                                                        <textarea name="AdminRoles" id="AdminRoles" placeholder="后台登陆角色，多个请以“,”号分隔【慎重更改】" data-bind="value: AdminRoles" class="col-xs-12 col-sm-6 limited autosize-transition" maxlength="4000" ></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="space-2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="widget-toolbox padding-8 clearfix">
+                                    <button class="btn btn-success pull-right" type="button" action="save" data-bind="click: save">
+                                        <span class="bigger-110">保存</span>
+                                        <i class="ace-icon fa fa-save icon-on-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+                <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+            </a>
+        </div>
+    </div>
+</form>

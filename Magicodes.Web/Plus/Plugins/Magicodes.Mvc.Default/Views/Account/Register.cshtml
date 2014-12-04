@@ -1,0 +1,38 @@
+﻿@model Magicodes.Mvc.Default.Models.RegisterViewModel
+@{
+    ViewBag.Title = "注册 | Magicodes.NET";
+
+}
+
+<div class="am-g" style="margin-top:80px;">
+    <div class="col-lg-6 col-md-8 col-sm-centered">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "am-form", role = "form" }))
+        {
+            <h2>@ViewBag.Title</h2>
+            <hr>
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary("", new { @class = "" })
+
+            @Html.LabelFor(m => m.Email, new { @class = "" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "" })
+            <br />
+            @Html.LabelFor(m => m.UserNickName, new { @class = "" })
+            @Html.TextBoxFor(m => m.UserNickName, new { @class = "" })
+            <br />
+            @Html.LabelFor(m => m.Password, new { @class = "" })
+            @Html.PasswordFor(m => m.Password, new { @class = "" })
+            <br />
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "" })
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "" })
+            <br />
+            <div class="am-cf">
+                <input type="submit" name="" value="注  册" class="am-btn am-btn-primary am-btn-sm am-fl">
+            </div>
+            <br />
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

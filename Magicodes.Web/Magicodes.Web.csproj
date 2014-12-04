@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39279E08-855D-45FA-98CF-91A495BFDC2C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Magicodes.Web</RootNamespace>
+    <AssemblyName>Magicodes.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.OData.Core, Version=6.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.OData.Core.6.8.1\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm, Version=6.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.OData.Edm.6.8.1\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=6.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Spatial.6.8.1\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.2\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.OData, Version=5.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.OData.5.3.1\lib\net45\System.Web.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Config\MailConfigInfo.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\Config\SiteConfigInfo.config" />
+    <Content Include="assets\css\amaze.css" />
+    <Content Include="assets\css\amaze.min.css">
+      <DependentUpon>amaze.css</DependentUpon>
+    </Content>
+    <Content Include="assets\css\amui.all.css" />
+    <Content Include="assets\css\amui.all.min.css">
+      <DependentUpon>amui.all.css</DependentUpon>
+    </Content>
+    <Content Include="assets\css\app.css" />
+    <Content Include="assets\css\app.min.css">
+      <DependentUpon>app.css</DependentUpon>
+    </Content>
+    <Content Include="assets\i\app-icon72x72%402x.png" />
+    <Content Include="assets\i\examples\blogPage.png" />
+    <Content Include="assets\i\examples\landing.png" />
+    <Content Include="assets\i\examples\landingPage.png" />
+    <Content Include="assets\i\examples\loginPage.png" />
+    <Content Include="assets\i\examples\sidebarPage.png" />
+    <Content Include="assets\i\favicon.png" />
+    <Content Include="assets\i\get-bg1.jpg" />
+    <Content Include="assets\i\get-bg2.jpg" />
+    <Content Include="assets\i\mgclogo.png" />
+    <Content Include="assets\i\startup-640x1096.png" />
+    <Content Include="assets\js\amui.js" />
+    <Content Include="assets\js\amui.min.js" />
+    <Content Include="assets\js\amui.widget.helper.js" />
+    <Content Include="assets\js\amui.widget.helper.min.js" />
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\handlebars.min.js" />
+    <Content Include="assets\js\jquery-2.1.1.min.js" />
+    <Content Include="assets\js\zepto.min.js" />
+    <Content Include="dev\css\bootstrap.css" />
+    <Content Include="dev\css\bootstrap.min.css" />
+    <Content Include="dev\css\font-awesome.min.css" />
+    <Content Include="dev\css\magicodes-home.css" />
+    <Content Include="dev\fonts\fontawesome-webfont.svg" />
+    <Content Include="dev\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="dev\img\bg-grain1.png" />
+    <Content Include="dev\img\bg-grain2.png" />
+    <Content Include="dev\img\bg-index.png" />
+    <Content Include="dev\img\bg-index2.png" />
+    <Content Include="dev\img\bg-index3.png" />
+    <Content Include="dev\img\icon-128.png" />
+    <Content Include="dev\img\logo-l.png" />
+    <Content Include="dev\img\logo.png" />
+    <Content Include="dev\index.html" />
+    <Content Include="dev\js\bootstrap.min.js" />
+    <Content Include="dev\js\jquery-1.11.1.min.js" />
+    <Content Include="dev\js\jquery-2.1.1.min.js" />
+    <Content Include="dev\js\magicodes-home.js" />
+    <Content Include="dev\js\magicodes-home.min.js">
+      <DependentUpon>magicodes-home.js</DependentUpon>
+    </Content>
+    <Content Include="dev\license-aside.html" />
+    <Content Include="dev\license.html" />
+    <Content Include="dev\login.html" />
+    <Content Include="dev\page-aside.html" />
+    <Content Include="dev\page.html" />
+    <Content Include="dev\register.html" />
+    <Content Include="dev\template.html" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\avatars\avatar.png" />
+    <Content Include="images\avatars\avatar1.png" />
+    <Content Include="images\avatars\avatar2.png" />
+    <Content Include="images\avatars\avatar3.png" />
+    <Content Include="images\avatars\avatar4.png" />
+    <Content Include="images\avatars\avatar5.png" />
+    <Content Include="images\avatars\profile-pic.jpg" />
+    <Content Include="images\avatars\user.jpg" />
+    <Content Include="images\QQ.png" />
+    <Content Include="Plus\ReadMe.txt" />
+    <Content Include="Scripts\datajs-1.1.2.min.js" />
+    <Content Include="Scripts\jqPlus\jquery.tmpl\jquery.tmpl.js" />
+    <Content Include="Scripts\jqPlus\jquery.tmpl\jquery.tmpl.min.js">
+      <DependentUpon>jquery.tmpl.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jqPlus\jquery.tmpl\jquery.tmplPlus.js" />
+    <Content Include="Scripts\jqPlus\jquery.tmpl\jquery.tmplPlus.min.js">
+      <DependentUpon>jquery.tmplPlus.js</DependentUpon>
+    </Content>
+    <Content Include="Plus\Web.config" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\i\Thumbs.db" />
+    <Content Include="dev\fonts\fontawesome-webfont.eot" />
+    <Content Include="dev\fonts\fontawesome-webfont.ttf" />
+    <Content Include="dev\fonts\fontawesome-webfont.woff" />
+    <Content Include="dev\fonts\FontAwesome.otf" />
+    <Content Include="dev\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="dev\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="dev\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="dev\js\magicodes-home.min.js.map">
+      <DependentUpon>magicodes-home.min.js</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Config\AdminSiteConfigInfo.config" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js">
+      <DependentUpon>jquery.validate.unobtrusive.bootstrap.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout\knockout.debug.js" />
+    <Content Include="Scripts\knockout\knockout.js" />
+    <Content Include="Scripts\knockout\knockout.mapping.js" />
+    <Content Include="Scripts\knockout\knockout.mapping.min.js">
+      <DependentUpon>knockout.mapping.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\knockout\moment\locales.js" />
+    <Content Include="Scripts\knockout\moment\locales.min.js" />
+    <Content Include="Scripts\knockout\moment\moment-with-locales.js" />
+    <Content Include="Scripts\knockout\moment\moment-with-locales.min.js" />
+    <Content Include="Scripts\knockout\moment\moment.js" />
+    <Content Include="Scripts\knockout\moment\moment.min.js" />
+    <Content Include="Scripts\knockout\moment\zh-cn.js" />
+    <Content Include="Scripts\knockout\moment\zh-cn.min.js">
+      <DependentUpon>zh-cn.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\magicodes.min.js">
+      <DependentUpon>magicodes.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\ace\ace-elements.min.js" />
+    <Content Include="Scripts\ace\ace-extra.min.js" />
+    <Content Include="Scripts\ace\ace.min.js" />
+    <Content Include="Scripts\ace\additional-methods.min.js" />
+    <Content Include="Scripts\ace\avatars\avatar.png" />
+    <Content Include="Scripts\ace\avatars\avatar1.png" />
+    <Content Include="Scripts\ace\avatars\avatar2.png" />
+    <Content Include="Scripts\ace\avatars\avatar3.png" />
+    <Content Include="Scripts\ace\avatars\avatar4.png" />
+    <Content Include="Scripts\ace\avatars\avatar5.png" />
+    <Content Include="Scripts\ace\avatars\profile-pic.jpg" />
+    <Content Include="Scripts\ace\avatars\user.jpg" />
+    <Content Include="Scripts\ace\bootbox.min.js" />
+    <Content Include="Scripts\ace\bootstrap-colorpicker.min.js" />
+    <Content Include="Scripts\ace\bootstrap-tag.min.js" />
+    <Content Include="Scripts\ace\bootstrap-wysiwyg.min.js" />
+    <Content Include="Scripts\ace\bootstrap.min.js" />
+    <Content Include="Scripts\ace\chosen.jquery.min.js" />
+    <Content Include="Scripts\ace\colorbox\colorbox.bak.css" />
+    <Content Include="Scripts\ace\colorbox\colorbox.css" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-ar.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-bg.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-ca.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-cs.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-da.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-de.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-es.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-et.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-fa.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-fi.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-fr.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-gl.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-gr.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-he.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-hr.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-hu.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-id.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-it.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-ja.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-kr.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-lt.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-lv.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-my.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-nl.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-no.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-pl.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-pt-br.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-ro.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-ru.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-si.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-sk.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-sr.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-sv.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-tr.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-uk.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-zh-CN.js" />
+    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-zh-TW.js" />
+    <Content Include="Scripts\ace\colorbox\images\border.png" />
+    <Content Include="Scripts\ace\colorbox\images\border1.png" />
+    <Content Include="Scripts\ace\colorbox\images\border2.png" />
+    <Content Include="Scripts\ace\colorbox\images\controls.png" />
+    <Content Include="Scripts\ace\colorbox\images\loading.gif" />
+    <Content Include="Scripts\ace\colorbox\images\loading_background.png" />
+    <Content Include="Scripts\ace\colorbox\jquery.colorbox-min.js" />
+    <Content Include="Scripts\ace\colorbox\jquery.colorbox.js" />
+    <Content Include="Scripts\ace\date-time\bootstrap-datepicker.js" />
+    <Content Include="Scripts\ace\date-time\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\ace\date-time\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Scripts\ace\date-time\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\ace\date-time\bootstrap-timepicker.min.js" />
+    <Content Include="Scripts\ace\date-time\daterangepicker.min.js" />
+    <Content Include="Scripts\ace\date-time\moment.min.js" />
+    <Content Include="Scripts\ace\dropzone.min.js" />
+    <Content Include="Scripts\ace\excanvas.min.js" />
+    <Content Include="Scripts\ace\flot\jquery.flot.min.js" />
+    <Content Include="Scripts\ace\flot\jquery.flot.pie.min.js" />
+    <Content Include="Scripts\ace\flot\jquery.flot.resize.min.js" />
+    <Content Include="Scripts\ace\fuelux\data\fuelux.tree-sampledata.js" />
+    <Content Include="Scripts\ace\fuelux\fuelux.spinner.min.js" />
+    <Content Include="Scripts\ace\fuelux\fuelux.tree.min.js" />
+    <Content Include="Scripts\ace\fuelux\fuelux.wizard.min.js" />
+    <Content Include="Scripts\ace\fullcalendar.min.js" />
+    <Content Include="Scripts\ace\html5shiv.js" />
+    <Content Include="Scripts\ace\images\gallery\image-1.jpg" />
+    <Content Include="Scripts\ace\images\gallery\image-2.jpg" />
+    <Content Include="Scripts\ace\images\gallery\image-3.jpg" />
+    <Content Include="Scripts\ace\images\gallery\image-4.jpg" />
+    <Content Include="Scripts\ace\images\gallery\image-5.jpg" />
+    <Content Include="Scripts\ace\images\gallery\image-6.jpg" />
+    <Content Include="Scripts\ace\images\gallery\thumb-1.jpg" />
+    <Content Include="Scripts\ace\images\gallery\thumb-2.jpg" />
+    <Content Include="Scripts\ace\images\gallery\thumb-3.jpg" />
+    <Content Include="Scripts\ace\images\gallery\thumb-4.jpg" />
+    <Content Include="Scripts\ace\images\gallery\thumb-5.jpg" />
+    <Content Include="Scripts\ace\images\gallery\thumb-6.jpg" />
+    <Content Include="Scripts\ace\jqGrid\i18n\grid.locale-cn.js" />
+    <Content Include="Scripts\ace\jqGrid\i18n\grid.locale-en.js" />
+    <Content Include="Scripts\ace\jqGrid\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\ace\jqGrid\jquery.jqGrid.src.js" />
+    <Content Include="Scripts\ace\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\ace\jquery-1.11.1.min.js" />
+    <Content Include="Scripts\ace\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\ace\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Scripts\ace\jquery-ui-1.10.3.full.min.js" />
+    <Content Include="Scripts\ace\jquery-ui.custom.min.js" />
+    <Content Include="Scripts\ace\jquery.autosize.min.js" />
+    <Content Include="Scripts\ace\jquery.colorbox-min.js" />
+    <Content Include="Scripts\ace\jquery.dataTables.bootstrap.js" />
+    <Content Include="Scripts\ace\jquery.dataTables.min.js" />
+    <Content Include="Scripts\ace\jquery.easy-pie-chart.min.js" />
+    <Content Include="Scripts\ace\jquery.gritter.min.js" />
+    <Content Include="Scripts\ace\jquery.hotkeys.min.js" />
+    <Content Include="Scripts\ace\jquery.inputlimiter.1.3.1.min.js" />
+    <Content Include="Scripts\ace\jquery.knob.min.js" />
+    <Content Include="Scripts\ace\jquery.maskedinput.min.js" />
+    <Content Include="Scripts\ace\jquery.min.js" />
+    <Content Include="Scripts\ace\jquery.mobile.custom.min.js" />
+    <Content Include="Scripts\ace\jquery.nestable.min.js" />
+    <Content Include="Scripts\ace\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\ace\jquery.sparkline.min.js" />
+    <Content Include="Scripts\ace\jquery.ui.touch-punch.min.js" />
+    <Content Include="Scripts\ace\jquery.validate.min.js" />
+    <Content Include="Scripts\ace\json2.min.js" />
+    <Content Include="Scripts\ace\markdown\bootstrap-markdown.min.js" />
+    <Content Include="Scripts\ace\markdown\markdown.min.js" />
+    <Content Include="Scripts\ace\respond.min.js" />
+    <Content Include="Scripts\ace\select2.min.js" />
+    <Content Include="Scripts\ace\styles\ace-ie.min.css" />
+    <Content Include="Scripts\ace\styles\ace-part2.min.css" />
+    <Content Include="Scripts\ace\styles\ace-rtl.min.css" />
+    <Content Include="Scripts\ace\styles\ace-skins.min.css" />
+    <Content Include="Scripts\ace\styles\ace.min.css" />
+    <Content Include="Scripts\ace\styles\bootstrap-editable.css" />
+    <Content Include="Scripts\ace\styles\bootstrap-timepicker.css" />
+    <Content Include="Scripts\ace\styles\bootstrap.min.css" />
+    <Content Include="Scripts\ace\styles\chosen.css" />
+    <Content Include="Scripts\ace\styles\colorbox.css" />
+    <Content Include="Scripts\ace\styles\colorpicker.css" />
+    <Content Include="Scripts\ace\styles\datepicker.css" />
+    <Content Include="Scripts\ace\styles\daterangepicker.css" />
+    <Content Include="Scripts\ace\styles\dropzone.css" />
+    <Content Include="Scripts\ace\styles\font-awesome-ie7.min.css" />
+    <Content Include="Scripts\ace\styles\font-awesome.min.css" />
+    <Content Include="Scripts\ace\styles\fullcalendar.css" />
+    <Content Include="Scripts\ace\styles\images\loading.gif" />
+    <Content Include="Scripts\ace\styles\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Scripts\ace\styles\jquery-ui-1.10.3.full.min.css" />
+    <Content Include="Scripts\ace\styles\jquery-ui.min.css" />
+    <Content Include="Scripts\ace\styles\jquery.gritter.css" />
+    <Content Include="Scripts\ace\styles\select2.css" />
+    <Content Include="Scripts\ace\styles\ui.jqgrid.css" />
+    <Content Include="Scripts\ace\typeahead-bs2.min.js" />
+    <Content Include="Scripts\ace\x-editable\ace-editable.min.js" />
+    <Content Include="Scripts\ace\x-editable\bootstrap-editable.min.js" />
+    <Content Include="Scripts\config.js" />
+    <Content Include="Scripts\config.min.js">
+      <DependentUpon>config.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\css.js" />
+    <Content Include="Scripts\css.min.js">
+      <DependentUpon>css.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jqPlus\headroom.js" />
+    <Content Include="Scripts\jqPlus\headroom.min.js" />
+    <Content Include="App_Data\Config\SystemConfigInfo.config" />
+    <Content Include="App_Data\Config\NLog.config" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\config.min.js.map">
+      <DependentUpon>config.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\css.min.js.map">
+      <DependentUpon>css.min.js</DependentUpon>
+    </Content>
+    <None Include="Scripts\jqPlus\jquery-validation\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jqPlus\jquery-validation\jquery.validate.js" />
+    <Content Include="Scripts\jqPlus\jquery-validation\jquery.validate.min.js" />
+    <Content Include="Scripts\jqPlus\jquery-validation\localization\messages_zh.js" />
+    <Content Include="Scripts\magicodes.js" />
+    <Content Include="Scripts\modules\odataGrid.js" />
+    <Content Include="Scripts\modules\navs.js" />
+    <Content Include="Scripts\modules\navs.min.js">
+      <DependentUpon>navs.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\modules\odataGrid.min.js">
+      <DependentUpon>odataGrid.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\require.js" />
+    <Content Include="Scripts\text.js" />
+    <Content Include="Scripts\util\aceCheck.js" />
+    <Content Include="Scripts\util\browsers.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\ace\date-time\bootstrap-datepicker.min.js.map" />
+    <Content Include="Scripts\ace\fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\ace\fonts\fontawesome-webfont.woff" />
+    <Content Include="Scripts\ace\jqGrid\jquery.jqGrid.min.js.bak" />
+    <Content Include="Scripts\jqPlus\headroom.min.js.map" />
+    <Content Include="Scripts\jqPlus\jquery.tmpl\jquery.tmpl.min.js.map">
+      <DependentUpon>jquery.tmpl.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jqPlus\jquery.tmpl\jquery.tmplPlus.min.js.map">
+      <DependentUpon>jquery.tmplPlus.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\knockout\moment\zh-cn.min.js.map">
+      <DependentUpon>zh-cn.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js.map">
+      <DependentUpon>jquery.validate.unobtrusive.bootstrap.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\magicodes.min.js.map">
+      <DependentUpon>magicodes.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\modules\navs.min.js.map">
+      <DependentUpon>navs.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\modules\odataGrid.min.js.map">
+      <DependentUpon>odataGrid.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\knockout\knockout.mapping.min.js.map">
+      <DependentUpon>knockout.mapping.min.js</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\logs\" />
+    <Folder Include="Plus\bin\" />
+    <Folder Include="Plus\Plugins\" />
+    <Folder Include="Scripts\ace\colorbox\images\UploadFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Magicodes.Core.Web\Magicodes.Core.Web.csproj">
+      <Project>{41dec0e9-15d8-4b2b-825a-3352c7fe909a}</Project>
+      <Name>Magicodes.Core.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Magicodes.Core\Magicodes.Core.csproj">
+      <Project>{43731149-3e37-4530-94e7-ee6ff9c5f55d}</Project>
+      <Name>Magicodes.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Magicodes.Utility\Magicodes.Utility.csproj">
+      <Project>{efb58a12-b054-4b8f-b3c7-863fa648b437}</Project>
+      <Name>Magicodes.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Magicodes.Web.Interfaces\Magicodes.Web.Interfaces.csproj">
+      <Project>{a6c24c78-7185-4a57-ae23-9e12e5c30118}</Project>
+      <Name>Magicodes.Web.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptCompileOnSaveEnabled>False</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>True</TypeScriptNoImplicitAny>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4780</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4780/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。启用“NuGet 程序包还原”可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
