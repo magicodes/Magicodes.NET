@@ -128,8 +128,16 @@ namespace Magicodes.Core
             var plusFilesDirectoryInfo = new DirectoryInfo(SitePaths.PlusFilesDirPath);
             #endregion
             //插件前缀必须为Magicodes
-            var magicodesDlls = plusFilesDirectoryInfo.GetFiles("*.dll", SearchOption.AllDirectories).ToList();
-            if (magicodesDlls.Count == 0) return;
+            var plusDlls = plusFilesDirectoryInfo.GetFiles("*.dll", SearchOption.AllDirectories).ToList();
+            if (plusDlls.Count == 0) return;
+            //插件程序集
+            //必须是Magicodes插件才会执行插件部署
+            //dll名称必须与插件目录名称一致才能部署
+            //{PlusDir}/{dllName}
+            //{PlusDir}/bin/{dllName}
+            var magicodesPlusDlls = plusDlls.Where(p => p.Name.StartsWith("Magicodes.") && (p.Directory.Name + ".dll" == p.Name || p.Directory.Parent.Name + ".dll" == p.Name));
+            //依赖的程序集
+            var orthersDlls = plusDlls.Where(p => !p.Name.StartsWith("Magicodes.")).Distinct();
             #region 设置程序域
             //var setup = new AppDomainSetup
             //{
@@ -149,24 +157,41 @@ namespace Magicodes.Core
 
             #endregion
             var binDir = new DirectoryInfo(SitePaths.SiteRootBinDirPath);
-            foreach (var plus in magicodesDlls)
+            foreach (var plus in orthersDlls)
             {
-                //必须是Magicodes插件才会执行插件部署
-                //dll名称必须与插件目录名称一致才能部署
-                //{PlusDir}/{dllName}
-                //{PlusDir}/bin/{dllName}
-                if (plus.Name.StartsWith("Magicodes.") && (plus.Directory.Name + ".dll" == plus.Name || plus.Directory.Parent.Name + ".dll" == plus.Name))
-                    PlusManager.Deploy(plus);
                 //如果网站bin目录不存在此dll，则将该dll复制到动态程序集目录
-                else if (binDir.GetFiles(plus.Name).Length == 0 && PlusManager.DynamicDirectory.GetFiles(plus.Name).Length == 0)
-                { 
+                if (binDir.GetFiles(plus.Name).Length == 0 && PlusManager.DynamicDirectory.GetFiles(plus.Name).Length == 0)
+                {
                     PlusManager.CopyToDynamicDirectory(plus);
                     Assembly assembly = Assembly.LoadFrom(plus.FullName);
-                    
+
                     //将程序集添加到当前应用程序域
                     BuildManager.AddReferencedAssembly(assembly);
                 }
             }
+            foreach (var plus in magicodesPlusDlls)
+            {
+                PlusManager.Deploy(plus);
+            }
+
+            //foreach (var plus in plusDlls)
+            //{
+            //    //必须是Magicodes插件才会执行插件部署
+            //    //dll名称必须与插件目录名称一致才能部署
+            //    //{PlusDir}/{dllName}
+            //    //{PlusDir}/bin/{dllName}
+            //    if (plus.Name.StartsWith("Magicodes.") && (plus.Directory.Name + ".dll" == plus.Name || plus.Directory.Parent.Name + ".dll" == plus.Name))
+            //        PlusManager.Deploy(plus);
+            //    //如果网站bin目录不存在此dll，则将该dll复制到动态程序集目录
+            //    else if (binDir.GetFiles(plus.Name).Length == 0 && PlusManager.DynamicDirectory.GetFiles(plus.Name).Length == 0)
+            //    {
+            //        PlusManager.CopyToDynamicDirectory(plus);
+            //        Assembly assembly = Assembly.LoadFrom(plus.FullName);
+
+            //        //将程序集添加到当前应用程序域
+            //        BuildManager.AddReferencedAssembly(assembly);
+            //    }
+            //}
         }
         /// <summary>
         /// 应用程序日志类
