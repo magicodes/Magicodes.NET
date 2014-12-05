@@ -1,0 +1,756 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magicodes Blog</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/magicodes-blog.css">
+<link rel="stylesheet" href="theme/dafault/blog-theme.css">
+</head>
+<body class="theme-default">
+
+<div class="topbar">
+  <div class="top-menu">
+    <div>
+      <img src="img/logo-l.png" alt="Magicodes" height="20">
+    </div>
+    <div>
+      <i class="fa fa-home"></i>
+      <a href="#">网站首页</a>
+    </div>
+    <div>
+      <i class="fa fa-home"></i>
+      <a href="#">博客首页</a>
+    </div>
+    <div>
+      <i class="fa fa-info-circle"></i>
+      <a href="#">专题</a>
+    </div>
+    <div>
+      <i class="fa fa-file-text-o"></i>
+      <a href="#">博客文章</a>
+    </div>
+    <div>
+      <i class="fa fa-tags"></i>
+      <a href="#">分类/标签</a>
+    </div>
+    <div class="dropdown">
+      <i class="fa fa-cog"></i>
+      <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        快捷管理
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li>
+          <a href="#">
+            <i class="fa fa-pencil-square-o"></i>
+            发表文章
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-wrench"></i>
+            系统管理
+          </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="#">
+            <i class="fa fa-power-off"></i>
+            注销
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="top-user-search">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="搜索">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+      </span>
+    </div>
+<!--
+    <div>
+      <i class="fa fa-user"></i>
+      <a href="#">登录</a>
+    </div>
+    <div>
+      <i class="fa fa-university"></i>
+      <a href="#">加入我们</a>
+    </div>
+-->
+  </div>
+</div>
+
+<div class="header">
+  <h1>
+    Magicodes.NET 官方博客<br>
+    <small>Magicodes.NET 官方博客</small>
+  </h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="content">
+      
+        <p class="nav-page">
+          <span>
+            <i class="fa fa-backward fa-fw"></i>
+            <a href="#">上一篇文章</a>
+          </span>
+          <span>
+            <a href="#">下一篇文章</a>
+            <i class="fa fa-forward fa-fw"></i>
+          </span>
+        </p>
+        <div class="clearfix"></div>
+      
+        <h2>h2.文章标题</h2>
+        
+        <div class="post-info">
+          <span class="post-user">Magicodes.NET 团队</span>
+          发布于<span class="post-date">2014-12-01</span>
+          浏览<span>(1234)</span>
+          评论<span>(123)</span>
+          转发<span>(123)</span>
+          <span><i class="fa fa-thumbs-o-up fa-fw"></i>1234</span>
+          <span><i class="fa fa-star-o fa-fw"></i>收藏</span>
+          <span><i class="fa fa-share-square-o fa-fw"></i>分享</span>
+        </div>
+        
+        <h3>h3.文章一级标题</h3>
+        <h4>h4.文章二级标题</h4>
+        <h5>h5.文章三级标题</h5>
+        <h6>h6.文章四级标题</h6>
+        <p>
+          段落： p<br>
+          换行： br<br>
+          分割线： hr<br>
+        </p>
+        <hr>
+        <p>
+          一眨眼，已经过去两个多月了 ，哥已经火力全开了（业余时间和精力，甚至为此放弃了各种私活），所以大家不要抱怨慢哈。编程犹如逆水行舟，不进则退。这段时间，一方面是不断地重构和设计框架，另一方面也系统的学习了很多新技术，同时也感受到了其强大的生命力。
+        </p>
+        <blockquote>
+          blockquote 引用：一眨眼，已经过去两个多月了 ，哥已经火力全开了（业余时间和精力，甚至为此放弃了各种私活），所以大家不要抱怨慢哈。编程犹如逆水行舟，不进则退。这段时间，一方面是不断地重构和设计框架，另一方面也系统的学习了很多新技术，同时也感受到了其强大的生命力。
+        </blockquote>
+        <hr>
+        <p>
+          有序数标题： ol
+        </p>
+        <ol>
+          <li>架构多次重构，甚至核心模块多次推倒重来。</li>
+          <li>架构已支持MVC，不过却暂时放弃了WebForm，当然也有可能永久放弃WebForm，毕竟我目前只是一个人在战斗，兼容两套时间精力都极为有限。</li>
+          <li>引入了T4，已支持基于T4模板的代码生成。</li>
+          <li>已支持SignalR。</li>
+          <li>已支持ASP.NET Identity以及集成OAuth（Microsoft、QQ、Google…），暂时移除了对Form验证的支持。</li>
+          <li>支持WebAPI和Odata。</li>
+          <li>前端框架初成，支持响应式布局以及MVVM模式和模块化加载。</li>
+          <li>其他</li>
+        </ol>
+        <p>
+          无序标题： ul
+        </p>
+        <ul>
+          <li>架构多次重构，甚至核心模块多次推倒重来。</li>
+          <li>架构已支持MVC，不过却暂时放弃了WebForm，当然也有可能永久放弃WebForm，毕竟我目前只是一个人在战斗，兼容两套时间精力都极为有限。</li>
+          <li>引入了T4，已支持基于T4模板的代码生成。</li>
+          <li>已支持SignalR。</li>
+          <li>已支持ASP.NET Identity以及集成OAuth（Microsoft、QQ、Google…），暂时移除了对Form验证的支持。</li>
+          <li>支持WebAPI和Odata。</li>
+          <li>前端框架初成，支持响应式布局以及MVVM模式和模块化加载。</li>
+          <li>其他</li>
+        </ul>
+        <hr>
+        <p>
+          图片最大宽度为页面区域的80%：
+        </p>
+        <img src="http://images.cnitblog.com/blog/70544/201410/290102367695431.png" alt="">
+        <hr>
+        <p>
+          代码：pre > code
+          <br>
+          html中的code内容不用随上文缩进，详见本页代码。
+        </p>
+        <pre>
+          <code>
+window.magicodes.messager = {
+
+  showMessage: function (title, message, className, funcs) {
+
+    var setting = {
+      title: title,
+      text: message,
+      class_name: className
+    };
+
+    if (typeof (funcs) !== "undefined") {
+      if (typeof (funcs.before_close) !== "undefined")
+      setting.before_close = funcs.before_close;
+      if (typeof (funcs.after_open) !== "undefined")
+      setting.after_open = funcs.after_open;
+    }
+
+    this._addGritter(setting);
+
+  },
+
+  showInfoMessage: function (title, message, funcs) {
+    this.showMessage(title, message, 'gritter-info gritter-light', funcs);
+  },
+
+  showErrorMessage: function (title, message, funcs) {
+    this.showMessage(title, message, 'gritter-error gritter-light', funcs);
+  },
+
+  showWarnMessage: function (title, message, funcs) {
+    this.showMessage(title, message, 'gritter-warning gritter-light', funcs);
+  },
+
+  removeAll: function () {
+    typeof ($.gritter) !== "undefined" && $.gritter.removeAll();
+  },
+
+  _addGritter: function (setting) {
+    require(["jquery", "jquery.gritter"], function () {
+      $.gritter.add(setting);
+    });
+  }
+
+};</code>
+        </pre>
+        <br>
+        
+        <div class="content-recommend">
+          <h6>
+            此文被以下用户推荐
+            <a href="#" class="pull-right"><i class="fa fa-arrow-circle-o-right fw"></i></a>
+          </h6>
+          <ul>
+            <li>
+              <img src="img/demo01.jpg" alt="推荐人用户名" title="推荐人用户名">
+            </li>
+            <li>
+              <img src="img/demo01.jpg" alt="推荐人用户名" title="推荐人用户名">
+            </li>
+            <li>
+              <img src="img/demo01.jpg" alt="推荐人用户名" title="推荐人用户名">
+            </li>
+            <li>
+              <img src="img/demo01.jpg" alt="推荐人用户名" title="推荐人用户名">
+            </li>
+            <li>
+              <img src="img/demo01.jpg" alt="推荐人用户名" title="推荐人用户名">
+            </li>
+            <li>
+              <img src="img/demo01.jpg" alt="推荐人用户名" title="推荐人用户名">
+            </li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+        
+        <p class="nav-page">
+          <span>
+            <i class="fa fa-backward fa-fw"></i>
+            <a href="#">上一篇文章</a>
+          </span>
+          <span>
+            <a href="#">下一篇文章</a>
+            <i class="fa fa-forward fa-fw"></i>
+          </span>
+        </p>
+        <div class="clearfix"></div>
+        
+      </div>
+      
+      <div class="content-comments">
+        <h6>评论</h6>
+        <ul class="main">
+          <li>
+            <img src="img/demo01.jpg" alt="评论者头像">
+            <div>
+              <div class="info">
+                <strong><a href="#">用户名</a></strong>
+                回复
+                <span><a href="#">博主</a></span>
+                发表于
+                <span><a href="#">2014-12-1</a></span>
+                <span>
+                  <a href="#"><i class="fa fa-edit"></i></a>
+                  <a href="#"><i class="fa fa-close"></i></a>
+                </span>
+                <span class="pull-right">
+                  <a href="#"><i class="fa fa-reply"></i></a>
+                  <a href="#"><i class="fa fa-minus-square-o"></i></a>
+                  #1
+                </span>
+              </div>
+              <div class="text">
+                看完楼主的这个帖子以后，我的心久久不能平静，震撼啊！为什么会有如此好的帖子！我纵横网络bbs多年，自以为再也不会有任何帖子能打动我，没想到今天看到了如此精妙绝伦的这样一篇帖子。楼主，是你让我深深地理解了“人外有人，天外有天”这句话。谢谢你！在看完这帖子以后，我没有立即回复，因为我生怕我庸俗不堪的回复会玷污了这网上少有的帖子。但是我还是回复了，因为我觉得如果不能在如此精彩的帖子后面留下自己的网名，那我死也不会瞑目的！能够在如此精彩的帖子后面留下自己的网名是多么骄傲的一件事啊！
+              </div>
+            </div>
+            <ul class="sub">
+              <li>
+                <img src="img/demo01.jpg" alt="评论者头像">
+                <div>
+                  <div class="info">
+                    <strong><a href="#">用户名</a></strong>
+                    回复
+                    <span><a href="#">#1</a></span>
+                    发表于
+                    <span><a href="#">2014-12-1</a></span>
+                    <span>
+                      <a href="#"><i class="fa fa-edit"></i></a>
+                      <a href="#"><i class="fa fa-close"></i></a>
+                    </span>
+                    <span class="pull-right">
+                      <a href="#"><i class="fa fa-reply"></i></a>
+                      #3
+                    </span>
+                  </div>
+                  <div class="text">
+                    回复的回复，回复的回复，回复的回复。
+                  </div>
+                </div>
+              </li>
+              <li>
+                <img src="img/demo01.jpg" alt="评论者头像">
+                <div>
+                  <div class="info">
+                    <strong><a href="#">用户名</a></strong>
+                    回复
+                    <span><a href="#">#2</a></span>
+                    发表于
+                    <span><a href="#">2014-12-1</a></span>
+                    <span>
+                      <a href="#"><i class="fa fa-edit"></i></a>
+                      <a href="#"><i class="fa fa-close"></i></a>
+                    </span>
+                    <span class="pull-right">
+                      <a href="#"><i class="fa fa-reply"></i></a>
+                      #4
+                    </span>
+                  </div>
+                  <div class="text">
+                    回复的回复，回复的回复，回复的回复。
+                  </div>
+                </div>
+              </li>
+              <li>
+                <img src="img/demo01.jpg" alt="评论者头像">
+                <div>
+                  <div class="info">
+                    <strong><a href="#">用户名</a></strong>
+                    回复
+                    <span><a href="#">#3</a></span>
+                    发表于
+                    <span><a href="#">2014-12-1</a></span>
+                    <span>
+                      <a href="#"><i class="fa fa-edit"></i></a>
+                      <a href="#"><i class="fa fa-close"></i></a>
+                    </span>
+                    <span class="pull-right">
+                      <a href="#"><i class="fa fa-reply"></i></a>
+                      #5
+                    </span>
+                  </div>
+                  <div class="text">
+                    回复的回复，回复的回复，回复的回复。
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <img src="img/demo01.jpg" alt="评论者头像">
+            <div>
+              <div class="info">
+                <strong><a href="#">用户名</a></strong>
+                回复
+                <span><a href="#">博主</a></span>
+                发表于
+                <span><a href="#">2014-12-1</a></span>
+                <span>
+                  <a href="#"><i class="fa fa-edit"></i></a>
+                  <a href="#"><i class="fa fa-close"></i></a>
+                </span>
+                <span class="pull-right">
+                  <a href="#"><i class="fa fa-reply"></i></a>
+                  <a href="#"><i class="fa fa-plus-square-o"></i></a>
+                  #2
+                </span>
+              </div>
+              <div class="text">
+                看完楼主的这个帖子以后，我的心久久不能平静，震撼啊！为什么会有如此好的帖子！我纵横网络bbs多年，自以为再也不会有任何帖子能打动我，没想到今天看到了如此精妙绝伦的这样一篇帖子。楼主，是你让我深深地理解了“人外有人，天外有天”这句话。谢谢你！在看完这帖子以后，我没有立即回复，因为我生怕我庸俗不堪的回复会玷污了这网上少有的帖子。但是我还是回复了，因为我觉得如果不能在如此精彩的帖子后面留下自己的网名，那我死也不会瞑目的！能够在如此精彩的帖子后面留下自己的网名是多么骄傲的一件事啊！
+              </div>
+            </div>
+            <ul class="sub">
+              <li><!-- 回复的回复 --></li>
+            </ul>
+          </li>
+          <li>
+            <img src="img/demo01.jpg" alt="评论者头像">
+            <div>
+              <div class="info">
+                <strong><a href="#">用户名</a></strong>
+                回复
+                <span><a href="#">博主</a></span>
+                发表于
+                <span><a href="#">2014-12-1</a></span>
+                <span>
+                  <a href="#"><i class="fa fa-edit"></i></a>
+                  <a href="#"><i class="fa fa-close"></i></a>
+                </span>
+                <span class="pull-right">
+                  <a href="#"><i class="fa fa-reply"></i></a>
+                  <a href="#"><i class="fa fa-plus-square-o"></i></a>
+                  #6
+                </span>
+              </div>
+              <div class="text">
+                看完楼主的这个帖子以后，我的心久久不能平静，震撼啊！
+              </div>
+            </div>
+            <ul class="sub">
+              <li><!-- 回复的回复 --></li>
+            </ul>
+          </li>
+        </ul>
+        
+        <h6>回复</h6>
+        <div class="content-reply">
+          <img src="img/demo01.jpg" alt="评论者头像">
+            <div>
+              <div class="info">
+                <strong><a href="#">用户名</a></strong>
+                回复
+                <span><a href="#">博主</a></span>
+              </div>
+              <div class="text">
+                <form>
+                  <textarea></textarea>
+                  <button type="button" class="btn btn-default">上传一个文件</button>
+                  <span><a href="#">issue0001.png</a></span>
+                  <button type="button" class="btn btn-success pull-right">提交评论</button>
+                </form>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+        </div>
+        <br>
+      </div>
+      
+    </div>
+    <div class="col-md-4">
+      <div class="aside">
+       
+        <div class="user-info">
+          <img class="user-head" src="img/demo01.jpg" alt="用户头像">
+          <div>
+            <p class="user-name"><a href="#">Magicodes.NET 团队</a></p>
+            <p>
+              <span class="emblem official">官方</span>
+              <span class="emblem team">开发者</span>
+              <span class="emblem admin">管理员</span>
+              <span class="emblem member">会员</span>
+            </p>
+            <div class="user-count container-fluid">
+              <div class="row">
+                <div class="col-md-4">
+                  <p><small>日志</small></p>
+                  <p><strong>1000</strong></p>
+                </div>
+                <div class="col-md-4">
+                  <p><small>关注</small></p>
+                  <p><strong>100</strong></p>
+                </div>
+                <div class="col-md-4">
+                  <p><small>粉丝</small></p>
+                  <p><strong>10000</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        
+        <div class="leaf">
+          <h2>
+            <i class="fa fa-pencil-square-o fa-fw"></i>
+            用户自定义
+            <small>User place</small>
+          </h2>
+          <hr>
+          <div class="user-area">
+            <h3>公告</h3>
+            <p><strong>.NET</strong> <a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=19e0c055d20ce1129f02a2beb339438299be03383ebf8c47d5b74a262322072d"><img src="http://pub.idqqimg.com/wpa/images/group.png" alt=".NET交流1（.NET）" title=".NET交流1（.NET）"></a></p>
+            <p><strong>Ext.NET</strong> <a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=dab1729c670ce97f4c69b90ee652046ee732dc3954cf0b3f96308289bd69c343"><img src="http://pub.idqqimg.com/wpa/images/group.png" alt="Ext.NET/ExtJS开发交流" title="Ext.NET/ExtJS开发交流"></a></p>
+            <p><strong>SharePoint</strong> <a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=b16657dfde7e2e743162147ecd2471ec63e2143a14ab78cbe3a0ded174d72365"><img src="http://pub.idqqimg.com/wpa/images/group.png" alt="SharePoint、Infopath、.Net" title="SharePoint、Infopath、.Net"></a></p>
+            <p><small><b>加群请输入“CodeLove——cnblogs”，否则一律不加</b></small></p>
+            <p>
+              <a target="_blank" href="http://list.qq.com/cgi-bin/qf_invite?id=7e13f6f1cbebfdfb5a00c3d46bfbccd3c9d9374cf533b44e">
+                <img alt="填写您的邮件地址，订阅我们的精彩内容：" src="http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png">
+              </a>
+            </p>
+            <p class="rss">
+              <a href="#">
+                <i class="fa fa-rss-square"></i>
+                RSS订阅
+              </a>
+            </p>
+          </div>
+        </div>
+        
+        <div class="leaf">
+          <h2>
+            <i class="fa fa-bookmark fa-fw"></i>
+            关注更新
+            <small>Following updates</small>
+            <a href="#" class="pull-right"><i class="fa fa-refresh fw"></i></a>
+          </h2>
+          <hr>
+          <ul class="posts-following">
+            <li>
+              <p>
+                <span class="following-user official">雪雁</span>
+                <a href="#">Magicodes.NET框架之路——预览（一）</a>
+              </p>
+              <p>
+                <small>
+                  前言 一眨眼，已经过去两个多月了 ，哥已经火力全开了（业余时间和精力，甚至为此放弃了各种私活），所以大家不要抱怨慢哈。编程犹如逆水行舟，不进则退...
+                  &nbsp;&#40;<span class="post-date"><a href="#">2014-10-29 01:02</a></span>&#41;
+                </small>
+              </p>
+            </li>
+            <li>
+              <p>
+                <span class="following-user team">木宛城主</span>
+                <a href="#">跟我学SharePoint 2013视频培训课程——理解SharePoint网站的体系结构（3）</a>
+              </p>
+              <p>
+                <small>
+                  课程简介第三天，理解SharePoint 2013 网站的体系结构视频SharePoint 2013 交流群41032413...
+                  &nbsp;&#40;<span class="post-date"><a href="#">2014-09-18 14:38</a></span>&#41;
+                </small>
+              </p>
+            </li>
+            <li>
+              <p>
+                <span class="following-user member">乱码.</span>
+                <a href="#">小议 js 下字符串比较大小</a>
+              </p>
+              <p>
+                <small>
+                  之前群里有人问如何比较两个时间大小，他的时间格式是 2014-08-08 而不是 2014-8-8。所以我给的方法是 直接比较，如：var a = "2014-08-08";var b = "2014-09-09";console.log(a>b, a b因为长度都是 0 ，所以在长度比较的时候就...
+                  &nbsp;&#40;<span class="post-date"><a href="#">2014-08-08 21:59</a></span>&#41;
+                </small>
+              </p>
+            </li>
+            <li>
+              <p>
+                <span class="following-user member">时间都去哪了</span>
+                <a href="#">Brn系列网上商城数据库说明文档</a>
+              </p>
+              <p>
+                <small>
+                  单店版BrnShop_1.8.039：点击下载 多店版BrnMall_1.8.068:点击下载 有对网上商城程序设计感兴趣的朋友，欢迎加入QQ群：235274151，大家可以交流下！...
+                  &nbsp;&#40;<span class="post-date"><a href="#">2014-10-15 16:37</a></span>&#41;
+                </small>
+              </p>
+            </li>
+            <li>
+              <p>
+                <span class="following-user member">时间都去哪了</span>
+                <a href="#">Brn系列网上商城数据库说明文档</a>
+              </p>
+              <p>
+                <small>
+                  单店版BrnShop_1.8.039：点击下载 多店版BrnMall_1.8.068:点击下载 有对网上商城程序设计感兴趣的朋友，欢迎加入QQ群：235274151，大家可以交流下！...
+                  &nbsp;&#40;<span class="post-date"><a href="#">2014-10-15 16:37</a></span>&#41;
+                </small>
+              </p>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="leaf">
+          <h2>
+            <i class="fa fa-list-alt fa-fw"></i>
+            标准列表
+            <small>The list</small>
+            <a href="#" class="pull-right"><i class="fa fa-arrow-circle-o-right fw"></i></a>
+          </h2>
+          <hr>
+          <ul>
+            <li><a href="#">Magicodes.NET框架之路——预览（一）</a></li>
+            <li><a href="#">Magicodes.NET框架之路——策略管理</a></li>
+            <li><a href="#">Magicodes.NET框架之路——起航</a></li>
+            <li><a href="#">为什么LINQ to XML的性能要优于XmlDocument？</a></li>
+            <li><a href="#">SharePoint如何配置Ipad跳转等问题</a></li>
+            <li><a href="#">写给自己</a></li>
+            <li><a href="#">打造SharePoint之在线开发神器SPOnlineDevelopTool（一）——概述</a></li>
+            <li><a href="#">MICROSOFT REPORT VIEWER 2012之无法加载相关的dll</a></li>
+            <li><a href="#">为什么你作为一个.NET的程序员工资那么低？</a></li>
+            <li><a href="#">SharePoint之使用Jquery Mobile定制自己的手机页面</a></li>
+          </ul>
+        </div>
+        
+        <div class="leaf">
+          <h2>
+            <i class="fa fa-file-word-o fa-fw"></i>
+            最近日志
+            <small>Recent posts</small>
+            <a href="#" class="pull-right"><i class="fa fa-arrow-circle-o-right fw"></i></a>
+          </h2>
+          <hr>
+          <ul class="posts-recent">
+            <li><a href="#">Magicodes.NET框架之路——预览（一）</a></li>
+            <li><a href="#">Magicodes.NET框架之路——策略管理</a></li>
+            <li><a href="#">Magicodes.NET框架之路——起航</a></li>
+            <li><a href="#">为什么LINQ to XML的性能要优于XmlDocument？</a></li>
+            <li><a href="#">SharePoint如何配置Ipad跳转等问题</a></li>
+            <li><a href="#">写给自己</a></li>
+            <li><a href="#">打造SharePoint之在线开发神器SPOnlineDevelopTool（一）——概述</a></li>
+            <li><a href="#">MICROSOFT REPORT VIEWER 2012之无法加载相关的dll</a></li>
+            <li><a href="#">为什么你作为一个.NET的程序员工资那么低？</a></li>
+            <li><a href="#">SharePoint之使用Jquery Mobile定制自己的手机页面</a></li>
+          </ul>
+        </div>
+        
+        <div class="leaf">
+          <h2>
+            <i class="fa fa-tags fa-fw"></i>
+            标签
+            <small>Tags</small>
+            <a href="#" class="pull-right"><i class="fa fa-arrow-circle-o-right fw"></i></a>
+          </h2>
+          <hr>
+          <ul class="posts-tags">
+            <li>Ext.NET (11)</li>
+            <li>SharePoint (11)</li>
+            <li>Silverlight (5)</li>
+            <li>程序人生 (5)</li>
+            <li>jQuery EasyUI (4)</li>
+            <li>ASP.NET (3)</li>
+            <li>CodeLove (3)</li>
+            <li>CodeSmith (3)</li>
+            <li>TFS2012 (3)</li>
+            <li>Magicodes框架 (2)</li>
+            <li>...</li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        
+        <div class="leaf">
+          <h2>
+            <i class="fa fa-book fa-fw"></i>
+            日志分类
+            <small>Category</small>
+            <a href="#" class="pull-right"><i class="fa fa-arrow-circle-o-right fw"></i></a>
+          </h2>
+          <hr>
+          <ul class="posts-category">
+            <li><a href="#">日志分类1 (1234)</a></li>
+            <li><a href="#">日志分类2 (1234)</a></li>
+            <li><a href="#">日志分类3 (1234)</a></li>
+            <li><a href="#">日志分类a (1234)</a></li>
+            <li><a href="#">日志分类b (1234)</a></li>
+            <li><a href="#">日志分类c (1234)</a></li>
+          </ul>
+        </div>
+        
+        <div class="leaf">
+          <h2>
+            <i class="fa fa-list-ol fa-fw"></i>
+            日志档案
+            <small>Archive</small>
+            <a href="#" class="pull-right"><i class="fa fa-arrow-circle-o-right fw"></i></a>
+          </h2>
+          <hr>
+          <ul class="posts-archive">
+            <li><a href="#">2014年12月 (123)</a></li>
+            <li><a href="#">2014年11月 (123)</a></li>
+            <li><a href="#">2014年10月 (123)</a></li>
+            <li><a href="#">2014年09月 (123)</a></li>
+            <li><a href="#">2014年08月 (123)</a></li>
+            <li><a href="#">2014年07月 (123)</a></li>
+          </ul>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h2>关于我们</h2>
+        <p>
+          <i class="fa fa-users"></i>
+          <a href="#">团队成员介绍</a>
+        </p>
+        <p>
+          Magicodes.NET团队是一群代码爱好者组成的团队，是一个崇尚开源的团队。开源，是我们的理念。同时，我们也希望大家也能贡献自己的插件源码，让我们一起前行。
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h2>参与讨论</h2>
+        <p>
+          <i class="fa fa-qq fa-fw"></i>.NET技术交流1群 
+          <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=4c998913f2aec27dfcfabaf075377d699b415c79a5ee4dd759ecc49469bb0055">
+            <img src="http://pub.idqqimg.com/wpa/images/group.png" alt=".NET交流1（.NET）" title=".NET交流1（.NET）">
+          </a>
+        </p>
+        <p>
+          <i class="fa fa-envelope-o fa-fw"></i>官方邮箱：<a href="mailto:magicodes@magicodes.net">xxx<i class="fa fa-at"></i>magicodes.net</a>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h2>版权协议</h2>
+        <p>
+          <i class="fa fa-file fa-fw"></i>
+          框架使用协议
+          <a href="http://www.magicodes.net/Home/License">Magicodes.NET License</a>
+        </p>
+        <p>
+          <i class="fa fa-file fa-fw"></i>
+          代码开源协议
+          <a href="http://www.gnu.org/licenses/gpl.html">GNU GPL v3</a>
+        </p>
+        <p>
+          <i class="fa fa-file fa-fw"></i>
+          文档开源协议
+          <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0 </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-sole">
+    2014&nbsp;Magicodes.NET团队
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/magicodes-blog.js"></script>
+<script src="theme/dafault/blog-theme.js"></script>
+</body>
+</html>

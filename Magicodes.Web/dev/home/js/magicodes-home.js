@@ -9,7 +9,7 @@
 
 /* ========================================
  * Homepage
- * 顶部 topbar & 底部 footer 背景变色
+ * 页面淡入
  * ======================================== */
 
 +function ($) {
@@ -166,34 +166,43 @@
 +function ($) {
   'use strict';
   
-  // 侧边栏菜单的展开与收缩
-  
-  var $as, $asLa;
-  $as = $(".aside");
-  $asLa = $as.children("ul").children("li").children("a");
+  if ($('.aside').length > 0) {
+    
+    // 侧边栏菜单的展开与收缩
 
-  $asLa.each(function() {
-    $(this).click(function () {
-      $(this).siblings("ul").slideToggle();
+    var $as, $asLa;
+    $as = $(".aside");
+    $asLa = $as.children("ul").children("li").children("a");
+
+    $asLa.each(function() {
+      $(this).click(function () {
+        $(this).siblings("ul").slideToggle();
+      });
     });
-  });
+    
+  }
+  
+  if ($('.m-page-main').length > 0) {
+
+    // 页面滚下时自动固定；滚上去自动解锁
+
+    var asTop;
+    asTop = $(".m-page-main").offset().top - 40;
+
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > asTop) {
+        $as.css("margin-top", -asTop);
+        $as.css("position", "fixed");
+      }
+      if ($(window).scrollTop() < asTop) {
+        $as.css("margin-top", 0);
+        $as.css("position", "static");
+      }
+    });
+    
+  }
   
   
-  // 页面滚下时自动固定；滚上去自动解锁
-  
-  var asTop;
-  asTop = $(".m-page-main").offset().top - 40;
-  
-  $(window).scroll(function () {
-    if ($(window).scrollTop() > asTop) {
-      $as.css("margin-top", -asTop);
-      $as.css("position", "fixed");
-    }
-    if ($(window).scrollTop() < asTop) {
-      $as.css("margin-top", 0);
-      $as.css("position", "static");
-    }
-  });
 
   
 }(jQuery);
@@ -248,7 +257,25 @@
 
 
 
+/* ========================================
+ * Homepage
+ * 响应式功能
+ * ======================================== */
 
++function ($) {
+  'use strict';
+  
+  // 小屏菜单
+  
+  $('.top-menu-button-r').click(function () {
+    $('.top-menu-list').slideToggle('fast');
+  });
+  
+  $('.top-user-button-r').click(function () {
+    $('.top-user-menu').slideToggle('fast');
+  });
+
+}(jQuery);
 
 
 

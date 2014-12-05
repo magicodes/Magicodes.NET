@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /* ========================================
  * Magicodes.Home CSS
  * ver. 0.0.100
@@ -150,39 +150,43 @@ span {
 
 .topbar {
   position: fixed;
+  top: 0;
   width: 100%;
-  padding: 10px;
+  padding: 1rem 0;
   background: none;
-  z-index: 999;
-}
-.top-menu {
   color: #fff;
   font-size: 1.4rem;
+  z-index: 999;
 }
-.top-menu > div {
-  float: left;
-  margin-right: 30px;
+.topbar-logo {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1rem;
 }
-.top-menu > div:first-child {
-  margin-right: 15px;
-}
-.top-menu a {
+.topbar a {
   color: #fff;
   text-decoration: none;
 }
-.top-menu a:active {
+.topbar a:active {
   color: rgb(128, 176, 232);
 }
+
+.top-menu-list {
+  display: inline-block;
+  vertical-align: middle;
+}
+.topbar button {
+  background: #000;
+  font-size: 1.8rem;
+  vertical-align: middle;
+  color: #fff;
+}
+
 .top-user-menu {
-  float: right;
   color: #ddd;
 }
-.top-user-menu > div {
-  float: left;
-  margin-right: 10px;
-  padding: 0 10px;
+.top-user-menu > li {
   background: rgba(25, 61, 103, 0.8);
-  border-radius: 4px;
 }
 .top-user-menu a {
   color: #ddd;
@@ -193,6 +197,96 @@ span {
 }
 .top-user-menu a:active {
   color: rgb(128, 176, 232);
+}
+
+.top-menu-button-r {
+  margin-right: 1rem;
+}
+.top-user-button-r {
+}
+
+@media screen and (max-width: 740px) {
+  .topbar > .title {
+/*
+    position: fixed;
+    left: 0;
+    top: 1.2rem;
+    width: 100%;
+*/
+    text-align: center;
+    font-weight: bold;
+  }
+  .top-menu-button-r,
+  .top-user-button-r {
+    display: inline-block;
+  }
+  .top-menu-list,
+  .top-user-menu {
+    display: none;
+  }
+  .top-menu-list {
+    background: #000;
+    padding: 1rem;
+  }
+  .top-menu-list > li {
+    display: block;
+    width: 20rem;
+    font-size: 1.6rem;
+    padding: 1rem;
+  }
+  .top-user-menu {
+    position: absolute;
+    top: 4.1rem;
+    right: 0;
+  }
+  .top-user-menu > li {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 740px) {
+  .topbar > .title {
+    display: none;
+  }
+  .top-menu-button-r,
+  .top-user-button-r {
+    display: none;
+  }
+  .top-menu-list,
+  .top-user-menu {
+    display: inline-block;
+  }
+  .top-menu-list > li {
+    display: inline-block;
+    margin-right: 3rem;
+  }
+  .top-menu-list > li:first-child {
+    margin-left: 1.5rem;
+  }
+  .top-user-menu {
+    position: static;
+  }
+  .top-user-menu > li {
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0 1rem;
+    border-radius: 0.4rem;
+  }
+}
+@media screen and (max-width: 960px) {
+  .top-menu-list i,
+  .top-user-menu i {
+    display: none;
+  }
+}
+@media screen and (min-width: 960px) {
+  .top-menu-list i,
+  .top-user-menu i {
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
 
 
@@ -207,45 +301,36 @@ span {
 .face {
   width: 100%;
   height: 100%;
-  background: url(../img/bg-index2.png) no-repeat;
-  background-attachment: fixed;
-  background-size: 100%;
+  background: url(../img/bg-index.png) no-repeat;
 }
 .face-m-group {
   position: absolute;
-  top: 30%;
-  left: 5%;
+  width: 100%;
 }
 .face-m-logo {
-  float: left;
-  width: 128px;
+  display: inline-block;
+  vertical-align: middle;
 }
 .face-m-title {
-  float: left;
-  margin: 0 0 0 10px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 0 1rem;
 }
 .face-m-title > span {
   color: #fff;
-  font-size: 6.4rem;
   font-weight: bold;
   font-family: Courier;
   text-shadow: 2px 1px 0 rgb(81, 130, 186);
 }
 .face-m-title > .face-m-subtitle {
-  margin: -10px 0 0 0;
   color: #fff;
-  font-size: 2.8rem;
 }
 .face-m-about {
   clear: both;
-  padding: 40px 100px;
   color: #fff;
-  font-size: 1.8rem;
 }
 .face-btn-group {
   position: absolute;
-  top: 40%;
-  right: 10%;
 }
 .face-btn-group > button {
   display: block;
@@ -276,11 +361,133 @@ span {
   margin-bottom: 0;
 }
 
+@media screen and (max-width: 640px) {
+  .face {
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  .face-m-group {
+    top: 14rem;
+    padding: 0 2rem;
+  }
+  .face-m-logo img {
+    width: 6.4rem;
+  }
+  .face-m-title > span {
+    font-size: 2.8rem;
+  }
+  .face-m-title > .face-m-subtitle {
+    margin: -0.5rem 0 0 0;
+    font-size: 1.4rem;
+  }
+  .face-m-about {
+    margin-top: 2rem;
+    padding: 2rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+  .face-btn-group {
+    width: 100%;
+    top: 36rem;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 836px) {
+  .face {
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  .face-m-group {
+    top: 10rem;
+    padding: 0 5%;
+  }
+  .face-m-logo img {
+    width: 9.6rem;
+  }
+  .face-m-title > span {
+    font-size: 4.8rem;
+  }
+  .face-m-title > .face-m-subtitle {
+    margin: -1rem 0 0 0;
+    font-size: 2.0rem;
+  }
+  .face-m-about {
+    padding: 4rem 6rem;
+    font-size: 1.2rem;
+  }
+  .face-btn-group {
+    width: auto;
+    top: 34rem;
+    right: 10rem;
+    text-align: right;
+  }
+}
+@media screen and (min-width: 836px) and (max-width: 960px) {
+  .face {
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  .face-m-group {
+    top: 30%;
+    padding: 0 5%;
+  }
+  .face-m-logo img {
+    width: 9.6rem;
+  }
+  .face-m-title > span {
+    font-size: 4.8rem;
+  }
+  .face-m-title > .face-m-subtitle {
+    margin: -1rem 0 0 0;
+    font-size: 2.0rem;
+  }
+  .face-m-about {
+    padding: 4rem 10rem;
+    font-size: 1.4rem;
+  }
+  .face-btn-group {
+    width: auto;
+    top: 26rem;
+    right: 10rem;
+    text-align: right;
+  }
+}
+@media screen and (min-width: 960px) {
+  .face {
+    background-attachment: fixed;
+    background-size: 110%;
+  }
+  .face-m-group {
+    top: 30%;
+    padding: 0 5%;
+  }
+  .face-m-logo img {
+    width: 12.8rem;
+  }
+  .face-m-title > span {
+    font-size: 6.4rem;
+  }
+  .face-m-title > .face-m-subtitle {
+    margin: -1rem 0 0 0;
+    font-size: 2.8rem;
+  }
+  .face-m-about {
+    padding: 4rem 8rem;
+    font-size: 1.8rem;
+  }
+  .face-btn-group {
+    width: auto;
+    top: 30rem;
+    right: 10rem;
+    text-align: right;
+  }
+}
 
 /* 首页：宣传文字 */
 
 .m-introduce {
-  padding: 20px 60px 40px 60px;
+}
+.m-introduce .col-md-3 {
 }
 .m-intro-style1 {
   background: rgb(25, 61, 103);
@@ -328,22 +535,17 @@ span {
   font-size: 1.6rem;
 }
 .m-introduce .intro-title {
-  float: left;
-  margin: 4px; 
-  padding: 10px;
+  display: inline-block;
   background: #efefef;
   border-radius: 6px;
-  font-size: 1.4rem;
   font-weight: bold;
   cursor: pointer;
 }
 .m-intro-style1 .intro-title {
-  width: 120px;
   background: rgb(22, 48, 77);
   color: #ccc;
 }
 .m-intro-style2 .intro-title {
-  width: 230px;
   margin: 4px auto;
   padding: 10px 20px;
   background: rgb(10, 46, 19);
@@ -359,7 +561,6 @@ span {
 }
 .m-introduce .intro-text {
   display: none;
-  padding: 40px;
   font-size: 1.6rem;
   line-height: 2.8rem;
   text-shadow: 1px 1px 1px #000;
@@ -371,27 +572,181 @@ span {
   color: #fff;
 }
 .m-introduce .intro-text h3 {
-  font-size: 1.6rem;
   font-weight: bold;
-  margin-top: 10px;
-  margin-left: -6px;
 }
 .m-introduce .intro-text h3:first-child {
   margin-top: 0;
 }
 .m-introduce .intro-text p {
   margin: 0;
-  padding: 5px 10px 5px 10px;
 }
 .m-introduce .intro-text ul > li {
-  margin:5px 0 10px 80px;
 }
 .m-introduce .intro-text ul > li {
   float: left;
   list-style: disc;
-  margin-right: 40px;
 }
 
+@media screen and (max-width: 640px) {
+  .m-introduce {
+    padding: 2rem;
+  }
+  .m-introduce .col-md-3 {
+    text-align: center;
+  }
+  .m-introduce .intro-text {
+    display: none;
+    padding: 2rem 0;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+    text-shadow: 1px 1px 1px #000;
+  }
+  .m-introduce .intro-title {
+    margin: 4px; 
+    padding: 5px 10px;
+    font-size: 1.2rem;
+  }
+  .m-intro-style1 .intro-title {
+    width: auto;
+  }
+  .m-intro-style2 .intro-title {
+    width: auto;
+  }
+  .m-introduce .intro-text h3 {
+    font-size: 1.6rem;
+    margin-top: 10px;
+    margin-left: -6px;
+  }
+  .m-introduce .intro-text p {
+    padding: 5px 10px 5px 10px;
+  }
+  .m-introduce .intro-text ul > li {
+    margin:5px 0 10px 80px;
+  }
+  .m-introduce .intro-text ul > li {
+    margin-right: 40px;
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 992px) {
+  .m-introduce {
+    padding: 2rem 6rem 4rem 6rem;
+  }
+  .m-introduce .col-md-3 {
+    text-align: center;
+  }
+  .m-introduce .intro-text {
+    display: none;
+    padding: 40px;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    text-shadow: 1px 1px 1px #000;
+  }
+  .m-introduce .intro-title {
+    margin: 4px; 
+    padding: 5px 10px;
+    font-size: 1.2rem;
+  }
+  .m-intro-style1 .intro-title {
+    width: 11rem;
+  }
+  .m-intro-style2 .intro-title {
+    width: 16.8rem;
+  }
+  .m-introduce .intro-text h3 {
+    font-size: 1.6rem;
+    margin-top: 10px;
+    margin-left: -6px;
+  }
+  .m-introduce .intro-text p {
+    padding: 5px 10px 5px 10px;
+  }
+  .m-introduce .intro-text ul > li {
+    margin:5px 0 10px 80px;
+  }
+  .m-introduce .intro-text ul > li {
+    margin-right: 40px;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .m-introduce {
+    padding: 2rem 6rem 4rem 6rem;
+  }
+  .m-introduce .col-md-3 {
+    text-align: left;
+  }
+  .m-introduce .intro-text {
+    display: none;
+    padding: 40px;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    text-shadow: 1px 1px 1px #000;
+  }
+  .m-introduce .intro-title {
+    margin: 4px; 
+    padding: 5px 10px;
+    font-size: 1.4rem;
+  }
+  .m-intro-style1 .intro-title {
+    width: 23rem;
+  }
+  .m-intro-style2 .intro-title {
+    width: 23rem;
+  }
+  .m-introduce .intro-text h3 {
+    font-size: 1.6rem;
+    margin-top: 10px;
+    margin-left: -6px;
+  }
+  .m-introduce .intro-text p {
+    padding: 5px 10px 5px 10px;
+  }
+  .m-introduce .intro-text ul > li {
+    margin:5px 0 10px 80px;
+  }
+  .m-introduce .intro-text ul > li {
+    margin-right: 40px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .m-introduce {
+    padding: 2rem 6rem 4rem 6rem;
+  }
+  .m-introduce .col-md-3 {
+    text-align: left;
+  }
+  .m-introduce .intro-text {
+    display: none;
+    padding: 40px;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    text-shadow: 1px 1px 1px #000;
+  }
+  .m-introduce .intro-title {
+    margin: 4px; 
+    padding: 10px;
+    font-size: 1.4rem;
+  }
+  .m-intro-style1 .intro-title {
+    width: 12rem;
+  }
+  .m-intro-style2 .intro-title {
+    width: 23rem;
+  }
+  .m-introduce .intro-text h3 {
+    font-size: 1.6rem;
+    margin-top: 10px;
+    margin-left: -6px;
+  }
+  .m-introduce .intro-text p {
+    padding: 5px 10px 5px 10px;
+  }
+  .m-introduce .intro-text ul > li {
+    margin:5px 0 10px 80px;
+  }
+  .m-introduce .intro-text ul > li {
+    margin-right: 40px;
+  }
+}
 
 /* 通用页面 */
 
@@ -408,10 +763,7 @@ span {
   font-size: 3.0rem;
   text-shadow: 2px 1px 0 rgb(0, 0, 0);
 }
-.m-page-title h2 {
-  position: absolute;
-  left: 8%;
-  margin-top: 4.2rem;
+.m-page-title small {
   color: rgb(109, 109, 109);
   font-size: 1.8rem;
 }
@@ -424,8 +776,7 @@ span {
 .m-page-main h2 {
   font-size: 2.2rem;
   font-weight: bold;
-  padding: 30px 0 10px 0;
-  border-bottom: 1px dotted #ddd;
+  padding-top: 30px;
   color: #000;
 }
 .m-page-main h2:first-child {

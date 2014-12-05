@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/magicodes-home.css">
 </head>
-<body>
+<body data-spy="scroll" data-target=".aside">
 
 <div class="topbar">
   <div class="top-menu">
@@ -74,45 +74,67 @@
 </div>
 
 <div class="m-page-title">
-  <h1>登录</h1>
-  <h2>还可以选择QQ和微软等帐号登录</h2>
+  <h1>
+    通用页面+侧边栏
+    <br>
+    <small><!-- 副标题 --></small>
+  </h1>
 </div>
 <div class="m-page-main">
-
-  <form role="form" class="form-small" id="login">
-    <div class="form-group">
-      <label for="InputEmail1">用户名或邮箱</label>
-      <input type="email" class="form-control" id="InputEmail" placeholder="Enter email">
-    </div>
-    <div class="form-group">
-      <label for="InputPassword1">登录密码</label>
-      <input type="password" class="form-control" id="InputPassword" placeholder="Password">
-    </div>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox"> 记住我
-      </label>
-    </div>
-    <div class="text-center">
-      <button type="submit" class="btn btn-success">
-      <i class="fa fa-smile-o"></i>
-      登录网站
-      </button>
-      <button type="submit" class="btn btn-warning">
-      <i class="fa fa-meh-o"></i>
-      忘记密码
-      </button>
-      <button type="submit" class="btn btn-primary" onclick="javascript:document.getElementById('qqLogin').click();">
-        <i class="fa fa-qq"></i>
-        QQ登录
-      </button>
-      <button type="submit" class="btn btn-primary" id="Microsoft" name="provider" value="Microsoft" title="使用你的 Microsoft 帐户登录">
-        <i class="fa fa-windows"></i>
-        Microsoft账户登录
-      </button>
-    </div>
-  </form>
   
+  <div class="aside ts">
+    <ul class="nav">
+      <li>
+        <a href="#menu1">侧边菜单</a>
+        <ul class="nav">
+          <li><a href="#sub1">子菜单</a></li>
+          <li><a href="#sub2">子菜单</a></li>
+          <li><a href="#sub3">子菜单</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#menu2">侧边菜单</a>
+        <ul class="nav">
+          <li><a href="#">子菜单</a></li>
+          <li><a href="#">子菜单</a></li>
+          <li><a href="#">子菜单</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#menu3">侧边菜单</a>
+        <ul class="nav">
+          <li><a href="#">子菜单</a></li>
+          <li><a href="#">子菜单</a></li>
+          <li><a href="#">子菜单</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#menu4">其他</a>
+      </li>
+    </ul>  
+  </div>
+  
+  <div class="with-aside">
+    <h2 id="menu1">侧边栏菜单会随滚动条经过相应内容时高亮</h2>
+    <hr>
+    <h3>子菜单要在展开时才有高亮效果。</h3>
+    <h4 id="sub1">具体用法参见：</h4>
+    <p>
+      Bootstap: ScrollSpy
+    </p>
+    <p>
+      http://v3.bootcss.com/javascript/#scrollspy
+    </p>
+    <h2>侧边栏位置会随滚动条往下拉到一定距离时固定住</h2>
+    <h2 id="sub2">演示文章</h2>
+    <p>
+      夫天地者，万物之逆旅。光阴者，百代之过客。而浮生若梦，为欢几何？古人秉烛夜游，良有以也。况阳春召我以烟景，大块假我以文章。会桃李之芳园，序天伦之乐事。群季俊秀，皆为惠连；吾人咏歌，独惭康乐。幽赏未已，高谈转清。开琼筵以坐花，飞羽觞而醉月。不有佳作，何伸雅怀？如诗不成，罚依金谷酒数。
+    </p>
+    <p id="menu2">
+      激清音以感余，愿接膝以交言。欲自往以结誓，惧冒礼之为愆；待凤鸟以致辞，恐他人之我先。意惶惑而靡宁，魂须臾而九迁：愿在衣而为领，承华首之余芳；悲罗襟之宵离，怨秋夜之未央！愿在裳而为带，束窈窕之纤身；嗟温凉之异气，或脱故而服新！愿在发而为泽，刷玄鬓于颓肩；悲佳人之屡沐，从白水而枯煎！愿在眉而为黛，随瞻视以闲扬；悲脂粉之尚鲜，或取毁于华妆！愿在莞而为席，安弱体于三秋；悲文茵之代御，方经年而见求！愿在丝而为履，附素足以周旋；悲行止之有节，空委弃于床前！愿在昼而为影，常依形而西东；悲高树之多荫，慨有时而不同！愿在夜而为烛，照玉容于两楹；悲扶桑之舒光，奄灭景而藏明！愿在竹而为扇，含凄飙于柔握；悲白露之晨零，顾襟袖以缅邈！愿在木而为桐，作膝上之鸣琴；悲乐极而哀来，终推我而辍音！
+    </p>
+  </div>
+
 </div>
 
 <div class="footer">
