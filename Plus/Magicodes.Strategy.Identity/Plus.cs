@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 //        All rights reserved
 //
 //        filename :Plus
-//        description :
+//        description :声明式认证插件启动类
 //
 //        created by 雪雁 at  2014/10/25 20:54:54
 //        http://www.magicodes.net
@@ -36,12 +36,12 @@ namespace Magicodes.Strategy.Identity
 
         public void Install()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Uninstall()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

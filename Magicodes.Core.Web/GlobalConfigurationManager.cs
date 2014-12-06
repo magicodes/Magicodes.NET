@@ -42,11 +42,11 @@ namespace Magicodes.Core.Web
             }
         }
         /// <summary>
-        /// 配置
+        /// App配置事件，您可以在此配置应用程序
         /// </summary>
         public static event EventHandler OnConfiguration_Config = (o, e) => { };
         /// <summary>
-        /// 配置
+        /// App构建事件
         /// </summary>
         public static event EventHandler OnConfiguration_AppBuilder = (o, e) => { };
 

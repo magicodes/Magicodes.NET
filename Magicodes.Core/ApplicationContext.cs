@@ -157,6 +157,8 @@ namespace Magicodes.Core
 
             #endregion
             var binDir = new DirectoryInfo(SitePaths.SiteRootBinDirPath);
+
+            #region 部署依赖程序集
             foreach (var plus in orthersDlls)
             {
                 //如果网站bin目录不存在此dll，则将该dll复制到动态程序集目录
@@ -168,11 +170,15 @@ namespace Magicodes.Core
                     //将程序集添加到当前应用程序域
                     BuildManager.AddReferencedAssembly(assembly);
                 }
-            }
+
+            } 
+            #endregion
+            #region 部署插件程序集
             foreach (var plus in magicodesPlusDlls)
             {
                 PlusManager.Deploy(plus);
-            }
+            } 
+            #endregion
 
             //foreach (var plus in plusDlls)
             //{
