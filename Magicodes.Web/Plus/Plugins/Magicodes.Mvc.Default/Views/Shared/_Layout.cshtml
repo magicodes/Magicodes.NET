@@ -1,4 +1,5 @@
-﻿@{
+﻿@using StackExchange.Profiling;
+@{
     var SiteInfo = Magicodes.Web.Interfaces.GlobalApplicationObject.Current.ApplicationContext.ConfigManager.GetConfig<Magicodes.Web.Interfaces.Config.Info.SiteConfigInfo>();
 }
 <!DOCTYPE html>
@@ -181,5 +182,6 @@
     <script src="/assets/js/amui.min.js"></script>
     <script src="/assets/js/app.js"></script>
     @RenderSection("Scripts", false)
+    @MiniProfiler.RenderIncludes()
 </body>
 </html>
