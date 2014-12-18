@@ -1,0 +1,334 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+<title>Magicodes</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/magicodes-home.css">
+</head>
+<body class="m-home">
+
+<div class="topbar">
+  <img class="topbar-logo" src="img/logo-l.png" alt="Magicodes.NET" height="20">
+  <span class="title text-center">Magicodes.NET</span>
+  <button class="top-menu-button-r pull-right">
+    <i class="fa fa-navicon fa-fw"></i>
+  </button>
+  <button class="top-user-button-r pull-right">
+    <i class="fa fa-user fa-fw"></i>
+  </button>
+  <ul class="top-menu-list">
+    <li>
+      <i class="fa fa-home fa-fw"></i>
+      <a href="#">首页</a>
+    </li>
+    <li>
+      <i class="fa fa-star fa-fw"></i>
+      <a href="#">开始使用</a>
+    </li>
+    <li>
+      <i class="fa fa-flag fa-fw"></i>
+      <a href="#">版本历史</a>
+    </li>
+    <li>
+      <i class="fa fa-code fa-fw"></i>
+      <a href="#">文档</a>
+    </li>
+    <li>
+      <i class="fa fa-edit fa-fw"></i>
+      <a href="#">官方博客</a>
+    </li>
+    <li class="dropdown">
+      <i class="fa fa-users fa-fw"></i>
+      <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        社区
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li>
+          <a href="#">
+            <i class="fa fa-comments-o fa-fw"></i>
+            FAQ
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-meh-o fa-fw"></i>
+            反馈
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <i class="fa fa-dollar fa-fw"></i>
+      <a href="#">赞助</a>
+    </li>
+  </ul>
+  <ul class="top-user-menu pull-right">
+    <li>
+      <i class="fa fa-user"></i>
+      <a href="#">Username</a>
+      <span>|</span>
+      <a href="#" class="logout">注销</a>
+    </li>
+  </ul>
+</div>
+
+<div class="face">
+  <div class="face-m-group">
+    <div class="face-m-logo">
+      <img src="img/logo.png" alt="Magicodes.NET">
+    </div>
+    <div class="face-m-title">
+      <span>Magicodes.NET</span>
+      <div class="face-m-subtitle">
+        // 前后端插件快速开发框架
+      </div>
+    </div>
+    <div class="face-m-about">
+      Magicodes ——意为“Magic Codes”。<br>
+      代码就如同魔术，每一个代码爱好者都可能是一位大魔术师。<br>
+      只要你热衷于此，请跟随我们的脚步一起前行吧。
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="face-btn-group">
+    <button>
+      <i class="fa fa-play-circle-o fa-fw"></i>
+      开始使用
+    </button>
+    <button>
+      <i class="fa fa-download fa-fw"></i>
+      最新版下载
+    </button>
+    <button>
+      <i class="fa fa-github fa-fw"></i>
+      代码开源
+    </button>
+  </div>
+</div>
+
+<div class="m-introduce m-intro-style1" id="intro-back">
+  <h2>后端框架</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="intro-title" data-btitleid="1">
+          <i class="fa fa-code-fork fa-fw"></i>
+          开源
+        </div>
+        <div class="intro-title" data-btitleid="2">
+          <i class="fa fa-cubes fa-fw"></i>
+          插件式架构
+        </div>
+        <div class="intro-title" data-btitleid="3">
+          <i class="fa fa-sitemap fa-fw"></i>
+          路由系统
+        </div>
+        <div class="intro-title" data-btitleid="4">
+          <i class="fa fa-file-code-o fa-fw"></i>
+          WebAPI
+        </div>
+        <div class="intro-title" data-btitleid="5">
+          <i class="fa fa-flag fa-fw"></i>
+          事件管理
+        </div>
+        <div class="intro-title" data-btitleid="6">
+          <i class="fa fa-eye fa-fw"></i>
+          性能监控
+        </div>
+        <div class="intro-title" data-btitleid="7">
+          <i class="fa fa-cogs fa-fw"></i>
+          配置管理
+        </div>
+        <div class="intro-title" data-btitleid="8">
+          <i class="fa fa-plug fa-fw"></i>
+          OAuth
+        </div>
+        <div class="intro-title" data-btitleid="9">
+          <i class="fa fa-puzzle-piece fa-fw"></i>
+          MVC
+        </div>
+        <div class="intro-title" data-btitleid="10">
+          <i class="fa fa-code fa-fw"></i>
+          T4代码生成
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="col-md-9">
+        <div class="intro-text" data-btextid="1" style="display:block;">
+          <p>Magicodes.NET团队是一个崇尚开源的团队，再好的框架，再好的代码也得有人欣赏不是？</p>
+          <p>再说了，我们追求的不是盈利，我们是一群疯狂的代码爱好者，我们追求的是架构的不断完善，我们追求的是你用了我们框架然后给赞！</p>
+          <p>开源，是我们的理念。同时，我们也希望大家也能贡献自己的插件源码，让我们一起前行。</p>                   
+        </div>
+        <div class="intro-text" data-btextid="2">
+          <h3>插件框架</h3>
+          <p>
+            插件式架构就在于提供一个开放的体系结构，以方便中间件的选择、组装和集成，应用框架的重用已成为软件开发生产中最有效的重用方式之一。基于插件的设计好处很多，把扩展功能从框架中剥离出来，降低了框架的复杂度，让框架更容易实现。扩展功能与框架以一种很松的方式耦合，两者在保持接口不变的情况下，可以独立变化和发布。公开插件接口，让第三方有机会扩展应用程序的功能，有财大家一起发。另外，还可以让开源与闭源共存于一套软件，你的插件是开源还是闭源，完全由你自己决定。
+          </p>
+          <h3>插件接口</h3>
+          <p>
+            系统的所有插件全部通过实现系统框架统一的接口规范，以便有效的组织、管理插件对象。插件策略属于插件接口的一部分，插件策略用于实现一些比较通用的功能，以便于各个插件调用。
+          </p>
+          <h3>插件组件</h3>
+          <p>插件组件为具体的插件程序，是实现了插件接口的一个独立的程序。Magicodes团队会提供一些通用插件以供用户免费使用：权限菜单等通用系统管理插件、默认主题。</p>
+          <h3>流程引擎</h3>
+          <p>我们将打造一个轻量级的流程引擎插件，而且也是开源的。这里就不多介绍了，到时让我们用代码说话，Magicodes！</p>
+        </div>
+        <div class="intro-text" data-btextid="3">
+          <p>动态映射Url，以便使Url更友好或者更易于理解。</p>
+          <p>你的Url你做主。</p>                    
+        </div>
+        <div class="intro-text" data-btextid="4">
+          <p>Magicodes.NET除了支持自有的WebAPI之外，还支持微软的WebAPI。并且支持Rest协议和OData。</p>
+          <p>API一次编写，适应所有终端（PC、移动），适用主流格式（JSON、XML、BSON）。</p>
+          <p>一套API，打遍天下无敌手。而且API友好，使用方便，基于Rest协议的WebAPI，让你极其方便的实现你的增删改查。基于OData协议的API，让你查询爽到爆。</p>
+        </div>
+        <div class="intro-text" data-btextid="5">
+          <p>在插件中，您可以订阅任何全局事件，那么如何处理，是您说了算。</p>
+          <p>框架只是平台，但是亦不限制您的自由发挥。 </p>                  
+        </div>
+        <div class="intro-text" data-btextid="6">
+          <p>Magicodes.NET除了有完善的日志记录外，还带有性能计数器。</p>
+          <p>代码哪里慢了？看看计数器怎么说吧。</p>                   
+        </div>
+        <div class="intro-text" data-btextid="7">
+          <p>业务系统离不开各种配置。</p>
+          <p>从网站设置到邮件配置等等，Magicodes自带一些默认配置，比如系统配置、邮件配置、站点配置等，能够让您直接使用。</p>
+          <p>同时您也可以设置自己的配置，以供插件使用。</p>                  
+        </div>
+        <div class="intro-text" data-btextid="8">
+          <p>Magicodes.NET 支持声明式认证以及OAuth协议。</p>
+          <p>在不编写一行代码的情况下，您就可以便捷的集成QQ、Microsoft、Google、Facebook、Twitter等OAuth接口。</p>
+        </div>
+        <div class="intro-text" data-btextid="9">
+          <p>Magicodes.NET现在已经正式支持MVC5。</p>                   
+        </div>
+        <div class="intro-text" data-btextid="10">
+          <p>快速开发，一直是Magicodes.NET追求的理念。</p>
+          <p>您除了可以享受到组件的即拿即用的快感外，还可以使用框架集成的T4模板来快速生成您的视图（View）、控制器（Controller）、接口（WebApi、Odata）等。</p>
+          <p>目前，已经实现了配置实体的代码生成（您只要定义您的配置实体模型，控制器和视图均能自动生成，在不写一行代码的情况下，配置文件的维护界面与功能就自动完成了）。</p>                   
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="m-introduce m-intro-style2" id="intro-front">
+  <h2>前端框架</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="intro-text" data-ftextid="1" style="display:block;">
+          <p>Magicodes的系列主题将为您提供全面美观的界面，并且有足够多的HTML元素、HTML和CSS组件以及Jquery插件供您选择。</p>
+          <ul>
+            <li>多套主题</li>
+            <li>前端组件丰富</li>
+            <li>丰富实用的框架API</li>
+          </ul>
+          <div class="clearfix"></div>
+          <p>让您可以快速构建出色、体验优秀的跨屏页面，大幅度提升你的开发效率，让你的网站瞬间变得高大上。</p>
+        </div>
+        <div class="intro-text" data-ftextid="2">
+          <p>与后端插件架构类似，编程语言发展到一定阶段，必然要经历拆分模块化的过程，<br>以利于团队协作与维护。</p>
+          <p>而前端开发，在经历过纷乱的阶段，也进入了模块化开发的时期。</p>
+        </div>
+        <div class="intro-text" data-ftextid="3">
+          <p>你的网站和应用能在Magicodes.NET的帮助下通过一份代码快速、有效适配手机、平板、PC设备。</p>
+          <p>我们的目的在于最大限度的节省大家的开发工作量。</p>
+        </div>
+        <div class="intro-text" data-ftextid="4">
+          <p>MVVM模式已经成为前端开发的主流。</p>
+          <p>面对日益复杂的前端，模块化只是起点，响应式只是手段，MVVM也只是里程碑。</p>
+          <p>自打一看到MVVM框架，我们就爱上了她，陷入其中不可自拔。也许这就是一见钟情的魅力。</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="intro-title" data-ftitleid="1">
+          <i class="fa fa-magic fa-fw"></i>
+          功能齐全
+        </div>
+        <div class="intro-title" data-ftitleid="2">
+          <i class="fa fa-puzzle-piece fa-fw"></i>
+          模块化
+        </div>
+        <div class="intro-title" data-ftitleid="3">
+          <i class="fa fa-rocket fa-fw"></i>
+          一个框架，多种设备
+        </div>
+        <div class="intro-title" data-ftitleid="4">
+          <i class="fa fa-th-large fa-fw"></i>
+          MVVM
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="m-introduce m-intro-style3">
+  <h2>Magicodes.NET 崇尚开放、自由，非常欢迎大家的参与</h2>
+  <h3>和我们一起打造你的框架</h3>
+  <p>在知识爆炸的年代，我们不愿成为知识的过客，拥抱开源文化，发挥社区的力量，参与到 Magicodes.NET 开源项目能获得自我提升。</p>
+</div>
+
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h2>关于我们</h2>
+        <p>
+          <i class="fa fa-users"></i>
+          <a href="#">团队成员介绍</a>
+        </p>
+        <p>
+          Magicodes.NET团队是一群代码爱好者组成的团队，是一个崇尚开源的团队。开源，是我们的理念。同时，我们也希望大家也能贡献自己的插件源码，让我们一起前行。
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h2>参与讨论</h2>
+        <p>
+          <i class="fa fa-qq fa-fw"></i>.NET技术交流1群 
+          <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=4c998913f2aec27dfcfabaf075377d699b415c79a5ee4dd759ecc49469bb0055">
+            <img src="http://pub.idqqimg.com/wpa/images/group.png" alt=".NET交流1（.NET）" title=".NET交流1（.NET）">
+          </a>
+        </p>
+        <p>
+          <i class="fa fa-envelope-o fa-fw"></i>官方邮箱：<a href="mailto:">xxx<i class="fa fa-at"></i>magicodes.net</a>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h2>版权协议</h2>
+        <p>
+          <i class="fa fa-file fa-fw"></i>
+          框架使用协议
+          <a href="http://www.magicodes.net/Home/License">Magicodes.NET License</a>
+        </p>
+        <p>
+          <i class="fa fa-file fa-fw"></i>
+          代码开源协议
+          <a href="http://www.gnu.org/licenses/gpl.html">GNU GPL v3</a>
+        </p>
+        <p>
+          <i class="fa fa-file fa-fw"></i>
+          文档开源协议
+          <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0 </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-sole">
+  2014&nbsp;Magicodes.NET团队
+</div>
+
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/magicodes-home.js"></script>
+</body>
+</html>

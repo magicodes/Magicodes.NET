@@ -245,6 +245,12 @@ span {
     padding: 1rem 2rem;
     font-size: 1.6rem;
   }
+  .top-user-menu > li > span {
+    display: none;
+  }
+  .top-user-menu > li > .logout {
+    display: block;
+  }
 }
 @media screen and (min-width: 740px) {
   .topbar > .title {
@@ -273,6 +279,12 @@ span {
     margin-right: 1rem;
     padding: 0 1rem;
     border-radius: 0.4rem;
+  }
+  .top-user-menu > li > span {
+    display: inline;
+  }
+  .top-user-menu > li > .logout {
+    display: inline;
   }
 }
 @media screen and (max-width: 960px) {
