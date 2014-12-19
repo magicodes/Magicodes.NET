@@ -9,8 +9,7 @@
     {
         <div>
             <p>
-                未配置外部身份验证服务。请参见<a href="http://go.microsoft.com/fwlink/?LinkId=313242">此文章</a>，
-                以详细了解如何将此 ASP.NET 应用程序设置为支持通过外部服务登录。
+                未配置外部身份验证服务。请参见Magicodes.NET官网文档，以详细了解如何配置外部服务登录。
             </p>
         </div>
     }
@@ -25,14 +24,23 @@
                     {
                         if (@p.Caption == "QQ账号")
                         {
-                            <a href="javascript:document.getElementById('qqLogin').click();" class="am-btn am-btn-secondary am-btn-sm"><span><img src="/images/QQ.png" alt="QQ">QQ登录</span></a>
-                            <button style="display:none;" id="qqLogin" type="submit" class="am-btn am-btn-secondary am-btn-sm" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="使用你的 @p.Caption 帐户登录">@p.Caption</button>
+                            <button type="submit" class="btn btn-primary" onclick="javascript:document.getElementById('qqLogin').click();">
+                                <i class="fa fa-qq"></i>
+                                QQ登录
+                            </button>
+                            <button style="display:none;" id="qqLogin" type="submit" class="am-btn am-btn-secondary am-btn-sm" name="provider" value="@p.AuthenticationType" title="使用你的 @p.Caption 帐户登录">@p.Caption</button>
+                        }
+                        else if (@p.Caption == "Microsoft")
+                        {
+                            <button type="submit" class="btn btn-primary" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="使用你的 @p.AuthenticationType 帐户登录">
+                                <i class="fa fa-windows"></i>
+                                Microsoft账户登录
+                            </button>
                         }
                         else
                         {
-                            <button type="submit" class="am-btn am-btn-secondary am-btn-sm" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="使用你的 @p.Caption 帐户登录">@p.Caption</button>
+                            <button type="submit" class="btn btn-primary" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="使用你的 @p.Caption 帐户登录">@p.Caption</button>
                         }
-
                     }
                 </p>
             </div>

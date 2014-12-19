@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B204CAB5-F5AF-41F6-93C6-553DACF14A41}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Magicodes.PDFViewer</RootNamespace>
+    <AssemblyName>Magicodes.PDFViewer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Plus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\compatibility.js" />
+    <Content Include="Content\debugger.js" />
+    <Content Include="Content\images\annotation-check.svg" />
+    <Content Include="Content\images\annotation-comment.svg" />
+    <Content Include="Content\images\annotation-help.svg" />
+    <Content Include="Content\images\annotation-insert.svg" />
+    <Content Include="Content\images\annotation-key.svg" />
+    <Content Include="Content\images\annotation-newparagraph.svg" />
+    <Content Include="Content\images\annotation-noicon.svg" />
+    <Content Include="Content\images\annotation-note.svg" />
+    <Content Include="Content\images\annotation-paragraph.svg" />
+    <Content Include="Content\images\findbarButton-next%402x.png" />
+    <Content Include="Content\images\findbarButton-next-rtl%402x.png" />
+    <Content Include="Content\images\findbarButton-next-rtl.png" />
+    <Content Include="Content\images\findbarButton-next.png" />
+    <Content Include="Content\images\findbarButton-previous%402x.png" />
+    <Content Include="Content\images\findbarButton-previous-rtl%402x.png" />
+    <Content Include="Content\images\findbarButton-previous-rtl.png" />
+    <Content Include="Content\images\findbarButton-previous.png" />
+    <Content Include="Content\images\grab.cur" />
+    <Content Include="Content\images\grabbing.cur" />
+    <Content Include="Content\images\loading-icon.gif" />
+    <Content Include="Content\images\loading-small.png" />
+    <Content Include="Content\images\secondaryToolbarButton-documentProperties%402x.png" />
+    <Content Include="Content\images\secondaryToolbarButton-documentProperties.png" />
+    <Content Include="Content\images\secondaryToolbarButton-firstPage%402x.png" />
+    <Content Include="Content\images\secondaryToolbarButton-firstPage.png" />
+    <Content Include="Content\images\secondaryToolbarButton-handTool%402x.png" />
+    <Content Include="Content\images\secondaryToolbarButton-handTool.png" />
+    <Content Include="Content\images\secondaryToolbarButton-lastPage%402x.png" />
+    <Content Include="Content\images\secondaryToolbarButton-lastPage.png" />
+    <Content Include="Content\images\secondaryToolbarButton-rotateCcw%402x.png" />
+    <Content Include="Content\images\secondaryToolbarButton-rotateCcw.png" />
+    <Content Include="Content\images\secondaryToolbarButton-rotateCw%402x.png" />
+    <Content Include="Content\images\secondaryToolbarButton-rotateCw.png" />
+    <Content Include="Content\images\shadow.png" />
+    <Content Include="Content\images\texture.png" />
+    <Content Include="Content\images\toolbarButton-bookmark%402x.png" />
+    <Content Include="Content\images\toolbarButton-bookmark.png" />
+    <Content Include="Content\images\toolbarButton-download%402x.png" />
+    <Content Include="Content\images\toolbarButton-download.png" />
+    <Content Include="Content\images\toolbarButton-menuArrows%402x.png" />
+    <Content Include="Content\images\toolbarButton-menuArrows.png" />
+    <Content Include="Content\images\toolbarButton-openFile%402x.png" />
+    <Content Include="Content\images\toolbarButton-openFile.png" />
+    <Content Include="Content\images\toolbarButton-pageDown%402x.png" />
+    <Content Include="Content\images\toolbarButton-pageDown-rtl%402x.png" />
+    <Content Include="Content\images\toolbarButton-pageDown-rtl.png" />
+    <Content Include="Content\images\toolbarButton-pageDown.png" />
+    <Content Include="Content\images\toolbarButton-pageUp%402x.png" />
+    <Content Include="Content\images\toolbarButton-pageUp-rtl%402x.png" />
+    <Content Include="Content\images\toolbarButton-pageUp-rtl.png" />
+    <Content Include="Content\images\toolbarButton-pageUp.png" />
+    <Content Include="Content\images\toolbarButton-presentationMode%402x.png" />
+    <Content Include="Content\images\toolbarButton-presentationMode.png" />
+    <Content Include="Content\images\toolbarButton-print%402x.png" />
+    <Content Include="Content\images\toolbarButton-print.png" />
+    <Content Include="Content\images\toolbarButton-search%402x.png" />
+    <Content Include="Content\images\toolbarButton-search.png" />
+    <Content Include="Content\images\toolbarButton-secondaryToolbarToggle%402x.png" />
+    <Content Include="Content\images\toolbarButton-secondaryToolbarToggle-rtl%402x.png" />
+    <Content Include="Content\images\toolbarButton-secondaryToolbarToggle-rtl.png" />
+    <Content Include="Content\images\toolbarButton-secondaryToolbarToggle.png" />
+    <Content Include="Content\images\toolbarButton-sidebarToggle%402x.png" />
+    <Content Include="Content\images\toolbarButton-sidebarToggle-rtl%402x.png" />
+    <Content Include="Content\images\toolbarButton-sidebarToggle-rtl.png" />
+    <Content Include="Content\images\toolbarButton-sidebarToggle.png" />
+    <Content Include="Content\images\toolbarButton-viewAttachments%402x.png" />
+    <Content Include="Content\images\toolbarButton-viewAttachments.png" />
+    <Content Include="Content\images\toolbarButton-viewOutline%402x.png" />
+    <Content Include="Content\images\toolbarButton-viewOutline-rtl%402x.png" />
+    <Content Include="Content\images\toolbarButton-viewOutline-rtl.png" />
+    <Content Include="Content\images\toolbarButton-viewOutline.png" />
+    <Content Include="Content\images\toolbarButton-viewThumbnail%402x.png" />
+    <Content Include="Content\images\toolbarButton-viewThumbnail.png" />
+    <Content Include="Content\images\toolbarButton-zoomIn%402x.png" />
+    <Content Include="Content\images\toolbarButton-zoomIn.png" />
+    <Content Include="Content\images\toolbarButton-zoomOut%402x.png" />
+    <Content Include="Content\images\toolbarButton-zoomOut.png" />
+    <Content Include="Content\l10n.js" />
+    <Content Include="Content\pdf.js" />
+    <Content Include="Content\pdf.worker.js" />
+    <Content Include="Content\viewer.css" />
+    <Content Include="Content\viewer.html" />
+    <Content Include="Content\viewer.js" />
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Plus.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Magicodes.Core.Web\Magicodes.Core.Web.csproj">
+      <Project>{41dec0e9-15d8-4b2b-825a-3352c7fe909a}</Project>
+      <Name>Magicodes.Core.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Magicodes.Web.Interfaces\Magicodes.Web.Interfaces.csproj">
+      <Project>{a6c24c78-7185-4a57-ae23-9e12e5c30118}</Project>
+      <Name>Magicodes.Web.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PDFViewer\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\cmaps\78-EUC-H.bcmap" />
+    <Content Include="Content\cmaps\78-EUC-V.bcmap" />
+    <Content Include="Content\cmaps\78-H.bcmap" />
+    <Content Include="Content\cmaps\78-RKSJ-H.bcmap" />
+    <Content Include="Content\cmaps\78-RKSJ-V.bcmap" />
+    <Content Include="Content\cmaps\78-V.bcmap" />
+    <Content Include="Content\cmaps\78ms-RKSJ-H.bcmap" />
+    <Content Include="Content\cmaps\78ms-RKSJ-V.bcmap" />
+    <Content Include="Content\cmaps\83pv-RKSJ-H.bcmap" />
+    <Content Include="Content\cmaps\90ms-RKSJ-H.bcmap" />
+    <Content Include="Content\cmaps\90ms-RKSJ-V.bcmap" />
+    <Content Include="Content\cmaps\90msp-RKSJ-H.bcmap" />
+    <Content Include="Content\cmaps\90msp-RKSJ-V.bcmap" />
+    <Content Include="Content\cmaps\90pv-RKSJ-H.bcmap" />
+    <Content Include="Content\cmaps\90pv-RKSJ-V.bcmap" />
+    <Content Include="Content\cmaps\Add-H.bcmap" />
+    <Content Include="Content\cmaps\Add-RKSJ-H.bcmap" />
+    <Content Include="Content\cmaps\Add-RKSJ-V.bcmap" />
+    <Content Include="Content\cmaps\Add-V.bcmap" />
+    <Content Include="Content\cmaps\Adobe-CNS1-0.bcmap" />
+    <Content Include="Content\cmaps\Adobe-CNS1-1.bcmap" />
+    <Content Include="Content\cmaps\Adobe-CNS1-2.bcmap" />
+    <Content Include="Content\cmaps\Adobe-CNS1-3.bcmap" />
+    <Content Include="Content\cmaps\Adobe-CNS1-4.bcmap" />
+    <Content Include="Content\cmaps\Adobe-CNS1-5.bcmap" />
+    <Content Include="Content\cmaps\Adobe-CNS1-6.bcmap" />
+    <Content Include="Content\cmaps\Adobe-CNS1-UCS2.bcmap" />
+    <Content Include="Content\cmaps\Adobe-GB1-0.bcmap" />
+    <Content Include="Content\cmaps\Adobe-GB1-1.bcmap" />
+    <Content Include="Content\cmaps\Adobe-GB1-2.bcmap" />
+    <Content Include="Content\cmaps\Adobe-GB1-3.bcmap" />
+    <Content Include="Content\cmaps\Adobe-GB1-4.bcmap" />
+    <Content Include="Content\cmaps\Adobe-GB1-5.bcmap" />
+    <Content Include="Content\cmaps\Adobe-GB1-UCS2.bcmap" />
+    <Content Include="Content\cmaps\Adobe-Japan1-0.bcmap" />
+    <Content Include="Content\cmaps\Adobe-Japan1-1.bcmap" />
+    <Content Include="Content\cmaps\Adobe-Japan1-2.bcmap" />
+    <Content Include="Content\cmaps\Adobe-Japan1-3.bcmap" />
+    <Content Include="Content\cmaps\Adobe-Japan1-4.bcmap" />
+    <Content Include="Content\cmaps\Adobe-Japan1-5.bcmap" />
+    <Content Include="Content\cmaps\Adobe-Japan1-6.bcmap" />
+    <Content Include="Content\cmaps\Adobe-Japan1-UCS2.bcmap" />
+    <Content Include="Content\cmaps\Adobe-Korea1-0.bcmap" />
+    <Content Include="Content\cmaps\Adobe-Korea1-1.bcmap" />
+    <Content Include="Content\cmaps\Adobe-Korea1-2.bcmap" />
+    <Content Include="Content\cmaps\Adobe-Korea1-UCS2.bcmap" />
+    <Content Include="Content\cmaps\B5-H.bcmap" />
+    <Content Include="Content\cmaps\B5-V.bcmap" />
+    <Content Include="Content\cmaps\B5pc-H.bcmap" />
+    <Content Include="Content\cmaps\B5pc-V.bcmap" />
+    <Content Include="Content\cmaps\CNS-EUC-H.bcmap" />
+    <Content Include="Content\cmaps\CNS-EUC-V.bcmap" />
+    <Content Include="Content\cmaps\CNS1-H.bcmap" />
+    <Content Include="Content\cmaps\CNS1-V.bcmap" />
+    <Content Include="Content\cmaps\CNS2-H.bcmap" />
+    <Content Include="Content\cmaps\CNS2-V.bcmap" />
+    <Content Include="Content\cmaps\ETen-B5-H.bcmap" />
+    <Content Include="Content\cmaps\ETen-B5-V.bcmap" />
+    <Content Include="Content\cmaps\ETenms-B5-H.bcmap" />
+    <Content Include="Content\cmaps\ETenms-B5-V.bcmap" />
+    <Content Include="Content\cmaps\ETHK-B5-H.bcmap" />
+    <Content Include="Content\cmaps\ETHK-B5-V.bcmap" />
+    <Content Include="Content\cmaps\EUC-H.bcmap" />
+    <Content Include="Content\cmaps\EUC-V.bcmap" />
+    <Content Include="Content\cmaps\Ext-H.bcmap" />
+    <Content Include="Content\cmaps\Ext-RKSJ-H.bcmap" />
+    <Content Include="Content\cmaps\Ext-RKSJ-V.bcmap" />
+    <Content Include="Content\cmaps\Ext-V.bcmap" />
+    <Content Include="Content\cmaps\GB-EUC-H.bcmap" />
+    <Content Include="Content\cmaps\GB-EUC-V.bcmap" />
+    <Content Include="Content\cmaps\GB-H.bcmap" />
+    <Content Include="Content\cmaps\GB-V.bcmap" />
+    <Content Include="Content\cmaps\GBK-EUC-H.bcmap" />
+    <Content Include="Content\cmaps\GBK-EUC-V.bcmap" />
+    <Content Include="Content\cmaps\GBK2K-H.bcmap" />
+    <Content Include="Content\cmaps\GBK2K-V.bcmap" />
+    <Content Include="Content\cmaps\GBKp-EUC-H.bcmap" />
+    <Content Include="Content\cmaps\GBKp-EUC-V.bcmap" />
+    <Content Include="Content\cmaps\GBpc-EUC-H.bcmap" />
+    <Content Include="Content\cmaps\GBpc-EUC-V.bcmap" />
+    <Content Include="Content\cmaps\GBT-EUC-H.bcmap" />
+    <Content Include="Content\cmaps\GBT-EUC-V.bcmap" />
+    <Content Include="Content\cmaps\GBT-H.bcmap" />
+    <Content Include="Content\cmaps\GBT-V.bcmap" />
+    <Content Include="Content\cmaps\GBTpc-EUC-H.bcmap" />
+    <Content Include="Content\cmaps\GBTpc-EUC-V.bcmap" />
+    <Content Include="Content\cmaps\H.bcmap" />
+    <Content Include="Content\cmaps\Hankaku.bcmap" />
+    <Content Include="Content\cmaps\Hiragana.bcmap" />
+    <Content Include="Content\cmaps\HKdla-B5-H.bcmap" />
+    <Content Include="Content\cmaps\HKdla-B5-V.bcmap" />
+    <Content Include="Content\cmaps\HKdlb-B5-H.bcmap" />
+    <Content Include="Content\cmaps\HKdlb-B5-V.bcmap" />
+    <Content Include="Content\cmaps\HKgccs-B5-H.bcmap" />
+    <Content Include="Content\cmaps\HKgccs-B5-V.bcmap" />
+    <Content Include="Content\cmaps\HKm314-B5-H.bcmap" />
+    <Content Include="Content\cmaps\HKm314-B5-V.bcmap" />
+    <Content Include="Content\cmaps\HKm471-B5-H.bcmap" />
+    <Content Include="Content\cmaps\HKm471-B5-V.bcmap" />
+    <Content Include="Content\cmaps\HKscs-B5-H.bcmap" />
+    <Content Include="Content\cmaps\HKscs-B5-V.bcmap" />
+    <Content Include="Content\cmaps\Katakana.bcmap" />
+    <Content Include="Content\cmaps\KSC-EUC-H.bcmap" />
+    <Content Include="Content\cmaps\KSC-EUC-V.bcmap" />
+    <Content Include="Content\cmaps\KSC-H.bcmap" />
+    <Content Include="Content\cmaps\KSC-Johab-H.bcmap" />
+    <Content Include="Content\cmaps\KSC-Johab-V.bcmap" />
+    <Content Include="Content\cmaps\KSC-V.bcmap" />
+    <Content Include="Content\cmaps\KSCms-UHC-H.bcmap" />
+    <Content Include="Content\cmaps\KSCms-UHC-HW-H.bcmap" />
+    <Content Include="Content\cmaps\KSCms-UHC-HW-V.bcmap" />
+    <Content Include="Content\cmaps\KSCms-UHC-V.bcmap" />
+    <Content Include="Content\cmaps\KSCpc-EUC-H.bcmap" />
+    <Content Include="Content\cmaps\KSCpc-EUC-V.bcmap" />
+    <Content Include="Content\cmaps\LICENSE" />
+    <Content Include="Content\cmaps\NWP-H.bcmap" />
+    <Content Include="Content\cmaps\NWP-V.bcmap" />
+    <Content Include="Content\cmaps\RKSJ-H.bcmap" />
+    <Content Include="Content\cmaps\RKSJ-V.bcmap" />
+    <Content Include="Content\cmaps\Roman.bcmap" />
+    <Content Include="Content\cmaps\UniCNS-UCS2-H.bcmap" />
+    <Content Include="Content\cmaps\UniCNS-UCS2-V.bcmap" />
+    <Content Include="Content\cmaps\UniCNS-UTF16-H.bcmap" />
+    <Content Include="Content\cmaps\UniCNS-UTF16-V.bcmap" />
+    <Content Include="Content\cmaps\UniCNS-UTF32-H.bcmap" />
+    <Content Include="Content\cmaps\UniCNS-UTF32-V.bcmap" />
+    <Content Include="Content\cmaps\UniCNS-UTF8-H.bcmap" />
+    <Content Include="Content\cmaps\UniCNS-UTF8-V.bcmap" />
+    <Content Include="Content\cmaps\UniGB-UCS2-H.bcmap" />
+    <Content Include="Content\cmaps\UniGB-UCS2-V.bcmap" />
+    <Content Include="Content\cmaps\UniGB-UTF16-H.bcmap" />
+    <Content Include="Content\cmaps\UniGB-UTF16-V.bcmap" />
+    <Content Include="Content\cmaps\UniGB-UTF32-H.bcmap" />
+    <Content Include="Content\cmaps\UniGB-UTF32-V.bcmap" />
+    <Content Include="Content\cmaps\UniGB-UTF8-H.bcmap" />
+    <Content Include="Content\cmaps\UniGB-UTF8-V.bcmap" />
+    <Content Include="Content\cmaps\UniJIS-UCS2-H.bcmap" />
+    <Content Include="Content\cmaps\UniJIS-UCS2-HW-H.bcmap" />
+    <Content Include="Content\cmaps\UniJIS-UCS2-HW-V.bcmap" />
+    <Content Include="Content\cmaps\UniJIS-UCS2-V.bcmap" />
+    <Content Include="Content\cmaps\UniJIS-UTF16-H.bcmap" />
+    <Content Include="Content\cmaps\UniJIS-UTF16-V.bcmap" />
+    <Content Include="Content\cmaps\UniJIS-UTF32-H.bcmap" />
+    <Content Include="Content\cmaps\UniJIS-UTF32-V.bcmap" />
+    <Content Include="Content\cmaps\UniJIS-UTF8-H.bcmap" />
+    <Content Include="Content\cmaps\UniJIS-UTF8-V.bcmap" />
+    <Content Include="Content\cmaps\UniJIS2004-UTF16-H.bcmap" />
+    <Content Include="Content\cmaps\UniJIS2004-UTF16-V.bcmap" />
+    <Content Include="Content\cmaps\UniJIS2004-UTF32-H.bcmap" />
+    <Content Include="Content\cmaps\UniJIS2004-UTF32-V.bcmap" />
+    <Content Include="Content\cmaps\UniJIS2004-UTF8-H.bcmap" />
+    <Content Include="Content\cmaps\UniJIS2004-UTF8-V.bcmap" />
+    <Content Include="Content\cmaps\UniJISPro-UCS2-HW-V.bcmap" />
+    <Content Include="Content\cmaps\UniJISPro-UCS2-V.bcmap" />
+    <Content Include="Content\cmaps\UniJISPro-UTF8-V.bcmap" />
+    <Content Include="Content\cmaps\UniJISX0213-UTF32-H.bcmap" />
+    <Content Include="Content\cmaps\UniJISX0213-UTF32-V.bcmap" />
+    <Content Include="Content\cmaps\UniJISX02132004-UTF32-H.bcmap" />
+    <Content Include="Content\cmaps\UniJISX02132004-UTF32-V.bcmap" />
+    <Content Include="Content\cmaps\UniKS-UCS2-H.bcmap" />
+    <Content Include="Content\cmaps\UniKS-UCS2-V.bcmap" />
+    <Content Include="Content\cmaps\UniKS-UTF16-H.bcmap" />
+    <Content Include="Content\cmaps\UniKS-UTF16-V.bcmap" />
+    <Content Include="Content\cmaps\UniKS-UTF32-H.bcmap" />
+    <Content Include="Content\cmaps\UniKS-UTF32-V.bcmap" />
+    <Content Include="Content\cmaps\UniKS-UTF8-H.bcmap" />
+    <Content Include="Content\cmaps\UniKS-UTF8-V.bcmap" />
+    <Content Include="Content\cmaps\V.bcmap" />
+    <Content Include="Content\cmaps\WP-Symbol.bcmap" />
+    <Content Include="Content\images\Thumbs.db" />
+    <Content Include="Content\locale\ach\viewer.properties" />
+    <Content Include="Content\locale\af\viewer.properties" />
+    <Content Include="Content\locale\ak\viewer.properties" />
+    <Content Include="Content\locale\an\viewer.properties" />
+    <Content Include="Content\locale\ar\viewer.properties" />
+    <Content Include="Content\locale\ast\viewer.properties" />
+    <Content Include="Content\locale\as\viewer.properties" />
+    <Content Include="Content\locale\az\viewer.properties" />
+    <Content Include="Content\locale\be\viewer.properties" />
+    <Content Include="Content\locale\bg\viewer.properties" />
+    <Content Include="Content\locale\bn-BD\viewer.properties" />
+    <Content Include="Content\locale\bn-IN\viewer.properties" />
+    <Content Include="Content\locale\br\viewer.properties" />
+    <Content Include="Content\locale\bs\viewer.properties" />
+    <Content Include="Content\locale\ca\viewer.properties" />
+    <Content Include="Content\locale\csb\viewer.properties" />
+    <Content Include="Content\locale\cs\viewer.properties" />
+    <Content Include="Content\locale\cy\viewer.properties" />
+    <Content Include="Content\locale\da\viewer.properties" />
+    <Content Include="Content\locale\de\viewer.properties" />
+    <Content Include="Content\locale\el\viewer.properties" />
+    <Content Include="Content\locale\en-GB\viewer.properties" />
+    <Content Include="Content\locale\en-US\viewer.properties" />
+    <Content Include="Content\locale\en-ZA\viewer.properties" />
+    <Content Include="Content\locale\eo\viewer.properties" />
+    <Content Include="Content\locale\es-AR\viewer.properties" />
+    <Content Include="Content\locale\es-CL\viewer.properties" />
+    <Content Include="Content\locale\es-ES\viewer.properties" />
+    <Content Include="Content\locale\es-MX\viewer.properties" />
+    <Content Include="Content\locale\et\viewer.properties" />
+    <Content Include="Content\locale\eu\viewer.properties" />
+    <Content Include="Content\locale\fa\viewer.properties" />
+    <Content Include="Content\locale\ff\viewer.properties" />
+    <Content Include="Content\locale\fi\viewer.properties" />
+    <Content Include="Content\locale\fr\viewer.properties" />
+    <Content Include="Content\locale\fy-NL\viewer.properties" />
+    <Content Include="Content\locale\ga-IE\viewer.properties" />
+    <Content Include="Content\locale\gd\viewer.properties" />
+    <Content Include="Content\locale\gl\viewer.properties" />
+    <Content Include="Content\locale\gu-IN\viewer.properties" />
+    <Content Include="Content\locale\he\viewer.properties" />
+    <Content Include="Content\locale\hi-IN\viewer.properties" />
+    <Content Include="Content\locale\hr\viewer.properties" />
+    <Content Include="Content\locale\hu\viewer.properties" />
+    <Content Include="Content\locale\hy-AM\viewer.properties" />
+    <Content Include="Content\locale\id\viewer.properties" />
+    <Content Include="Content\locale\is\viewer.properties" />
+    <Content Include="Content\locale\it\viewer.properties" />
+    <Content Include="Content\locale\ja\viewer.properties" />
+    <Content Include="Content\locale\ka\viewer.properties" />
+    <Content Include="Content\locale\kk\viewer.properties" />
+    <Content Include="Content\locale\km\viewer.properties" />
+    <Content Include="Content\locale\kn\viewer.properties" />
+    <Content Include="Content\locale\ko\viewer.properties" />
+    <Content Include="Content\locale\ku\viewer.properties" />
+    <Content Include="Content\locale\lg\viewer.properties" />
+    <Content Include="Content\locale\lij\viewer.properties" />
+    <Content Include="Content\locale\locale.properties" />
+    <Content Include="Content\locale\lt\viewer.properties" />
+    <Content Include="Content\locale\lv\viewer.properties" />
+    <Content Include="Content\locale\mai\viewer.properties" />
+    <Content Include="Content\locale\mk\viewer.properties" />
+    <Content Include="Content\locale\ml\viewer.properties" />
+    <Content Include="Content\locale\mn\viewer.properties" />
+    <Content Include="Content\locale\mr\viewer.properties" />
+    <Content Include="Content\locale\ms\viewer.properties" />
+    <Content Include="Content\locale\my\viewer.properties" />
+    <Content Include="Content\locale\nb-NO\viewer.properties" />
+    <Content Include="Content\locale\nl\viewer.properties" />
+    <Content Include="Content\locale\nn-NO\viewer.properties" />
+    <Content Include="Content\locale\nso\viewer.properties" />
+    <Content Include="Content\locale\oc\viewer.properties" />
+    <Content Include="Content\locale\or\viewer.properties" />
+    <Content Include="Content\locale\pa-IN\viewer.properties" />
+    <Content Include="Content\locale\pl\viewer.properties" />
+    <Content Include="Content\locale\pt-BR\viewer.properties" />
+    <Content Include="Content\locale\pt-PT\viewer.properties" />
+    <Content Include="Content\locale\rm\viewer.properties" />
+    <Content Include="Content\locale\ro\viewer.properties" />
+    <Content Include="Content\locale\ru\viewer.properties" />
+    <Content Include="Content\locale\rw\viewer.properties" />
+    <Content Include="Content\locale\sah\viewer.properties" />
+    <Content Include="Content\locale\si\viewer.properties" />
+    <Content Include="Content\locale\sk\viewer.properties" />
+    <Content Include="Content\locale\sl\viewer.properties" />
+    <Content Include="Content\locale\son\viewer.properties" />
+    <Content Include="Content\locale\sq\viewer.properties" />
+    <Content Include="Content\locale\sr\viewer.properties" />
+    <Content Include="Content\locale\sv-SE\viewer.properties" />
+    <Content Include="Content\locale\sw\viewer.properties" />
+    <Content Include="Content\locale\ta-LK\viewer.properties" />
+    <Content Include="Content\locale\ta\viewer.properties" />
+    <Content Include="Content\locale\te\viewer.properties" />
+    <Content Include="Content\locale\th\viewer.properties" />
+    <Content Include="Content\locale\tl\viewer.properties" />
+    <Content Include="Content\locale\tn\viewer.properties" />
+    <Content Include="Content\locale\tr\viewer.properties" />
+    <Content Include="Content\locale\uk\viewer.properties" />
+    <Content Include="Content\locale\ur\viewer.properties" />
+    <Content Include="Content\locale\vi\viewer.properties" />
+    <Content Include="Content\locale\wo\viewer.properties" />
+    <Content Include="Content\locale\xh\viewer.properties" />
+    <Content Include="Content\locale\zh-CN\viewer.properties" />
+    <Content Include="Content\locale\zh-TW\viewer.properties" />
+    <Content Include="Content\locale\zu\viewer.properties" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>11684</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:11684/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。启用“NuGet 程序包还原”可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

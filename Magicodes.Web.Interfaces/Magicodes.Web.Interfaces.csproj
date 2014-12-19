@@ -63,6 +63,8 @@
     <Compile Include="Config\Info\MailConfigInfo.cs" />
     <Compile Include="Config\Info\SiteConfigInfo.cs" />
     <Compile Include="Config\Info\SystemConfigInfo.cs" />
+    <Compile Include="DocumentProtocols\DocumentsOpenProtocolManager.cs" />
+    <Compile Include="DocumentProtocols\DocumentOpenProtocol.cs" />
     <Compile Include="Events\ApplicationArgs.cs" />
     <Compile Include="Events\ApplicationEvents.cs" />
     <Compile Include="Events\EventsManager.cs" />

@@ -1,45 +1,46 @@
 @model Magicodes.Mvc.Default.Models.LoginViewModel
 
 @{
-    ViewBag.Title = "µÇÂ¼ | Magicodes";
+    ViewBag.Title = "µÇÂ¼ | Magicodes.NET";
 }
-
-<div class="am-g" style="margin-top:80px;">
-    <div class="col-lg-6 col-md-8 col-sm-centered">
-
-        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "am-form", role = "form" }))
-        {
-            <h2>@ViewBag.Title</h2>
-            <hr>
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true, "", new { @class = "" })
-
+<div class="m-page-title">
+    <h1>
+        µÇÂ¼<br>
+        <small>Äú¿ÉÒÔÑ¡ÔñQQºÍÎ¢ÈíµÈÕÊºÅµÇÂ¼</small>
+    </h1>
+</div>
+<div class="m-page-main">
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-small", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "" })
+        <div class="form-group">
             @Html.LabelFor(m => m.LoginName, new { @class = "" })
-
-            @Html.TextBoxFor(m => m.LoginName, new { @class = "" })
+            @Html.TextBoxFor(m => m.LoginName, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.LoginName, "", new { @class = "" })
-            <br>
-
+        </div>
+        <div class="form-group">
             @Html.LabelFor(m => m.Password, new { @class = "" })
-
-            @Html.PasswordFor(m => m.Password, new { @class = "" })
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "" })
-
-            <br>
+        </div>
+        <div class="checkbox">
             @Html.CheckBoxFor(m => m.RememberMe)
             @Html.LabelFor(m => m.RememberMe)
-
-            <br />
-            <div class="am-cf">
-                <input type="submit" name="" value="µÇ Â¼" class="am-btn am-btn-primary am-btn-sm am-fl">
-                <a href="/account/Register"><input type="button" name="" value="×¢  ²á" class="am-btn am-btn-default am-btn-sm am-fr"></a>
-                <a href="/account/ForgotPassword"><input type="button" name="" value="Íü¼ÇÃÜÂë ^_^? " class="am-btn am-btn-default am-btn-sm am-fr"></a>
-            </div>
-
-        }
-        <br />
-        @Html.Partial("_ExternalLoginsListPartial", new Magicodes.Mvc.Default.Models.ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-    </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-smile-o"></i>
+                µÇ Â¼
+            </button>
+            <button type="submit" class="btn btn-warning">
+                <i class="fa fa-meh-o"></i>
+                Íü¼ÇÃÜÂë ^_^?
+            </button>
+        </div>
+    }
+    <br />
+    @Html.Partial("_ExternalLoginsListPartial", new Magicodes.Mvc.Default.Models.ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

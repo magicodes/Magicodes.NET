@@ -311,7 +311,7 @@ namespace Magicodes.Strategy.Identity
                         clientSecret: microsoftAccount.Secret);
                 }
                 #endregion
-                #region 启用微软账号登陆
+                #region 启用QQ账号登陆
                 var qqAccount = oauthConfig.AccountConfigInfoList.FirstOrDefault(p => p.Enable && p.AccountType == AccountTypes.QQ);
                 if (qqAccount != null)
                 {

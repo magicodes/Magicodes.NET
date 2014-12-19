@@ -114,11 +114,12 @@ namespace Magicodes.Core.Web
         {
             RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             AreaRegistration.RegisterAllAreas();
-            //RouteTable.Routes.MapRoute(
-            //    name: "Default",
-            //    url: "{controller}/{action}/{id}",
-            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            //);
+
+            RouteTable.Routes.MapRoute(
+                name: "DocumentViewerController",
+                url: "DocumentViewer",
+                defaults: new { controller = "DocumentViewer", action = "Index", id = UrlParameter.Optional }
+            );
 
             //HttpConfiguration config = (HttpConfiguration)sender;
             foreach (var mvcPlus in MvcConfigManager.MVCPlusList.OrderByDescending(p => p.MvcPlusType))
@@ -127,7 +128,10 @@ namespace Magicodes.Core.Web
                 {
                     case MvcPlusTypes.MVCHome:
                         {
-                            RouteTable.Routes.MapRoute(name: "MCV_" + mvcPlus.PlusName, url: "{controller}/{action}/{id}", defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, pluginName = mvcPlus.PlusName });
+                            RouteTable.Routes.MapRoute(
+                                name: "MCV_" + mvcPlus.PlusName,
+                                url: "{controller}/{action}/{id}",
+                                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, pluginName = mvcPlus.PlusName });
                         }
                         break;
                     case MvcPlusTypes.MVC:
@@ -160,6 +164,7 @@ namespace Magicodes.Core.Web
               name: "WebAPI",
               routeTemplate: "api/{controller}/{id}",
               defaults: new { id = RouteParameter.Optional }
+
           );
         }
     }

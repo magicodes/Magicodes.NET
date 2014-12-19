@@ -1,5 +1,6 @@
 ﻿using Magicodes.Web.Interfaces.Config;
 using Magicodes.Web.Interfaces.Config.Info;
+using Magicodes.Web.Interfaces.DocumentProtocols;
 using Magicodes.Web.Interfaces.Paths;
 using Magicodes.Web.Interfaces.Plus;
 using Magicodes.Web.Interfaces.Plus.Resource;
@@ -25,12 +26,25 @@ namespace Magicodes.Web.Interfaces
     /// </summary>
     public abstract class ApplicationContextBase
     {
+        /// <summary>
+        /// 站点路径信息
+        /// </summary>
         readonly Lazy<SitePaths> sitePaths = new Lazy<SitePaths>(() => new SitePaths());
+
+        /// <summary>
+        /// 文档打开协议管理器
+        /// </summary>
+        readonly Lazy<DocumentsOpenProtocolManager> documentsOpenProtocolManager = new Lazy<DocumentsOpenProtocolManager>(() => new DocumentsOpenProtocolManager());
+
         #region 属性
         /// <summary>
         /// 网站路径
         /// </summary>
         public SitePaths SitePaths { get { return sitePaths.Value; } }
+        /// <summary>
+        /// 文档打开协议管理器
+        /// </summary>
+        public DocumentsOpenProtocolManager DocumentsOpenProtocolManager { get { return documentsOpenProtocolManager.Value; } }
         /// <summary>
         /// 应用程序日志对象
         /// </summary>
@@ -64,7 +78,7 @@ namespace Magicodes.Web.Interfaces
         /// WebHandler列表
         /// </summary>
         public virtual List<IWebHandlerInfo> WebHandlerList { get; set; }
-       
+
         /// <summary>
         /// 插件列表
         /// </summary>

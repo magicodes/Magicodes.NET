@@ -74,13 +74,13 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.OData.Core, Version=6.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.OData.Core, Version=6.9.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.OData.Core.6.8.1\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Core.dll</HintPath>
+      <HintPath>..\packages\Microsoft.OData.Core.6.9.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.OData.Edm, Version=6.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.OData.Edm, Version=6.9.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.OData.Edm.6.8.1\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Edm.dll</HintPath>
+      <HintPath>..\packages\Microsoft.OData.Edm.6.9.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Edm.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -102,9 +102,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Spatial, Version=6.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Spatial, Version=6.9.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Spatial.6.8.1\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Spatial.6.9.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -188,6 +188,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Config\AccountAuthenticationInfo.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\Config\MailConfigInfo.config">
       <SubType>Designer</SubType>
     </Content>
@@ -223,6 +226,10 @@
     <Content Include="assets\js\handlebars.min.js" />
     <Content Include="assets\js\jquery-2.1.1.min.js" />
     <Content Include="assets\js\zepto.min.js" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\magicodes-home.css" />
     <Content Include="dev\blog\css\bootstrap.css" />
     <Content Include="dev\blog\css\bootstrap.min.css" />
     <Content Include="dev\blog\css\font-awesome.min.css" />
@@ -258,6 +265,7 @@
     <Content Include="dev\home\img\icon-128.png" />
     <Content Include="dev\home\img\logo-l.png" />
     <Content Include="dev\home\img\logo.png" />
+    <Content Include="dev\home\index-logined.html" />
     <Content Include="dev\home\index.html" />
     <Content Include="dev\home\js\bootstrap.min.js" />
     <Content Include="dev\home\js\jquery-1.11.1.min.js" />
@@ -270,6 +278,7 @@
     <Content Include="dev\home\page.html" />
     <Content Include="dev\home\register.html" />
     <Content Include="dev\home\template.html" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\avatars\avatar.png" />
     <Content Include="images\avatars\avatar1.png" />
@@ -280,6 +289,18 @@
     <Content Include="images\avatars\profile-pic.jpg" />
     <Content Include="images\avatars\user.jpg" />
     <Content Include="images\QQ.png" />
+    <Content Include="img\bg-grain1.png" />
+    <Content Include="img\bg-grain2.png" />
+    <Content Include="img\bg-index.png" />
+    <Content Include="img\bg-index2.png" />
+    <Content Include="img\bg-index3.png" />
+    <Content Include="img\icon-128.png" />
+    <Content Include="img\logo-l.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery-1.11.1.min.js" />
+    <Content Include="js\jquery-2.1.1.min.js" />
+    <Content Include="js\magicodes-home.js" />
     <Content Include="Plus\ReadMe.txt" />
     <Content Include="Scripts\datajs-1.1.2.min.js" />
     <Content Include="Scripts\jqPlus\jquery.tmpl\jquery.tmpl.js" />
@@ -312,6 +333,8 @@
     <Content Include="dev\home\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="dev\home\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="dev\home\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\本地.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />

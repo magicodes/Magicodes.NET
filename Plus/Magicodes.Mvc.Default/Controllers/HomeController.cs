@@ -35,10 +35,6 @@ namespace Magicodes.Mvc.Default.Controllers
             Magicodes.Models.Mvc.AppDbContext db = new AppDbContext();
             return View(db.PublishVersions.Where(moer=>moer.Deleted==false).ToList().OrderByDescending(item=>item.CreateTime));
         }
-        public ActionResult Start()
-        {
-            return View();
-        }
         public ActionResult License()
         {
             return View();
