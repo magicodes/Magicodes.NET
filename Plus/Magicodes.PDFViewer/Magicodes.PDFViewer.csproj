@@ -40,7 +40,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -50,6 +57,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -57,6 +67,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease">
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -82,6 +95,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BundleConfig.cs" />
+    <Compile Include="Controllers\PDFViewerController.cs" />
     <Compile Include="Plus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -176,7 +191,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -504,6 +518,32 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>set "targetDir=$(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)\$(OutDir)"
+if not exist %25targetDir%25 md %25targetDir%25
+echo f | xcopy "$(TargetPath)" %25targetDir%25 /Y
+
+
+set "viewDir= $(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)\Views"
+if not exist %25viewDir%25 md %25viewDir%25
+echo f | xcopy /R /I /Y /S  "$(ProjectDir)/Views" %25viewDir%25 
+
+set "contentDir= $(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)\Content"
+if not exist %25contentDir%25 md %25contentDir%25
+echo f | xcopy /R /I /Y /S  "$(ProjectDir)/Content" %25contentDir%25 
+
+set "AreasDir= $(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)\Areas"
+if not exist %25AreasDir%25 md %25AreasDir%25
+echo f | xcopy /R /I /Y /S  "$(ProjectDir)/Areas" %25AreasDir%25
+
+cd /d $(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)
+ del /a /f /s /q *.cs
+ del /a /f /s /q *.pdb
+ del /a /f /s /q *.tt
+
+
+echo f | xcopy "$(ProjectDir)Plus.config" "$(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)\"  /Y</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

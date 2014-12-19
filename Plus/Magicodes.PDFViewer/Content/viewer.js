@@ -54,9 +54,9 @@ var FindStates = {
   FIND_PENDING: 3
 };
 
-PDFJS.imageResourcesPath = './images/';
-  PDFJS.workerSrc = '../build/pdf.worker.js';
-  PDFJS.cMapUrl = '../web/cmaps/';
+PDFJS.imageResourcesPath = '/plus/Plugins/Magicodes.PDFViewer/Content/images/';
+PDFJS.workerSrc = '/plus/Plugins/Magicodes.PDFViewer/Content/pdf.worker.js';
+PDFJS.cMapUrl = '/plus/Plugins/Magicodes.PDFViewer/Content/cmaps/';
   PDFJS.cMapPacked = true;
 
 var mozL10n = document.mozL10n || document.webL10n;
@@ -5458,7 +5458,7 @@ function webViewerLoad(evt) {
 
 function webViewerInitialized() {
   var params = PDFView.parseQueryString(document.location.search.substring(1));
-  var file = 'file' in params ? params.file : DEFAULT_URL;
+  var file = 'filePath' in params ? params.filePath : DEFAULT_URL;
 
   var fileInput = document.createElement('input');
   fileInput.id = 'fileInput';

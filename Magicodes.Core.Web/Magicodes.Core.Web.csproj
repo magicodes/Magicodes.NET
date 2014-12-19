@@ -138,9 +138,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AdminControllerBase.cs" />
-    <Compile Include="Controllers\DocumentViewerController.cs" />
+    <Compile Include="Controllers\Viewer\DocumentViewerController.cs" />
     <Compile Include="Controllers\ODataControllerBase.cs" />
     <Compile Include="Controllers\PlusControllerBase.cs" />
+    <Compile Include="Controllers\Viewer\ViewModel\DocumentProtocolInfo.cs" />
     <Compile Include="GlobalConfigurationManager.cs" />
     <Compile Include="Mvc\MvcConfigManager.cs" />
     <Compile Include="Mvc\PluginControllerFactory.cs" />

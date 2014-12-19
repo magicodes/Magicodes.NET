@@ -311,7 +311,6 @@
     <Content Include="Scripts\jqPlus\jquery.tmpl\jquery.tmplPlus.min.js">
       <DependentUpon>jquery.tmplPlus.js</DependentUpon>
     </Content>
-    <Content Include="Plus\Web.config" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -611,6 +610,7 @@
     <Folder Include="Plus\bin\" />
     <Folder Include="Plus\Plugins\" />
     <Folder Include="Scripts\ace\colorbox\images\UploadFiles\" />
+    <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Magicodes.Core.Web\Magicodes.Core.Web.csproj">

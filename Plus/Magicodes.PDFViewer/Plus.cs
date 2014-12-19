@@ -29,7 +29,7 @@ namespace Magicodes.PDFViewer
                 protocols.Add(new DocumentOpenProtocol()
                 {
                     ContentType = "application/pdf",
-                    ViewerUrl = "/_Magicodes.PDFViewer/PDFViewer"
+                    ViewerUrl = "/plus/Plugins/Magicodes.PDFViewer/Views/PDFViewer/Index.cshtml"
                 });
             }
         }

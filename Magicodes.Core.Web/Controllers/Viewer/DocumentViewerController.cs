@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Magicodes.Core.Web.Controllers.Viewer.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,7 +41,7 @@ namespace Magicodes.Core.Web.Controllers
             if (protocol != null)
             {
                 //return RedirectToAction(protocol.ViewerUrl, new { FilePath = filePath });
-                return View(protocol.ViewerUrl, new { FilePath = filePath });
+                return View(protocol.ViewerUrl, new DocumentProtocolInfo() { FilePath = filePath, ContentType = contentType });
             }
             //如果不存在，则下载
             return File(filePath, contentType);
