@@ -24,11 +24,10 @@
                     {
                         if (@p.Caption == "QQ账号")
                         {
-                            <button type="submit" class="btn btn-primary" onclick="javascript:document.getElementById('qqLogin').click();">
+                            <button type="submit" class="btn btn-primary" type="submit" name="provider" value="@p.AuthenticationType" title="使用你的 @p.Caption 帐户登录">
                                 <i class="fa fa-qq"></i>
                                 QQ登录
                             </button>
-                            <button style="display:none;" id="qqLogin" type="submit" class="am-btn am-btn-secondary am-btn-sm" name="provider" value="@p.AuthenticationType" title="使用你的 @p.Caption 帐户登录">@p.Caption</button>
                         }
                         else if (@p.Caption == "Microsoft")
                         {
