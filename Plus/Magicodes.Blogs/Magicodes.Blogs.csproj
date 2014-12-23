@@ -136,7 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Blogs\Models\" />
-    <Folder Include="Areas\Blogs\Views\Shared\" />
     <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +159,12 @@
       <Project>{f870b446-346e-461e-9f5f-b6463bc8cafc}</Project>
       <Name>Magicodes.Models.Blog</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Blogs\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Blogs\Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

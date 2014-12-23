@@ -1,0 +1,161 @@
+﻿@using StackExchange.Profiling;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/magicodes-blog.css">
+    <link rel="stylesheet" href="/theme/dafault/blog-theme.css">
+    @RenderSection("HeaderScripts", required: false)
+</head>
+<body class="theme-default">
+    <div class="topbar">
+        <div class="top-menu">
+            <div>
+                <img src="/img/logo-l.png" alt="Magicodes" height="20">
+            </div>
+            <div>
+                <i class="fa fa-home"></i>
+                <a href="#">网站首页</a>
+            </div>
+            <div>
+                <i class="fa fa-home"></i>
+                <a href="#">博客首页</a>
+            </div>
+            <div>
+                <i class="fa fa-info-circle"></i>
+                <a href="#">专题</a>
+            </div>
+            <div>
+                <i class="fa fa-file-text-o"></i>
+                <a href="#">博客文章</a>
+            </div>
+            <div>
+                <i class="fa fa-tags"></i>
+                <a href="#">分类/标签</a>
+            </div>
+            <div class="dropdown">
+                <i class="fa fa-cog"></i>
+                <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    快捷管理
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-pencil-square-o"></i>
+                            发表文章
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-wrench"></i>
+                            系统管理
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-power-off"></i>
+                            注销
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="top-user-search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="搜索">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+            <!--
+                <div>
+                  <i class="fa fa-user"></i>
+                  <a href="#">登录</a>
+                </div>
+                <div>
+                  <i class="fa fa-university"></i>
+                  <a href="#">加入我们</a>
+                </div>
+            -->
+        </div>
+    </div>
+    <div class="header">
+        <h1>
+            Magicodes.NET 官方博客<br>
+            <small>Magicodes.NET 官方博客</small>
+        </h1>
+    </div>
+
+    @RenderBody();
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>关于我们</h2>
+                    <p>
+                        <i class="fa fa-users"></i>
+                        <a href="#">团队成员介绍</a>
+                    </p>
+                    <p>
+                        Magicodes.NET团队是一群代码爱好者组成的团队，是一个崇尚开源的团队。开源，是我们的理念。同时，我们也希望大家也能贡献自己的插件源码，让我们一起前行。
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h2>参与讨论</h2>
+                    <p>
+                        <i class="fa fa-qq fa-fw"></i>.NET技术交流1群
+                        <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=4c998913f2aec27dfcfabaf075377d699b415c79a5ee4dd759ecc49469bb0055">
+                            <img src="http://pub.idqqimg.com/wpa/images/group.png" alt=".NET交流1（.NET）" title=".NET交流1（.NET）">
+                        </a>
+                    </p>
+                    <p>
+                        <i class="fa fa-envelope-o fa-fw"></i>官方邮箱：<a href="mailto:magicodes@magicodes.net">xxx<i class="fa fa-at"></i>magicodes.net</a>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h2>版权协议</h2>
+                    <p>
+                        <i class="fa fa-file fa-fw"></i>
+                        框架使用协议
+                        <a href="/Home/License">Magicodes.NET License</a>
+                    </p>
+                    <p>
+                        <i class="fa fa-file fa-fw"></i>
+                        代码开源协议
+                        <a href="http://www.gnu.org/licenses/gpl.html">GNU GPL v3</a>
+                    </p>
+                    <p>
+                        <i class="fa fa-file fa-fw"></i>
+                        文档开源协议
+                        <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0 </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/jquery-2.1.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/theme/dafault/blog-theme.js"></script>
+    @RenderSection("FootScripts", required: false)
+    @RenderSection("Scripts", required: false)
+    @MiniProfiler.RenderIncludes()
+    <div class="footer-sole">
+        2014&nbsp;Magicodes.NET团队
+        <script type="text/javascript">
+            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F1e2bac9de51e2c8f3a95fd9eda7a87b9' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+    </div>
+</body>
+</html>

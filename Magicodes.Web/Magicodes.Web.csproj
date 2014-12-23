@@ -229,6 +229,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\magicodes-blog.css" />
     <Content Include="css\magicodes-home.css" />
     <Content Include="dev\blog\css\bootstrap.css" />
     <Content Include="dev\blog\css\bootstrap.min.css" />
@@ -294,12 +295,14 @@
     <Content Include="img\bg-index.png" />
     <Content Include="img\bg-index2.png" />
     <Content Include="img\bg-index3.png" />
+    <Content Include="img\demo01.jpg" />
     <Content Include="img\icon-128.png" />
     <Content Include="img\logo-l.png" />
     <Content Include="img\logo.png" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-1.11.1.min.js" />
     <Content Include="js\jquery-2.1.1.min.js" />
+    <Content Include="js\magicodes-blog.js" />
     <Content Include="js\magicodes-home.js" />
     <Content Include="Plus\ReadMe.txt" />
     <Content Include="Scripts\datajs-1.1.2.min.js" />
@@ -561,6 +564,11 @@
     <Content Include="Scripts\text.js" />
     <Content Include="Scripts\util\aceCheck.js" />
     <Content Include="Scripts\util\browsers.js" />
+    <Content Include="theme\dafault\bg-grain1.png" />
+    <Content Include="theme\dafault\bg-grain2.png" />
+    <Content Include="theme\dafault\bg-header.png" />
+    <Content Include="theme\dafault\blog-theme.css" />
+    <Content Include="theme\dafault\blog-theme.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
