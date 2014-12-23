@@ -76,7 +76,15 @@ namespace Magicodes.Core.Web.Utility
         {
             return HttpUtility.UrlEncode(s);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stylePlusSrc"></param>
+        /// <returns></returns>
+        //public static string RenderPlusStyles(string stylePlusSrc)
+        //{
+                
+        //}
         #endregion
 
         #region Cookie

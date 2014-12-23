@@ -20,11 +20,17 @@
 
     void DeleteOldOutputs()
     {
-        EnvDTE.ProjectItem templateProjectItem = __getTemplateProjectItem();
-        foreach (EnvDTE.ProjectItem childProjectItem in templateProjectItem.ProjectItems)
+        try
         {
-            if (!__savedOutputs.Contains(childProjectItem.Name))
-                childProjectItem.Delete();
+            EnvDTE.ProjectItem templateProjectItem = __getTemplateProjectItem();
+            foreach (EnvDTE.ProjectItem childProjectItem in templateProjectItem.ProjectItems)
+            {
+                if (!__savedOutputs.Contains(childProjectItem.Name))
+                    childProjectItem.Delete();
+            }
+        }
+        catch
+        {
         }
     }
 
@@ -45,16 +51,22 @@
 
     void SaveOutput(string outputFileName)
     {
-        string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
-        string outputFilePath = Path.Combine(templateDirectory, outputFileName);
+        try
+        {
+            string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+            string outputFilePath = Path.Combine(templateDirectory, outputFileName);
 
-        File.WriteAllText(outputFilePath, this.GenerationEnvironment.ToString(),Encoding.UTF8);
-        this.GenerationEnvironment = new StringBuilder();
+            File.WriteAllText(outputFilePath, this.GenerationEnvironment.ToString(),Encoding.UTF8);
+            this.GenerationEnvironment = new StringBuilder();
 
-        EnvDTE.ProjectItem templateProjectItem = __getTemplateProjectItem();
-        templateProjectItem.ProjectItems.AddFromFile(outputFilePath);
+            EnvDTE.ProjectItem templateProjectItem = __getTemplateProjectItem();
+            templateProjectItem.ProjectItems.AddFromFile(outputFilePath);
 
-        __savedOutputs.Add(outputFileName);
+            __savedOutputs.Add(outputFileName);
+        }
+        catch
+        {
+        }
     }
 
     EnvDTE.ProjectItem __getTemplateProjectItem()

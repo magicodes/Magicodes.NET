@@ -1,5 +1,6 @@
 ﻿using Magicodes.Web.Interfaces;
 using Magicodes.Web.Interfaces.Strategy.Logger;
+using StackExchange.Profiling;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -27,7 +28,11 @@ namespace Magicodes.Core.Performance.Watch
         string _currrentTag;
         int? _currentWarnThreshold;
         readonly Action<string, LoggerStrategyBase, int?, long> _currentThresholdAction;
-
+        /// <summary>
+        /// 集成MiniProfiler，以监控站点性能
+        /// </summary>
+        private static MiniProfiler profiler = MiniProfiler.Current;
+        IDisposable profilerStep;
         public CodeWatch(string tag)
         {
             Init(tag);
@@ -36,6 +41,7 @@ namespace Magicodes.Core.Performance.Watch
         private void Init(string tag)
         {
             _currrentTag = tag;
+            profilerStep = profiler.Step(_currrentTag);
             _watch.Start();
         }
         /// <summary>
@@ -78,6 +84,8 @@ namespace Magicodes.Core.Performance.Watch
         {
             if (!disposing) return;
             _watch.Stop();
+            //释放计数器
+            if (profilerStep != null) profilerStep.Dispose();
             if (_currentWarnThreshold == null || _watch.ElapsedMilliseconds < _currentWarnThreshold.Value) return;
 
             Log.LogFormat(LoggerLevels.PerformanceWarn, "\t{0}:Execution time({1})ms.已超过阀值（{2}）ms.", _currrentTag, _watch.ElapsedMilliseconds, _currentWarnThreshold);

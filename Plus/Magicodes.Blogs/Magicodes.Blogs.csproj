@@ -125,6 +125,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\magicodes-blog.css" />
+    <Content Include="Content\js\magicodes-blog.js" />
+    <Content Include="Content\theme\dafault\bg-grain1.png" />
+    <Content Include="Content\theme\dafault\bg-grain2.png" />
+    <Content Include="Content\theme\dafault\bg-header.png" />
+    <Content Include="Content\theme\dafault\blog-theme.css" />
+    <Content Include="Content\theme\dafault\blog-theme.js" />
     <Content Include="favicon.ico" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -136,7 +143,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Blogs\Models\" />
-    <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
