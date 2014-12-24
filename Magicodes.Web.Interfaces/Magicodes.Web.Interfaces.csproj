@@ -63,6 +63,9 @@
     <Compile Include="Config\Info\MailConfigInfo.cs" />
     <Compile Include="Config\Info\SiteConfigInfo.cs" />
     <Compile Include="Config\Info\SystemConfigInfo.cs" />
+    <Compile Include="Data\IDataRepository.cs" />
+    <Compile Include="Data\IPagedList.cs" />
+    <Compile Include="Data\IUnitOfWork.cs" />
     <Compile Include="DocumentProtocols\DocumentsOpenProtocolManager.cs" />
     <Compile Include="DocumentProtocols\DocumentOpenProtocol.cs" />
     <Compile Include="Events\ApplicationArgs.cs" />
@@ -128,9 +131,7 @@
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
