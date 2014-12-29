@@ -30,26 +30,6 @@ namespace Magicodes.Core.Web.Controllers
         /// </summary>
         public ApplicationContextBase ApplicationContext { get { return GlobalApplicationObject.Current.ApplicationContext; } }
 
-        /// <summary>
-        /// 当前用户凭据
-        /// </summary>
-        public IUser CurrentUser
-        {
-            get
-            {
-                return ApplicationContext.StrategyManager.GetDefaultStrategy<IUserAuthenticationStrategy>().GetCurrentLoginUser();
-            }
-        }
-        /// <summary>
-        /// 获取一个值，该值指示是否验证了用户。
-        /// </summary>
-        public virtual bool IsAuthenticated
-        {
-            get
-            {
-                return ApplicationContext.StrategyManager.GetDefaultStrategy<IUserAuthenticationStrategy>().IsAuthenticated;
-            }
-        }
         protected override void Initialize(RequestContext requestContext)
         {
             base.Initialize(requestContext);

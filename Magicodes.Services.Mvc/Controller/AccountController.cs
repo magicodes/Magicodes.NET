@@ -72,7 +72,7 @@ namespace Magicodes.Services.Mvc.Controller
             #region 设置默认返回JSON
             ActionResult actionResult = new ActionResult() { IsSuccess = true, Message = "登录成功！" };
             #endregion
-            
+
             //if (user != null && !await UserManager.IsEmailConfirmedAsync(user.Id))
             //{
             //    ModelState.AddModelError("RequiresVerification", "您的账号需要验证，请验证后再登陆。");
@@ -115,7 +115,7 @@ namespace Magicodes.Services.Mvc.Controller
         [Route("LoginOut")]
         public void LoginOut()
         {
-            var userStrategy = ApplicationContext.StrategyManager.GetDefaultStrategy<IUserAuthenticationStrategy>();
+            var userStrategy = ApplicationContext.StrategyManager.GetDefaultStrategy<IUserAuthenticationStrategy<string>>();
             if (userStrategy == null)
             {
                 userStrategy.LoginOut();

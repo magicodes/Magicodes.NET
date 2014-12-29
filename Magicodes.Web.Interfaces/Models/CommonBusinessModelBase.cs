@@ -25,7 +25,7 @@ namespace Magicodes.Web.Interfaces.Models
     /// 通用业务模型基类
     /// </summary>
     [Description("通用业务模型基类")]
-    public class CommonBusinessModelBase<TKey, TUserType> : ICommonBusinessModelBase<TKey, TUserType>
+    public class CommonBusinessModelBase<TKey, TUserKeyType> : ICommonBusinessModelBase<TKey, TUserKeyType>
     {
         public CommonBusinessModelBase()
         {
@@ -63,13 +63,13 @@ namespace Magicodes.Web.Interfaces.Models
         [Display(Name = "创建人")]
         [T4GenerationIgnoreAttribute]
         [StringLength(128)]
-        public virtual TUserType CreateBy { get; set; }
+        public virtual TUserKeyType CreateBy { get; set; }
         /// <summary>
         /// 更新人
         /// </summary>
         [Display(Name = "更新人")]
         [T4GenerationIgnoreAttribute]
         [StringLength(128)]
-        public virtual TUserType UpdateBy { get; set; }
+        public virtual TUserKeyType UpdateBy { get; set; }
     }
 }

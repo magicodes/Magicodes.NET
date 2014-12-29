@@ -33,7 +33,8 @@ namespace Magicodes.Models.Mvc.Models.Account
     /// 用户
     /// </summary>
     public class AppUser : IdentityUser<string, AppUserLogin, AppUserRole, AppUserClaim>,
-    IUser<string>
+    IUser<string>,
+    Magicodes.Web.Interfaces.Strategy.User.IUser<string>
     {
         /// <summary>
         /// 用户名或昵称
@@ -41,7 +42,7 @@ namespace Magicodes.Models.Mvc.Models.Account
         [Required]
         [StringLength(50)]
         [Display(Name = "用户名")]
-        public string UserNickName { get; set; }
+        public string DisplayName { get; set; }
         ///// <summary>
         ///// 
         ///// </summary>

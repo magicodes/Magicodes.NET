@@ -175,7 +175,7 @@ namespace Magicodes.Mvc.Default.Controllers
                     Id = Guid.NewGuid().ToString("N"),
                     UserName = model.Email,
                     Email = model.Email,
-                    UserNickName = model.UserNickName,
+                    DisplayName = model.UserNickName,
                     CreateTime = DateTimeOffset.Now,
                     Deleted = false,
                     IsActive = true,
@@ -413,7 +413,7 @@ namespace Magicodes.Mvc.Default.Controllers
                     Id = Guid.NewGuid().ToString("N"),
                     UserName = model.Email,
                     Email = model.Email,
-                    UserNickName = model.UserNickName,
+                    DisplayName = model.UserNickName,
                     IsActive = true,
                     Deleted = false,
                     EmailConfirmed = false

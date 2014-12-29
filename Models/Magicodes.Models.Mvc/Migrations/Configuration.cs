@@ -47,7 +47,7 @@ namespace Magicodes.Models.Mvc.Migrations
                 Email = "liwq@magicodes.net",
                 EmailConfirmed = true,
                 Deleted = false,
-                UserNickName = "管理员",
+                DisplayName = "管理员",
                 IsActive = true,
                 CreateTime = DateTimeOffset.Now
             };
@@ -66,7 +66,7 @@ namespace Magicodes.Models.Mvc.Migrations
                 Email = "magicodes@magicodes.net",
                 EmailConfirmed = true,
                 Deleted = false,
-                UserNickName = "Magicodes.NET",
+                DisplayName = "Magicodes.NET",
                 IsActive = true,
                 CreateTime = DateTimeOffset.Now
             };

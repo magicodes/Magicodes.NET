@@ -21,11 +21,11 @@ namespace Magicodes.Web.Interfaces.Models
     /// <summary>
     /// 通用模型接口
     /// </summary>
-    public interface ICommonBusinessModelBase<TKey, TUserType>
+    public interface ICommonBusinessModelBase<TKey, TUserKeyType>
     {
         TKey Id { get; set; }
-        TUserType CreateBy { get; set; }
-        TUserType UpdateBy { get; set; }
+        TUserKeyType CreateBy { get; set; }
+        TUserKeyType UpdateBy { get; set; }
         DateTimeOffset CreateTime { get; set; }
         DateTimeOffset? UpdateTime { get; set; }
         bool Deleted { get; set; }

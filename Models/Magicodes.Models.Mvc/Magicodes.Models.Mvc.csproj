@@ -36,11 +36,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -79,6 +81,10 @@
     <Compile Include="Migrations\201411040316256_CreateTable_Publish.Designer.cs">
       <DependentUpon>201411040316256_CreateTable_Publish.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201412290809438_AlterTable_AppUser_DisplayName.cs" />
+    <Compile Include="Migrations\201412290809438_AlterTable_AppUser_DisplayName.Designer.cs">
+      <DependentUpon>201412290809438_AlterTable_AppUser_DisplayName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Menu.cs" />
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201411040316256_CreateTable_Publish.resx">
       <DependentUpon>201411040316256_CreateTable_Publish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412290809438_AlterTable_AppUser_DisplayName.resx">
+      <DependentUpon>201412290809438_AlterTable_AppUser_DisplayName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Plus.config" />
   </ItemGroup>

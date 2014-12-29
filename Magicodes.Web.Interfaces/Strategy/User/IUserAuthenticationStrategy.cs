@@ -8,7 +8,7 @@ namespace Magicodes.Web.Interfaces.Strategy.User
     /// <summary>
     /// 用户验证接口
     /// </summary>
-    public interface IUserAuthenticationStrategy : IStrategyBase
+    public interface IUserAuthenticationStrategy<out TKey> : IStrategyBase
     {
         /// <summary>
         /// 是否已验证
@@ -50,7 +50,7 @@ namespace Magicodes.Web.Interfaces.Strategy.User
         /// 获取当前登录用户
         /// </summary>
         /// <returns></returns>
-        IUser GetCurrentLoginUser();
+        IUser<TKey> GetCurrentLoginUser();
         /// <summary>
         /// 跳转到登陆页
         /// </summary>

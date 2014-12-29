@@ -30,10 +30,6 @@ namespace Magicodes.Core.Data
             this.context = context;
             this.dbSet = context.Set<TEntity>();
         }
-        public IEnumerable<TEntity> GetWithRawSql(string query, params object[] parameters)
-        {
-            return dbSet.SqlQuery(query, parameters).ToList();
-        }
 
         public virtual IEnumerable<TEntity> Get(System.Linq.Expressions.Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "")
         {

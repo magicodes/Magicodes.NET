@@ -31,5 +31,10 @@ namespace Magicodes.Web.Interfaces.Config.Info
         /// </summary>
         [Display(Name = "是否进行SQl跟踪")]
         public bool IsSqlTrace { get; set; }
+        /// <summary>
+        /// SQL连接字符串名称
+        /// </summary>
+        [Display(Name = "SQL连接字符串名称")]
+        public string SqlConnectName { get; set; }
     }
 }

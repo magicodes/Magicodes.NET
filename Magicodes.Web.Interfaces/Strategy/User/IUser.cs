@@ -3,48 +3,23 @@ using System.Collections.Generic;
 
 namespace Magicodes.Web.Interfaces.Strategy.User
 {
-    public interface IUser
+    /// <summary>
+    /// 用户
+    /// </summary>
+    /// <typeparam name="TKey"></typeparam>
+    public interface IUser<out TKey>
     {
-        int Id { get; set; }
         /// <summary>
-        /// 登录名
+        /// 用户Id
         /// </summary>
-        string LoginName { get; set; }
+        TKey Id { get; }
         /// <summary>
-        /// 用户名或昵称
-        /// </summary>        
-        string UserNickName { get; set; }
-        /// <summary>
-        /// 是否删除
+        /// 显示名或昵称
         /// </summary>
-        bool Deleted { get; set; }
+        string DisplayName { get; set; }
         /// <summary>
-        /// 是否已经激活
+        /// 用户名
         /// </summary>
-        bool IsActive { get; set; }
-        /// <summary>
-        /// 邮箱
-        /// </summary>
-        string Email { get; set; }
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        DateTimeOffset CreateTime { get; set; }
-        /// <summary>
-        /// 密码
-        /// </summary>
-        string Password { get; set; }
-        /// <summary>
-        /// 当前主题
-        /// </summary>
-        string Theme { get; set; }
-        /// <summary>
-        /// 最后登陆时间
-        /// </summary>
-        DateTimeOffset? LastLoginTime { get; set; }
-        /// <summary>
-        /// 头像
-        /// </summary>
-        string HeadPortrait { get; set; }
+        string UserName { get; set; }
     }
 }

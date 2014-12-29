@@ -48,12 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\ActionResult.cs" />
-    <Compile Include="API\APIAccessAttribute.cs" />
-    <Compile Include="API\APIActionNameAttribute.cs" />
-    <Compile Include="API\APINameAttribute.cs" />
-    <Compile Include="API\HttpActions.cs" />
-    <Compile Include="API\ICustomAPI.cs" />
+    <Compile Include="Models\TUserKeyType.cs" />
+    <Compile Include="WebAPI\ActionResult.cs" />
+    <Compile Include="WebAPI\APIAccessAttribute.cs" />
+    <Compile Include="WebAPI\APIActionNameAttribute.cs" />
+    <Compile Include="WebAPI\APINameAttribute.cs" />
+    <Compile Include="WebAPI\HttpActions.cs" />
     <Compile Include="ApplicationContextBase.cs" />
     <Compile Include="ApplicationModes.cs" />
     <Compile Include="Config\ConfigManagerBase.cs" />
@@ -72,7 +72,6 @@
     <Compile Include="Events\ApplicationEvents.cs" />
     <Compile Include="Events\EventsManager.cs" />
     <Compile Include="GlobalApplicationObject.cs" />
-    <Compile Include="MC.cs" />
     <Compile Include="MagicodesException.cs" />
     <Compile Include="Models\CommonBusinessModelBase.cs" />
     <Compile Include="Models\ICommonBusinessModelBase.cs" />
@@ -119,7 +118,6 @@
     <Compile Include="WebContextBase.cs" />
     <Compile Include="WebHandler\JSON\JSONFormatHanding.cs" />
     <Compile Include="WebHandler\Resource\IResourceMin.cs" />
-    <Compile Include="API\IWebAPI.cs" />
     <Compile Include="WebHandler\WebHandlerTypes.cs" />
     <Compile Include="WebHandler\IWebHandlerInfo.cs" />
     <Compile Include="WebHandler\JSON\JSONDataReturnValueBase.cs" />

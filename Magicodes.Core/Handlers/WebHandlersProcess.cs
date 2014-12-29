@@ -155,83 +155,83 @@ namespace Magicodes.Core.Handlers
                         break;
                     case WebHandlerTypes.WebAPIHandler:
                         {
-                            context.Response.ContentType = "application/json";
-                            var result = new OperationResult()
-                                {
-                                    ResultType = OperationResultType.Success,
-                                    Message = "操作成功！"
-                                };
-                            var handler = (IWebAPI)Activator.CreateInstance(webHandlerInfo.HandlerInstance);
-                            handler.OperationResult = result;
-                            try
-                            {
-                                switch (WebContext.HttpContext.Request.HttpMethod)
-                                {
-                                    case "GET":
-                                        {
-                                            var paramStrs = WebAPIHelper.GetUrlParams(webHandlerInfo.WebAPIName);
-                                            if (paramStrs != null && paramStrs.Length > 0)
-                                            {
-                                                if (paramStrs.Length > 1)
-                                                    result = handler.Get(paramStrs);
-                                                else
-                                                    result = handler.Get(paramStrs[0]);
-                                            }
-                                            else
-                                            {
-                                                result = handler.Get(paramStrs);
-                                            }
-                                            //输出JSON对象
-                                            context.Response.Write(result.Data.ToJsonWithDateFormatyyyyMMddHHmmss());
-                                            return;
-                                        }
-                                    case "POST":
-                                        {
-                                            result = handler.Post(WebAPIHelper.GetPostJSON());
-                                            break;
-                                        }
-                                    case "PUT":
-                                        {
-                                            var id = WebAPIHelper.GetUrlId(webHandlerInfo.WebAPIName);
-                                            if (id.IsEmpty())
-                                            {
-                                                result.ResultType = OperationResultType.ParamError;
-                                                result.Message = "参数错误！";
-                                                result.LogMessage = "Id不能为空！";
-                                            }
-                                            result = handler.Put(id, WebAPIHelper.GetPostJSON());
-                                            break;
-                                        }
-                                    case "DELETE":
-                                        {
-                                            var id = WebAPIHelper.GetUrlId(webHandlerInfo.WebAPIName);
-                                            if (id.IsEmpty())
-                                            {
-                                                result.ResultType = OperationResultType.ParamError;
-                                                result.Message = "参数错误！";
-                                                result.LogMessage = "Id不能为空！";
-                                            }
-                                            result = handler.Delete(id);
-                                            break;
-                                        }
-                                    default:
-                                        break;
-                                }
-                            }
-                            catch (NotImplementedException ex)
-                            {
-                                result.ResultType = OperationResultType.NoImplemented;
-                                result.Message = "该接口尚未实现！";
-                                result.LogMessage = "该接口尚未实现！";
-                            }
-                            catch (Exception ex)
-                            {
-                                result.ResultType = OperationResultType.Error;
-                                result.Message = "意外错误，请联系管理员！";
-                            }
+                            //context.Response.ContentType = "application/json";
+                            //var result = new OperationResult()
+                            //    {
+                            //        ResultType = OperationResultType.Success,
+                            //        Message = "操作成功！"
+                            //    };
+                            //var handler = (IWebAPI)Activator.CreateInstance(webHandlerInfo.HandlerInstance);
+                            //handler.OperationResult = result;
+                            //try
+                            //{
+                            //    switch (WebContext.HttpContext.Request.HttpMethod)
+                            //    {
+                            //        case "GET":
+                            //            {
+                            //                var paramStrs = WebAPIHelper.GetUrlParams(webHandlerInfo.WebAPIName);
+                            //                if (paramStrs != null && paramStrs.Length > 0)
+                            //                {
+                            //                    if (paramStrs.Length > 1)
+                            //                        result = handler.Get(paramStrs);
+                            //                    else
+                            //                        result = handler.Get(paramStrs[0]);
+                            //                }
+                            //                else
+                            //                {
+                            //                    result = handler.Get(paramStrs);
+                            //                }
+                            //                //输出JSON对象
+                            //                context.Response.Write(result.Data.ToJsonWithDateFormatyyyyMMddHHmmss());
+                            //                return;
+                            //            }
+                            //        case "POST":
+                            //            {
+                            //                result = handler.Post(WebAPIHelper.GetPostJSON());
+                            //                break;
+                            //            }
+                            //        case "PUT":
+                            //            {
+                            //                var id = WebAPIHelper.GetUrlId(webHandlerInfo.WebAPIName);
+                            //                if (id.IsEmpty())
+                            //                {
+                            //                    result.ResultType = OperationResultType.ParamError;
+                            //                    result.Message = "参数错误！";
+                            //                    result.LogMessage = "Id不能为空！";
+                            //                }
+                            //                result = handler.Put(id, WebAPIHelper.GetPostJSON());
+                            //                break;
+                            //            }
+                            //        case "DELETE":
+                            //            {
+                            //                var id = WebAPIHelper.GetUrlId(webHandlerInfo.WebAPIName);
+                            //                if (id.IsEmpty())
+                            //                {
+                            //                    result.ResultType = OperationResultType.ParamError;
+                            //                    result.Message = "参数错误！";
+                            //                    result.LogMessage = "Id不能为空！";
+                            //                }
+                            //                result = handler.Delete(id);
+                            //                break;
+                            //            }
+                            //        default:
+                            //            break;
+                            //    }
+                            //}
+                            //catch (NotImplementedException ex)
+                            //{
+                            //    result.ResultType = OperationResultType.NoImplemented;
+                            //    result.Message = "该接口尚未实现！";
+                            //    result.LogMessage = "该接口尚未实现！";
+                            //}
+                            //catch (Exception ex)
+                            //{
+                            //    result.ResultType = OperationResultType.Error;
+                            //    result.Message = "意外错误，请联系管理员！";
+                            //}
 
-                            //输出JSON对象
-                            context.Response.Write(result.ToJsonWithDateFormatyyyyMMddHHmmss());
+                            ////输出JSON对象
+                            //context.Response.Write(result.ToJsonWithDateFormatyyyyMMddHHmmss());
                         }
                         break;
                     default:

@@ -24,7 +24,6 @@ namespace Magicodes.Web.Interfaces.Data
     /// </summary>
     public interface IDataRepository<TEntity> where TEntity : class
     {
-        IEnumerable<TEntity> GetWithRawSql(string query, params object[] parameters);
         IQueryable<TEntity> GetQueryable();
         IEnumerable<TEntity> Get(
             Expression<Func<TEntity, bool>> filter = null,
