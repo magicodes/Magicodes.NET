@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity
 @using Magicodes.Web.Interfaces.Strategy.User
+@using Magicodes.Core.Web.Utility
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "" }))
@@ -9,8 +10,7 @@
         <ul class="top-user-menu pull-right">
             <li>
                 <i class="fa fa-user"></i>
-                <a href="#">@User.Identity.GetUserName()</a>
-                
+                <a href="#">@(User.Identity.GetUserDisplayName<string>())</a>
                 <span>|</span>
                 <a href="javascript:document.getElementById('logoutForm').submit()" class="logout">注销</a>
             </li>

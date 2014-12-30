@@ -151,6 +151,7 @@
     <Compile Include="Security\AuthHelper.cs" />
     <Compile Include="Security\EncoderHelper.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utility\IdentityExtensions.cs" />
     <Compile Include="Utility\WebHelper.cs" />
   </ItemGroup>
   <ItemGroup />

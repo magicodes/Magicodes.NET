@@ -1,50 +1,157 @@
-﻿using Magicodes.Web.Interfaces.Strategy;
-using Magicodes.Web.Interfaces.Strategy.User;
+﻿using Magicodes.Web.Interfaces.Strategy.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
-using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Owin.Security;
 using System.Web;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using Microsoft.Owin;
 //======================================================================
 //
 //        Copyright (C) 2014-2016 Magicodes团队    
 //        All rights reserved
 //
-//        filename :IdentityStrategy
+//        filename :UserStrategy
 //        description :
 //
-//        created by 雪雁 at  2014/10/22 17:14:27
+//        created by 雪雁 at  2014/12/30 9:51:41
 //        http://www.magicodes.net
 //
 //======================================================================
 namespace Magicodes.Strategy.Identity
 {
-    public class IdentityStrategy : IIdentityStrategy
+    public class IdentityStrategy : IUserAuthenticationStrategy<string>
     {
-        // Authorize 操作是当你访问任何
-        // 受保护的 Web API 时调用的终结点。如果用户未登录，则将被重定向到
-        // Login 页。在成功登录后，你可以调用 Web API。
-        public void Authorize(IPrincipal User, IAuthenticationManager AuthenticationManager)
+        /// <summary>
+        /// Http上下文对象
+        /// </summary>
+        public HttpContext Context
         {
-            var claims = new ClaimsPrincipal(User).Claims.ToArray();
-            var identity = new ClaimsIdentity(claims, "Bearer");
-            AuthenticationManager.SignIn(identity);
+            get
+            {
+                return HttpContext.Current;
+            }
         }
-        public async Task<SignInStatus> Login(AppSignInManager SignInManager, string loginName, string password, bool rememberMe, bool shouldLockout)
+        /// <summary>
+        /// HTTP上下文对象基类
+        /// </summary>
+        public HttpContextBase ContextBase
         {
+            get
+            {
+                return new HttpContextWrapper(Context);
+            }
+        }
+
+        private AppUserManager _userManager;
+        /// <summary>
+        /// 用户管理器
+        /// </summary>
+        public AppUserManager UserManager
+        {
+            get
+            {
+                if (_userManager != null) return _userManager;
+                return ContextBase.GetOwinContext().GetUserManager<AppUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+        private AppSignInManager _signInManager;
+        /// <summary>
+        /// 登录管理器
+        /// </summary>
+        public AppSignInManager SignInManager
+        {
+            get
+            {
+                return _signInManager ?? ContextBase.GetOwinContext().Get<AppSignInManager>();
+            }
+            private set { _signInManager = value; }
+        }
+        /// <summary>
+        /// 验证管理器
+        /// </summary>
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return ContextBase.GetOwinContext().Authentication;
+            }
+        }
+        /// <summary>
+        /// 是否已经验证
+        /// </summary>
+        public bool IsAuthenticated
+        {
+            get { return Context.Request.IsAuthenticated; }
+        }
+        /// <summary>
+        /// 注销
+        /// </summary>
+        public void LoginOut()
+        {
+            AuthenticationManager.SignOut();
+        }
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="loginName"></param>
+        /// <param name="password"></param>
+        /// <param name="isRememberPassword"></param>
+        /// <returns></returns>
+        public AuthResult Login(string loginName, string password, bool isRememberPassword)
+        {
+            var status = new AuthResult()
+            {
+                IsSuccess = false
+            };
             // 这不会计入到为执行帐户锁定而统计的登录失败次数中
-            // 若要在多次输入错误密码的情况下触发帐户锁定，请更改为 shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(loginName, password, rememberMe, shouldLockout);
-            return result;
+            // 在多次输入错误密码的情况下触发帐户锁定 shouldLockout: true
+            var result = SignInManager.PasswordSignIn(loginName, password, isRememberPassword, shouldLockout: true);
+
+            switch (result)
+            {
+                case SignInStatus.Success:
+                    status.IsSuccess = true;
+                    status.Status = LoginStatus.Success;
+                    break;
+                case SignInStatus.LockedOut:
+                    status.Message = "当前账户已被锁定！";
+                    status.Status = LoginStatus.LockedOut;
+                    break;
+                case SignInStatus.RequiresVerification:
+                    status.Message = "当前账户需要验证！";
+                    status.Status = LoginStatus.RequiresVerification;
+                    break;
+                case SignInStatus.Failure:
+                    status.Message = "您输入的用户名或密码不对，请重新输入！";
+                    status.Status = LoginStatus.Failure;
+                    break;
+                default:
+                    status.Message = "无效的登录尝试。";
+                    status.Status = LoginStatus.Orthers;
+                    break;
+            }
+            return status;
+        }
+        /// <summary>
+        /// 获取当前用户
+        /// </summary>
+        /// <returns></returns>
+        public Magicodes.Web.Interfaces.Strategy.User.IUser<string> GetUser()
+        {
+            var user = UserManager.FindById(Context.User.Identity.GetUserId());
+            return user as Magicodes.Web.Interfaces.Strategy.User.IUser<string>;
         }
         public void Initialize()
         {
-            
+
         }
     }
 }

@@ -54,13 +54,6 @@ namespace Magicodes.Services.Mvc.Controller
                 _userManager = value;
             }
         }
-        public IIdentityStrategy IdentityStrategy
-        {
-            get
-            {
-                return ApplicationContext.StrategyManager.GetDefaultStrategy<IIdentityStrategy>();
-            }
-        }
         // POST /api/Account/Login
         [HttpPost]
         [Route("Login")]

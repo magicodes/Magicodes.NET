@@ -92,7 +92,7 @@ namespace Magicodes.Core.Plus
                                 try
                                 {
                                     var type = Activator.CreateInstance(t);
-                                    if (t.BaseType != null)
+                                    if (t.BaseType != null && (!(t.BaseType is Object)))
                                     {
                                         GlobalApplicationObject.Current.ApplicationContext
                                         .StrategyManager

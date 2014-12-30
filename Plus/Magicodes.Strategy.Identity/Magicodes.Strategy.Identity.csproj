@@ -99,11 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityConfig.cs" />
-    <Compile Include="IdentityStrategy.cs" />
-    <Compile Include="IIdentityStrategy.cs" />
     <Compile Include="Plus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserStrategy.cs" />
+    <Compile Include="IdentityStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
