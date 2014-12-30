@@ -1721,7 +1721,13 @@
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\text.js" />
     <Content Include="Scripts\util\aceCheck.js" />
+    <Content Include="Scripts\util\aceCheck.min.js">
+      <DependentUpon>aceCheck.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\util\browsers.js" />
+    <Content Include="Scripts\util\browsers.min.js">
+      <DependentUpon>browsers.js</DependentUpon>
+    </Content>
     <Content Include="theme\dafault\bg-grain1.png" />
     <Content Include="theme\dafault\bg-grain2.png" />
     <Content Include="theme\dafault\bg-header.png" />
@@ -1763,6 +1769,12 @@
     <Content Include="Upload\Magicodes.NET框架说明文档.pdf" />
     <Content Include="Scripts\knockout\knockout.min.js.map">
       <DependentUpon>knockout.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\util\browsers.min.js.map">
+      <DependentUpon>browsers.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\util\aceCheck.min.js.map">
+      <DependentUpon>aceCheck.min.js</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

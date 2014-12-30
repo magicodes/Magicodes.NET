@@ -1,4 +1,5 @@
-﻿var min = typeof (appConfig)!="undefined" && appConfig.minJs ? '.min' : '';
+﻿var appConfig = { minJs: true };
+var min = typeof (appConfig) != "undefined" && appConfig.minJs ? '.min' : '';
 var jqPath = 'ace/js/jquery' + min;
 
 var rBrowser = {
@@ -93,7 +94,8 @@ require.config({
         "bootstrap": ["jquery"],
         //"bootstrap": ["jquery", 'css!ace/js/styles/bootstrap.min'],
         "ace-elements": ["jquery", "bootstrap"],
-        "aceJs": ["jquery", "ace-elements", "ace-extra", "bootstrap", "aceCheck"],
+        "aceJs": ["jquery", "ace-elements", "ace-extra", "bootstrap", "aceCheck", "jquery-ui", "ace/js/ace.ajax-content", "ace/js/ace.touch-drag", "ace/js/ace.sidebar", "ace/js/ace.sidebar-scroll-1", "ace/js/ace.widget-box", "ace/js/ace.settings"],
+        //"ace.settings":[""],
         //"aceJs": ['css!ace/js/styles/font-awesome'+min, "css!ace/js/styles/jquery.gritter", 'css!ace/js/styles/ace'+min, 'css!ace/js/styles/ace-skins'+min, 'css!ace/js/styles/ace-rtl'+min, "jquery", "ace-elements", "ace-extra", "bootstrap", "aceCheck"],
         "jquery.mobile": ["jquery"],
         "fullcalendar": ["jquery", "jquery-ui", "css!ace/js/styles/fullcalendar" + min],
