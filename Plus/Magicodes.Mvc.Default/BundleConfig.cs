@@ -44,11 +44,11 @@ namespace Magicodes.Mvc.Default
             //    "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/ace").Include(
-                "~/Scripts/ace/styles/font-awesome.min.css",
-                "~/Scripts/ace/styles/ace.min.css",
-                "~/Scripts/ace/styles/ace-skins.min.css",
-                "~/Scripts/ace/styles/ace-rtl.min.css",
-                "~/Scripts/ace/styles/bootstrap.min.css"
+                "~/Scripts/ace/css/font-awesome.min.css",
+                "~/Scripts/ace/css/ace.min.css",
+                "~/Scripts/ace/css/ace-skins.min.css",
+                "~/Scripts/ace/css/ace-rtl.min.css",
+                "~/Scripts/ace/css/bootstrap.min.css"
                 ));
 
             //bundles.Add(new StyleBundle("~/Content/css").Include(

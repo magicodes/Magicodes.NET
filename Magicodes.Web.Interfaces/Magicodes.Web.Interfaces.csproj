@@ -49,6 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\API\Messages\IMessage.cs" />
+    <Compile Include="Data\API\Messages\MessageBase.cs" />
+    <Compile Include="Data\API\Messages\MessageDataRepositoryBase.cs" />
+    <Compile Include="Data\API\SiteNavs\ISiteNavigation.cs" />
     <Compile Include="Models\TUserKeyType.cs" />
     <Compile Include="Strategy\User\LoginStatus.cs" />
     <Compile Include="WebAPI\ActionResult.cs" />

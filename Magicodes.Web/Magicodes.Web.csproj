@@ -305,7 +305,736 @@
     <Content Include="js\magicodes-blog.js" />
     <Content Include="js\magicodes-home.js" />
     <Content Include="Plus\ReadMe.txt" />
+    <Content Include="Scripts\ace\avatars\avatar.png" />
+    <Content Include="Scripts\ace\avatars\avatar1.png" />
+    <Content Include="Scripts\ace\avatars\avatar2.png" />
+    <Content Include="Scripts\ace\avatars\avatar3.png" />
+    <Content Include="Scripts\ace\avatars\avatar4.png" />
+    <Content Include="Scripts\ace\avatars\avatar5.png" />
+    <Content Include="Scripts\ace\avatars\profile-pic.jpg" />
+    <Content Include="Scripts\ace\avatars\user.jpg" />
+    <Content Include="Scripts\ace\css\ace-fonts.css" />
+    <Content Include="Scripts\ace\css\ace-fonts.min.css">
+      <DependentUpon>ace-fonts.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\ace-ie.css" />
+    <Content Include="Scripts\ace\css\ace-ie.min.css">
+      <DependentUpon>ace-ie.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\ace-part2.css" />
+    <Content Include="Scripts\ace\css\ace-part2.min.css">
+      <DependentUpon>ace-part2.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\ace-rtl.css" />
+    <Content Include="Scripts\ace\css\ace-rtl.min.css">
+      <DependentUpon>ace-rtl.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\ace-skins.css" />
+    <Content Include="Scripts\ace\css\ace-skins.min.css">
+      <DependentUpon>ace-skins.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\ace.css" />
+    <Content Include="Scripts\ace\css\ace.min.css">
+      <DependentUpon>ace.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\ace.onpage-help.css" />
+    <Content Include="Scripts\ace\css\ace.onpage-help.min.css">
+      <DependentUpon>ace.onpage-help.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\bootstrap-datetimepicker.css" />
+    <Content Include="Scripts\ace\css\bootstrap-datetimepicker.min.css">
+      <DependentUpon>bootstrap-datetimepicker.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\bootstrap-duallistbox.css" />
+    <Content Include="Scripts\ace\css\bootstrap-duallistbox.min.css">
+      <DependentUpon>bootstrap-duallistbox.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\bootstrap-editable.css" />
+    <Content Include="Scripts\ace\css\bootstrap-editable.min.css">
+      <DependentUpon>bootstrap-editable.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\bootstrap-multiselect.css" />
+    <Content Include="Scripts\ace\css\bootstrap-multiselect.min.css">
+      <DependentUpon>bootstrap-multiselect.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\bootstrap-timepicker.css" />
+    <Content Include="Scripts\ace\css\bootstrap-timepicker.min.css">
+      <DependentUpon>bootstrap-timepicker.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\bootstrap.css" />
+    <Content Include="Scripts\ace\css\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\chosen-sprite%402x.png" />
+    <Content Include="Scripts\ace\css\chosen-sprite.png" />
+    <Content Include="Scripts\ace\css\chosen.css" />
+    <Content Include="Scripts\ace\css\chosen.min.css">
+      <DependentUpon>chosen.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\colorbox.css" />
+    <Content Include="Scripts\ace\css\colorbox.min.css">
+      <DependentUpon>colorbox.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\colorpicker.css" />
+    <Content Include="Scripts\ace\css\colorpicker.min.css">
+      <DependentUpon>colorpicker.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\datepicker.css" />
+    <Content Include="Scripts\ace\css\datepicker.min.css">
+      <DependentUpon>datepicker.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\daterangepicker.css" />
+    <Content Include="Scripts\ace\css\daterangepicker.min.css">
+      <DependentUpon>daterangepicker.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\dropzone.css" />
+    <Content Include="Scripts\ace\css\dropzone.min.css">
+      <DependentUpon>dropzone.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\font-awesome.css" />
+    <Content Include="Scripts\ace\css\font-awesome.min.css">
+      <DependentUpon>font-awesome.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\fullcalendar.css" />
+    <Content Include="Scripts\ace\css\fullcalendar.min.css">
+      <DependentUpon>fullcalendar.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\fullcalendar.print.css" />
+    <Content Include="Scripts\ace\css\fullcalendar.print.min.css">
+      <DependentUpon>fullcalendar.print.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\images\border.png" />
+    <Content Include="Scripts\ace\css\images\border1.png" />
+    <Content Include="Scripts\ace\css\images\border2.png" />
+    <Content Include="Scripts\ace\css\images\controls.png" />
+    <Content Include="Scripts\ace\css\images\ie6\borderBottomCenter.png" />
+    <Content Include="Scripts\ace\css\images\ie6\borderBottomLeft.png" />
+    <Content Include="Scripts\ace\css\images\ie6\borderBottomRight.png" />
+    <Content Include="Scripts\ace\css\images\ie6\borderMiddleLeft.png" />
+    <Content Include="Scripts\ace\css\images\ie6\borderMiddleRight.png" />
+    <Content Include="Scripts\ace\css\images\ie6\borderTopCenter.png" />
+    <Content Include="Scripts\ace\css\images\ie6\borderTopLeft.png" />
+    <Content Include="Scripts\ace\css\images\ie6\borderTopRight.png" />
+    <Content Include="Scripts\ace\css\images\loading.gif" />
+    <Content Include="Scripts\ace\css\images\loading_background.png" />
+    <Content Include="Scripts\ace\css\images\meteorshower.jpg" />
+    <Content Include="Scripts\ace\css\images\meteorshower2.jpg" />
+    <Content Include="Scripts\ace\css\images\overlay.png" />
+    <Content Include="Scripts\ace\css\images\pattern.jpg" />
+    <Content Include="Scripts\ace\css\images\pattern.png" />
+    <Content Include="Scripts\ace\css\images\spritemap%402x.png" />
+    <Content Include="Scripts\ace\css\images\spritemap.png" />
+    <Content Include="Scripts\ace\css\img\alpha.png" />
+    <Content Include="Scripts\ace\css\img\hue.png" />
+    <Content Include="Scripts\ace\css\img\saturation.png" />
+    <Content Include="Scripts\ace\css\jquery-ui.css" />
+    <Content Include="Scripts\ace\css\jquery-ui.custom.css" />
+    <Content Include="Scripts\ace\css\jquery-ui.custom.min.css">
+      <DependentUpon>jquery-ui.custom.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\jquery-ui.min.css">
+      <DependentUpon>jquery-ui.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\jquery.gritter.css" />
+    <Content Include="Scripts\ace\css\jquery.gritter.min.css">
+      <DependentUpon>jquery.gritter.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\pace.css" />
+    <Content Include="Scripts\ace\css\pace.min.css">
+      <DependentUpon>pace.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\prettify.css" />
+    <Content Include="Scripts\ace\css\prettify.min.css">
+      <DependentUpon>prettify.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\select2-spinner.gif" />
+    <Content Include="Scripts\ace\css\select2.css" />
+    <Content Include="Scripts\ace\css\select2.min.css">
+      <DependentUpon>select2.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\css\select2.png" />
+    <Content Include="Scripts\ace\css\select2x2.png" />
+    <Content Include="Scripts\ace\css\ui.jqgrid.css" />
+    <Content Include="Scripts\ace\css\ui.jqgrid.min.css">
+      <DependentUpon>ui.jqgrid.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\fonts\fontawesome-webfont.svg" />
+    <Content Include="Scripts\ace\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\ace\images\back_disabled.png" />
+    <Content Include="Scripts\ace\images\back_enabled.png" />
+    <Content Include="Scripts\ace\images\back_enabled_hover.png" />
+    <Content Include="Scripts\ace\images\email1.png" />
+    <Content Include="Scripts\ace\images\email2.png" />
+    <Content Include="Scripts\ace\images\email3.png" />
+    <Content Include="Scripts\ace\images\email4.png" />
+    <Content Include="Scripts\ace\images\forward_disabled.png" />
+    <Content Include="Scripts\ace\images\forward_enabled.png" />
+    <Content Include="Scripts\ace\images\forward_enabled_hover.png" />
+    <Content Include="Scripts\ace\images\gallery\image-1.jpg" />
+    <Content Include="Scripts\ace\images\gallery\image-2.jpg" />
+    <Content Include="Scripts\ace\images\gallery\image-3.jpg" />
+    <Content Include="Scripts\ace\images\gallery\image-4.jpg" />
+    <Content Include="Scripts\ace\images\gallery\image-5.jpg" />
+    <Content Include="Scripts\ace\images\gallery\image-6.jpg" />
+    <Content Include="Scripts\ace\images\gallery\thumb-1.jpg" />
+    <Content Include="Scripts\ace\images\gallery\thumb-2.jpg" />
+    <Content Include="Scripts\ace\images\gallery\thumb-3.jpg" />
+    <Content Include="Scripts\ace\images\gallery\thumb-4.jpg" />
+    <Content Include="Scripts\ace\images\gallery\thumb-5.jpg" />
+    <Content Include="Scripts\ace\images\gallery\thumb-6.jpg" />
+    <Content Include="Scripts\ace\images\sort_asc.png" />
+    <Content Include="Scripts\ace\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\ace\images\sort_both.png" />
+    <Content Include="Scripts\ace\images\sort_desc.png" />
+    <Content Include="Scripts\ace\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\ace\images\spritemap%402x.png" />
+    <Content Include="Scripts\ace\images\spritemap.png" />
+    <Content Include="Scripts\ace\img\clear.png" />
+    <Content Include="Scripts\ace\img\glyphicons-halflings-white.png" />
+    <Content Include="Scripts\ace\img\glyphicons-halflings.png" />
+    <Content Include="Scripts\ace\img\loading.gif" />
+    <Content Include="Scripts\ace\js\ace-elements.js" />
+    <Content Include="Scripts\ace\js\ace-elements.min.js">
+      <DependentUpon>ace-elements.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace-extra.js" />
+    <Content Include="Scripts\ace\js\ace-extra.min.js">
+      <DependentUpon>ace-extra.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace.js" />
+    <Content Include="Scripts\ace\js\ace.min.js">
+      <DependentUpon>ace.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.ajax-content.js" />
+    <Content Include="Scripts\ace\js\ace\ace.ajax-content.min.js">
+      <DependentUpon>ace.ajax-content.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.auto-container.js" />
+    <Content Include="Scripts\ace\js\ace\ace.auto-container.min.js">
+      <DependentUpon>ace.auto-container.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.auto-padding.js" />
+    <Content Include="Scripts\ace\js\ace\ace.auto-padding.min.js">
+      <DependentUpon>ace.auto-padding.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.js" />
+    <Content Include="Scripts\ace\js\ace\ace.min.js">
+      <DependentUpon>ace.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.onpage-help.js" />
+    <Content Include="Scripts\ace\js\ace\ace.onpage-help.min.js">
+      <DependentUpon>ace.onpage-help.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.searchbox-autocomplete.js" />
+    <Content Include="Scripts\ace\js\ace\ace.searchbox-autocomplete.min.js">
+      <DependentUpon>ace.searchbox-autocomplete.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.settings-rtl.js" />
+    <Content Include="Scripts\ace\js\ace\ace.settings-rtl.min.js">
+      <DependentUpon>ace.settings-rtl.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.settings-skin.js" />
+    <Content Include="Scripts\ace\js\ace\ace.settings-skin.min.js">
+      <DependentUpon>ace.settings-skin.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.settings.js" />
+    <Content Include="Scripts\ace\js\ace\ace.settings.min.js">
+      <DependentUpon>ace.settings.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.sidebar-scroll-1.js" />
+    <Content Include="Scripts\ace\js\ace\ace.sidebar-scroll-1.min.js">
+      <DependentUpon>ace.sidebar-scroll-1.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.sidebar-scroll-2.js" />
+    <Content Include="Scripts\ace\js\ace\ace.sidebar-scroll-2.min.js">
+      <DependentUpon>ace.sidebar-scroll-2.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.sidebar.js" />
+    <Content Include="Scripts\ace\js\ace\ace.sidebar.min.js">
+      <DependentUpon>ace.sidebar.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.submenu-hover.js" />
+    <Content Include="Scripts\ace\js\ace\ace.submenu-hover.min.js">
+      <DependentUpon>ace.submenu-hover.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.touch-drag.js" />
+    <Content Include="Scripts\ace\js\ace\ace.touch-drag.min.js">
+      <DependentUpon>ace.touch-drag.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.widget-box.js" />
+    <Content Include="Scripts\ace\js\ace\ace.widget-box.min.js">
+      <DependentUpon>ace.widget-box.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.widget-on-reload.js" />
+    <Content Include="Scripts\ace\js\ace\ace.widget-on-reload.min.js">
+      <DependentUpon>ace.widget-on-reload.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.aside.js" />
+    <Content Include="Scripts\ace\js\ace\elements.aside.min.js">
+      <DependentUpon>elements.aside.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.colorpicker.js" />
+    <Content Include="Scripts\ace\js\ace\elements.colorpicker.min.js">
+      <DependentUpon>elements.colorpicker.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.fileinput.js" />
+    <Content Include="Scripts\ace\js\ace\elements.fileinput.min.js">
+      <DependentUpon>elements.fileinput.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.onpage-help.js" />
+    <Content Include="Scripts\ace\js\ace\elements.onpage-help.min.js">
+      <DependentUpon>elements.onpage-help.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.scroller.js" />
+    <Content Include="Scripts\ace\js\ace\elements.scroller.min.js">
+      <DependentUpon>elements.scroller.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.spinner.js" />
+    <Content Include="Scripts\ace\js\ace\elements.spinner.min.js">
+      <DependentUpon>elements.spinner.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.treeview.js" />
+    <Content Include="Scripts\ace\js\ace\elements.treeview.min.js">
+      <DependentUpon>elements.treeview.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.typeahead.js" />
+    <Content Include="Scripts\ace\js\ace\elements.typeahead.min.js">
+      <DependentUpon>elements.typeahead.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.wizard.js" />
+    <Content Include="Scripts\ace\js\ace\elements.wizard.min.js">
+      <DependentUpon>elements.wizard.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.wysiwyg.js" />
+    <Content Include="Scripts\ace\js\ace\elements.wysiwyg.min.js">
+      <DependentUpon>elements.wysiwyg.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\additional-methods.js" />
+    <Content Include="Scripts\ace\js\additional-methods.min.js">
+      <DependentUpon>additional-methods.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\bootbox.js" />
+    <Content Include="Scripts\ace\js\bootbox.min.js">
+      <DependentUpon>bootbox.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\bootstrap-colorpicker.js" />
+    <Content Include="Scripts\ace\js\bootstrap-colorpicker.min.js">
+      <DependentUpon>bootstrap-colorpicker.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\bootstrap-multiselect.js" />
+    <Content Include="Scripts\ace\js\bootstrap-multiselect.min.js">
+      <DependentUpon>bootstrap-multiselect.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\bootstrap-tag.js" />
+    <Content Include="Scripts\ace\js\bootstrap-tag.min.js">
+      <DependentUpon>bootstrap-tag.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\bootstrap-wysiwyg.js" />
+    <Content Include="Scripts\ace\js\bootstrap-wysiwyg.min.js">
+      <DependentUpon>bootstrap-wysiwyg.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\bootstrap.js" />
+    <Content Include="Scripts\ace\js\bootstrap.min.js">
+      <DependentUpon>bootstrap.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\chosen.jquery.js" />
+    <Content Include="Scripts\ace\js\chosen.jquery.min.js">
+      <DependentUpon>chosen.jquery.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\dataTables\extensions\ColVis\js\dataTables.colVis.js" />
+    <Content Include="Scripts\ace\js\dataTables\extensions\ColVis\js\dataTables.colVis.min.js">
+      <DependentUpon>dataTables.colVis.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\dataTables\extensions\TableTools\js\dataTables.tableTools.js" />
+    <Content Include="Scripts\ace\js\dataTables\extensions\TableTools\js\dataTables.tableTools.min.js">
+      <DependentUpon>dataTables.tableTools.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\dataTables\extensions\TableTools\swf\copy_csv_xls.swf" />
+    <Content Include="Scripts\ace\js\dataTables\extensions\TableTools\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Scripts\ace\js\dataTables\jquery.dataTables.bootstrap.js" />
+    <Content Include="Scripts\ace\js\dataTables\jquery.dataTables.bootstrap.min.js">
+      <DependentUpon>jquery.dataTables.bootstrap.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\dataTables\jquery.dataTables.js" />
+    <Content Include="Scripts\ace\js\dataTables\jquery.dataTables.min.js">
+      <DependentUpon>jquery.dataTables.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\date-time\bootstrap-datepicker.js" />
+    <Content Include="Scripts\ace\js\date-time\bootstrap-datepicker.min.js">
+      <DependentUpon>bootstrap-datepicker.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\date-time\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Scripts\ace\js\date-time\bootstrap-datepicker.zh-CN.min.js">
+      <DependentUpon>bootstrap-datepicker.zh-CN.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\date-time\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\ace\js\date-time\bootstrap-datetimepicker.min.js">
+      <DependentUpon>bootstrap-datetimepicker.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\date-time\bootstrap-timepicker.js" />
+    <Content Include="Scripts\ace\js\date-time\bootstrap-timepicker.min.js">
+      <DependentUpon>bootstrap-timepicker.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\date-time\daterangepicker.js" />
+    <Content Include="Scripts\ace\js\date-time\daterangepicker.min.js">
+      <DependentUpon>daterangepicker.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\date-time\moment.js" />
+    <Content Include="Scripts\ace\js\date-time\moment.min.js">
+      <DependentUpon>moment.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\dropzone.js" />
+    <Content Include="Scripts\ace\js\dropzone.min.js">
+      <DependentUpon>dropzone.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\excanvas.js" />
+    <Content Include="Scripts\ace\js\excanvas.min.js">
+      <DependentUpon>excanvas.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\flot\jquery.flot.js" />
+    <Content Include="Scripts\ace\js\flot\jquery.flot.min.js">
+      <DependentUpon>jquery.flot.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\flot\jquery.flot.pie.js" />
+    <Content Include="Scripts\ace\js\flot\jquery.flot.pie.min.js">
+      <DependentUpon>jquery.flot.pie.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\flot\jquery.flot.resize.js" />
+    <Content Include="Scripts\ace\js\flot\jquery.flot.resize.min.js">
+      <DependentUpon>jquery.flot.resize.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\fuelux\fuelux.spinner.js" />
+    <Content Include="Scripts\ace\js\fuelux\fuelux.spinner.min.js">
+      <DependentUpon>fuelux.spinner.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\fuelux\fuelux.tree.js" />
+    <Content Include="Scripts\ace\js\fuelux\fuelux.tree.min.js">
+      <DependentUpon>fuelux.tree.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\fuelux\fuelux.wizard.js" />
+    <Content Include="Scripts\ace\js\fuelux\fuelux.wizard.min.js">
+      <DependentUpon>fuelux.wizard.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\fullcalendar.js" />
+    <Content Include="Scripts\ace\js\fullcalendar.min.js">
+      <DependentUpon>fullcalendar.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\html5shiv.js" />
+    <Content Include="Scripts\ace\js\html5shiv.min.js">
+      <DependentUpon>html5shiv.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ar.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ar.min.js">
+      <DependentUpon>grid.locale-ar.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-bg.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-bg.min.js">
+      <DependentUpon>grid.locale-bg.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-bg1251.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-bg1251.min.js">
+      <DependentUpon>grid.locale-bg1251.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-cat.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-cat.min.js">
+      <DependentUpon>grid.locale-cat.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-cn.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-cn.min.js">
+      <DependentUpon>grid.locale-cn.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-cs.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-cs.min.js">
+      <DependentUpon>grid.locale-cs.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-da.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-da.min.js">
+      <DependentUpon>grid.locale-da.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-de.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-de.min.js">
+      <DependentUpon>grid.locale-de.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-dk.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-dk.min.js">
+      <DependentUpon>grid.locale-dk.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-el.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-el.min.js">
+      <DependentUpon>grid.locale-el.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-en.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-en.min.js">
+      <DependentUpon>grid.locale-en.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-es.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-es.min.js">
+      <DependentUpon>grid.locale-es.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-fa.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-fa.min.js">
+      <DependentUpon>grid.locale-fa.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-fi.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-fi.min.js">
+      <DependentUpon>grid.locale-fi.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-fr.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-fr.min.js">
+      <DependentUpon>grid.locale-fr.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-gl.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-gl.min.js">
+      <DependentUpon>grid.locale-gl.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-he.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-he.min.js">
+      <DependentUpon>grid.locale-he.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-hr.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-hr.min.js">
+      <DependentUpon>grid.locale-hr.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-hr1250.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-hr1250.min.js">
+      <DependentUpon>grid.locale-hr1250.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-hu.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-hu.min.js">
+      <DependentUpon>grid.locale-hu.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-id.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-id.min.js">
+      <DependentUpon>grid.locale-id.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-is.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-is.min.js">
+      <DependentUpon>grid.locale-is.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-it.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-it.min.js">
+      <DependentUpon>grid.locale-it.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ja.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ja.min.js">
+      <DependentUpon>grid.locale-ja.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-kr.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-kr.min.js">
+      <DependentUpon>grid.locale-kr.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-lt.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-lt.min.js">
+      <DependentUpon>grid.locale-lt.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-mne.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-mne.min.js">
+      <DependentUpon>grid.locale-mne.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-nl.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-nl.min.js">
+      <DependentUpon>grid.locale-nl.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-no.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-no.min.js">
+      <DependentUpon>grid.locale-no.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-pl.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-pl.min.js">
+      <DependentUpon>grid.locale-pl.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-pt-br.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-pt-br.min.js">
+      <DependentUpon>grid.locale-pt-br.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-pt.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-pt.min.js">
+      <DependentUpon>grid.locale-pt.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ro.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ro.min.js">
+      <DependentUpon>grid.locale-ro.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ru.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ru.min.js">
+      <DependentUpon>grid.locale-ru.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-sk.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-sk.min.js">
+      <DependentUpon>grid.locale-sk.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-sr-latin.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-sr-latin.min.js">
+      <DependentUpon>grid.locale-sr-latin.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-sr.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-sr.min.js">
+      <DependentUpon>grid.locale-sr.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-sv.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-sv.min.js">
+      <DependentUpon>grid.locale-sv.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-th.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-th.min.js">
+      <DependentUpon>grid.locale-th.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-tr.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-tr.min.js">
+      <DependentUpon>grid.locale-tr.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-tw.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-tw.min.js">
+      <DependentUpon>grid.locale-tw.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ua.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ua.min.js">
+      <DependentUpon>grid.locale-ua.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-vi.js" />
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-vi.min.js">
+      <DependentUpon>grid.locale-vi.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\jquery.jqGrid.src.js" />
+    <Content Include="Scripts\ace\js\jqGrid\jquery.jqGrid.src.min.js">
+      <DependentUpon>jquery.jqGrid.src.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery-ui.custom.js" />
+    <Content Include="Scripts\ace\js\jquery-ui.custom.min.js">
+      <DependentUpon>jquery-ui.custom.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery-ui.js" />
+    <Content Include="Scripts\ace\js\jquery-ui.min.js">
+      <DependentUpon>jquery-ui.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.autosize.js" />
+    <Content Include="Scripts\ace\js\jquery.autosize.min.js">
+      <DependentUpon>jquery.autosize.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.bootstrap-duallistbox.js" />
+    <Content Include="Scripts\ace\js\jquery.bootstrap-duallistbox.min.js">
+      <DependentUpon>jquery.bootstrap-duallistbox.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.colorbox.js" />
+    <Content Include="Scripts\ace\js\jquery.colorbox.min.js">
+      <DependentUpon>jquery.colorbox.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.easypiechart.js" />
+    <Content Include="Scripts\ace\js\jquery.easypiechart.min.js">
+      <DependentUpon>jquery.easypiechart.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.gritter.js" />
+    <Content Include="Scripts\ace\js\jquery.gritter.min.js">
+      <DependentUpon>jquery.gritter.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.hotkeys.js" />
+    <Content Include="Scripts\ace\js\jquery.hotkeys.min.js">
+      <DependentUpon>jquery.hotkeys.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.inputlimiter.1.3.1.js" />
+    <Content Include="Scripts\ace\js\jquery.inputlimiter.1.3.1.min.js">
+      <DependentUpon>jquery.inputlimiter.1.3.1.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.js" />
+    <Content Include="Scripts\ace\js\jquery.knob.js" />
+    <Content Include="Scripts\ace\js\jquery.knob.min.js">
+      <DependentUpon>jquery.knob.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.maskedinput.js" />
+    <Content Include="Scripts\ace\js\jquery.maskedinput.min.js">
+      <DependentUpon>jquery.maskedinput.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.min.js">
+      <DependentUpon>jquery.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.mobile.custom.js" />
+    <Content Include="Scripts\ace\js\jquery.mobile.custom.min.js">
+      <DependentUpon>jquery.mobile.custom.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.mousewheel.js" />
+    <Content Include="Scripts\ace\js\jquery.mousewheel.min.js">
+      <DependentUpon>jquery.mousewheel.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.nestable.js" />
+    <Content Include="Scripts\ace\js\jquery.nestable.min.js">
+      <DependentUpon>jquery.nestable.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.raty.js" />
+    <Content Include="Scripts\ace\js\jquery.raty.min.js">
+      <DependentUpon>jquery.raty.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.slimscroll.js" />
+    <Content Include="Scripts\ace\js\jquery.slimscroll.min.js">
+      <DependentUpon>jquery.slimscroll.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.sparkline.js" />
+    <Content Include="Scripts\ace\js\jquery.sparkline.min.js">
+      <DependentUpon>jquery.sparkline.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.ui.touch-punch.js" />
+    <Content Include="Scripts\ace\js\jquery.ui.touch-punch.min.js">
+      <DependentUpon>jquery.ui.touch-punch.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.validate.js" />
+    <Content Include="Scripts\ace\js\jquery.validate.min.js">
+      <DependentUpon>jquery.validate.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery1x.js" />
+    <Content Include="Scripts\ace\js\jquery1x.min.js">
+      <DependentUpon>jquery1x.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\markdown\bootstrap-markdown.js" />
+    <Content Include="Scripts\ace\js\markdown\bootstrap-markdown.min.js">
+      <DependentUpon>bootstrap-markdown.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\markdown\markdown.js" />
+    <Content Include="Scripts\ace\js\markdown\markdown.min.js">
+      <DependentUpon>markdown.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\markdown\to-markdown.js" />
+    <Content Include="Scripts\ace\js\markdown\to-markdown.min.js">
+      <DependentUpon>to-markdown.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\pace.js" />
+    <Content Include="Scripts\ace\js\pace.min.js">
+      <DependentUpon>pace.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\prettify.js" />
+    <Content Include="Scripts\ace\js\prettify.min.js">
+      <DependentUpon>prettify.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\respond.js" />
+    <Content Include="Scripts\ace\js\respond.min.js">
+      <DependentUpon>respond.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\select2.js" />
+    <Content Include="Scripts\ace\js\select2.min.js">
+      <DependentUpon>select2.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\spin.js" />
+    <Content Include="Scripts\ace\js\spin.min.js">
+      <DependentUpon>spin.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\typeahead.jquery.js" />
+    <Content Include="Scripts\ace\js\typeahead.jquery.min.js">
+      <DependentUpon>typeahead.jquery.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\x-editable\ace-editable.js" />
+    <Content Include="Scripts\ace\js\x-editable\ace-editable.min.js">
+      <DependentUpon>ace-editable.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\x-editable\bootstrap-editable.js" />
+    <Content Include="Scripts\ace\js\x-editable\bootstrap-editable.min.js">
+      <DependentUpon>bootstrap-editable.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\config.min.js">
+      <DependentUpon>config.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\datajs-1.1.2.min.js" />
+    <Content Include="Scripts\i18n.js" />
+    <Content Include="Scripts\i18n.min.js">
+      <DependentUpon>i18n.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jqPlus\jquery.tmpl\jquery.tmpl.js" />
     <Content Include="Scripts\jqPlus\jquery.tmpl\jquery.tmpl.min.js">
       <DependentUpon>jquery.tmpl.js</DependentUpon>
@@ -338,14 +1067,600 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\本地.pubxml" />
+    <Content Include="Scripts\ace\css\less\ace-features.less" />
+    <Content Include="Scripts\ace\css\less\ace-nav.less" />
+    <Content Include="Scripts\ace\css\less\ace-responsive.less" />
+    <Content Include="Scripts\ace\css\less\ace-rtl.less" />
+    <Content Include="Scripts\ace\css\less\ace.less" />
+    <Content Include="Scripts\ace\css\less\basic.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\alerts.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\badges.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\bootstrap.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\breadcrumbs.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\button-groups.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\buttons.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\carousel.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\close.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\code.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\component-animations.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\dropdowns.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\forms.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\glyphicons.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\grid.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\input-groups.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\jumbotron.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\labels.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\list-group.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\media.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\alerts.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\background-variant.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\border-radius.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\buttons.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\center-block.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\clearfix.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\forms.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\gradients.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\grid-framework.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\grid.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\hide-text.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\image.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\labels.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\list-group.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\nav-divider.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\opacity.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\pagination.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\panels.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\progress-bar.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\reset-filter.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\resize.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\size.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\tab-focus.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\table-row.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\text-overflow.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\modals.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\navbar.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\navs.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\normalize.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\pager.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\pagination.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\panels.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\popovers.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\print.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\progress-bars.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\responsive-embed.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\responsive-utilities.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\scaffolding.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\tables.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\theme.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\thumbnails.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\tooltip.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\type.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\utilities.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\variables.less" />
+    <Content Include="Scripts\ace\css\less\bootstrap\wells.less" />
+    <Content Include="Scripts\ace\css\less\breadcrumbs.less" />
+    <Content Include="Scripts\ace\css\less\bs3-reset.less" />
+    <Content Include="Scripts\ace\css\less\buttons.less" />
+    <Content Include="Scripts\ace\css\less\dropdown.less" />
+    <Content Include="Scripts\ace\css\less\dropdown\colorpicker.less" />
+    <Content Include="Scripts\ace\css\less\dropdown\navbar-dropdown.less" />
+    <Content Include="Scripts\ace\css\less\dropdown\navbar-tabbed-dropdown.less" />
+    <Content Include="Scripts\ace\css\less\ext\bootstrap-tag.less" />
+    <Content Include="Scripts\ace\css\less\fonts-rel.less" />
+    <Content Include="Scripts\ace\css\less\fonts.less" />
+    <Content Include="Scripts\ace\css\less\footer.less" />
+    <Content Include="Scripts\ace\css\less\form.less" />
+    <Content Include="Scripts\ace\css\less\form\checkbox.less" />
+    <Content Include="Scripts\ace\css\less\form\file.less" />
+    <Content Include="Scripts\ace\css\less\gallery.less" />
+    <Content Include="Scripts\ace\css\less\general.less" />
+    <Content Include="Scripts\ace\css\less\icon-animated.less" />
+    <Content Include="Scripts\ace\css\less\infobox.less" />
+    <Content Include="Scripts\ace\css\less\items.less" />
+    <Content Include="Scripts\ace\css\less\label-badge.less" />
+    <Content Include="Scripts\ace\css\less\mixins.less" />
+    <Content Include="Scripts\ace\css\less\modal.less" />
+    <Content Include="Scripts\ace\css\less\navbar\collapsible.less" />
+    <Content Include="Scripts\ace\css\less\navbar\navbar-menu-form.less" />
+    <Content Include="Scripts\ace\css\less\navbar\toggle-button.less" />
+    <Content Include="Scripts\ace\css\less\navbar\user-buttons-move-down.less" />
+    <Content Include="Scripts\ace\css\less\navbar\user-buttons.less" />
+    <Content Include="Scripts\ace\css\less\navbar\user-dropdown-position.less" />
+    <Content Include="Scripts\ace\css\less\navbar\user-menu.less" />
+    <Content Include="Scripts\ace\css\less\onpage-help.less" />
+    <Content Include="Scripts\ace\css\less\other.less" />
+    <Content Include="Scripts\ace\css\less\page.error.less" />
+    <Content Include="Scripts\ace\css\less\page.inbox.less" />
+    <Content Include="Scripts\ace\css\less\page.invoice.less" />
+    <Content Include="Scripts\ace\css\less\page.login.less" />
+    <Content Include="Scripts\ace\css\less\page.pricing.less" />
+    <Content Include="Scripts\ace\css\less\page.profile.less" />
+    <Content Include="Scripts\ace\css\less\page.timeline.less" />
+    <Content Include="Scripts\ace\css\less\print.less" />
+    <Content Include="Scripts\ace\css\less\progressbar.less" />
+    <Content Include="Scripts\ace\css\less\scroll.less" />
+    <Content Include="Scripts\ace\css\less\searchbox.less" />
+    <Content Include="Scripts\ace\css\less\sidebar.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\active.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\compact.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\ff_fix.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\highlight.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\horizontal.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\hover.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\min.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\multiple.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\old-toggle-button.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\responsive-1.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\responsive-2.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\responsive-3.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\shortcuts-toggle.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\sidebar-fixed.less" />
+    <Content Include="Scripts\ace\css\less\sidebar\sub-arrow.less" />
+    <Content Include="Scripts\ace\css\less\skins\empty.less" />
+    <Content Include="Scripts\ace\css\less\skins\no-skin.less" />
+    <Content Include="Scripts\ace\css\less\skins\skin-1.less" />
+    <Content Include="Scripts\ace\css\less\skins\skin-2.less" />
+    <Content Include="Scripts\ace\css\less\skins\skin-3.less" />
+    <Content Include="Scripts\ace\css\less\skins\skins.less" />
+    <Content Include="Scripts\ace\css\less\tab-accordion.less" />
+    <Content Include="Scripts\ace\css\less\tables.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-calendar.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-chosen.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-colorbox.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-dataTables.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-date.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-dropzone.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-duallist-multiselect.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-editable.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-fuelux.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-gritter.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-jqgrid.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-jquery-ui.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-nestable.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-raty.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-select2.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-slider.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-typeahead.less" />
+    <Content Include="Scripts\ace\css\less\thirdparty-wysiwyg.less" />
+    <Content Include="Scripts\ace\css\less\tooltip-popover.less" />
+    <Content Include="Scripts\ace\css\less\utility.less" />
+    <Content Include="Scripts\ace\css\less\variables.less" />
+    <Content Include="Scripts\ace\css\less\widget.less" />
+    <Content Include="Scripts\ace\fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\ace\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Scripts\ace\fonts\fontawesome-webfont.woff" />
+    <Content Include="Scripts\ace\fonts\FontAwesome.otf" />
+    <Content Include="Scripts\ace\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\ace\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Scripts\ace\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\ace\fonts\OpenSans-300.woff" />
+    <Content Include="Scripts\ace\fonts\OpenSans-400.woff" />
+    <Content Include="Scripts\ace\fonts\readme" />
+    <Content Include="Scripts\ace\js\ace\readme" />
+    <Content Include="Scripts\ace\js\ace\scripts.json" />
+    <Content Include="Scripts\ace\js\ace-elements.min.js.map">
+      <DependentUpon>ace-elements.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace-extra.min.js.map">
+      <DependentUpon>ace-extra.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace.min.js.map">
+      <DependentUpon>ace.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\additional-methods.min.js.map">
+      <DependentUpon>additional-methods.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\bootbox.min.js.map">
+      <DependentUpon>bootbox.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\bootstrap-colorpicker.min.js.map">
+      <DependentUpon>bootstrap-colorpicker.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\bootstrap-multiselect.min.js.map">
+      <DependentUpon>bootstrap-multiselect.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\bootstrap-tag.min.js.map">
+      <DependentUpon>bootstrap-tag.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\bootstrap-wysiwyg.min.js.map">
+      <DependentUpon>bootstrap-wysiwyg.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\bootstrap.min.js.map">
+      <DependentUpon>bootstrap.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\chosen.jquery.min.js.map">
+      <DependentUpon>chosen.jquery.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\dropzone.min.js.map">
+      <DependentUpon>dropzone.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\excanvas.min.js.map">
+      <DependentUpon>excanvas.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\fullcalendar.min.js.map">
+      <DependentUpon>fullcalendar.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\html5shiv.min.js.map">
+      <DependentUpon>html5shiv.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery-ui.custom.min.js.map">
+      <DependentUpon>jquery-ui.custom.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery-ui.min.js.map">
+      <DependentUpon>jquery-ui.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.autosize.min.js.map">
+      <DependentUpon>jquery.autosize.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.bootstrap-duallistbox.min.js.map">
+      <DependentUpon>jquery.bootstrap-duallistbox.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.colorbox.min.js.map">
+      <DependentUpon>jquery.colorbox.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.easypiechart.min.js.map">
+      <DependentUpon>jquery.easypiechart.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.gritter.min.js.map">
+      <DependentUpon>jquery.gritter.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.hotkeys.min.js.map">
+      <DependentUpon>jquery.hotkeys.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.inputlimiter.1.3.1.min.js.map">
+      <DependentUpon>jquery.inputlimiter.1.3.1.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.min.js.map">
+      <DependentUpon>jquery.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.knob.min.js.map">
+      <DependentUpon>jquery.knob.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.maskedinput.min.js.map">
+      <DependentUpon>jquery.maskedinput.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.mobile.custom.min.js.map">
+      <DependentUpon>jquery.mobile.custom.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.mousewheel.min.js.map">
+      <DependentUpon>jquery.mousewheel.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.nestable.min.js.map">
+      <DependentUpon>jquery.nestable.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.raty.min.js.map">
+      <DependentUpon>jquery.raty.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.slimscroll.min.js.map">
+      <DependentUpon>jquery.slimscroll.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.sparkline.min.js.map">
+      <DependentUpon>jquery.sparkline.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.ui.touch-punch.min.js.map">
+      <DependentUpon>jquery.ui.touch-punch.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery.validate.min.js.map">
+      <DependentUpon>jquery.validate.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jquery1x.min.js.map">
+      <DependentUpon>jquery1x.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\pace.min.js.map">
+      <DependentUpon>pace.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\prettify.min.js.map">
+      <DependentUpon>prettify.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\respond.min.js.map">
+      <DependentUpon>respond.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\select2.min.js.map">
+      <DependentUpon>select2.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\spin.min.js.map">
+      <DependentUpon>spin.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\typeahead.jquery.min.js.map">
+      <DependentUpon>typeahead.jquery.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.ajax-content.min.js.map">
+      <DependentUpon>ace.ajax-content.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.auto-container.min.js.map">
+      <DependentUpon>ace.auto-container.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.auto-padding.min.js.map">
+      <DependentUpon>ace.auto-padding.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.min.js.map">
+      <DependentUpon>ace.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.onpage-help.min.js.map">
+      <DependentUpon>ace.onpage-help.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.searchbox-autocomplete.min.js.map">
+      <DependentUpon>ace.searchbox-autocomplete.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.settings-rtl.min.js.map">
+      <DependentUpon>ace.settings-rtl.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.settings-skin.min.js.map">
+      <DependentUpon>ace.settings-skin.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.settings.min.js.map">
+      <DependentUpon>ace.settings.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.sidebar-scroll-1.min.js.map">
+      <DependentUpon>ace.sidebar-scroll-1.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.sidebar-scroll-2.min.js.map">
+      <DependentUpon>ace.sidebar-scroll-2.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.sidebar.min.js.map">
+      <DependentUpon>ace.sidebar.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.submenu-hover.min.js.map">
+      <DependentUpon>ace.submenu-hover.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.touch-drag.min.js.map">
+      <DependentUpon>ace.touch-drag.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.widget-box.min.js.map">
+      <DependentUpon>ace.widget-box.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\ace.widget-on-reload.min.js.map">
+      <DependentUpon>ace.widget-on-reload.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.aside.min.js.map">
+      <DependentUpon>elements.aside.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.colorpicker.min.js.map">
+      <DependentUpon>elements.colorpicker.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.fileinput.min.js.map">
+      <DependentUpon>elements.fileinput.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.onpage-help.min.js.map">
+      <DependentUpon>elements.onpage-help.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.scroller.min.js.map">
+      <DependentUpon>elements.scroller.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.spinner.min.js.map">
+      <DependentUpon>elements.spinner.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.treeview.min.js.map">
+      <DependentUpon>elements.treeview.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.typeahead.min.js.map">
+      <DependentUpon>elements.typeahead.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.wizard.min.js.map">
+      <DependentUpon>elements.wizard.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\ace\elements.wysiwyg.min.js.map">
+      <DependentUpon>elements.wysiwyg.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\dataTables\jquery.dataTables.bootstrap.min.js.map">
+      <DependentUpon>jquery.dataTables.bootstrap.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\dataTables\jquery.dataTables.min.js.map">
+      <DependentUpon>jquery.dataTables.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\dataTables\extensions\ColVis\js\dataTables.colVis.min.js.map">
+      <DependentUpon>dataTables.colVis.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\dataTables\extensions\TableTools\js\dataTables.tableTools.min.js.map">
+      <DependentUpon>dataTables.tableTools.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\date-time\bootstrap-datepicker.min.js.map">
+      <DependentUpon>bootstrap-datepicker.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\date-time\bootstrap-datetimepicker.min.js.map">
+      <DependentUpon>bootstrap-datetimepicker.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\date-time\bootstrap-timepicker.min.js.map">
+      <DependentUpon>bootstrap-timepicker.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\date-time\daterangepicker.min.js.map">
+      <DependentUpon>daterangepicker.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\date-time\moment.min.js.map">
+      <DependentUpon>moment.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\flot\jquery.flot.min.js.map">
+      <DependentUpon>jquery.flot.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\flot\jquery.flot.pie.min.js.map">
+      <DependentUpon>jquery.flot.pie.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\flot\jquery.flot.resize.min.js.map">
+      <DependentUpon>jquery.flot.resize.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\fuelux\fuelux.spinner.min.js.map">
+      <DependentUpon>fuelux.spinner.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\fuelux\fuelux.tree.min.js.map">
+      <DependentUpon>fuelux.tree.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\fuelux\fuelux.wizard.min.js.map">
+      <DependentUpon>fuelux.wizard.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\jquery.jqGrid.src.min.js.map">
+      <DependentUpon>jquery.jqGrid.src.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ar.min.js.map">
+      <DependentUpon>grid.locale-ar.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-bg.min.js.map">
+      <DependentUpon>grid.locale-bg.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-bg1251.min.js.map">
+      <DependentUpon>grid.locale-bg1251.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-cat.min.js.map">
+      <DependentUpon>grid.locale-cat.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-cn.min.js.map">
+      <DependentUpon>grid.locale-cn.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-cs.min.js.map">
+      <DependentUpon>grid.locale-cs.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-da.min.js.map">
+      <DependentUpon>grid.locale-da.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-de.min.js.map">
+      <DependentUpon>grid.locale-de.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-dk.min.js.map">
+      <DependentUpon>grid.locale-dk.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-el.min.js.map">
+      <DependentUpon>grid.locale-el.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-en.min.js.map">
+      <DependentUpon>grid.locale-en.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-es.min.js.map">
+      <DependentUpon>grid.locale-es.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-fa.min.js.map">
+      <DependentUpon>grid.locale-fa.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-fi.min.js.map">
+      <DependentUpon>grid.locale-fi.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-fr.min.js.map">
+      <DependentUpon>grid.locale-fr.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-gl.min.js.map">
+      <DependentUpon>grid.locale-gl.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-he.min.js.map">
+      <DependentUpon>grid.locale-he.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-hr.min.js.map">
+      <DependentUpon>grid.locale-hr.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-hr1250.min.js.map">
+      <DependentUpon>grid.locale-hr1250.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-hu.min.js.map">
+      <DependentUpon>grid.locale-hu.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-id.min.js.map">
+      <DependentUpon>grid.locale-id.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-is.min.js.map">
+      <DependentUpon>grid.locale-is.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-it.min.js.map">
+      <DependentUpon>grid.locale-it.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ja.min.js.map">
+      <DependentUpon>grid.locale-ja.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-kr.min.js.map">
+      <DependentUpon>grid.locale-kr.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-lt.min.js.map">
+      <DependentUpon>grid.locale-lt.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-mne.min.js.map">
+      <DependentUpon>grid.locale-mne.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-nl.min.js.map">
+      <DependentUpon>grid.locale-nl.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-no.min.js.map">
+      <DependentUpon>grid.locale-no.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-pl.min.js.map">
+      <DependentUpon>grid.locale-pl.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-pt-br.min.js.map">
+      <DependentUpon>grid.locale-pt-br.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-pt.min.js.map">
+      <DependentUpon>grid.locale-pt.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ro.min.js.map">
+      <DependentUpon>grid.locale-ro.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ru.min.js.map">
+      <DependentUpon>grid.locale-ru.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-sk.min.js.map">
+      <DependentUpon>grid.locale-sk.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-sr-latin.min.js.map">
+      <DependentUpon>grid.locale-sr-latin.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-sr.min.js.map">
+      <DependentUpon>grid.locale-sr.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-sv.min.js.map">
+      <DependentUpon>grid.locale-sv.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-th.min.js.map">
+      <DependentUpon>grid.locale-th.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-tr.min.js.map">
+      <DependentUpon>grid.locale-tr.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-tw.min.js.map">
+      <DependentUpon>grid.locale-tw.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-ua.min.js.map">
+      <DependentUpon>grid.locale-ua.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\jqGrid\i18n\grid.locale-vi.min.js.map">
+      <DependentUpon>grid.locale-vi.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\markdown\bootstrap-markdown.min.js.map">
+      <DependentUpon>bootstrap-markdown.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\markdown\markdown.min.js.map">
+      <DependentUpon>markdown.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\markdown\to-markdown.min.js.map">
+      <DependentUpon>to-markdown.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\x-editable\ace-editable.min.js.map">
+      <DependentUpon>ace-editable.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\x-editable\bootstrap-editable.min.js.map">
+      <DependentUpon>bootstrap-editable.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\i18n.min.js.map">
+      <DependentUpon>i18n.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\date-time\bootstrap-datepicker.zh-CN.min.js.map">
+      <DependentUpon>bootstrap-datepicker.zh-CN.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\config.min.js.map">
+      <DependentUpon>config.min.js</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.min.js.map">
+      <DependentUpon>jquery.signalR-2.1.2.min.js</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.signalR-2.1.2.js" />
-    <Content Include="Scripts\jquery.signalR-2.1.2.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.min.js">
+      <DependentUpon>jquery.signalR-2.1.2.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.js" />
@@ -359,6 +1674,9 @@
     <Content Include="Scripts\knockout\knockout.mapping.js" />
     <Content Include="Scripts\knockout\knockout.mapping.min.js">
       <DependentUpon>knockout.mapping.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\knockout\knockout.min.js">
+      <DependentUpon>knockout.js</DependentUpon>
     </Content>
     <Content Include="Scripts\knockout\moment\locales.js" />
     <Content Include="Scripts\knockout\moment\locales.min.js" />
@@ -374,164 +1692,7 @@
       <DependentUpon>magicodes.js</DependentUpon>
     </Content>
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\ace\ace-elements.min.js" />
-    <Content Include="Scripts\ace\ace-extra.min.js" />
-    <Content Include="Scripts\ace\ace.min.js" />
-    <Content Include="Scripts\ace\additional-methods.min.js" />
-    <Content Include="Scripts\ace\avatars\avatar.png" />
-    <Content Include="Scripts\ace\avatars\avatar1.png" />
-    <Content Include="Scripts\ace\avatars\avatar2.png" />
-    <Content Include="Scripts\ace\avatars\avatar3.png" />
-    <Content Include="Scripts\ace\avatars\avatar4.png" />
-    <Content Include="Scripts\ace\avatars\avatar5.png" />
-    <Content Include="Scripts\ace\avatars\profile-pic.jpg" />
-    <Content Include="Scripts\ace\avatars\user.jpg" />
-    <Content Include="Scripts\ace\bootbox.min.js" />
-    <Content Include="Scripts\ace\bootstrap-colorpicker.min.js" />
-    <Content Include="Scripts\ace\bootstrap-tag.min.js" />
-    <Content Include="Scripts\ace\bootstrap-wysiwyg.min.js" />
-    <Content Include="Scripts\ace\bootstrap.min.js" />
-    <Content Include="Scripts\ace\chosen.jquery.min.js" />
-    <Content Include="Scripts\ace\colorbox\colorbox.bak.css" />
-    <Content Include="Scripts\ace\colorbox\colorbox.css" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-ar.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-bg.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-ca.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-cs.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-da.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-de.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-es.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-et.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-fa.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-fi.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-fr.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-gl.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-gr.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-he.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-hr.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-hu.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-id.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-it.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-ja.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-kr.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-lt.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-lv.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-my.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-nl.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-no.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-pl.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-pt-br.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-ro.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-ru.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-si.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-sk.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-sr.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-sv.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-tr.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-uk.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-zh-CN.js" />
-    <Content Include="Scripts\ace\colorbox\i18n\jquery.colorbox-zh-TW.js" />
-    <Content Include="Scripts\ace\colorbox\images\border.png" />
-    <Content Include="Scripts\ace\colorbox\images\border1.png" />
-    <Content Include="Scripts\ace\colorbox\images\border2.png" />
-    <Content Include="Scripts\ace\colorbox\images\controls.png" />
-    <Content Include="Scripts\ace\colorbox\images\loading.gif" />
-    <Content Include="Scripts\ace\colorbox\images\loading_background.png" />
-    <Content Include="Scripts\ace\colorbox\jquery.colorbox-min.js" />
-    <Content Include="Scripts\ace\colorbox\jquery.colorbox.js" />
-    <Content Include="Scripts\ace\date-time\bootstrap-datepicker.js" />
-    <Content Include="Scripts\ace\date-time\bootstrap-datepicker.min.js" />
-    <Content Include="Scripts\ace\date-time\bootstrap-datepicker.zh-CN.js" />
-    <Content Include="Scripts\ace\date-time\bootstrap-datetimepicker.min.js" />
-    <Content Include="Scripts\ace\date-time\bootstrap-timepicker.min.js" />
-    <Content Include="Scripts\ace\date-time\daterangepicker.min.js" />
-    <Content Include="Scripts\ace\date-time\moment.min.js" />
-    <Content Include="Scripts\ace\dropzone.min.js" />
-    <Content Include="Scripts\ace\excanvas.min.js" />
-    <Content Include="Scripts\ace\flot\jquery.flot.min.js" />
-    <Content Include="Scripts\ace\flot\jquery.flot.pie.min.js" />
-    <Content Include="Scripts\ace\flot\jquery.flot.resize.min.js" />
-    <Content Include="Scripts\ace\fuelux\data\fuelux.tree-sampledata.js" />
-    <Content Include="Scripts\ace\fuelux\fuelux.spinner.min.js" />
-    <Content Include="Scripts\ace\fuelux\fuelux.tree.min.js" />
-    <Content Include="Scripts\ace\fuelux\fuelux.wizard.min.js" />
-    <Content Include="Scripts\ace\fullcalendar.min.js" />
-    <Content Include="Scripts\ace\html5shiv.js" />
-    <Content Include="Scripts\ace\images\gallery\image-1.jpg" />
-    <Content Include="Scripts\ace\images\gallery\image-2.jpg" />
-    <Content Include="Scripts\ace\images\gallery\image-3.jpg" />
-    <Content Include="Scripts\ace\images\gallery\image-4.jpg" />
-    <Content Include="Scripts\ace\images\gallery\image-5.jpg" />
-    <Content Include="Scripts\ace\images\gallery\image-6.jpg" />
-    <Content Include="Scripts\ace\images\gallery\thumb-1.jpg" />
-    <Content Include="Scripts\ace\images\gallery\thumb-2.jpg" />
-    <Content Include="Scripts\ace\images\gallery\thumb-3.jpg" />
-    <Content Include="Scripts\ace\images\gallery\thumb-4.jpg" />
-    <Content Include="Scripts\ace\images\gallery\thumb-5.jpg" />
-    <Content Include="Scripts\ace\images\gallery\thumb-6.jpg" />
-    <Content Include="Scripts\ace\jqGrid\i18n\grid.locale-cn.js" />
-    <Content Include="Scripts\ace\jqGrid\i18n\grid.locale-en.js" />
-    <Content Include="Scripts\ace\jqGrid\jquery.jqGrid.min.js" />
-    <Content Include="Scripts\ace\jqGrid\jquery.jqGrid.src.js" />
-    <Content Include="Scripts\ace\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\ace\jquery-1.11.1.min.js" />
-    <Content Include="Scripts\ace\jquery-2.0.3.min.js" />
-    <Content Include="Scripts\ace\jquery-ui-1.10.3.custom.min.js" />
-    <Content Include="Scripts\ace\jquery-ui-1.10.3.full.min.js" />
-    <Content Include="Scripts\ace\jquery-ui.custom.min.js" />
-    <Content Include="Scripts\ace\jquery.autosize.min.js" />
-    <Content Include="Scripts\ace\jquery.colorbox-min.js" />
-    <Content Include="Scripts\ace\jquery.dataTables.bootstrap.js" />
-    <Content Include="Scripts\ace\jquery.dataTables.min.js" />
-    <Content Include="Scripts\ace\jquery.easy-pie-chart.min.js" />
-    <Content Include="Scripts\ace\jquery.gritter.min.js" />
-    <Content Include="Scripts\ace\jquery.hotkeys.min.js" />
-    <Content Include="Scripts\ace\jquery.inputlimiter.1.3.1.min.js" />
-    <Content Include="Scripts\ace\jquery.knob.min.js" />
-    <Content Include="Scripts\ace\jquery.maskedinput.min.js" />
-    <Content Include="Scripts\ace\jquery.min.js" />
-    <Content Include="Scripts\ace\jquery.mobile.custom.min.js" />
-    <Content Include="Scripts\ace\jquery.nestable.min.js" />
-    <Content Include="Scripts\ace\jquery.slimscroll.min.js" />
-    <Content Include="Scripts\ace\jquery.sparkline.min.js" />
-    <Content Include="Scripts\ace\jquery.ui.touch-punch.min.js" />
-    <Content Include="Scripts\ace\jquery.validate.min.js" />
-    <Content Include="Scripts\ace\json2.min.js" />
-    <Content Include="Scripts\ace\markdown\bootstrap-markdown.min.js" />
-    <Content Include="Scripts\ace\markdown\markdown.min.js" />
-    <Content Include="Scripts\ace\respond.min.js" />
-    <Content Include="Scripts\ace\select2.min.js" />
-    <Content Include="Scripts\ace\styles\ace-ie.min.css" />
-    <Content Include="Scripts\ace\styles\ace-part2.min.css" />
-    <Content Include="Scripts\ace\styles\ace-rtl.min.css" />
-    <Content Include="Scripts\ace\styles\ace-skins.min.css" />
-    <Content Include="Scripts\ace\styles\ace.min.css" />
-    <Content Include="Scripts\ace\styles\bootstrap-editable.css" />
-    <Content Include="Scripts\ace\styles\bootstrap-timepicker.css" />
-    <Content Include="Scripts\ace\styles\bootstrap.min.css" />
-    <Content Include="Scripts\ace\styles\chosen.css" />
-    <Content Include="Scripts\ace\styles\colorbox.css" />
-    <Content Include="Scripts\ace\styles\colorpicker.css" />
-    <Content Include="Scripts\ace\styles\datepicker.css" />
-    <Content Include="Scripts\ace\styles\daterangepicker.css" />
-    <Content Include="Scripts\ace\styles\dropzone.css" />
-    <Content Include="Scripts\ace\styles\font-awesome-ie7.min.css" />
-    <Content Include="Scripts\ace\styles\font-awesome.min.css" />
-    <Content Include="Scripts\ace\styles\fullcalendar.css" />
-    <Content Include="Scripts\ace\styles\images\loading.gif" />
-    <Content Include="Scripts\ace\styles\jquery-ui-1.10.3.custom.min.css" />
-    <Content Include="Scripts\ace\styles\jquery-ui-1.10.3.full.min.css" />
-    <Content Include="Scripts\ace\styles\jquery-ui.min.css" />
-    <Content Include="Scripts\ace\styles\jquery.gritter.css" />
-    <Content Include="Scripts\ace\styles\select2.css" />
-    <Content Include="Scripts\ace\styles\ui.jqgrid.css" />
-    <Content Include="Scripts\ace\typeahead-bs2.min.js" />
-    <Content Include="Scripts\ace\x-editable\ace-editable.min.js" />
-    <Content Include="Scripts\ace\x-editable\bootstrap-editable.min.js" />
     <Content Include="Scripts\config.js" />
-    <Content Include="Scripts\config.min.js">
-      <DependentUpon>config.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\css.js" />
     <Content Include="Scripts\css.min.js">
       <DependentUpon>css.js</DependentUpon>
@@ -541,9 +1702,6 @@
     <Content Include="App_Data\Config\SystemConfigInfo.config" />
     <Content Include="App_Data\Config\NLog.config" />
     <Content Include="packages.config" />
-    <Content Include="Scripts\config.min.js.map">
-      <DependentUpon>config.min.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\css.min.js.map">
       <DependentUpon>css.min.js</DependentUpon>
     </Content>
@@ -577,10 +1735,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\ace\date-time\bootstrap-datepicker.min.js.map" />
-    <Content Include="Scripts\ace\fonts\fontawesome-webfont.eot" />
-    <Content Include="Scripts\ace\fonts\fontawesome-webfont.woff" />
-    <Content Include="Scripts\ace\jqGrid\jquery.jqGrid.min.js.bak" />
     <Content Include="Scripts\jqPlus\headroom.min.js.map" />
     <Content Include="Scripts\jqPlus\jquery.tmpl\jquery.tmpl.min.js.map">
       <DependentUpon>jquery.tmpl.min.js</DependentUpon>
@@ -607,6 +1761,9 @@
       <DependentUpon>knockout.mapping.min.js</DependentUpon>
     </Content>
     <Content Include="Upload\Magicodes.NET框架说明文档.pdf" />
+    <Content Include="Scripts\knockout\knockout.min.js.map">
+      <DependentUpon>knockout.min.js</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -618,7 +1775,6 @@
     <Folder Include="App_Data\logs\" />
     <Folder Include="Plus\bin\" />
     <Folder Include="Plus\Plugins\" />
-    <Folder Include="Scripts\ace\colorbox\images\UploadFiles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Magicodes.Core.Web\Magicodes.Core.Web.csproj">
