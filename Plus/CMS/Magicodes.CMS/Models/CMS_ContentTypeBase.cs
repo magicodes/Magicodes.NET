@@ -10,7 +10,7 @@ namespace Magicodes.CMS.Models
     /// <summary>
     /// CMS内容类型基类
     /// </summary>
-    protected class CMS_ContentTypeBase : CommonBusinessModelBase<Guid, string>
+    public class CMS_ContentTypeBase : CommonBusinessModelBase<Guid, string>
     {
         /// <summary>
         /// 标题

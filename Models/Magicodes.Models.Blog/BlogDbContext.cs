@@ -1,6 +1,7 @@
 ﻿using Magicodes.Models.Blog.Migrations;
 using Magicodes.Models.Blog.Models.Account;
 using Magicodes.Models.Blog.Models.Post;
+using Magicodes.Web.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -34,7 +35,7 @@ namespace Magicodes.Models.Blog
         /// 初始化DbContext
         /// </summary>
         public BlogDbContext()
-            : base("Name=magicodes_blog")
+            : base(GlobalApplicationObject.Current.ConnectionStringName)
         {
             
         }

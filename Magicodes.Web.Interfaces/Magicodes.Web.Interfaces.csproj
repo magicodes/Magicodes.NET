@@ -39,6 +39,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\TUserKeyType.cs" />
+    <Compile Include="Strategy\User\LoginStatus.cs" />
     <Compile Include="WebAPI\ActionResult.cs" />
     <Compile Include="WebAPI\APIAccessAttribute.cs" />
     <Compile Include="WebAPI\APIActionNameAttribute.cs" />
@@ -112,7 +114,7 @@
     <Compile Include="T4\T4Helper.cs" />
     <Compile Include="T4\T4OnlyVerificationAttribute.cs" />
     <Compile Include="Themes\ITheme.cs" />
-    <Compile Include="Strategy\User\AuthStatus.cs" />
+    <Compile Include="Strategy\User\AuthResult.cs" />
     <Compile Include="Strategy\User\IUser.cs" />
     <Compile Include="Strategy\User\IUserAuthenticationStrategy.cs" />
     <Compile Include="WebContextBase.cs" />

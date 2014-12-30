@@ -9,8 +9,8 @@
         <ul class="top-user-menu pull-right">
             <li>
                 <i class="fa fa-user"></i>
-                @*<a href="#">@User.Identity.GetUserName()</a>*@
-                <a href="#">@((User as Magicodes.Web.Interfaces.Strategy.User.IUser<string>).DisplayName)</a>
+                <a href="#">@User.Identity.GetUserName()</a>
+                
                 <span>|</span>
                 <a href="javascript:document.getElementById('logoutForm').submit()" class="logout">注销</a>
             </li>

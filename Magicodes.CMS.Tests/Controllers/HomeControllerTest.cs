@@ -5,7 +5,6 @@ using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Magicodes.CMS;
-using Magicodes.CMS.Controllers;
 
 namespace Magicodes.CMS.Tests.Controllers
 {

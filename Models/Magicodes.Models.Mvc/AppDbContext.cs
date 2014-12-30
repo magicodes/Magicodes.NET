@@ -3,6 +3,7 @@ using Magicodes.Models.Mvc.Models;
 using Magicodes.Models.Mvc.Models.Account;
 using Magicodes.Models.Mvc.Models.Menu;
 using Magicodes.Models.Mvc.Models.Site;
+using Magicodes.Web.Interfaces;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace Magicodes.Models.Mvc
         /// 初始化DbContext
         /// </summary>
         public AppDbContext()
-            : base("Name=magicodes_mvc")
+            : base(GlobalApplicationObject.Current.ConnectionStringName)
         {
 
         }
@@ -65,7 +66,8 @@ namespace Magicodes.Models.Mvc
             modelBuilder.Entity<MenuLink>()
                 .HasMany(p => p.Roles)
                 .WithMany(p => p.MenuLinks)
-                .Map(mp => { 
+                .Map(mp =>
+                {
                     mp.ToTable("Account_RoleMenuLinks");
                     mp.MapLeftKey("MenuLinkId");
                     mp.MapRightKey("RoleId");
