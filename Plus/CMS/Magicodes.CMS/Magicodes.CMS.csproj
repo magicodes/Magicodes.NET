@@ -141,8 +141,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UnitOfWork\CMS_UnitOfWork.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\CMSDbContext.cs" />
+    <Compile Include="DbContext\CMSDbContext.cs" />
     <Compile Include="Models\CMS_Channel.cs" />
     <Compile Include="Models\CMS_ContentTag.cs" />
     <Compile Include="Models\CMS_ContentTypeBase.cs" />
