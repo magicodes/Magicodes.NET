@@ -1,4 +1,4 @@
-﻿var appConfig = { minJs: true };
+﻿var appConfig = { minJs: false };
 var min = typeof (appConfig) != "undefined" && appConfig.minJs ? '.min' : '';
 var jqPath = 'ace/js/jquery' + min;
 
@@ -45,15 +45,12 @@ require.config({
         "jquery": jqPath,
         "html5shiv": 'ace/js/html5shiv' + min,
         "respond": 'ace/js/respond' + min,
-        "bootstrap": 'ace/js/bootstrap' + min,
-        "jquery-ui": 'ace/js/jquery-ui.custom' + min,
-        "jquery.ui.touch-punch": 'ace/js/jquery.ui.touch-punch' + min,
         "fullcalendar": 'ace/js/fullcalendar' + min,
         "bootbox": 'ace/js/bootbox' + min,
         "dropzone": 'ace/js/dropzone' + min,
         "ace-elements": "ace/js/ace-elements" + min,
         "ace-extra": "ace/js/ace-extra" + min,
-        "aceJs": "ace/js/ace" + min,
+        "aceJs": "ace/js/AceBundle" + min,
         "json2": "ace/js/json2" + min,
         "jquery.slimscroll": "ace/js/jquery.slimscroll" + min,
         "jquery.mobile": "ace/js/jquery.mobile.custom" + min,
@@ -66,11 +63,9 @@ require.config({
         "jquery.dataTables": "ace/js/dataTables/jquery.dataTables" + min,
         "jquery.dataTables.bootstrap": "ace/js/dataTables/jquery.dataTables.bootstrap" + min,
         "jquery.jqGrid": "ace/js/jqGrid/i18n/grid.locale-cn" + min,
-        "metro-uiJs": "metro-ui/metro" + min,
         "jq.nestable": "ace/js/jquery.nestable" + min,
         "jq.headroom": "jqPlus/headroom" + min,
         "bt.datepicker": "ace/js/date-time/bootstrap-datepicker.zh-CN" + min,
-        "jq.form": "metro-ui/jquery.form" + min,
         "fuelux.tree": "ace/js/fuelux/fuelux.tree" + min,
         "excanvas": "ace/js/excanvas" + min,
         "select2": "ace/js/select2" + min,
@@ -82,23 +77,19 @@ require.config({
         "kk.validate": "jquery.validate.unobtrusive",
         "jq.inputlimiter": "ace/js/jquery.inputlimiter.1.3.1" + min,
         "jq.autosize": "ace/js/jquery.autosize" + min,
-        "jq.easy-pie-chart": "ace/js/jquery.easy-pie-chart" + min,
+        "jq.easy-pie-chart": "ace/js/jquery.easypiechart" + min,
         "jq.signalR": "/signalr/hubs?noext",
         "bt.Wysiwyg": "ace/js/bootstrap-wysiwyg" + min,
         "jq.colorbox": "ace/js/colorbox/jquery.colorbox" + min
     },
     shim: {
-        "jquery-ui": ["jquery"],
-        "jquery.ui.touch-punch": ["jquery", 'jquery-ui'],
         "jquery.slimscroll": ["jquery"],
-        "bootstrap": ["jquery"],
         //"bootstrap": ["jquery", 'css!ace/js/styles/bootstrap.min'],
-        "ace-elements": ["jquery", "bootstrap"],
-        "aceJs": ["jquery", "ace-elements", "ace-extra", "bootstrap", "aceCheck", "jquery-ui", "ace/js/ace.ajax-content", "ace/js/ace.touch-drag", "ace/js/ace.sidebar", "ace/js/ace.sidebar-scroll-1", "ace/js/ace.widget-box", "ace/js/ace.settings"],
+        "aceJs": ["jquery", "aceCheck"],
         //"ace.settings":[""],
         //"aceJs": ['css!ace/js/styles/font-awesome'+min, "css!ace/js/styles/jquery.gritter", 'css!ace/js/styles/ace'+min, 'css!ace/js/styles/ace-skins'+min, 'css!ace/js/styles/ace-rtl'+min, "jquery", "ace-elements", "ace-extra", "bootstrap", "aceCheck"],
         "jquery.mobile": ["jquery"],
-        "fullcalendar": ["jquery", "jquery-ui", "css!ace/js/styles/fullcalendar" + min],
+        "fullcalendar": ["jquery", "css!ace/js/styles/fullcalendar" + min],
         "jquery.gritter": ["jquery", "css!ace/js/styles/jquery.gritter" + min],
         "dropzone": ["jquery", "css!ace/js/styles/dropzone" + min],
         "jq.colorbox": ["jquery", "css!ace/js/colorbox/colorbox" + min],
@@ -131,7 +122,7 @@ require.config({
         }
     }
 });
-'ontouchstart' in document.documentElement && require(["jquery.mobile", "jquery.ui.touch-punch"]);
+'ontouchstart' in document.documentElement && require(["jquery.mobile"]);
 if ((rBrowser.browser.mozilla || rBrowser.browser.msie) && rBrowser.browser.version <= 9) {
     require(["jquery"], function () {
         $(function () {
