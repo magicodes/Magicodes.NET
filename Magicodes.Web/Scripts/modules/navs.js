@@ -44,7 +44,7 @@
                             self._appendChildrenMenus(data, v);
                         });
                         self.menus(menus);
-                        ace.handle_side_menu($);
+                        //ace.handle_side_menu($);
                         menus.length > 0 && $('.nav-list a:eq(0)').trigger('click');
                     }
                 });
