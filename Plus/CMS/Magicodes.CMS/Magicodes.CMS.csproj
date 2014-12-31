@@ -143,6 +143,7 @@
   <ItemGroup>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CMSDbContext.cs" />
+    <Compile Include="Models\CMS_Channel.cs" />
     <Compile Include="Models\CMS_ContentTag.cs" />
     <Compile Include="Models\CMS_ContentTypeBase.cs" />
     <Compile Include="Models\CMS_ClassType.cs" />
@@ -173,6 +174,10 @@
     <ProjectReference Include="..\..\..\Magicodes.Core.Web\Magicodes.Core.Web.csproj">
       <Project>{41dec0e9-15d8-4b2b-825a-3352c7fe909a}</Project>
       <Name>Magicodes.Core.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Magicodes.Core\Magicodes.Core.csproj">
+      <Project>{43731149-3e37-4530-94e7-ee6ff9c5f55d}</Project>
+      <Name>Magicodes.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Magicodes.Web.Interfaces\Magicodes.Web.Interfaces.csproj">
       <Project>{a6c24c78-7185-4a57-ae23-9e12e5c30118}</Project>
