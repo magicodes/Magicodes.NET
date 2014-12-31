@@ -154,6 +154,14 @@
     <Compile Include="Models\CMS_Tag.cs" />
     <Compile Include="Models\CMS_Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CMS_ChannelRepository.cs" />
+    <Compile Include="Repositories\CMS_ClassTypeRepository.cs" />
+    <Compile Include="Repositories\CMS_CommentRepository.cs" />
+    <Compile Include="Repositories\CMS_ContentRepository.cs" />
+    <Compile Include="Repositories\CMS_ContentTagRepository.cs" />
+    <Compile Include="Repositories\CMS_PhotoRepository.cs" />
+    <Compile Include="Repositories\CMS_TagRepository.cs" />
+    <Compile Include="Repositories\CMS_VideoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -164,7 +172,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
     <Folder Include="Controllers\" />
-    <Folder Include="DAL\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
