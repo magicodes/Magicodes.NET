@@ -23,6 +23,21 @@ namespace Magicodes.CMS.Models
         {
 
         }
+        public virtual DbSet<CMS_Channel> CMS_Channels { get; set; }
+        public virtual DbSet<CMS_ClassType> CMS_ClassTypes{ get; set; }
+        public virtual DbSet<CMS_Comment> CMS_Comments { get; set; }
+        public virtual DbSet<CMS_Content> CMS_Contents { get; set; }
+        public virtual DbSet<CMS_ContentTag> CMS_ContentTags { get; set; }
+        public virtual DbSet<CMS_Photo> CMS_Photos { get; set; }
+        public virtual DbSet<CMS_Tag> CMS_Tags { get; set; }
+        public virtual DbSet<CMS_Video> CMS_Videos { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            
+            base.OnModelCreating(modelBuilder); 
+        }
+
         public static CMSDbContext Create()
         {
             return new CMSDbContext();
