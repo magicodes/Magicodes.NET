@@ -143,6 +143,14 @@
     <Compile Include="Controllers\ODataControllerBase.cs" />
     <Compile Include="Controllers\PlusControllerBase.cs" />
     <Compile Include="Controllers\Viewer\ViewModel\DocumentProtocolInfo.cs" />
+    <Compile Include="Editor\Config.cs" />
+    <Compile Include="Editor\ConfigHandler.cs" />
+    <Compile Include="Editor\CrawlerHandler.cs" />
+    <Compile Include="Editor\Handler.cs" />
+    <Compile Include="Editor\ListFileHandler.cs" />
+    <Compile Include="Editor\NotSupportedHandler.cs" />
+    <Compile Include="Editor\PathFormatter.cs" />
+    <Compile Include="Editor\UploadHandler.cs" />
     <Compile Include="GlobalConfigurationManager.cs" />
     <Compile Include="Mvc\MvcConfigManager.cs" />
     <Compile Include="Mvc\PluginControllerFactory.cs" />
@@ -155,9 +163,7 @@
     <Compile Include="Utility\IdentityExtensions.cs" />
     <Compile Include="Utility\WebHelper.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Editor\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
