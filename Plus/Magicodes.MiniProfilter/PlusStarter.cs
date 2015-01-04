@@ -1,5 +1,6 @@
 ﻿using Magicodes.Core.Web.Security;
 using Magicodes.Web.Interfaces;
+using Magicodes.Web.Interfaces.Config.Info;
 using Magicodes.Web.Interfaces.Plus;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using StackExchange.Profiling;
@@ -64,7 +65,8 @@ namespace Magicodes.MiniProfilter
 
         private bool IsUserAllowedToSeeMiniProfilerUI(HttpRequest arg)
         {
-            return AuthHelper.IsAdmin;
+            var sys = GlobalApplicationObject.Current.ApplicationContext.ConfigManager.GetConfig<SystemConfigInfo>();
+            return sys != null && sys.EnableDevelopersPanel && AuthHelper.IsAdmin;
         }
 
         public void Install()

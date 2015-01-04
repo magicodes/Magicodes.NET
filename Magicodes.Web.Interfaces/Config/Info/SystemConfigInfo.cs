@@ -36,5 +36,10 @@ namespace Magicodes.Web.Interfaces.Config.Info
         /// </summary>
         [Display(Name = "SQL连接字符串名称")]
         public string SqlConnectName { get; set; }
+        /// <summary>
+        /// 启用开发人员面板
+        /// </summary>
+        [Display(Name = "启用开发人员面板")]
+        public bool EnableDevelopersPanel { get; set; }
     }
 }

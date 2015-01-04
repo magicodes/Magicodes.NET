@@ -7,7 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace Magicodes.CMS.Models
+namespace Magicodes.CMS
 {
     public class CMSDbContext:System.Data.Entity.DbContext
     {

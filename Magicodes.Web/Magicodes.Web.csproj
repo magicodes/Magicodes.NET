@@ -505,6 +505,12 @@
     <Content Include="Scripts\ace\js\ace.min.js">
       <DependentUpon>ace.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\ace\js\AceBundle.js">
+      <DependentUpon>AceBundle.js.bundle</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\AceBundle.min.js">
+      <DependentUpon>AceBundle.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\ace\js\ace\ace.ajax-content.js" />
     <Content Include="Scripts\ace\js\ace\ace.ajax-content.min.js">
       <DependentUpon>ace.ajax-content.js</DependentUpon>
@@ -1647,6 +1653,10 @@
     </Content>
     <Content Include="Scripts\config.min.js.map">
       <DependentUpon>config.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ace\js\AceBundle.js.bundle" />
+    <Content Include="Scripts\ace\js\AceBundle.min.js.map">
+      <DependentUpon>AceBundle.min.js</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />

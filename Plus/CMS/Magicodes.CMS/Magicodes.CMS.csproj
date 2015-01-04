@@ -141,6 +141,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201412310550098_CreateDb.cs" />
+    <Compile Include="Migrations\201412310550098_CreateDb.Designer.cs">
+      <DependentUpon>201412310550098_CreateDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnitOfWork\CMS_UnitOfWork.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbContext\CMSDbContext.cs" />
@@ -202,6 +206,11 @@
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201412310550098_CreateDb.resx">
+      <DependentUpon>201412310550098_CreateDb.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
