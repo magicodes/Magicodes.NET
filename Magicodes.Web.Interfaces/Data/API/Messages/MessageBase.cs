@@ -1,6 +1,7 @@
 ﻿using Magicodes.Web.Interfaces.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,11 +25,12 @@ namespace Magicodes.Web.Interfaces.Data.API.Messages
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
     /// <typeparam name="TUserKeyType"></typeparam>
-    public abstract class MessageBase<TKey, TUserKeyType> : CommonBusinessModelBase<TKey, TUserKeyType>, IMessage
+    public class MessageBase<TKey, TUserKeyType> : CommonBusinessModelBase<TKey, TUserKeyType>, IMessage
     {
         /// <summary>
         /// 标题
         /// </summary>
+        [MaxLength(100)]
         public virtual string Title { get; set; }
         /// <summary>
         /// 内容

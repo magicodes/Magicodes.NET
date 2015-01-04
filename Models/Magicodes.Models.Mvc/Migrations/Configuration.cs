@@ -1,6 +1,7 @@
 ﻿using Magicodes.Models.Mvc.Models.Account;
 using Magicodes.Models.Mvc.Models.Menu;
 using Magicodes.Models.Mvc.Models.Site;
+using Magicodes.Web.Interfaces.Data.API.SiteNavs;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;

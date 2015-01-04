@@ -110,7 +110,6 @@
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="Config\ConfigManager.cs" />
     <Compile Include="Data\DataRepositoryBase.cs" />
-    <Compile Include="Data\PagedList.cs" />
     <Compile Include="Data\UnitOfWorkBase.cs" />
     <Compile Include="Handlers\WebHandlersProcess.cs" />
     <Compile Include="Handlers\WebHandlersManager.cs" />

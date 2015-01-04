@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDbContext.cs" />
+    <Compile Include="DAL\SiteAdminNavigationRepository.cs" />
     <Compile Include="Migrations\201410230606129_AccountDb.cs" />
     <Compile Include="Migrations\201410230606129_AccountDb.Designer.cs">
       <DependentUpon>201410230606129_AccountDb.cs</DependentUpon>
@@ -84,11 +85,16 @@
     <Compile Include="Migrations\201412290809438_AlterTable_AppUser_DisplayName.Designer.cs">
       <DependentUpon>201412290809438_AlterTable_AppUser_DisplayName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201412310837381_AdminMenu.cs" />
+    <Compile Include="Migrations\201412310837381_AdminMenu.Designer.cs">
+      <DependentUpon>201412310837381_AdminMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Publish.cs" />
     <Compile Include="Models\Site.cs" />
+    <Compile Include="Models\SiteAdminNavigation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +115,9 @@
     <EmbeddedResource Include="Migrations\201412290809438_AlterTable_AppUser_DisplayName.resx">
       <DependentUpon>201412290809438_AlterTable_AppUser_DisplayName.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412310837381_AdminMenu.resx">
+      <DependentUpon>201412310837381_AdminMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Plus.config" />
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +126,7 @@
       <Name>Magicodes.Web.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

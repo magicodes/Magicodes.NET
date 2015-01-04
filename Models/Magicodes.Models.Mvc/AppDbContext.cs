@@ -93,5 +93,9 @@ namespace Magicodes.Models.Mvc
         /// 发布版的版本信息
         /// </summary>
         public DbSet<PublishVersion> PublishVersions { get; set; }
+        /// <summary>
+        /// 站点后台导航菜单
+        /// </summary>
+        public DbSet<SiteAdminNavigation> SiteAdminNavigations { get; set; }
     }
 }

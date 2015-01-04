@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 //        http://www.magicodes.net
 //
 //======================================================================
-namespace Magicodes.Core.Data
+namespace Magicodes.Web.Interfaces.Data
 {
     public class PagedList<T> : List<T>, IPagedList<T>
     {

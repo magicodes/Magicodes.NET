@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Magicodes.Models.Mvc.Models;
 using Newtonsoft.Json;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Magicodes.Web.Interfaces.Data.API.SiteNavs;
 
 //======================================================================
 //
@@ -25,20 +26,6 @@ using Microsoft.AspNet.Identity.EntityFramework;
 //======================================================================
 namespace Magicodes.Models.Mvc.Models.Menu
 {
-    /// <summary>
-    /// 菜单右侧的数字类型
-    /// </summary>
-    public enum MenuBadgeTypes
-    {
-        /// <summary>
-        /// 计算子级菜单数
-        /// </summary>
-        FromChildrenCount = 0,
-        /// <summary>
-        /// 从请求中获取数值
-        /// </summary>
-        FromBadgeRequestUrl = 1,
-    }
     /// <summary>
     /// 菜单链接信息
     /// </summary>
