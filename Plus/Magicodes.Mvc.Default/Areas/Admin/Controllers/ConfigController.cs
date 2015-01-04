@@ -12,7 +12,7 @@ using Magicodes.Core.Web.Controllers;
 //        filename :ConfigController
 //        description :配置视图 控制器
 //
-//        created by 雪雁 at  2014/12/23 21:42:25
+//        created by 雪雁 at  2015/01/04 17:23:21
 //        http://www.magicodes.net
 //
 //======================================================================

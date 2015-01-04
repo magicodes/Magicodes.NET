@@ -1,4 +1,4 @@
-﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
@@ -274,6 +274,7 @@
 </form>
 <#
         SaveOutput(config.Name+".cshtml");
+        
     }
     
 #>

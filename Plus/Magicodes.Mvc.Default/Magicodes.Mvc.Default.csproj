@@ -215,6 +215,18 @@
     <Content Include="Plus.config" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\Config\AdminSiteConfigInfo.cshtml">
+      <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\Config\MailConfigInfo.cshtml">
+      <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\Config\SiteConfigInfo.cshtml">
+      <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\Config\SystemConfigInfo.cshtml">
+      <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -321,18 +333,6 @@
     <Content Include="Areas\Admin\Views\UsersAdmin\Details.cshtml" />
     <Content Include="Areas\Admin\Views\UsersAdmin\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\UsersAdmin\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Config\MailConfigInfo.cshtml">
-      <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
-    </Content>
-    <Content Include="Areas\Admin\Views\Config\SiteConfigInfo.cshtml">
-      <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
-    </Content>
-    <Content Include="Areas\Admin\Views\Config\SystemConfigInfo.cshtml">
-      <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
-    </Content>
-    <Content Include="Areas\Admin\Views\Config\AdminSiteConfigInfo.cshtml">
-      <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\SiteLeaveMessage\Index.cshtml" />
     <Content Include="Views\Home\License.cshtml" />
     <Content Include="Areas\Admin\Views\PublishVersion\Index.cshtml" />
