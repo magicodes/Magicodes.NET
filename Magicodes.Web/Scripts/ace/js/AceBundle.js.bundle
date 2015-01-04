@@ -12,9 +12,9 @@
   <files>
     <file>/Scripts/ace/js/bootstrap.js</file>
     <file>/Scripts/ace/js/jquery-ui.custom.js</file>
-    <file>/Scripts/ace/js/ace-elements.js</file>
     <file>/Scripts/ace/js/ace-extra.js</file>
+    <file>/Scripts/ace/js/ace-elements.js</file>
     <file>/Scripts/ace/js/ace.js</file>
-  <file>/Scripts/ace/js/jquery.ui.touch-punch.js</file>
+    <file>/Scripts/ace/js/jquery.ui.touch-punch.js</file>
   </files>
 </bundle>

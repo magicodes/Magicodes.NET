@@ -62,6 +62,7 @@ namespace Magicodes.Core.Web.Controllers
 
         protected override void OnException(ExceptionContext filterContext)
         {
+            if (filterContext == null) return;
             //记录异常信息
             ApplicationContext.ApplicationLog.Log(LoggerLevels.Error, filterContext.Exception);
             base.OnException(filterContext);
