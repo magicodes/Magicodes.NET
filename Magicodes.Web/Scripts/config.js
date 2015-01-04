@@ -82,7 +82,10 @@ require.config({
         "signalR": "/signalr/hubs?noext",
         "bt.Wysiwyg": "ace/js/bootstrap-wysiwyg" + min,
         "jq.colorbox": "ace/js/colorbox/jquery.colorbox" + min,
-        "bt": "ace/js/bootstrap" + min
+        "bt": "ace/js/bootstrap" + min,
+        "ueditor.config": "ueditor/ueditor.config" + min,
+        "ueditor.all":"ueditor/ueditor.all"+min,
+        "ueditor.lang": "ueditor/lang/zh-cn/zh-cn"+min
     },
     shim: {
         "jquery.slimscroll": ["jquery"],
@@ -115,7 +118,14 @@ require.config({
         "jquery.signalR-2.1.2.min": ["jquery"],
         "jq.signalR": ["jquery"],
         "signalR": ["jq.signalR"],
-        "bt.Wysiwyg": ["jquery",  "ace/js/jquery.hotkeys" + min]
+        "bt.Wysiwyg": ["jquery", "ace/js/jquery.hotkeys" + min],
+        "ueditor.all": {
+            deps: ["ueditor.config"],
+            exports: "ueditor.all"
+        },
+        "ueditor.lang": {
+            exports:"zh-cn"
+        }
     },
     map: {
         '*': {
