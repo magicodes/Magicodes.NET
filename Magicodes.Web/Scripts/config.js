@@ -54,7 +54,7 @@ require.config({
         "json2": "ace/js/json2" + min,
         "jquery.slimscroll": "ace/js/jquery.slimscroll" + min,
         "jquery.mobile": "ace/js/jquery.mobile.custom" + min,
-        "fullcalendar": "ace/js/fullcalendar" + min,
+        // "fullcalendar": "ace/js/fullcalendar" + min,
         //"jquery.gritter": "ace/js/jquery.gritter",
         "jquery.gritter": "ace/js/jquery.gritter" + min,
         "jq.browsers": "util/browsers" + min,

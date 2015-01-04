@@ -141,6 +141,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Migrations\201412310550098_CreateDb.cs" />
     <Compile Include="Migrations\201412310550098_CreateDb.Designer.cs">
       <DependentUpon>201412310550098_CreateDb.cs</DependentUpon>
@@ -176,6 +177,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Controllers\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
@@ -200,6 +204,7 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Views\web.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

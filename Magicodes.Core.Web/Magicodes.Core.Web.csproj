@@ -136,6 +136,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\EditorControllerBase.cs" />
     <Compile Include="Controllers\JSONActionResult.cs" />
     <Compile Include="Controllers\AdminControllerBase.cs" />
     <Compile Include="Controllers\Viewer\DocumentViewerController.cs" />
@@ -154,7 +155,9 @@
     <Compile Include="Utility\IdentityExtensions.cs" />
     <Compile Include="Utility\WebHelper.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Editor\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
