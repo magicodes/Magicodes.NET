@@ -53,8 +53,8 @@
     <Compile Include="Data\API\Messages\MessageBase.cs" />
     <Compile Include="Data\API\Messages\MessageDataRepositoryBase.cs" />
     <Compile Include="Data\API\SiteNavs\MenuBadgeTypes.cs" />
-    <Compile Include="Data\API\SiteNavs\SiteAdminNavigationRepositoryBase.cs" />
     <Compile Include="Data\API\SiteNavs\SiteAdminNavigationBase.cs" />
+    <Compile Include="Data\API\SiteNavs\SiteAdminNavigationRepositoryBase.cs" />
     <Compile Include="Data\PagedList.cs" />
     <Compile Include="Models\TUserKeyType.cs" />
     <Compile Include="Strategy\User\LoginStatus.cs" />
