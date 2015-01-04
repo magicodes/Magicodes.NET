@@ -45,7 +45,7 @@
                         });
                         self.menus(menus);
                         //ace.handle_side_menu($);
-                        //$('#sidebar').ace_sidebar();
+                        $('#sidebar').ace_sidebar();
                         menus.length > 0 && $('.nav-list a:eq(0)').trigger('click');
                     }
                 });

@@ -48,13 +48,13 @@ require.config({
         "fullcalendar": 'ace/js/fullcalendar' + min,
         "bootbox": 'ace/js/bootbox' + min,
         "dropzone": 'ace/js/dropzone' + min,
-        "ace-elements": "ace/js/ace-elements" + min,
+        "ace.elements": "ace/js/ace-elements" + min,
         "ace-extra": "ace/js/ace-extra" + min,
-        "aceJs": "ace/js/AceBundle" + min,
+        //"aceJs": "ace/js/ace" + min,
         "json2": "ace/js/json2" + min,
         "jquery.slimscroll": "ace/js/jquery.slimscroll" + min,
         "jquery.mobile": "ace/js/jquery.mobile.custom" + min,
-        "fullcalendar": "ace/js/fullcalendar" + min,
+        //"fullcalendar": "ace/js/fullcalendar" + min,
         //"jquery.gritter": "ace/js/jquery.gritter",
         "jquery.gritter": "ace/js/jquery.gritter" + min,
         "jq.browsers": "util/browsers" + min,
@@ -78,26 +78,26 @@ require.config({
         "jq.inputlimiter": "ace/js/jquery.inputlimiter.1.3.1" + min,
         "jq.autosize": "ace/js/jquery.autosize" + min,
         "jq.easy-pie-chart": "ace/js/jquery.easypiechart" + min,
-        "jq.signalR": "/signalr/hubs?noext",
+        "jq.signalR": "jquery.signalR-2.1.2" + min,
+        "signalR": "/signalr/hubs?noext",
         "bt.Wysiwyg": "ace/js/bootstrap-wysiwyg" + min,
-        "jq.colorbox": "ace/js/colorbox/jquery.colorbox" + min
+        "jq.colorbox": "ace/js/colorbox/jquery.colorbox" + min,
+        "bt": "ace/js/bootstrap" + min
     },
     shim: {
         "jquery.slimscroll": ["jquery"],
-        //"bootstrap": ["jquery", 'css!ace/js/styles/bootstrap.min'],
-        "aceJs": ["jquery", "aceCheck"],
-        //"ace.settings":[""],
-        //"aceJs": ['css!ace/js/styles/font-awesome'+min, "css!ace/js/styles/jquery.gritter", 'css!ace/js/styles/ace'+min, 'css!ace/js/styles/ace-skins'+min, 'css!ace/js/styles/ace-rtl'+min, "jquery", "ace-elements", "ace-extra", "bootstrap", "aceCheck"],
+        "ace.elements": ["ace/js/ace-extra" + min],
+        "bt": ["jquery", 'css!ace/js/styles/bootstrap' + min],
         "jquery.mobile": ["jquery"],
         "fullcalendar": ["jquery", "css!ace/js/styles/fullcalendar" + min],
         "jquery.gritter": ["jquery", "css!ace/js/styles/jquery.gritter" + min],
         "dropzone": ["jquery", "css!ace/js/styles/dropzone" + min],
         "jq.colorbox": ["jquery", "css!ace/js/colorbox/colorbox" + min],
-        "bootbox": ["jquery", "aceJs"],
+        "bootbox": ["jquery"],
         "aceCheck": ["jquery", "jq.browsers"],
         "jquery.dataTables": ["jquery", "bootstrap"],
-        "jquery.dataTables.bootstrap": ["jquery", "jquery.dataTables", "aceJs"],
-        "jquery.jqGrid": ["jquery", "css!ace/js/styles/ui.jqgrid" + min, "ace/js/jqGrid/jquery.jqGrid.src" + min, "aceJs"],
+        "jquery.dataTables.bootstrap": ["jquery", "jquery.dataTables"],
+        "jquery.jqGrid": ["jquery", "css!ace/js/styles/ui.jqgrid" + min, "ace/js/jqGrid/jquery.jqGrid.src" + min],
         "jq.nestable": ["jquery"],
         "jq.headroom": ["jquery"],
         "bt.datepicker": ["jquery", "css!ace/js/styles/datepicker" + min, "bootstrap", "ace/js/date-time/bootstrap-datepicker" + min],
@@ -105,16 +105,17 @@ require.config({
         "fuelux.tree": ["jquery"],
         "select2": ["jquery", "css!ace/js/styles/select2" + min],
         "bt.timepicker": ["jquery", "css!ace/js/styles/bootstrap-timepicker" + min],
-        "excanvas": "ace/js/excanvas" + min,
+        "excanvas": ["ace/js/excanvas" + min],
         "moment": ["knockout/moment/moment" + min],
         "knockoutJs": ["jquery", "moment"],
-        "magicodes": ["jquery", "aceJs", "knockoutJs"],
+        "magicodes": ["jquery",  "knockoutJs"],
         "jq.validation": ["jquery", "jqPlus/jquery-validation/jquery.validate" + min],
         "kk.validate": ["jq.validation"],
-        "jq.easy-pie-chart": ["jquery", "aceJs"],
+        "jq.easy-pie-chart": ["jquery"],
         "jquery.signalR-2.1.2.min": ["jquery"],
-        "jq.signalR": ["jquery", "jquery.signalR-2.1.2" + min],
-        "bt.Wysiwyg": ["jquery", "aceJs", "ace/js/jquery.hotkeys" + min]
+        "jq.signalR": ["jquery"],
+        "signalR": ["jq.signalR"],
+        "bt.Wysiwyg": ["jquery",  "ace/js/jquery.hotkeys" + min]
     },
     map: {
         '*': {
@@ -122,7 +123,6 @@ require.config({
         }
     }
 });
-'ontouchstart' in document.documentElement && require(["jquery.mobile"]);
 if ((rBrowser.browser.mozilla || rBrowser.browser.msie) && rBrowser.browser.version <= 9) {
     require(["jquery"], function () {
         $(function () {

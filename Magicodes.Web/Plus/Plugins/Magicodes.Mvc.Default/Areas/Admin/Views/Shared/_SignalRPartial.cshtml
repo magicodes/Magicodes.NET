@@ -2,7 +2,7 @@
 @if (Request.IsAuthenticated)
 {
     <script type="text/javascript">
-        require(["jq.signalR"], function () {
+        require(["signalR"], function () {
             var userId = '@User.Identity.GetUserId()';
             var userName = '@User.Identity.GetUserName()';
             var applicationHub = $.connection.applicationHub;
