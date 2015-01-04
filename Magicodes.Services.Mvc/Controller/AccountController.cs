@@ -1,9 +1,9 @@
 ﻿using Magicodes.Core.API;
+using Magicodes.Core.Web.Controllers;
 using Magicodes.Models.Mvc.Models.Account;
 using Magicodes.Services.Mvc.ViewModels;
 using Magicodes.Strategy.Identity;
 using Magicodes.Web.Interfaces;
-using Magicodes.Web.Interfaces.API;
 using Magicodes.Web.Interfaces.Strategy.User;
 using Magicodes.Web.Interfaces.WebHandler.JSON;
 using Microsoft.AspNet.Identity.Owin;
@@ -63,7 +63,7 @@ namespace Magicodes.Services.Mvc.Controller
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             #region 设置默认返回JSON
-            ActionResult actionResult = new ActionResult() { IsSuccess = true, Message = "登录成功！" };
+            JSONActionResult actionResult = new JSONActionResult() { IsSuccess = true, Message = "登录成功！" };
             #endregion
 
             //if (user != null && !await UserManager.IsEmailConfirmedAsync(user.Id))

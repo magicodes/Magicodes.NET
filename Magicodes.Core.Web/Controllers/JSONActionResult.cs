@@ -12,21 +12,19 @@ using System.Threading.Tasks;
 //        filename :ActionResult
 //        description :
 //
-//        created by 雪雁 at  2014/10/22 21:41:01
+//        created by 雪雁 at  2015/1/4 9:57:59
 //        http://www.magicodes.net
 //
 //======================================================================
-namespace Magicodes.Web.Interfaces.API
+namespace Magicodes.Core.Web.Controllers
 {
-    public class ActionResult
+    /// <summary>
+    /// 
+    /// </summary>
+    public class JSONActionResult
     {
-        /// <summary>
-        /// 是否成功
-        /// </summary>
         public bool IsSuccess { get; set; }
-        /// <summary>
-        /// 消息
-        /// </summary>
         public string Message { get; set; }
+        public string Data { get; set; }
     }
 }

@@ -136,6 +136,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\JSONActionResult.cs" />
     <Compile Include="Controllers\AdminControllerBase.cs" />
     <Compile Include="Controllers\Viewer\DocumentViewerController.cs" />
     <Compile Include="Controllers\ODataControllerBase.cs" />

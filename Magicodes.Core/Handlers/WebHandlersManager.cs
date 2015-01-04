@@ -9,7 +9,6 @@ using System.Reflection;
 using System.Text;
 using Magicodes.Utility;
 using Magicodes.Web.Interfaces.Strategy.Logger;
-using Magicodes.Web.Interfaces.API;
 using System.ComponentModel;
 namespace Magicodes.Core.Handlers
 {

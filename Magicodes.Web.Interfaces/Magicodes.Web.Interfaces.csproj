@@ -58,11 +58,6 @@
     <Compile Include="Data\PagedList.cs" />
     <Compile Include="Models\TUserKeyType.cs" />
     <Compile Include="Strategy\User\LoginStatus.cs" />
-    <Compile Include="WebAPI\ActionResult.cs" />
-    <Compile Include="WebAPI\APIAccessAttribute.cs" />
-    <Compile Include="WebAPI\APIActionNameAttribute.cs" />
-    <Compile Include="WebAPI\APINameAttribute.cs" />
-    <Compile Include="WebAPI\HttpActions.cs" />
     <Compile Include="ApplicationContextBase.cs" />
     <Compile Include="ApplicationModes.cs" />
     <Compile Include="Config\ConfigManagerBase.cs" />

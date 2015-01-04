@@ -9,7 +9,6 @@ using System.Linq;
 using Magicodes.Core.Res;
 using Magicodes.Web.Interfaces.Strategy.Logger;
 using Magicodes.Web.Interfaces.Routing;
-using Magicodes.Web.Interfaces.API;
 using Magicodes.Core.API;
 using Magicodes.Web.Interfaces.Operation;
 namespace Magicodes.Core.Handlers
@@ -48,11 +47,11 @@ namespace Magicodes.Core.Handlers
                             res.SendResourceContent();
                             break;
                         }
-                    case WebHandlerTypes.WebAPIHandler:
-                        {
-                            ProcessHander(context, RouteWebHandlerInfo.WebHandlerInfo);
-                            break;
-                        }
+                    //case WebHandlerTypes.WebAPIHandler:
+                    //    {
+                    //        ProcessHander(context, RouteWebHandlerInfo.WebHandlerInfo);
+                    //        break;
+                    //    }
                     default:
                         break;
                 }
@@ -95,26 +94,26 @@ namespace Magicodes.Core.Handlers
                     break;
                 case WebHandlerTypes.WebAPIHandler:
                     {
-                        var mainUrls = context.Request.Url.AbsolutePath.ToLower().Trim('/');
-                        //根据程序集名称以及Name匹配Handler
-                        var handlers = GlobalApplicationObject.Current.ApplicationContext.WebHandlerList
-                            .Where(p =>
-                                p.WebHandlerType == WebHandlerTypes.WebAPIHandler &&
-                                mainUrls.StartsWith("api/" + p.WebAPIName));
-                        var count = handlers.Count();
-                        if (count == 1)
-                            ProcessHander(context, handlers.First());
-                        else if (count > 1)
-                        {
-                            mainUrls = mainUrls.RightOf("api/");
-                            var urlParams = mainUrls.Split('/');
-                            //TODO:应该改为按照位置0开始的相邻的字符串的相似度比较
-                            //比较相似度，取相似度最高的
-                            var webAPIHandler = handlers.Select(p => new { webApi = p, SimilarityCount = p.WebAPIName.Split('/').Intersect(urlParams).Count() })
-                                .OrderByDescending(p => p.SimilarityCount)
-                                .First().webApi;
-                            ProcessHander(context, webAPIHandler);
-                        }
+                        //var mainUrls = context.Request.Url.AbsolutePath.ToLower().Trim('/');
+                        ////根据程序集名称以及Name匹配Handler
+                        //var handlers = GlobalApplicationObject.Current.ApplicationContext.WebHandlerList
+                        //    .Where(p =>
+                        //        p.WebHandlerType == WebHandlerTypes.WebAPIHandler &&
+                        //        mainUrls.StartsWith("api/" + p.WebAPIName));
+                        //var count = handlers.Count();
+                        //if (count == 1)
+                        //    ProcessHander(context, handlers.First());
+                        //else if (count > 1)
+                        //{
+                        //    mainUrls = mainUrls.RightOf("api/");
+                        //    var urlParams = mainUrls.Split('/');
+                        //    //TODO:应该改为按照位置0开始的相邻的字符串的相似度比较
+                        //    //比较相似度，取相似度最高的
+                        //    var webAPIHandler = handlers.Select(p => new { webApi = p, SimilarityCount = p.WebAPIName.Split('/').Intersect(urlParams).Count() })
+                        //        .OrderByDescending(p => p.SimilarityCount)
+                        //        .First().webApi;
+                        //    ProcessHander(context, webAPIHandler);
+                        //}
 
                         break;
                     }
