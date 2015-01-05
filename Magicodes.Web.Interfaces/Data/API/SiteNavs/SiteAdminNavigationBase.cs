@@ -23,6 +23,7 @@ namespace Magicodes.Web.Interfaces.Data.API.SiteNavs
     /// <summary>
     /// 后台站点导航
     /// </summary>
+    [Serializable]
     public class SiteAdminNavigationBase<TUserKeyType> : CommonBusinessModelBase<Guid, TUserKeyType>
     {
         /// <summary>

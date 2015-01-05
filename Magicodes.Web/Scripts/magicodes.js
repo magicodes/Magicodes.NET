@@ -84,11 +84,12 @@ window.magicodes.dialog = function () {
             });
         },
         hideAll: function () {
-            bootbox.hideAll();
+            self.__bootBox.hideAll();
         }
     },
     this._bootbox = function (func) {
         require(["bootbox"], function (bt) {
+            self.__bootBox = bt;
             $.isFunction(func) && func(bt);
         });
     };
@@ -102,6 +103,7 @@ window.magicodes.dialog = function () {
             $.isFunction(func) && func();
         });
     };
+    return this;
 };
 
 window.magicodes.loader = {
@@ -459,11 +461,9 @@ window.magicodes.grid = {
                                                  url: setting.url,
                                                  data: self.eidtModel(),
                                                  func: function (data, statusCode) {
-                                                     console.debug(statusCode);
                                                      magicodes.messager.showInfoMessage('温馨提示', '保存成功！');
-                                                     bootbox.hideAll();
+                                                     dialoger.bootbox.hideAll();
                                                      self.loadData();
-                                                     console.debug(data);
                                                  }
                                              });
                                              return false;
@@ -558,7 +558,7 @@ window.magicodes.grid = {
                     		             data: self.addModel(),
                     		             func: function (data) {
                     		                 magicodes.messager.showInfoMessage('温馨提示', '创建成功！');
-                    		                 bootbox.hideAll();
+                    		                 dialoger.bootbox.hideAll();
                     		                 self.loadData();
                     		             }
                     		         });

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\API\APIContext.cs" />
     <Compile Include="Data\API\Messages\IMessage.cs" />
     <Compile Include="Data\API\Messages\MessageBase.cs" />
     <Compile Include="Data\API\Messages\MessageDataRepositoryBase.cs" />

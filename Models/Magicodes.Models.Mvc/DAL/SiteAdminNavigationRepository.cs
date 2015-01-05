@@ -1,12 +1,16 @@
 ﻿using Magicodes.Models.Mvc.Models;
 using Magicodes.Web.Interfaces.Data;
 using Magicodes.Web.Interfaces.Data.API.SiteNavs;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 //======================================================================
 //
@@ -24,11 +28,10 @@ namespace Magicodes.Models.Mvc.DAL
 {
     public class SiteAdminNavigationRepository : SiteAdminNavigationRepositoryBase<string>
     {
-        internal DbContext context;
+        internal DbContext context = new AppDbContext();
         internal DbSet<SiteAdminNavigation> dbSet;
-        public SiteAdminNavigationRepository(DbContext context)
+        public SiteAdminNavigationRepository()
         {
-            this.context = context;
             this.dbSet = context.Set<SiteAdminNavigation>();
         }
         public override IQueryable<SiteAdminNavigationBase<string>> GetQueryable()
@@ -112,7 +115,9 @@ namespace Magicodes.Models.Mvc.DAL
 
         public override void Add(SiteAdminNavigationBase<string> entity)
         {
-            dbSet.Add(entity as SiteAdminNavigation);
+            var jsonStr = JsonConvert.SerializeObject(entity);
+            var nav = JsonConvert.DeserializeObject<SiteAdminNavigation>(jsonStr);
+            dbSet.Add(nav);
         }
 
         public override void Remove(dynamic id)

@@ -10,7 +10,6 @@ namespace Magicodes.CMS
     {
         public void Initialize()
         {
-            throw new NotImplementedException();
         }
 
         public void Install()

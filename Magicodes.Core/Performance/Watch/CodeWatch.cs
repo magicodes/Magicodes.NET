@@ -87,13 +87,11 @@ namespace Magicodes.Core.Performance.Watch
             //释放计数器
             if (profilerStep != null) profilerStep.Dispose();
             if (_currentWarnThreshold == null || _watch.ElapsedMilliseconds < _currentWarnThreshold.Value) return;
-
-            Log.LogFormat(LoggerLevels.PerformanceWarn, "\t{0}:Execution time({1})ms.已超过阀值（{2}）ms.", _currrentTag, _watch.ElapsedMilliseconds, _currentWarnThreshold);
             //如果超过阀值，则执行相关操作
             if (_currentThresholdAction != null)
-            {
                 _currentThresholdAction.Invoke(_currrentTag, Log, _currentWarnThreshold, _watch.ElapsedMilliseconds);
-            }
+            if (Log == null) return;
+            Log.LogFormat(LoggerLevels.PerformanceWarn, "\t{0}:Execution time({1})ms.已超过阀值（{2}）ms.", _currrentTag, _watch.ElapsedMilliseconds, _currentWarnThreshold);
         }
     }
 }

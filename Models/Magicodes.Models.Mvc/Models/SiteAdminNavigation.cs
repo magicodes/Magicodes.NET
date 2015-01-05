@@ -1,6 +1,8 @@
 ﻿using Magicodes.Web.Interfaces.Data.API.SiteNavs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,11 @@ using System.Threading.Tasks;
 //======================================================================
 namespace Magicodes.Models.Mvc.Models
 {
+    /// <summary>
+    /// 后台导航菜单信息
+    /// </summary>
+    [Description("后台导航菜单信息")]
+    [Table("Nav_SiteAdminNavigation")]
     public class SiteAdminNavigation : SiteAdminNavigationBase<string>
     {
 

@@ -25,6 +25,7 @@ namespace Magicodes.Web.Interfaces.Models
     /// 通用业务模型基类
     /// </summary>
     [Description("通用业务模型基类")]
+    [Serializable]
     public class CommonBusinessModelBase<TKey, TUserKeyType> : ICommonBusinessModelBase<TKey, TUserKeyType>
     {
         public CommonBusinessModelBase()

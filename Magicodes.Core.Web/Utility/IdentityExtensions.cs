@@ -1,4 +1,5 @@
-﻿using Magicodes.Web.Interfaces;
+﻿using Magicodes.Core.Web.Security;
+using Magicodes.Web.Interfaces;
 using Magicodes.Web.Interfaces.Strategy.User;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,15 @@ namespace Magicodes.Core.Web.Utility
             if (user != null)
                 return user.DisplayName;
             return null;
+        }
+        /// <summary>
+        /// 是否为管理用户
+        /// </summary>
+        /// <param name="identity">用户标识对象</param>
+        /// <returns>是否为管理用户</returns>
+        public static bool IsAdmin(this IIdentity identity)
+        {
+            return AuthHelper.IsAdmin;
         }
     }
 }
