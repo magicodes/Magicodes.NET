@@ -171,6 +171,17 @@
     <Compile Include="Repositories\CMS_VideoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Index\Index.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -179,8 +190,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Index\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Controllers\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
@@ -206,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
