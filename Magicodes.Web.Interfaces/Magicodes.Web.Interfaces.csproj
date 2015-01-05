@@ -58,6 +58,7 @@
     <Compile Include="Data\API\SiteNavs\SiteAdminNavigationRepositoryBase.cs" />
     <Compile Include="Data\PagedList.cs" />
     <Compile Include="Models\TUserKeyType.cs" />
+    <Compile Include="Plus\Info\PlusMenu.cs" />
     <Compile Include="Strategy\User\LoginStatus.cs" />
     <Compile Include="ApplicationContextBase.cs" />
     <Compile Include="ApplicationModes.cs" />

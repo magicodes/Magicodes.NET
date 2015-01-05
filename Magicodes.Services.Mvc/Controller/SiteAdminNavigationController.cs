@@ -16,6 +16,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Magicodes.Web.Interfaces.Data.API;
 using Magicodes.Core.Web.Utility;
 using Magicodes.Models.Mvc.DAL;
+using Magicodes.Web.Interfaces.Data.API.SiteNavs;
 
 //======================================================================
 //
@@ -34,7 +35,7 @@ namespace Magicodes.Services.Mvc.Controller
     [Authorize]
     public class SiteAdminNavigationController : WebAPIControllerBase
     {
-        SiteAdminNavigationRepository navigationRepository = APIContext<string>.Current.SiteAdminNavigationRepository;
+        SiteAdminNavigationRepositoryBase<string> navigationRepository = APIContext<string>.Current.SiteAdminNavigationRepository;
 
         //Get /api/SiteAdminNavigation
         /// <summary>
@@ -54,11 +55,7 @@ namespace Magicodes.Services.Mvc.Controller
         {
             if (disposing)
             {
-                if (db != null)
-                {
-                    db.Dispose();
-                    db = null;
-                }
+               
             }
             base.Dispose(disposing);
         }

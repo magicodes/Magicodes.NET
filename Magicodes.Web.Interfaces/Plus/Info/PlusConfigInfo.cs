@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace Magicodes.Web.Interfaces.Plus.Info
 {
@@ -14,5 +15,8 @@ namespace Magicodes.Web.Interfaces.Plus.Info
     public class PlusConfigInfo : ConfigBase
     {
         public AssemblyTypes AssemblyType { get; set; }
+        [XmlArray("PlusAdminMenus")]
+        [XmlArrayItem("Menu")]
+        public PlusMenu[] PlusMenus { get; set; } 
     }
 }
