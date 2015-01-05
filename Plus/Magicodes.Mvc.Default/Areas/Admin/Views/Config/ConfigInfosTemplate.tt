@@ -23,7 +23,7 @@
     
     foreach(var config in types)
     {
-          //生成此类
+        //生成此类
         var T4GenerationIgnoreAttribute=T4Helper.GetAttribute<Magicodes.Web.Interfaces.T4.T4GenerationIgnoreAttribute>(config,false);
         if(T4GenerationIgnoreAttribute!=null) continue;
         var descriptionAttr=T4Helper.GetAttribute<System.ComponentModel.DescriptionAttribute>(config,false);

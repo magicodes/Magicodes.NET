@@ -15,18 +15,27 @@
 <#@ import namespace="Microsoft.VisualStudio.Shell" #>
 <#@ import namespace="Microsoft.VisualStudio.Shell.Interop" #>
 <#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#
+    initLogPanel();
+ #>
 <#+
     List<string> __savedOutputs = new List<string>();
     Engine __engine = new Engine();
-    void Log(string message){
-        IVsOutputWindow outWindow = ((IServiceProvider)this.Host).GetCOMService(typeof( SVsOutputWindow )) as IVsOutputWindow;  
-        Guid customGuid = new Guid("0F44E2D1-F5FA-4d2d-AB30-22BE8ECD9789");
-        string customTitle = "Magicodes.NET 代码生成";
+    Guid customGuid = new Guid("{B4FDE55D-5AB2-454B-982F-7BD067CDEF19}");
+    string customTitle = "Magicodes.NET 代码生成";
+    IVsOutputWindowPane customPane;
+    IVsOutputWindow outWindow ;
+    void initLogPanel()
+    {
+        outWindow=((IServiceProvider)this.Host).GetCOMService(typeof(SVsOutputWindow)) as IVsOutputWindow;  
         outWindow.CreatePane( ref customGuid, customTitle, 1, 1 );
-        IVsOutputWindowPane customPane;
         outWindow.GetPane( ref customGuid, out customPane);
+        customPane.Clear();
+    }
+
+    void Log(string message){
         customPane.OutputString(message+Environment.NewLine);
-        customPane.Activate(); // 展示
+        customPane.Activate(); 
     }
 
     void DeleteOldOutputs()
@@ -36,10 +45,14 @@
             EnvDTE.ProjectItem templateProjectItem = __getTemplateProjectItem();
             foreach (EnvDTE.ProjectItem childProjectItem in templateProjectItem.ProjectItems)
             {
+                if(childProjectItem==null) continue;
                 var tName=childProjectItem.Name;
                 if (!__savedOutputs.Contains(tName))
                 {
-                    //File.Delete(childProjectItem.f);
+                    
+                    //Log(childProjectItem.FileNames[0]+"【已删除】");
+                    //childProjectItem.Remove();
+                    //File.Delete(childProjectItem.FileNames[0]);
                     childProjectItem.Delete();
                     //Log(tName+"【已删除】");
                 }
