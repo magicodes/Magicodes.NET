@@ -27,6 +27,8 @@ using Magicodes.Core.Routing;
 using System.Web;
 using Magicodes.Core.Web.Mvc;
 using Magicodes.Core.Web;
+using Magicodes.Web.Interfaces.Data.API.SiteNavs;
+using Magicodes.Web.Interfaces.Data.API;
 
 namespace Magicodes.Core
 {
@@ -171,33 +173,74 @@ namespace Magicodes.Core
                     BuildManager.AddReferencedAssembly(assembly);
                 }
 
-            } 
+            }
             #endregion
             #region 部署插件程序集
             foreach (var plus in magicodesPlusDlls)
             {
                 PlusManager.Deploy(plus);
-            } 
+            }
             #endregion
-
-            //foreach (var plus in plusDlls)
-            //{
-            //    //必须是Magicodes插件才会执行插件部署
-            //    //dll名称必须与插件目录名称一致才能部署
-            //    //{PlusDir}/{dllName}
-            //    //{PlusDir}/bin/{dllName}
-            //    if (plus.Name.StartsWith("Magicodes.") && (plus.Directory.Name + ".dll" == plus.Name || plus.Directory.Parent.Name + ".dll" == plus.Name))
-            //        PlusManager.Deploy(plus);
-            //    //如果网站bin目录不存在此dll，则将该dll复制到动态程序集目录
-            //    else if (binDir.GetFiles(plus.Name).Length == 0 && PlusManager.DynamicDirectory.GetFiles(plus.Name).Length == 0)
-            //    {
-            //        PlusManager.CopyToDynamicDirectory(plus);
-            //        Assembly assembly = Assembly.LoadFrom(plus.FullName);
-
-            //        //将程序集添加到当前应用程序域
-            //        BuildManager.AddReferencedAssembly(assembly);
-            //    }
-            //}
+            #region 添加插件菜单
+            var r = APIContext<string>.Current.SiteAdminNavigationRepository;
+            if (r == null) return;
+            foreach (var plusInfo in PlusManager.PluginsList)
+            {
+                if (plusInfo.PlusConfigInfo != null && plusInfo.PlusConfigInfo.PlusMenus != null && plusInfo.PlusConfigInfo.PlusMenus.Length > 0)
+                {
+                    if (r.GetQueryable().Any(p => p.PlusId == plusInfo.Id))
+                    {
+                        r.GetQueryable()
+                            .Where(p => p.PlusId == plusInfo.Id)
+                            .Each(p =>
+                            {
+                                r.Remove(p.Id);
+                            });
+                        //r.RemoveRange(r.GetQueryable().Where(p => p.PlusId == plusInfo.Id));
+                        r.SaveChanges();
+                    }
+                    foreach (var plusMenu in plusInfo.PlusConfigInfo.PlusMenus)
+                    {
+                        AddPlusMenu(plusInfo, r, plusMenu, null);
+                    }
+                    r.SaveChanges();
+                }
+            }
+            #endregion
+        }
+        /// <summary>
+        /// 添加菜单
+        /// </summary>
+        /// <param name="plusInfo"></param>
+        /// <param name="r"></param>
+        /// <param name="plusMenu"></param>
+        /// <param name="parentId"></param>
+        private static void AddPlusMenu(IPlusAssemblyInfo plusInfo, SiteAdminNavigationRepositoryBase<string> r, PlusMenu plusMenu, Guid? parentId)
+        {
+            var nav = new SiteAdminNavigationBase<string>()
+            {
+                BadgeRequestUrl = plusMenu.BadgeRequestUrl,
+                Href = plusMenu.Href,
+                IconCls = plusMenu.IconCls,
+                Id = Guid.NewGuid(),
+                IsShowBadge = plusMenu.IsShowBadge,
+                MenuBadgeType = plusMenu.MenuBadgeType,
+                ParentId = parentId,
+                Text = plusMenu.Text,
+                TextCls = plusMenu.TextCls,
+                Deleted = false,
+                CreateBy = "{B0FBB2AC-3174-4E5A-B772-98CF776BD4B9}",
+                CreateTime = DateTime.Now,
+                PlusId = plusInfo.Id
+            };
+            r.Add(nav);
+            if (plusMenu.SubMenus != null && plusMenu.SubMenus.Length > 0)
+            {
+                foreach (var item in plusMenu.SubMenus)
+                {
+                    AddPlusMenu(plusInfo, r, item, nav.Id);
+                }
+            }
         }
         /// <summary>
         /// 应用程序日志类

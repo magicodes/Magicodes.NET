@@ -106,7 +106,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\WebAPIBase.cs" />
     <Compile Include="API\WebAPIHelper.cs" />
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="Config\ConfigManager.cs" />

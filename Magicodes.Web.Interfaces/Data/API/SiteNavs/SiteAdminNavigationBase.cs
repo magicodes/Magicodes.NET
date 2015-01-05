@@ -53,7 +53,7 @@ namespace Magicodes.Web.Interfaces.Data.API.SiteNavs
         /// <summary>
         /// 是否显示子级数或者通知数
         /// </summary>
-        public bool isShowBadge { get; set; }
+        public bool IsShowBadge { get; set; }
         /// <summary>
         /// 菜单右侧数字类型
         /// </summary>

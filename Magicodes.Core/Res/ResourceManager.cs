@@ -303,7 +303,6 @@ namespace Magicodes.Core.Res
                         break;
                     default:
                         throw new Exception("不支持的请求类型！");
-                        break;
                     #endregion
                 }
             }

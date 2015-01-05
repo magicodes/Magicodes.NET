@@ -19,7 +19,7 @@ using System.Web.Http;
 //        http://www.magicodes.net
 //
 //======================================================================
-namespace Magicodes.Core.API
+namespace Magicodes.Core.Web.Controllers
 {
     public class WebAPIControllerBase : ApiController
     {
@@ -27,16 +27,6 @@ namespace Magicodes.Core.API
         /// 当前应用程序上下文对象
         /// </summary>
         public ApplicationContextBase ApplicationContext { get { return GlobalApplicationObject.Current.ApplicationContext; } }
-        /// <summary>
-        /// 获取当前用户
-        /// </summary>
-        /// <typeparam name="TKey">主键类型</typeparam>
-        /// <returns></returns>
-        public IUser<TKey> GetUser<TKey>()
-        {
-            var strategy = ApplicationContext.StrategyManager.GetDefaultStrategy<IUserAuthenticationStrategy<TKey>>();
-            if (strategy == null) return null;
-            return strategy.GetUser();
-        }
+
     }
 }

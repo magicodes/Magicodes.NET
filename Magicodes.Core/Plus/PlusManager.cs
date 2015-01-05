@@ -66,7 +66,6 @@ namespace Magicodes.Core.Plus
             {
                 plusInfo = AssemblyManager.GetPlusAssemblysInfo(assembly, dllFile);
             }
-
             if (!PluginsList.Any(p => p.FullName == assembly.FullName))
             {
                 plusInfo.IsInstalled = false;

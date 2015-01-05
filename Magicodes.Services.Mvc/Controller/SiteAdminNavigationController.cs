@@ -1,5 +1,4 @@
-﻿using Magicodes.Core.API;
-using Magicodes.Models.Mvc;
+﻿using Magicodes.Models.Mvc;
 using Magicodes.Strategy.Identity;
 using Magicodes.Web.Interfaces;
 using Magicodes.Web.Interfaces.Strategy.User;
@@ -17,6 +16,7 @@ using Magicodes.Web.Interfaces.Data.API;
 using Magicodes.Core.Web.Utility;
 using Magicodes.Models.Mvc.DAL;
 using Magicodes.Web.Interfaces.Data.API.SiteNavs;
+using Magicodes.Core.Web.Controllers;
 
 //======================================================================
 //

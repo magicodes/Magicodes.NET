@@ -143,6 +143,7 @@
     <Compile Include="Controllers\ODataControllerBase.cs" />
     <Compile Include="Controllers\PlusControllerBase.cs" />
     <Compile Include="Controllers\Viewer\ViewModel\DocumentProtocolInfo.cs" />
+    <Compile Include="Controllers\WebAPIControllerBase.cs" />
     <Compile Include="Editor\Config.cs" />
     <Compile Include="Editor\ConfigHandler.cs" />
     <Compile Include="Editor\CrawlerHandler.cs" />

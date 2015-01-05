@@ -1,5 +1,5 @@
 ﻿
-using Magicodes.Core.API;
+using Magicodes.Core.Web.Controllers;
 using Magicodes.Web.Interfaces;
 using Magicodes.Web.Interfaces.Config.Info;
 using System;
@@ -17,7 +17,7 @@ using System.Web.Http;
 //        filename :AdminSiteConfigInfoController
 //        description :后台站点配置 WebAPI
 //
-//        created by 雪雁 at  2015/01/05 13:26:45
+//        created by 雪雁 at  2015/01/05 22:11:24
 //        http://www.magicodes.net
 //
 //======================================================================

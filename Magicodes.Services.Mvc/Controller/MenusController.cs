@@ -1,5 +1,4 @@
-﻿using Magicodes.Core.API;
-using Magicodes.Models.Mvc;
+﻿using Magicodes.Models.Mvc;
 using Magicodes.Strategy.Identity;
 using Magicodes.Web.Interfaces;
 using Magicodes.Web.Interfaces.Strategy.User;
@@ -13,6 +12,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using Microsoft.AspNet.Identity.Owin;
+using Magicodes.Core.Web.Controllers;
 
 //======================================================================
 //

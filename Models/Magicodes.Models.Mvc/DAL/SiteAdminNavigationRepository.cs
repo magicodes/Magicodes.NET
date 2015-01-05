@@ -28,11 +28,11 @@ namespace Magicodes.Models.Mvc.DAL
 {
     public class SiteAdminNavigationRepository : SiteAdminNavigationRepositoryBase<string>
     {
-        internal DbContext context = new AppDbContext();
+        internal AppDbContext context = new AppDbContext();
         internal DbSet<SiteAdminNavigation> dbSet;
         public SiteAdminNavigationRepository()
         {
-            this.dbSet = context.Set<SiteAdminNavigation>();
+            this.dbSet = context.SiteAdminNavigations;
         }
         public override IQueryable<SiteAdminNavigationBase<string>> GetQueryable()
         {
@@ -115,25 +115,38 @@ namespace Magicodes.Models.Mvc.DAL
 
         public override void Add(SiteAdminNavigationBase<string> entity)
         {
-            var jsonStr = JsonConvert.SerializeObject(entity);
-            var nav = JsonConvert.DeserializeObject<SiteAdminNavigation>(jsonStr);
+            var nav = ConvertToChildT(entity);
             dbSet.Add(nav);
+        }
+
+        private static SiteAdminNavigation ConvertToChildT(SiteAdminNavigationBase<string> entity)
+        {
+            var jsonStr = JsonConvert.SerializeObject(entity);
+            return JsonConvert.DeserializeObject<SiteAdminNavigation>(jsonStr);
+        }
+        private static IEnumerable<SiteAdminNavigation> ConvertToChildT(IEnumerable<SiteAdminNavigationBase<string>> entitys)
+        {
+            var jsonStr = JsonConvert.SerializeObject(entitys);
+            return JsonConvert.DeserializeObject<IEnumerable<SiteAdminNavigation>>(jsonStr);
         }
 
         public override void Remove(dynamic id)
         {
             var entityToDelete = dbSet.Find(id);
-            Remove(entityToDelete);
+            dbSet.Remove(entityToDelete);
         }
 
         public override void Remove(SiteAdminNavigationBase<string> entityToDelete)
         {
-            dbSet.Remove(entityToDelete as SiteAdminNavigation);
+            Remove(entityToDelete.Id);
         }
 
         public override void RemoveRange(IEnumerable<SiteAdminNavigationBase<string>> entitys)
         {
-            dbSet.RemoveRange(entitys as IEnumerable<SiteAdminNavigation>);
+            foreach (var entityToDelete in entitys)
+            {
+                Remove(entityToDelete.Id);
+            }
         }
 
         public override void Update(SiteAdminNavigationBase<string> entityToUpdate)

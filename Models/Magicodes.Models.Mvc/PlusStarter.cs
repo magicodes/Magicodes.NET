@@ -29,29 +29,7 @@ namespace Magicodes.Models.Mvc
             try
             {
                 //注册后台管理菜单仓储
-                APIContext<string>.Current.SiteAdminNavigationRepository = new SiteAdminNavigationRepository();
-                var r = APIContext<string>.Current.SiteAdminNavigationRepository;
-                var nav = new SiteAdminNavigationBase<string>()
-                    {
-                        BadgeRequestUrl = null,
-                        Href = "/",
-                        IconCls = "fa fa-tachometer",
-                        Id = Guid.Parse("{BFD1DBFE-5501-4202-B0E1-A7DA0E5167D5}"),
-                        isShowBadge = false,
-                        MenuBadgeType = MenuBadgeTypes.FromChildrenCount,
-                        ParentId = null,
-                        Text = "CMS",
-                        TextCls = string.Empty,
-                        Deleted = false,
-                        CreateBy = "{B0FBB2AC-3174-4E5A-B772-98CF776BD4B9}",
-                        CreateTime = DateTime.Now
-                    };
-                if (r.GetByID(nav.Id) == null)
-                {
-                    r.Add(nav);
-                    r.SaveChanges();
-                }
-                
+                APIContext<string>.Current.SiteAdminNavigationRepository = new SiteAdminNavigationRepository();               
             }
             catch (Exception)
             {

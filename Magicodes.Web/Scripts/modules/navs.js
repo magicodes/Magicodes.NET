@@ -12,7 +12,7 @@
         var ViewModel = function () {
             var self = this;
             this.loading = ko.observable(false);
-            this.api = "/api/Menus";
+            this.api = "/api/SiteAdminNavigation";
             this.menus = ko.observableArray([]);
             this.nav = ko.observable({ Href: ko.observable('') });
             this.breadcrumbs = ko.observableArray([]);

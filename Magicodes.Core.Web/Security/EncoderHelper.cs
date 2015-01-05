@@ -67,7 +67,7 @@ namespace Magicodes.Core.Web.Security
         }
         public static string LdapEncode(string input)
         {
-            return Microsoft.Security.Application.Encoder.LdapEncode(input);
+            return Microsoft.Security.Application.Encoder.LdapFilterEncode(input);
         }
         public static string LdapFilterEncode(string input)
         {
