@@ -142,7 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\CMSAdmin\CMSAdminAreaRegistration.cs" />
-    <Compile Include="Areas\CMSAdmin\Controllers\IndexController.cs" />
+    <Compile Include="Areas\CMSAdmin\Controllers\AdminController.cs" />
     <Compile Include="Migrations\201412310550098_CreateDb.cs" />
     <Compile Include="Migrations\201412310550098_CreateDb.Designer.cs">
       <DependentUpon>201412310550098_CreateDb.cs</DependentUpon>
@@ -176,6 +176,12 @@
     <Content Include="Areas\CMSAdmin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\CMSAdmin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\CMSAdmin\Views\Index\Index.cshtml" />
+    <Content Include="Areas\CMSAdmin\Views\Index\Admin.cshtml" />
+    <Content Include="Areas\CMSAdmin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\CMSAdmin\Views\Admin\Dashboard.cshtml" />
+    <Content Include="Areas\CMSAdmin\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\CMSAdmin\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\CMSAdmin\Views\Shared\_SignalRPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

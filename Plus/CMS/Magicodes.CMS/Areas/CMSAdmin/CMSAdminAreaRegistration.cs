@@ -17,8 +17,7 @@ namespace Magicodes.CMS.Areas.CMSAdmin
             context.MapRoute(
                 "CMSAdmin_default",
                 "CMSAdmin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional, pluginName = this.GetType().Assembly.GetName().Name },
-                new string[] { "Magicodes.CMS.Areas.CMSAdmin.Controllers" }
+                new { controller = "Admin", action = "Index", id = UrlParameter.Optional, pluginName = this.GetType().Assembly.GetName().Name }
             );
         }
     }
