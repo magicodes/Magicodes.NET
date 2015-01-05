@@ -74,6 +74,16 @@ namespace Magicodes.Core.Routing
                     endPage = endPage.Split('?')[0];
 
                 var ext = VirtualPathUtility.GetExtension(filePath);
+                //判断为默认页
+                if (string.IsNullOrEmpty(ext) && string.IsNullOrEmpty(endPage))
+                {
+                    var siteDefaultUrl = GlobalApplicationObject.Current.ApplicationContext.ConfigManager.GetConfig<Magicodes.Web.Interfaces.Config.Info.SiteConfigInfo>().SiteDefaultUrl;
+                    if (!siteDefaultUrl.IsEmpty())
+                    {
+                        context.Response.Redirect(siteDefaultUrl);
+                        return;
+                    }
+                }
                 if (Log != null)
                     Log.Log(LoggerLevels.Trace, context.Request.Url);
                 //站点页面
@@ -86,7 +96,7 @@ namespace Magicodes.Core.Routing
                 //{
                 //    context.RemapHandler(new Magicodes.Core.Handlers.WebHandlersProcess() { HandlerType = Magicodes.Web.Interfaces.WebHandler.WebHandlerTypes.JSONHandler });
                 //}
-                #endregion   
+                #endregion
                 //else if (filePath.StartsWith("/mc.api/"))
                 //{
                 //    context.RemapHandler(new WebHandlersProcess() { HandlerType = WebHandlerTypes.WebAPIHandler });

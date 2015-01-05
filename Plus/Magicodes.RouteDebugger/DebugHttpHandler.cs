@@ -133,6 +133,7 @@ namespace Magicodes.RouteDebugger
             {
                 foreach (var routeBase in RouteTable.Routes)
                 {
+                    if (routeBase == null) continue;
                     bool matchesCurrentRequest = (routeBase.GetRouteData(requestContext.HttpContext) != null);
                     string matchText = string.Format(@"<span{0}>{1}</span>", BoolStyle(matchesCurrentRequest), matchesCurrentRequest);
                     string url = "n/a";
