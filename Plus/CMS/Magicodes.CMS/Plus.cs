@@ -14,12 +14,12 @@ namespace Magicodes.CMS
 
         public void Install()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Uninstall()
         {
-            throw new NotImplementedException();
+           
         }
     }
 }
