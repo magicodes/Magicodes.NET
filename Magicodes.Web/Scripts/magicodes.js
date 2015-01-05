@@ -76,7 +76,7 @@ window.magicodes.dialog = function () {
         },
         confirm: function (setting) {
             self._bootbox(function () {
-                bootbox.confirm(setting.message, function (result) {
+                self.__bootBox.confirm(setting.message, function (result) {
                     if (result) {
                         $.isFunction(setting.func) && setting.func();
                     }
