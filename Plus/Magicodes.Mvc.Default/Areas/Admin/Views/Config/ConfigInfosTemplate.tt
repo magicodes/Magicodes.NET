@@ -15,6 +15,7 @@
 <#@ import namespace="System.Reflection" #>
 <#@ assembly name="System.ComponentModel.DataAnnotations.dll" #>
 <#@ import namespace="System.ComponentModel.DataAnnotations" #>
+<#@ import namespace="System.ComponentModel" #>
 <#@ include file="$(SolutionDir)\T4\MultiOutput.tt" #>
 <# 
     
@@ -92,6 +93,9 @@
             var StringLengthAttribute=T4Helper.GetAttribute<StringLengthAttribute>(pro,false);
             var maxLength=StringLengthAttribute==null?4000:StringLengthAttribute.MaximumLength;
 
+            //描述
+            var descriptionAttribute=T4Helper.GetAttribute<DescriptionAttribute>(pro,false);
+            var description=descriptionAttribute==null?"":descriptionAttribute.Description;
             T4DataType dataType=T4Helper.GetT4DataType(pro);
             switch (dataType)
             {
@@ -113,13 +117,13 @@
 #>
                                             <div class="space-2"></div>
                                             <div class="form-group">
-                                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="<#=                        proName #>"><#=                        displayName #>：</label>
-
+                                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="<#=                        proName #>"><#= displayName #>：</label>
                                                 <div class="col-xs-12 col-sm-9">
                                                     <div class="clearfix">
-                                                        <input type="text" name="<#=                        proName #>" id="<#=                        proName #>" data-bind="value: <#=                        proName #>" placeholder="<#=                        displayName #>：" class="col-xs-12 col-sm-6" <#=                        required?"required":"" #>   />
+                                                        <input type="text" name="<#= proName #>" id="<#= proName #>" data-bind="value: <#=                        proName #>" placeholder="<#=String.IsNullOrEmpty(description)?displayName: description #>" class="col-xs-12 col-sm-6" <#=  required?"required":"" #>   />
                                                     </div>
                                                 </div>
+                                                
                                             </div>
 <#
                     break;

@@ -52,6 +52,13 @@ namespace Magicodes.Web.Interfaces.Config.Info
             set { _sitetitle = value; }
         }
         /// <summary>
+        /// 网站默认页
+        /// </summary>
+        [Display(Name = "网站默认页")]
+        [Description("为空则为/home。此路径只能为站内路径。")]
+        [StringLength(200)]
+        public string SiteDefaultUrl { get; set; }
+        /// <summary>
         /// SEO关键字
         /// </summary>
         [Display(Name = "SEO关键字")]

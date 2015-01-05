@@ -112,6 +112,7 @@
     <Compile Include="Strategy\Sesstion\ISessionStrategy.cs" />
     <Compile Include="Strategy\SMS\ISMSStrategy.cs" />
     <Compile Include="T4\T4DataType.cs" />
+    <Compile Include="T4\T4FormGroupAttribute.cs" />
     <Compile Include="T4\T4GenerationIgnoreAttribute.cs" />
     <Compile Include="T4\T4Helper.cs" />
     <Compile Include="T4\T4OnlyVerificationAttribute.cs" />
