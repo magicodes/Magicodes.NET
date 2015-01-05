@@ -141,12 +141,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\IndexController.cs" />
+    <Compile Include="Areas\CMSAdmin\CMSAdminAreaRegistration.cs" />
+    <Compile Include="Areas\CMSAdmin\Controllers\IndexController.cs" />
     <Compile Include="Migrations\201412310550098_CreateDb.cs" />
     <Compile Include="Migrations\201412310550098_CreateDb.Designer.cs">
       <DependentUpon>201412310550098_CreateDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Plus.cs" />
     <Compile Include="UnitOfWork\CMS_UnitOfWork.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbContext\CMSDbContext.cs" />
@@ -171,9 +172,10 @@
     <Compile Include="Repositories\CMS_VideoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Index\Index.cshtml" />
+    <Content Include="Areas\CMSAdmin\Views\web.config" />
+    <Content Include="Areas\CMSAdmin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\CMSAdmin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\CMSAdmin\Views\Index\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -185,11 +187,12 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Plus.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
-    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\CMSAdmin\Models\" />
     <Folder Include="Controllers\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
@@ -214,7 +217,6 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
