@@ -113,9 +113,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.7\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -1044,6 +1044,9 @@
     <Content Include="Scripts\i18n.min.js">
       <DependentUpon>i18n.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\jqPlus\jquery-validation\localization\messages_zh.min.js">
+      <DependentUpon>messages_zh.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jqPlus\jquery.tmpl\jquery.tmpl.js" />
     <Content Include="Scripts\jqPlus\jquery.tmpl\jquery.tmpl.min.js">
       <DependentUpon>jquery.tmpl.js</DependentUpon>
@@ -1660,6 +1663,9 @@
     <Content Include="Scripts\ace\js\AceBundle.js.bundle" />
     <Content Include="Scripts\ace\js\AceBundle.min.js.map">
       <DependentUpon>AceBundle.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jqPlus\jquery-validation\localization\messages_zh.min.js.map">
+      <DependentUpon>messages_zh.min.js</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />

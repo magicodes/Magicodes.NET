@@ -84,8 +84,9 @@ require.config({
         "jq.colorbox": "ace/js/colorbox/jquery.colorbox" + min,
         "bt": "ace/js/bootstrap" + min,
         "ueditor.config": "ueditor/ueditor.config" + min,
-        "ueditor.all":"ueditor/ueditor.all"+min,
-        "ueditor.lang": "ueditor/lang/zh-cn/zh-cn"+min
+        "ueditor.all": "ueditor/ueditor.all" + min,
+        "ueditor.lang": "ueditor/lang/zh-cn/zh-cn" + min,
+        "jq.validation": "jqPlus/jquery-validation/localization/messages_zh" + min,
     },
     shim: {
         "jquery.slimscroll": ["jquery"],
@@ -111,7 +112,7 @@ require.config({
         "excanvas": ["ace/js/excanvas" + min],
         "moment": ["knockout/moment/moment" + min],
         "knockoutJs": ["jquery", "moment"],
-        "magicodes": ["jquery",  "knockoutJs"],
+        "magicodes": ["jquery", "knockoutJs"],
         "jq.validation": ["jquery", "jqPlus/jquery-validation/jquery.validate" + min],
         "kk.validate": ["jq.validation"],
         "jq.easy-pie-chart": ["jquery"],

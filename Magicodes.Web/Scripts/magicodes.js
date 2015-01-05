@@ -69,8 +69,8 @@ window.magicodes.dialog = function () {
     self = this;
     this.bootbox = {
         dialog: function (setting) {
-            self._bootbox(function () {
-                self.bootbox.bootbox = bootbox.dialog(setting);
+            self._bootbox(function (bt) {
+                self.bootbox.bootbox = bt.dialog(setting);
                 $.isFunction(setting.func) && setting.func();
             });
         },
@@ -88,8 +88,8 @@ window.magicodes.dialog = function () {
         }
     },
     this._bootbox = function (func) {
-        require(["bootbox"], function () {
-            $.isFunction(func) && func();
+        require(["bootbox"], function (bt) {
+            $.isFunction(func) && func(bt);
         });
     };
     this.colorbox = function (setting) {
