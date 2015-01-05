@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Magicodes.CMS.Areas.Admin.Controllers
+namespace Magicodes.CMS.Areas.CMSAdmin.Controllers
 {
     public class IndexController : Controller
     {
         //
-        // GET: /Admin/Index/
+        // GET: /CMSAdmin/Index/
         public ActionResult Index()
         {
             return View();
