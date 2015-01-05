@@ -265,6 +265,28 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>set "targetDir=$(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)\$(OutDir)"
+if not exist %25targetDir%25 md %25targetDir%25
+echo f | xcopy "$(TargetPath)" %25targetDir%25 /Y
+
+
+set "viewDir= $(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)\Views"
+if not exist %25viewDir%25 md %25viewDir%25
+echo f | xcopy /R /I /Y /S  "$(ProjectDir)/Views" %25viewDir%25 
+
+set "AreasDir= $(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)\Areas"
+if not exist %25AreasDir%25 md %25AreasDir%25
+echo f | xcopy /R /I /Y /S  "$(ProjectDir)/Areas" %25AreasDir%25
+
+cd /d $(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)
+ del /a /f /s /q *.cs
+ del /a /f /s /q *.pdb
+ del /a /f /s /q *.tt
+
+
+echo f | xcopy "$(ProjectDir)Plus.config" "$(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)\"  /Y</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
