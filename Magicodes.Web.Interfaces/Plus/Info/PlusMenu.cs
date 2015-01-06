@@ -13,6 +13,12 @@ namespace Magicodes.Web.Interfaces.Plus.Info
     [Serializable]
     public class PlusMenu
     {
+        public Guid? Id { get; set; }
+        public Guid? ParentId { get; set; }
+        /// <summary>
+        /// 排序号
+        /// </summary>
+        public int SortNo { get; set; }
         /// <summary>
         /// 显示名称
         /// </summary>

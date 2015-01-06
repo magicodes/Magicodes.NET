@@ -46,7 +46,7 @@ namespace Magicodes.Services.Mvc.Controller
         {
             if (User.Identity.IsAdmin())
             {
-                var navs = navigationRepository.GetQueryable().Where(p => p.Deleted == false);
+                var navs = navigationRepository.GetQueryable().Where(p => p.Deleted == false).OrderBy(p => p.SortNo);
                 return Ok(navs);
             }
             return NotFound();
@@ -55,7 +55,7 @@ namespace Magicodes.Services.Mvc.Controller
         {
             if (disposing)
             {
-               
+
             }
             base.Dispose(disposing);
         }

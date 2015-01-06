@@ -67,5 +67,9 @@ namespace Magicodes.Web.Interfaces.Data.API.SiteNavs
         /// 插件Id
         /// </summary>
         public Guid? PlusId { get; set; }
+        /// <summary>
+        /// 排序号
+        /// </summary>
+        public int SortNo { get; set; }
     }
 }

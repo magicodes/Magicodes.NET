@@ -190,13 +190,7 @@ namespace Magicodes.Core
                 {
                     if (r.GetQueryable().Any(p => p.PlusId == plusInfo.Id))
                     {
-                        r.GetQueryable()
-                            .Where(p => p.PlusId == plusInfo.Id)
-                            .Each(p =>
-                            {
-                                r.Remove(p.Id);
-                            });
-                        //r.RemoveRange(r.GetQueryable().Where(p => p.PlusId == plusInfo.Id));
+                        r.RemoveRange(r.GetQueryable().Where(p => p.PlusId == plusInfo.Id));
                         r.SaveChanges();
                     }
                     foreach (var plusMenu in plusInfo.PlusConfigInfo.PlusMenus)
@@ -222,10 +216,10 @@ namespace Magicodes.Core
                 BadgeRequestUrl = plusMenu.BadgeRequestUrl,
                 Href = plusMenu.Href,
                 IconCls = plusMenu.IconCls,
-                Id = Guid.NewGuid(),
+                Id = plusMenu.Id ?? Guid.NewGuid(),
                 IsShowBadge = plusMenu.IsShowBadge,
                 MenuBadgeType = plusMenu.MenuBadgeType,
-                ParentId = parentId,
+                ParentId = plusMenu.ParentId ?? parentId,
                 Text = plusMenu.Text,
                 TextCls = plusMenu.TextCls,
                 Deleted = false,

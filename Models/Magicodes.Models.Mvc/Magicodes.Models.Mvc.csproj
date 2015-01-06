@@ -97,6 +97,10 @@
     <Compile Include="Migrations\201501050841534_Add_PlusId_to_Nav_SiteAdminNavigation.Designer.cs">
       <DependentUpon>201501050841534_Add_PlusId_to_Nav_SiteAdminNavigation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501060157020_Add_Col_SortNo.cs" />
+    <Compile Include="Migrations\201501060157020_Add_Col_SortNo.Designer.cs">
+      <DependentUpon>201501060157020_Add_Col_SortNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Menu.cs" />
@@ -132,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501050841534_Add_PlusId_to_Nav_SiteAdminNavigation.resx">
       <DependentUpon>201501050841534_Add_PlusId_to_Nav_SiteAdminNavigation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501060157020_Add_Col_SortNo.resx">
+      <DependentUpon>201501060157020_Add_Col_SortNo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Plus.config" />
   </ItemGroup>
