@@ -56,6 +56,7 @@
     <Compile Include="Data\API\SiteNavs\MenuBadgeTypes.cs" />
     <Compile Include="Data\API\SiteNavs\SiteAdminNavigationBase.cs" />
     <Compile Include="Data\API\SiteNavs\SiteAdminNavigationRepositoryBase.cs" />
+    <Compile Include="Data\IUnitOfWorkManager.cs" />
     <Compile Include="Data\PagedList.cs" />
     <Compile Include="Models\TUserKeyType.cs" />
     <Compile Include="Plus\Info\PlusMenu.cs" />
