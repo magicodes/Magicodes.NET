@@ -8,6 +8,7 @@ using Magicodes.Web.Interfaces.Data;
 
 namespace Magicodes.Core.Data
 {
+    [Obsolete("暂时废弃")]
     public class DbSessionBase<TDbContext> : IDbSession 
         where TDbContext:DbContext,new()
     {
@@ -15,7 +16,8 @@ namespace Magicodes.Core.Data
         protected TDbContext context = new TDbContext();
         public IUnitOfWork StartupUnitOfWork()
         {
-            return new UnitOfWorkBase<TDbContext>(context);
+           // return new UnitOfWorkBase<TDbContext>(context);
+            return null;
         }
 
         public void Dispose()

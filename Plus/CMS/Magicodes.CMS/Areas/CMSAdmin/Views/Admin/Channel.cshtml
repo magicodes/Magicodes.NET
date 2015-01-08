@@ -10,18 +10,19 @@
                     //Grid Id
                     gridId: '#dataTable',
                     //目前只支持Odata协议格式的请求
-                    url: '/odata/SiteLeaveMessage',
+                    url: '/odata/CMSChannel',
                     //分页数
                     pageSize: 10,
                     //添加模型的默认值
                     addModel: {
-                        Content: '',
+                        ChannelName: '',
+                        Sequence:'',
                         Deleted: false
                     },
                     //主键字段
                     keyName: "Id",
                     //筛选模板
-                    filterTemplate: "contains(Content,{#txtSearch})",
+                    filterTemplate: "contains(ChannelName,{#txtSearch})",
                     //排序
                     $orderby: "CreateTime desc",
                 });
@@ -34,7 +35,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="table-header">
-                        用户管理
+                        栏目管理
                     </div>
                     <div>
                         <div class="dataTables_wrapper form-inline no-footer">
@@ -56,7 +57,7 @@
                                 <div class="col-xs-6">
                                     <div id="sample-table-2_filter" class="dataTables_filter">
                                         <label>
-                                            <input type="search" id="txtSearch" class="form-control input-sm" aria-controls="sample-table-2" placeholder="请输入留言内容...">&nbsp;
+                                            <input type="search" id="txtSearch" class="form-control input-sm" aria-controls="sample-table-2" placeholder="请输入栏目...">&nbsp;
                                             <button type="button" class="btn btn-purple btn-sm" data-bind="click: filter">
                                                 搜索    <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
                                             </button>
@@ -147,10 +148,19 @@
                                 <div class="col-xs-12">
                                     <form class="form-horizontal" id="editForm" role="form">
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Content">留言内容:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="ChannelName">栏目:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="Content" id="Content" data-bind="value: Content" placeholder="留言内容" class="col-xs-12 col-sm-6" required />
+                                                    <input type="text" name="ChannelName" id="ChannelName" data-bind="value: ChannelName" placeholder="栏目" class="col-xs-12 col-sm-6" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space-2"></div>
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Sequence">序号:</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <input type="text" name="Sequence" id="Sequence" data-bind="value: Sequence" placeholder="序号" class="col-xs-12 col-sm-6" required />
                                                 </div>
                                             </div>
                                         </div>
@@ -176,10 +186,19 @@
                                 <div class="col-xs-12">
                                     <form class="form-horizontal" id="editForm" role="form">
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Content">留言内容:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="ChannelName">栏目:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="Content" id="Content" data-bind="value: Content" placeholder="留言内容" class="col-xs-12 col-sm-6" required />
+                                                    <input type="text" name="ChannelName" id="ChannelName" data-bind="value: ChannelName" placeholder="栏目" class="col-xs-12 col-sm-6" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space-2"></div>
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Sequence">排序:</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <input type="text" name="Sequence" id="Sequence" data-bind="value: Sequence" placeholder="排序" class="col-xs-12 col-sm-6" required />
                                                 </div>
                                             </div>
                                         </div>

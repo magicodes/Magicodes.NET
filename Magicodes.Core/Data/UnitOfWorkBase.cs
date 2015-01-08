@@ -25,20 +25,18 @@ namespace Magicodes.Core.Data
     /// 数据单元操作基类
     /// </summary>
     /// <typeparam name="TDbContext"></typeparam>
-    public  class UnitOfWorkBase<TDbContext> : IUnitOfWork
+    public abstract class UnitOfWorkBase<TDbContext> : IUnitOfWork
         where TDbContext : DbContext, new()
     {
-        protected TDbContext context;
-        public readonly IDbTransaction transaction;
+        protected TDbContext context = new TDbContext();
+        public  IDbTransaction transaction;
 
         /// <summary>
         /// 开启事务
         /// </summary>
-        /// <param name="dbContext"></param>
-        /// <param name="isStartTransaction">为True则会启动一个事务</param>
-        public UnitOfWorkBase(TDbContext _context)
+  
+        public void StartupUnitOfWork()
         {
-            context = _context;
             if (context.Database.Connection.State != ConnectionState.Open)
             {
                 context.Database.Connection.Open();
@@ -68,7 +66,6 @@ namespace Magicodes.Core.Data
         {
             if (transaction != null)
                 transaction.Rollback();
-            //TODO:待验证
             //foreach (var entry in context.ChangeTracker.Entries())
             //{
             //    switch (entry.State)

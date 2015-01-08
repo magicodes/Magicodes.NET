@@ -20,7 +20,7 @@ namespace Magicodes.CMS
         /// 初始化DbContext
         /// </summary>
         public CMSDbContext()
-            : base(GlobalApplicationObject.Current.ConnectionStringName)
+            : base("magicodes_cms")
         {
 
         }

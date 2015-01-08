@@ -164,7 +164,7 @@
       <DependentUpon>201412310550098_CreateDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Plus.cs" />
-    <Compile Include="Services\CMS_ChannelODataController.cs" />
+    <Compile Include="Services\CMSChannelODataController.cs" />
     <Compile Include="UnitOfWork\CMS_DbSession.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbContext\CMSDbContext.cs" />
@@ -187,6 +187,7 @@
     <Compile Include="Repositories\CMS_PhotoRepository.cs" />
     <Compile Include="Repositories\CMS_TagRepository.cs" />
     <Compile Include="Repositories\CMS_VideoRepository.cs" />
+    <Compile Include="UnitOfWork\CMS_UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\CMSAdmin\Views\web.config" />
