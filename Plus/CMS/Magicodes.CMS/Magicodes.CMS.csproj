@@ -163,6 +163,10 @@
     <Compile Include="Migrations\201412310550098_CreateDb.Designer.cs">
       <DependentUpon>201412310550098_CreateDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501080419232_AddChannelId.cs" />
+    <Compile Include="Migrations\201501080419232_AddChannelId.Designer.cs">
+      <DependentUpon>201501080419232_AddChannelId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Plus.cs" />
     <Compile Include="Services\CMSChannelODataController.cs" />
     <Compile Include="UnitOfWork\CMS_DbSession.cs" />
@@ -252,6 +256,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201412310550098_CreateDb.resx">
       <DependentUpon>201412310550098_CreateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501080419232_AddChannelId.resx">
+      <DependentUpon>201501080419232_AddChannelId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

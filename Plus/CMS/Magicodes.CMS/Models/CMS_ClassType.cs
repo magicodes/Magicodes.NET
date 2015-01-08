@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Magicodes.CMS.Models
 {
     /// <summary>
-    /// 内容分类
+    /// 内容分类，支持分级
     /// </summary>
     public partial class CMS_ClassType : CommonBusinessModelBase<int, string>
     {
@@ -15,6 +15,10 @@ namespace Magicodes.CMS.Models
         /// </summary>
         [MaxLength(50)]
         public string ClassTypeName { get; set; }
+        /// <summary>
+        /// 栏目Id
+        /// </summary>
+        public int ChannelId { get; set; }
         /// <summary>
         /// 父级Id
         /// </summary>
