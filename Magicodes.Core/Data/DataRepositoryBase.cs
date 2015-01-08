@@ -23,7 +23,7 @@ namespace Magicodes.Core.Data
         where TEntity : class
         where TDbContext : DbContext
     {
-        internal TDbContext context;
+        protected TDbContext context;
         internal DbSet<TEntity> dbSet;
         public DataRepositoryBase(TDbContext context)
         {

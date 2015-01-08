@@ -9,18 +9,16 @@ using System.Web.Mvc;
 using System.Web.OData;
 using System.Web.OData.Query;
 using System.Web.OData.Routing;
-using System.Web.UI.WebControls;
 using Magicodes.CMS.Models;
-using Magicodes.CMS.Repositories;
 using Magicodes.CMS.UnitOfWork;
+using Magicodes.CMS.ViewModels;
 using Magicodes.Core.Web.Controllers;
 using Microsoft.AspNet.Identity;
 
 namespace Magicodes.CMS.Services
 {
-
-    [ODataRoutePrefix("CMSChannel")]
-    public class CMSChannelODataController:ODataControllerBase
+    [ODataRoutePrefix("CMSClassType")]
+    public class CMSClassTypeODataController : ODataControllerBase
     {
         private CMS_UnitOfWork unitOfWork;
         private CMS_UnitOfWork UnitOfWork
@@ -34,63 +32,67 @@ namespace Magicodes.CMS.Services
                 return unitOfWork;
             }
         }
+
         [ODataRoute]
-        [EnableQuery(PageSize = 1000,AllowedQueryOptions = AllowedQueryOptions.All)]
-        public IQueryable<CMS_Channel> Get()
+        [EnableQuery(PageSize = 1000, AllowedQueryOptions = AllowedQueryOptions.All)]
+        public IQueryable<CMS_ClassTypeInfoViewModel> Get()
         {
-            return UnitOfWork.CMS_ChannelRepository.Get(w => !w.Deleted).AsQueryable();
+            return UnitOfWork.CMS_ClassTypeRepository.GetClassTypeDetailInfo().AsQueryable();
+            //return UnitOfWork.CMS_ClassTypeRepository.Get(w => !w.Deleted).AsQueryable();
         }
 
         [System.Web.Http.HttpGet]
         [ODataRoute("({id})")]
         public IHttpActionResult Get([FromODataUri] int id)
         {
-            var o = UnitOfWork.CMS_ChannelRepository.GetByID(id);
-            if (o==null)
+            var o = UnitOfWork.CMS_ClassTypeRepository.GetByID(id);
+            if (o == null)
             {
                 return NotFound();
             }
             return Ok(o);
         }
+
         [System.Web.Http.HttpPost]
         [ODataRoute]
-        public async Task<IHttpActionResult> Post(CMS_Channel cmsChannel)
+        public async Task<IHttpActionResult> Post(CMS_ClassType cmsClassType)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            cmsChannel.CreateTime = DateTimeOffset.Now;
-            cmsChannel.CreateBy = User.Identity.GetUserName();
-          
-            UnitOfWork.CMS_ChannelRepository.Add(cmsChannel);
+            cmsClassType.CreateTime = DateTimeOffset.Now;
+            cmsClassType.CreateBy = User.Identity.GetUserName();
+
+            UnitOfWork.CMS_ClassTypeRepository.Add(cmsClassType);
             UnitOfWork.SaveChanges();
-            return Created(cmsChannel);
+            return Created(cmsClassType);
         }
 
         [System.Web.Http.HttpPut]
         [ODataRoute]
-        public async Task<IHttpActionResult> Put(CMS_Channel cmsChannel)
+        public async Task<IHttpActionResult> Put(CMS_ClassType cmsClassType)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var tempChannel = UnitOfWork.CMS_ChannelRepository.GetByID(cmsChannel.Id);
-            if (tempChannel==null)
+            var tempClassType= UnitOfWork.CMS_ClassTypeRepository.GetByID(cmsClassType.Id);
+            if (tempClassType == null)
             {
                 return NotFound();
             }
             else
             {
-                tempChannel.ChannelName = cmsChannel.ChannelName;
-                tempChannel.Sequence = cmsChannel.Sequence;
-                tempChannel.UpdateTime = DateTimeOffset.Now;
-                tempChannel.UpdateBy = User.Identity.GetUserName();
-               
-                UnitOfWork.CMS_ChannelRepository.Update(tempChannel);
+                //TODO:
+                tempClassType.ClassTypeName = cmsClassType.ClassTypeName;
+                tempClassType.ChannelId = cmsClassType.ChannelId;
+                tempClassType.UpdateTime = DateTimeOffset.Now;
+                tempClassType.UpdateBy = User.Identity.GetUserName();
+
+                UnitOfWork.CMS_ClassTypeRepository.Update(tempClassType);
                 UnitOfWork.SaveChanges();
-                return Updated(cmsChannel);
+                return Updated(tempClassType);
             }
         }
 
@@ -98,13 +100,13 @@ namespace Magicodes.CMS.Services
         [ODataRoute("({id})")]
         public async Task<IHttpActionResult> Delete([FromODataUri]int id)
         {
-            var cmsChannel = UnitOfWork.CMS_ChannelRepository.GetByID(id);
-            if (cmsChannel == null)
+            var cmsClassType = UnitOfWork.CMS_ClassTypeRepository.GetByID(id);
+            if (cmsClassType == null)
                 return NotFound();
             else
             {
-                cmsChannel.Deleted = true;
-                UnitOfWork.CMS_ChannelRepository.Remove(cmsChannel);
+                cmsClassType.Deleted = true;
+                UnitOfWork.CMS_ClassTypeRepository.Remove(cmsClassType);
                 UnitOfWork.SaveChanges();
                 return StatusCode(HttpStatusCode.NoContent);
             }

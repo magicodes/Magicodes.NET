@@ -169,6 +169,7 @@
     </Compile>
     <Compile Include="Plus.cs" />
     <Compile Include="Services\CMSChannelODataController.cs" />
+    <Compile Include="Services\CMSClassTypeODataController.cs" />
     <Compile Include="UnitOfWork\CMS_DbSession.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbContext\CMSDbContext.cs" />
@@ -192,6 +193,7 @@
     <Compile Include="Repositories\CMS_TagRepository.cs" />
     <Compile Include="Repositories\CMS_VideoRepository.cs" />
     <Compile Include="UnitOfWork\CMS_UnitOfWork.cs" />
+    <Compile Include="ViewModels\CMS_ClassTypeInfoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\CMSAdmin\Views\web.config" />
@@ -203,6 +205,7 @@
     <Content Include="Areas\CMSAdmin\Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Areas\CMSAdmin\Views\Shared\_SignalRPartial.cshtml" />
     <Content Include="Areas\CMSAdmin\Views\Admin\Channel.cshtml" />
+    <Content Include="Areas\CMSAdmin\Views\Admin\ClassType.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -221,7 +224,7 @@
     <Folder Include="App_Start\" />
     <Folder Include="Areas\CMSAdmin\Models\" />
     <Folder Include="Controllers\" />
-    <Folder Include="ViewModels\" />
+    <Folder Include="Views\CMSClassTypeOData\" />
     <Folder Include="Views\CMS_ChannelOData\" />
   </ItemGroup>
   <ItemGroup>
