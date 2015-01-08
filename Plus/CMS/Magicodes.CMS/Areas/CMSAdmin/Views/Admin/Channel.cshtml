@@ -74,7 +74,8 @@
                                                 <span class="lbl"></span>
                                             </label>
                                         </th>
-                                        <th>内容</th>
+                                        <th>栏目</th>
+                                        <th>排序</th>
                                         <th class="hidden-480">状态</th>
                                         <th>
                                             <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
@@ -128,7 +129,8 @@
                                     <span class="lbl"></span>
                                 </label>
                             </td>
-                            <td class="hidden-480" data-bind="text: Content"></td>
+                            <td class="hidden-480" data-bind="text: ChannelName"></td>
+                            <td class="hidden-480" data-bind="text: Sequence"></td>
                             <td class="hidden-480">
                                 <span data-bind="text: !Deleted ? '正常' : '已删除', css: Deleted ? 'label label-sm label-danger' : 'label label-sm label-success arrowed-in'"></span>
                             </td>

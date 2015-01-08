@@ -34,8 +34,7 @@ namespace Magicodes.Core.Data
         /// <summary>
         /// 开启事务
         /// </summary>
-  
-        public void StartupUnitOfWork()
+        public void BeginTransaction()
         {
             if (context.Database.Connection.State != ConnectionState.Open)
             {
