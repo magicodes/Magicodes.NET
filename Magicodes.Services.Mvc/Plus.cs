@@ -33,6 +33,12 @@ namespace Magicodes.Services.Mvc
         {
             GlobalConfigurationManager.ODataBuilder.EntitySet<Magicodes.Models.Mvc.Models.Site.SiteLeaveMessage>("SiteLeaveMessage");
             GlobalConfigurationManager.ODataBuilder.EntitySet<Magicodes.Models.Mvc.Models.PublishVersion>("PublishVersion");
+            GlobalConfigurationManager.ODataBuilder.EntitySet<AppRole>("Roles");
+            var user = GlobalConfigurationManager.ODataBuilder.EntitySet<AppUser>("Users").EntityType;
+            //忽略此属性（OData不支持DateTime类型）
+            user.Ignore(t => t.LockoutEndDateUtc);
+            //映射此属性
+            user.Property(t => t.LockoutEndDateUtcOffset).Name = "LockoutEndDateUtc";
         }
 
         public void Install()

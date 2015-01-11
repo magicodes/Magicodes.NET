@@ -1,11 +1,12 @@
 ﻿<#@ template language="C#" hostspecific="True" #>
-<#@ output encoding="utf-8" #>
+<#@ output encoding="utf-8" extension=".txt" #>
 <#@ assembly name="System.Xml" #>
 <#@ assembly name="EnvDTE" #>
 <#@ assembly name="Microsoft.VisualStudio.OLE.Interop" #>
 <#@ assembly name="Microsoft.VisualStudio.Shell" #>
 <#@ assembly name="Microsoft.VisualStudio.Shell.Interop" #>
 <#@ assembly name="Microsoft.VisualStudio.Shell.Interop.8.0" #>
+<#@ assembly name="Microsoft.VisualStudio.Modeling.Sdk.12.0" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Diagnostics" #>
 <#@ import namespace="System.IO" #>
@@ -16,17 +17,29 @@
 <#@ import namespace="Microsoft.VisualStudio.Shell.Interop" #>
 <#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
 <#@ import namespace="Microsoft.VisualStudio.TextTemplating.VSHost" #>
+<#@ import namespace="Microsoft.VisualStudio.Modeling" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\Magicodes.T4.dll" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\Magicodes.Web.Interfaces.dll" #>
+<#@ import namespace="Magicodes.T4.Models" #>
+<#@ import namespace="Magicodes.T4" #>
+<#@ import namespace="Magicodes.T4.Extensions" #>
+<#@ import namespace="Magicodes.Web.Interfaces.T4" #>
 <#
     initLogPanel();
+    __assemblys=new List<string>(){
+            "Magicodes.T4",
+            "Magicodes.Web.Interfaces"
+            };
  #>
 <#+
+    List<string> __assemblys;
     List<string> __savedOutputs = new List<string>();
     Engine __engine = new Engine();
     Guid customGuid = new Guid("{B4FDE55D-5AB2-454B-982F-7BD067CDEF19}");
     string customTitle = "Magicodes.NET 代码生成";
     IVsOutputWindowPane customPane;
     IVsOutputWindow outWindow ;
-    
+        
     void initLogPanel()
     {
         outWindow=((IServiceProvider)this.Host).GetCOMService(typeof(SVsOutputWindow)) as IVsOutputWindow;  
@@ -39,26 +52,56 @@
         customPane.OutputString(message+Environment.NewLine);
         customPane.Activate(); 
     }
-
-    string ProcessTemplate(string templateFileName,Dictionary<string,dynamic> dic)
+    string ProcessTemplate(string templateFilePath)
     {
-        //string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
-        //string template = File.ReadAllText(Host.ResolvePath(templateFileName));
-        string template = File.ReadAllText(Host.ResolvePath(templateFileName));
-        IServiceProvider serviceProvider = (IServiceProvider)this.Host; 
-        ITextTemplating t4 = serviceProvider.GetService(typeof(STextTemplating)) as ITextTemplating;
-        ITextTemplatingSessionHost host = t4 as ITextTemplatingSessionHost;
-        host.Session = host.CreateSession();
-        if(dic!=null)
+        var sb=new StringBuilder();
+        sb.AppendLine("<"+"#"+"@ template debug=\"true\" hostspecific=\"true\" language=\"C#\" #"+">");
+        foreach (var assembly in __assemblys)
         {
-            foreach(var key in dic.Keys)
-            {
-                host.Session[key]=dic[key];
-            }
+            sb.Append("<").Append("#").Append("@ assembly name=\"").Append(this.Host.ResolveAssemblyReference(assembly)).Append("\" #").Append(">").AppendLine();
         }
-        //return t4.ProcessTemplate(templateFileName,template);
-        return __engine.ProcessTemplate(template, Host);  
+        sb.AppendLine(File.ReadAllText(templateFilePath,Encoding.UTF8));
+        var content=sb.ToString();
+        Log(content);
+        Engine engine = new Engine();
+        return engine.ProcessTemplate(content,this.Host);
     }
+    string ProcessTemplate(string templateFilePath,string key,object obj)
+    {
+        //TextTemplatingSession session = new TextTemplatingSession();
+        //session[key] = obj;
+        //var sessionHost = (ITextTemplatingSessionHost)this.Host;
+        //sessionHost.Session = session;
+        var sb=new StringBuilder();
+        sb.AppendLine("<"+"#"+"@ template debug=\"true\" hostspecific=\"true\" language=\"C#\" #"+">");
+        foreach (var assembly in __assemblys)
+        {
+            sb.Append("<").Append("#").Append("@ assembly name=\"").Append(assembly).Append("\" #").Append(">").AppendLine();
+        }
+        sb.AppendLine(File.ReadAllText(templateFilePath,Encoding.UTF8));
+        var content=sb.ToString();
+        Log(content);        
+        return new Engine().ProcessTemplate(content, this.Host);
+    }
+    //string ProcessTemplate(string templateFileName,Dictionary<string,dynamic> dic)
+    //{
+    ////string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+    ////string template = File.ReadAllText(Host.ResolvePath(templateFileName));
+    //string template = File.ReadAllText(Host.ResolvePath(templateFileName));
+    //IServiceProvider serviceProvider = (IServiceProvider)this.Host; 
+    //ITextTemplating t4 = serviceProvider.GetService(typeof(STextTemplating)) as ITextTemplating;
+    //ITextTemplatingSessionHost host = t4 as ITextTemplatingSessionHost;
+    //host.Session = host.CreateSession();
+    //if(dic!=null)
+    //{
+    //foreach(var key in dic.Keys)
+    //{
+    //host.Session[key]=dic[key];
+    //}
+    //}
+    ////return t4.ProcessTemplate(templateFileName,template);
+    //return __engine.ProcessTemplate(template, Host);  
+    //}
 
     void DeleteOldOutputs()
     {

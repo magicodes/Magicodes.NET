@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Magicodes.Web.Interfaces.T4;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,11 +19,14 @@ using System.Web.Mvc;
 //======================================================================
 namespace Magicodes.Mvc.Default.Areas.Admin.Models
 {
+    [T4ODataGridAttribute("Roles")]
+    [Serializable]
     public class RoleViewModel
     {
+        [T4GenerationIgnoreAttribute]
         public string Id { get; set; }
         [Required(AllowEmptyStrings = false)]
-        [Display(Name = "RoleName")]
+        [Display(Name = "角色名")]
         public string Name { get; set; }
     }
 

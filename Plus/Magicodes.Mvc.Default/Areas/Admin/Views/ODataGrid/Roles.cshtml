@@ -1,7 +1,8 @@
-﻿@{
+﻿
+
+@{
     ViewBag.Title = "角色管理";
 }
-
 <script type="text/javascript">
     require(["magicodes"], function () {
         //初始化grid
@@ -14,15 +15,13 @@
                 //分页数
                 pageSize: 10,
                 //添加模型的默认值
-                addModel: {
-
-                },
+                addModel: {"Id":null,"Name":null},
                 //主键字段
                 keyName: "Id",
                 //筛选模板
                 filterTemplate: "contains(Name,{#txtSearch})",
                 //排序
-                $orderby: "CreateTime Desc",
+                $orderby: "Id desc",
             });
     });
 </script>
@@ -55,7 +54,7 @@
                                 <div class="col-xs-6">
                                     <div id="sample-table-2_filter" class="dataTables_filter">
                                         <label>
-                                            <input type="search" id="txtSearch" class="form-control input-sm" aria-controls="sample-table-2" placeholder="请输入角色名...">&nbsp;
+                                            <input type="search" id="txtSearch" class="form-control input-sm" aria-controls="sample-table-2" placeholder="请输入...">&nbsp;
                                             <button type="button" class="btn btn-purple btn-sm" data-bind="click: filter">
                                                 搜索    <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
                                             </button>
@@ -72,10 +71,7 @@
                                                 <span class="lbl"></span>
                                             </label>
                                         </th>
-                                        <th>角色名</th>
-                                        <th></th>
-
-
+<th>角色名</th>
 
                                         <th>操作</th>
                                     </tr>
@@ -125,9 +121,9 @@
                                     <span class="lbl"></span>
                                 </label>
                             </td>
-                            <td data-bind="text: Name"></td>
-                            <td data-bind="text: Id"></td>
+<td data-bind="text: Name"></td>
 
+        
                             <td>
                                 <div class="hidden-sm hidden-xs btn-group">
                                     <button class="btn btn-xs btn-info" data-bind="click: $root.edit.bind($data, Id)">
@@ -142,26 +138,16 @@
                             <div class="row" style="margin-left: 0px; margin-right: 0px;">
                                 <div class="col-xs-12">
                                     <form class="form-horizontal" id="editForm" role="form">
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Name">角色名：</label>
-                                            <div class="col-xs-12 col-sm-9">
-                                                <div class="clearfix">
-                                                    <textarea name="Name" id="Name" data-bind="value: Name,attr:{required:false}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="space-2"></div>
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Id">：</label>
-                                            <div class="col-xs-12 col-sm-9">
-                                                <div class="clearfix">
-                                                    <textarea name="Id" id="Id" data-bind="value: Id,attr:{required:false}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="space-2"></div>
-
-
+<div class="form-group">
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Name">角色名：</label>
+                <div class="col-xs-12 col-sm-9">
+                <div class="clearfix">
+                <textarea  name="Name" id="Name" data-bind="value: Name,attr:{required:true}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
+                </div>
+                </div>
+                </div>
+                <div class="space-2"></div>
+                                        
                                     </form>
                                 </div>
                             </div>
@@ -172,25 +158,16 @@
                             <div class="row" style="margin-left: 0px; margin-right: 0px;">
                                 <div class="col-xs-12">
                                     <form class="form-horizontal" id="editForm" role="form">
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Name">角色名：</label>
-                                            <div class="col-xs-12 col-sm-9">
-                                                <div class="clearfix">
-                                                    <textarea name="Name" id="Name" data-bind="value: Name,attr:{required:false}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="space-2"></div>
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Id">：</label>
-                                            <div class="col-xs-12 col-sm-9">
-                                                <div class="clearfix">
-                                                    <textarea name="Id" id="Id" data-bind="value: Id,attr:{required:false}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="space-2"></div>
-
+<div class="form-group">
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Name">角色名：</label>
+                <div class="col-xs-12 col-sm-9">
+                <div class="clearfix">
+                <textarea  name="Name" id="Name" data-bind="value: Name,attr:{required:true}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
+                </div>
+                </div>
+                </div>
+                <div class="space-2"></div>
+    
                                     </form>
                                 </div>
                             </div>

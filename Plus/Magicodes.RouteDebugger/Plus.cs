@@ -57,8 +57,7 @@ namespace Magicodes.RouteDebugger
         {
             if (!IsEnableRouteDebugger) return;
             GlobalApplicationObject.Current.WatchPanel.AddTabAsync(WatchPanelName);
-
-            if (RouteTable.Routes.Last() != DebugRoute.Singleton)
+            if (!RouteTable.Routes.Contains(DebugRoute.Singleton))
             {
                 RouteTable.Routes.Add(DebugRoute.Singleton);
             }

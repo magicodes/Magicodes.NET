@@ -36,6 +36,12 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Magicodes.Web.Interfaces.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -57,7 +63,6 @@
     <Compile Include="Data\API\SiteNavs\SiteAdminNavigationBase.cs" />
     <Compile Include="Data\API\SiteNavs\SiteAdminNavigationRepositoryBase.cs" />
     <Compile Include="Data\PagedList.cs" />
-    <Compile Include="Models\TUserKeyType.cs" />
     <Compile Include="Plus\Info\PlusMenu.cs" />
     <Compile Include="Strategy\User\LoginStatus.cs" />
     <Compile Include="ApplicationContextBase.cs" />
@@ -113,10 +118,9 @@
     <Compile Include="Strategy\Resource\IScriptMinStrategy.cs" />
     <Compile Include="Strategy\Sesstion\ISessionStrategy.cs" />
     <Compile Include="Strategy\SMS\ISMSStrategy.cs" />
-    <Compile Include="T4\T4DataType.cs" />
     <Compile Include="T4\T4FormGroupAttribute.cs" />
     <Compile Include="T4\T4GenerationIgnoreAttribute.cs" />
-    <Compile Include="T4\T4Helper.cs" />
+    <Compile Include="T4\T4ODataGridAttribute.cs" />
     <Compile Include="T4\T4OnlyVerificationAttribute.cs" />
     <Compile Include="Themes\ITheme.cs" />
     <Compile Include="Strategy\User\AuthResult.cs" />
@@ -135,9 +139,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="Magicodes.Web.Interfaces.snk" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>set "targetDir=$(SolutionDir)T4\Librarys" 
+if not exist %25targetDir%25 md %25targetDir%25
+echo f | xcopy "$(TargetPath)" %25targetDir%25 /Y</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

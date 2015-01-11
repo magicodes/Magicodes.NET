@@ -1,7 +1,8 @@
-﻿@{
-    ViewBag.Title = "角色管理";
+﻿<#@ output extension=".cshtml" encoding="utf-8" #>
+<#    if(oDataGridHelper!=null){ #>
+@{
+    ViewBag.Title = "<#=            oDataGridHelper.GetValue("_param_title") #>";
 }
-
 <script type="text/javascript">
     require(["magicodes"], function () {
         //初始化grid
@@ -10,19 +11,17 @@
                 //Grid Id
                 gridId: '#dataTable',
                 //目前只支持Odata协议格式的请求
-                url: '/odata/Roles',
+                url: '<#=            oDataGridHelper.GetValue("_param_url") #>',
                 //分页数
                 pageSize: 10,
                 //添加模型的默认值
-                addModel: {
-
-                },
+                addModel: <#= oDataGridHelper.GetValue("_param_addModel")#>,
                 //主键字段
                 keyName: "Id",
                 //筛选模板
-                filterTemplate: "contains(Name,{#txtSearch})",
+                filterTemplate: "<#=            oDataGridHelper.GetValue("_param_filterTemplate") #>",
                 //排序
-                $orderby: "CreateTime Desc",
+                $orderby: "<#=            oDataGridHelper.GetValue("_param_orderby") #>",
             });
     });
 </script>
@@ -33,7 +32,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="table-header">
-                        角色管理
+                        <#=            oDataGridHelper.GetValue("_param_title") #>
                     </div>
                     <div>
                         <div class="dataTables_wrapper form-inline no-footer">
@@ -55,7 +54,7 @@
                                 <div class="col-xs-6">
                                     <div id="sample-table-2_filter" class="dataTables_filter">
                                         <label>
-                                            <input type="search" id="txtSearch" class="form-control input-sm" aria-controls="sample-table-2" placeholder="请输入角色名...">&nbsp;
+                                            <input type="search" id="txtSearch" class="form-control input-sm" aria-controls="sample-table-2" placeholder="<#=            oDataGridHelper.GetValue("_param_searchplaceholder") #>">&nbsp;
                                             <button type="button" class="btn btn-purple btn-sm" data-bind="click: filter">
                                                 搜索    <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
                                             </button>
@@ -72,11 +71,7 @@
                                                 <span class="lbl"></span>
                                             </label>
                                         </th>
-                                        <th>角色名</th>
-                                        <th></th>
-
-
-
+<#=            oDataGridHelper.CodeGenerate("_tmp_TH_Dic","_tmp_TH_Default")        #>
                                         <th>操作</th>
                                     </tr>
                                 </thead>
@@ -125,9 +120,8 @@
                                     <span class="lbl"></span>
                                 </label>
                             </td>
-                            <td data-bind="text: Name"></td>
-                            <td data-bind="text: Id"></td>
-
+<#=            oDataGridHelper.CodeGenerate("_tmp_TD_Dic","_tmp_TD_Default")        #>
+        
                             <td>
                                 <div class="hidden-sm hidden-xs btn-group">
                                     <button class="btn btn-xs btn-info" data-bind="click: $root.edit.bind($data, Id)">
@@ -142,26 +136,7 @@
                             <div class="row" style="margin-left: 0px; margin-right: 0px;">
                                 <div class="col-xs-12">
                                     <form class="form-horizontal" id="editForm" role="form">
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Name">角色名：</label>
-                                            <div class="col-xs-12 col-sm-9">
-                                                <div class="clearfix">
-                                                    <textarea name="Name" id="Name" data-bind="value: Name,attr:{required:false}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="space-2"></div>
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Id">：</label>
-                                            <div class="col-xs-12 col-sm-9">
-                                                <div class="clearfix">
-                                                    <textarea name="Id" id="Id" data-bind="value: Id,attr:{required:false}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="space-2"></div>
-
-
+<#=            oDataGridHelper.CodeGenerate("_tmp_Form_Dic","_tmp_Form_Default")        #>                                        
                                     </form>
                                 </div>
                             </div>
@@ -172,25 +147,7 @@
                             <div class="row" style="margin-left: 0px; margin-right: 0px;">
                                 <div class="col-xs-12">
                                     <form class="form-horizontal" id="editForm" role="form">
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Name">角色名：</label>
-                                            <div class="col-xs-12 col-sm-9">
-                                                <div class="clearfix">
-                                                    <textarea name="Name" id="Name" data-bind="value: Name,attr:{required:false}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="space-2"></div>
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Id">：</label>
-                                            <div class="col-xs-12 col-sm-9">
-                                                <div class="clearfix">
-                                                    <textarea name="Id" id="Id" data-bind="value: Id,attr:{required:false}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="space-2"></div>
-
+<#=            oDataGridHelper.CodeGenerate("_tmp_Form_Dic","_tmp_Form_Default")        #>    
                                     </form>
                                 </div>
                             </div>
@@ -204,3 +161,4 @@
         </div>
     </div>
 </div>
+<#    } #>

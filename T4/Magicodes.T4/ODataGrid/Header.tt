@@ -1,0 +1,90 @@
+﻿<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ output extension=".txt" encoding="utf-8" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\Newtonsoft.Json.dll" #>
+<#@ import namespace="Newtonsoft.Json" #>
+<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\T4Helper.tt" #>
+<#@ import namespace="System.Reflection" #>
+<#
+    //var binDirPath=this.Host.ResolveAssemblyReference("$(TargetDir)");
+    //var dir=new DirectoryInfo(binDirPath);
+    //var dlls=  dir.GetFiles("*.dll");
+    //foreach(FileInfo dllFile in dlls)
+    //{
+        //AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(dllFile.FullName));
+    //}
+ #>
+<#+
+    public class ODataGridHelper
+    {
+        public Dictionary<string, object> Params { get; set; }
+        public Type T4Model { get; set; }
+        public ODataGridHelper(Type t4Model)
+        {
+            T4Model = t4Model;
+            Params = new Dictionary<string, object>();
+            Params["_param_title"] = "列表";
+            Params["_param_filterTemplate"] = "contains(Name,{#txtSearch})";
+            var defaultOrderField = "CreateTime";
+            if (t4Model.GetProperty("CreateTime") == null)
+                defaultOrderField = "Id";
+            Params["_param_orderby"] = defaultOrderField + " desc";
+            Params["_param_searchplaceholder"] = "请输入...";
+            Params["_tmp_TH_Default"] = "<th>{DisplayName}</th>";
+            Params["_tmp_TH_Dic"] = new Dictionary<T4DataType, string>(){
+            {
+                T4DataType.DateTime,"<th><i class=\"ace-icon fa fa-clock-o bigger-110 hidden-480\"></i>{DisplayName}</th>"},
+            };
+            Params["_tmp_TD_Default"] = "<td data-bind=\"text: {Name}\"></td>";
+            Params["_tmp_TD_Dic"] = new Dictionary<T4DataType, string>(){
+            {
+                T4DataType.DateTime,"<td data-bind=\"text: moment({Name}).format('LLLL')\"></td>"},
+            };
+            Params["_tmp_Form_Default"] =
+                @"<div class=""form-group"">
+                    <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
+                    <div class=""col-xs-12 col-sm-9"">
+                    <div class=""clearfix"">
+                    <input type=""text"" name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required}}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6"" />
+                    </div>
+                    </div>
+                    </div>
+                    <div class=""space-2""></div>";
+
+
+            Params["_tmp_Form_Dic"] = new Dictionary<T4DataType, string>(){
+            {
+                T4DataType.MultilineText,
+               @"<div class=""form-group"">
+                <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
+                <div class=""col-xs-12 col-sm-9"">
+                <div class=""clearfix"">
+                <textarea  name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required}}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6 limited autosize-transition"" />
+                </div>
+                </div>
+                </div>
+                <div class=""space-2""></div>"},
+            };
+        }
+        public string GetValue(string paramsName)
+        {
+            return Params.ContainsKey(paramsName) ? (Params[paramsName] ?? string.Empty).ToString() : string.Empty;
+        }
+        public T GetValue<T>(string paramsName)
+        {
+            if (!Params.ContainsKey(paramsName))
+                return default(T);
+            return (T)Params[paramsName];
+        }
+        public string CodeGenerate(string dicName, string defaultName)
+        {
+            return this.T4Model.T4Html(
+                 this.GetValue<Dictionary<T4DataType, string>>(dicName),
+                 this.GetValue(defaultName)
+             );
+        }
+    }
+ #>

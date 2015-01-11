@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 //        http://www.magicodes.net
 //
 //======================================================================
-namespace Magicodes.Web.Interfaces.T4
+namespace Magicodes.T4.Models
 {
     /// <summary>
     /// T4数据类型

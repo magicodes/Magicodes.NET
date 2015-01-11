@@ -91,7 +91,7 @@ namespace Magicodes.Core.Plus
                                 try
                                 {
                                     var type = Activator.CreateInstance(t);
-                                    if (t.BaseType != null && (!(t.BaseType is Object)))
+                                    if (t.BaseType != null && (t.BaseType.GetInterfaces().Any(p => p.FullName == strategyBaseFullName)))
                                     {
                                         GlobalApplicationObject.Current.ApplicationContext
                                         .StrategyManager
@@ -143,26 +143,56 @@ namespace Magicodes.Core.Plus
                 default:
                     break;
             }
-            //将程序集添加到当前应用程序域
-            BuildManager.AddReferencedAssembly(assembly);
-            //执行插件初始化函数
-            assembly.GetTypes().Where(p => p.IsClass && p.GetInterface(typeof(IPlus).FullName) != null).Each(
-                t =>
-                {
-                    using (new CodeWatch("Plu Initialize", 3000))
+            try
+            {
+                //将程序集添加到当前应用程序域
+                BuildManager.AddReferencedAssembly(assembly);
+                //执行插件初始化函数
+                assembly.GetTypes().Where(p => p.IsClass && p.GetInterface(typeof(IPlus).FullName) != null).Each(
+                    t =>
                     {
-                        try
+                        using (new CodeWatch("Plu Initialize", 3000))
                         {
-                            var type = (IPlus)Activator.CreateInstance(t);
-                            type.Initialize();
+                            try
+                            {
+                                var type = (IPlus)Activator.CreateInstance(t);
+                                type.Initialize();
+                            }
+                            catch (Exception ex)
+                            {
+                                throw new MagicodesException(string.Format("插件初始化失败！Assembly:{0}，Type:{1}{2}", assembly.FullName, t.FullName, Environment.NewLine), ex);
+                            }
                         }
-                        catch (Exception ex)
+                    });
+            }
+            catch (FileLoadException ex)
+            {
+                throw new MagicodesException(string.Format("加载此程序失败！Assembly：{0}，FileName：{1}", assembly.FullName, ex.FileName), ex);
+            }
+            catch (System.Reflection.ReflectionTypeLoadException ex)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (Exception exSub in ex.LoaderExceptions)
+                {
+                    sb.AppendLine(exSub.Message);
+                    FileNotFoundException exFileNotFound = exSub as FileNotFoundException;
+                    if (exFileNotFound != null)
+                    {
+                        if (!string.IsNullOrEmpty(exFileNotFound.FusionLog))
                         {
-                            throw new MagicodesException(string.Format("插件初始化失败！Assembly:{0}，Type:{1}{2}", assembly.FullName, t.FullName, Environment.NewLine), ex);
-                            //ApplicationLog.Log(LoggerLevels.Error, string.Format("Assembly:{0}，Type:{1}{2}", assembly.FullName, t.FullName, Environment.NewLine), ex);
+                            sb.AppendLine("Fusion Log:");
+                            sb.AppendLine(exFileNotFound.FusionLog);
                         }
                     }
-                });
+                    sb.AppendLine();
+                }
+                string errorMessage = sb.ToString();
+                throw new MagicodesException(errorMessage);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             return assembly;
         }
 

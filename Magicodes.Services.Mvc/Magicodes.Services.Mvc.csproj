@@ -162,6 +162,7 @@
     <Compile Include="Controller\PublishVersionODataController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controller\RolesODtataController.cs" />
     <Compile Include="Controller\SiteLeaveMessageODtataController.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Plus.cs" />

@@ -84,23 +84,7 @@ namespace Magicodes.Core.Routing
                         return;
                     }
                 }
-                if (Log != null)
-                    Log.Log(LoggerLevels.Trace, context.Request.Url);
-                //站点页面
-                //if (filePath.StartsWith("/sitepages/") || filePath.StartsWith("/pages/"))
-                //{
-                //    context.RemapHandler(new WebHandlersProcess() { HandlerType = WebHandlerTypes.ResourceHandler });
-                //}
-                #region Json处理页面
-                //else if (filePath.StartsWith("/json/"))
-                //{
-                //    context.RemapHandler(new Magicodes.Core.Handlers.WebHandlersProcess() { HandlerType = Magicodes.Web.Interfaces.WebHandler.WebHandlerTypes.JSONHandler });
-                //}
-                #endregion
-                //else if (filePath.StartsWith("/mc.api/"))
-                //{
-                //    context.RemapHandler(new WebHandlersProcess() { HandlerType = WebHandlerTypes.WebAPIHandler });
-                //}
+                Log.Log(LoggerLevels.Trace, context.Request.Url);
             }
         }
 

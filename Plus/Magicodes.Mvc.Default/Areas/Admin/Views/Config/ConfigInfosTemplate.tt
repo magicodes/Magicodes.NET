@@ -6,7 +6,6 @@
 <#@ output extension=".txt" encoding="utf-8" #>
 <#@ assembly name="$(TargetDir)\Magicodes.Models.Mvc.dll" #>
 <#@ assembly name="$(SolutionDir)\Magicodes.Web\bin\Magicodes.Core.dll" #>
-<#@ assembly name="$(SolutionDir)\Magicodes.Web\bin\Magicodes.Web.Interfaces.dll" #>
 <#@ import namespace="Magicodes.Web.Interfaces.Config.Info" #>
 <#@ import namespace="Magicodes.Web.Interfaces.Config" #>
 <#@ import namespace="Magicodes.Web.Interfaces.T4" #>
@@ -16,7 +15,7 @@
 <#@ assembly name="System.ComponentModel.DataAnnotations.dll" #>
 <#@ import namespace="System.ComponentModel.DataAnnotations" #>
 <#@ import namespace="System.ComponentModel" #>
-<#@ include file="$(SolutionDir)\T4\MultiOutput.tt" #>
+<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\T4Helper.tt" #>
 <# 
     
     var assembly=typeof(SiteConfigInfo).Assembly;
@@ -25,9 +24,9 @@
     foreach(var config in types)
     {
         //生成此类
-        var T4GenerationIgnoreAttribute=T4Helper.GetAttribute<Magicodes.Web.Interfaces.T4.T4GenerationIgnoreAttribute>(config,false);
+        var T4GenerationIgnoreAttribute=config.GetAttribute<Magicodes.Web.Interfaces.T4.T4GenerationIgnoreAttribute>(false);
         if(T4GenerationIgnoreAttribute!=null) continue;
-        var descriptionAttr=T4Helper.GetAttribute<System.ComponentModel.DescriptionAttribute>(config,false);
+        var descriptionAttr=config.GetAttribute<System.ComponentModel.DescriptionAttribute>(false);
         var title=descriptionAttr == null ? "" : descriptionAttr.Description;
         var api="/api/config/"+config.Name;
 #>
@@ -80,23 +79,23 @@
             //属性名
             var proName=pro.Name;
             //是否忽略生成此类
-            var ProT4GenerationIgnoreAttribute=T4Helper.GetAttribute<Magicodes.Web.Interfaces.T4.T4GenerationIgnoreAttribute>(pro,false);
+            var ProT4GenerationIgnoreAttribute=pro.GetAttribute<Magicodes.Web.Interfaces.T4.T4GenerationIgnoreAttribute>(false);
             if(ProT4GenerationIgnoreAttribute!=null) continue;
             //显示名
-            var displayAttribute=T4Helper.GetAttribute<DisplayAttribute>(pro,false);
+            var displayAttribute=pro.GetAttribute<DisplayAttribute>(false);
             var displayName=displayAttribute == null ? "" : displayAttribute.Name;
             //是否必填
-            var requiredAttribute=T4Helper.GetAttribute<RequiredAttribute>(pro,false);
+            var requiredAttribute=pro.GetAttribute<RequiredAttribute>(false);
             var required=requiredAttribute!=null;
             
             //字符串长度
-            var StringLengthAttribute=T4Helper.GetAttribute<StringLengthAttribute>(pro,false);
+            var StringLengthAttribute=pro.GetAttribute<StringLengthAttribute>(false);
             var maxLength=StringLengthAttribute==null?4000:StringLengthAttribute.MaximumLength;
 
             //描述
-            var descriptionAttribute=T4Helper.GetAttribute<DescriptionAttribute>(pro,false);
+            var descriptionAttribute=pro.GetAttribute<DescriptionAttribute>(false);
             var description=descriptionAttribute==null?"":descriptionAttribute.Description;
-            T4DataType dataType=T4Helper.GetT4DataType(pro);
+            T4DataType dataType=pro.GetT4DataType();
             switch (dataType)
             {
                 //case T4DataType.Custom:

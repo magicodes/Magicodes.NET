@@ -1,27 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using Magicodes.T4.Models;
+using Magicodes.Web.Interfaces.T4;
 
 //======================================================================
 //
 //        Copyright (C) 2014-2016 Magicodes团队    
 //        All rights reserved
 //
-//        filename :T4Helper
+//        filename :T4Extensions
 //        description :
 //
-//        created by 雪雁 at  2014/10/27 21:40:53
+//        created by 雪雁 at  2015/1/7 10:21:38
 //        http://www.magicodes.net
 //
 //======================================================================
-namespace Magicodes.Web.Interfaces.T4
+namespace Magicodes.T4.Extensions
 {
-    public class T4Helper
+    public static class T4Extensions
     {
+        /// <summary>
+        /// 获取T4生成特性
+        /// </summary>
+        /// <param name="pro"></param>
+        /// <returns></returns>
+        public static T4PropertyInfo GetT4PropertyInfo(this PropertyInfo pro)
+        {
+            var t4ProInfo = new T4PropertyInfo()
+            {
+                Name = pro.Name,
+                Ignore = pro.GetAttribute<T4GenerationIgnoreAttribute>(false) != null,
+                DataType = pro.GetT4DataType()
+            };
+
+            //显示名
+            var displayAttribute = pro.GetAttribute<DisplayAttribute>(false);
+            t4ProInfo.DisplayName = displayAttribute == null ? null : displayAttribute.Name;
+            //是否必填
+            var requiredAttribute = pro.GetAttribute<RequiredAttribute>(false);
+            t4ProInfo.Required = requiredAttribute != null;
+
+            //字符串长度
+            var StringLengthAttribute = pro.GetAttribute<StringLengthAttribute>(false);
+            t4ProInfo.MaxLength = StringLengthAttribute == null ? (int?)null : StringLengthAttribute.MaximumLength;
+
+            //描述
+            var descriptionAttribute = pro.GetAttribute<DescriptionAttribute>(false);
+            t4ProInfo.Description = descriptionAttribute == null ? null : descriptionAttribute.Description;
+
+            return t4ProInfo;
+        }
         /// <summary>
         /// 获取程序集属性
         /// </summary>
@@ -29,20 +64,21 @@ namespace Magicodes.Web.Interfaces.T4
         /// <param name="assembly"></param>
         /// <param name="inherit"></param>
         /// <returns></returns>
-        public static T GetAttribute<T>(ICustomAttributeProvider assembly, bool inherit = false)
+        public static T GetAttribute<T>(this ICustomAttributeProvider assembly, bool inherit = false)
  where T : Attribute
         {
+
             return assembly
                 .GetCustomAttributes(typeof(T), inherit)
                 .OfType<T>()
                 .FirstOrDefault();
         }
         /// <summary>
-        /// 
+        /// 获取数据类型
         /// </summary>
         /// <param name="pro"></param>
         /// <returns></returns>
-        public static T4DataType GetT4DataType(PropertyInfo pro)
+        public static T4DataType GetT4DataType(this PropertyInfo pro)
         {
             var proType = pro.PropertyType;
             //属性名
@@ -147,6 +183,71 @@ namespace Magicodes.Web.Interfaces.T4
             if (dataType == null)
                 dataType = T4DataType.Text;
             return dataType.Value;
+        }
+        /// <summary>
+        /// 获取数据类型
+        /// </summary>
+        /// <param name="pro"></param>
+        /// <returns></returns>
+        public static string T4Html(this PropertyInfo pro, Dictionary<T4DataType, string> dic, string defaultHtmlTemplate)
+        {
+            var t4ProInfo = pro.GetT4PropertyInfo();
+            if (t4ProInfo.Ignore || t4ProInfo.Name.Equals("id", StringComparison.CurrentCultureIgnoreCase)) return null;
+            var temp = string.Empty;
+            if (dic.ContainsKey(t4ProInfo.DataType))
+            {
+                temp = dic[t4ProInfo.DataType];
+            }
+            else if (!string.IsNullOrWhiteSpace(defaultHtmlTemplate))
+            {
+                temp = defaultHtmlTemplate;
+            }
+            if (!string.IsNullOrEmpty(temp))
+            {
+                var str = temp;
+                foreach (var proInfo in t4ProInfo.GetType().GetProperties())
+                {
+                    var name = "{" + proInfo.Name + "}";
+                    var value = (proInfo.GetValue(t4ProInfo) ?? string.Empty).ToString();
+                    if (proInfo.Name == "Required")
+                        value = value.ToLower();
+                    str = str.Replace(name, value);
+                }
+                return str;
+            }
+            return string.Empty;
+        }
+        public static string T4Html(this Type type, Dictionary<T4DataType, string> dic, string defaultHtmlTemplate)
+        {
+            if (type == null || dic == null) return string.Empty;
+            var str = new StringBuilder();
+            foreach (PropertyInfo pro in type.GetProperties())
+            {
+                var html = pro.T4Html(dic, defaultHtmlTemplate);
+                if (!string.IsNullOrEmpty(html))
+                    str.AppendLine(html);
+            }
+            return str.ToString();
+        }
+        /// <summary>
+        /// 获取当前程序集中应用此特性的类
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="assembly"></param>
+        /// <returns></returns>
+        public static IEnumerable<Type> GetTypesWith<TAttribute>(this Assembly assembly, bool inherit) where TAttribute : System.Attribute
+        {
+            var attrType = typeof(TAttribute);
+            foreach (Type type in assembly.GetTypes())
+            {
+                if (type.GetCustomAttributes(attrType, true).Length > 0)
+                {
+                    yield return type;
+                }
+            }
+            //return from t in assembly.GetTypes()
+            //       where t.IsDefined(type, inherit)
+            //       select t;
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Magicodes.Models.Mvc.Migrations
             var store = new AppUserStore(context);
             var userManager = new UserManager<AppUser, string>(store);
             var roleManager = new RoleManager<AppRole>(new AppRoleStore(context));
-            var adminRole = new AppRole() { Id = "{74ABBD8D-ED32-4C3A-9B2A-EB134BFF5D91}", Name = "Admin" };
+            var adminRole = new AppRole() { Id = "{74ABBD8D-ED32-4C3A-9B2A-EB134BFF5D91}", Name = "Admin", CreateTime = DateTime.Now, Deleted = false };
             if (!roleManager.RoleExists(adminRole.Name))
                 roleManager.Create(adminRole);
             var user = new AppUser

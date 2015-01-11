@@ -35,9 +35,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magicodes.Services.Mvc", "Magicodes.Services.Mvc\Magicodes.Services.Mvc.csproj", "{A957372A-038C-4FF0-914C-D922E2D56B44}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "T4", "T4", "{A4779A8E-AC1D-41D5-81A0-1DBE33B73987}"
-	ProjectSection(SolutionItems) = preProject
-		T4\MultiOutput.tt = T4\MultiOutput.tt
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magicodes.SignalR", "Plus\Magicodes.SignalR\Magicodes.SignalR.csproj", "{01DF34AB-7164-4FB2-8377-9C8085BF04ED}"
 EndProject
@@ -69,6 +66,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magicodes.CMS", "Plus\CMS\Magicodes.CMS\Magicodes.CMS.csproj", "{48DC73AF-E990-43B1-BCE3-5D6A8DBD6076}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magicodes.CMS.Tests", "Magicodes.CMS.Tests\Magicodes.CMS.Tests.csproj", "{867AA047-FCAE-4023-91CE-0A1E753E3C0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magicodes.T4", "T4\Magicodes.T4\Magicodes.T4.csproj", "{04887BBF-5838-4FBE-99C9-C3171CC8971C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librarys", "Librarys", "{ABE243F4-C6A7-44C9-9647-E70B9D824844}"
+	ProjectSection(SolutionItems) = preProject
+		T4\Librarys\Magicodes.T4.dll = T4\Librarys\Magicodes.T4.dll
+		T4\Librarys\Newtonsoft.Json.dll = T4\Librarys\Newtonsoft.Json.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -156,6 +161,10 @@ Global
 		{867AA047-FCAE-4023-91CE-0A1E753E3C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{867AA047-FCAE-4023-91CE-0A1E753E3C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{867AA047-FCAE-4023-91CE-0A1E753E3C0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04887BBF-5838-4FBE-99C9-C3171CC8971C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04887BBF-5838-4FBE-99C9-C3171CC8971C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04887BBF-5838-4FBE-99C9-C3171CC8971C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04887BBF-5838-4FBE-99C9-C3171CC8971C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -179,5 +188,7 @@ Global
 		{90E639F6-90D9-4D5A-82F2-852FD4C93964} = {34176348-4619-429E-85F0-71484A66033B}
 		{48DC73AF-E990-43B1-BCE3-5D6A8DBD6076} = {90E639F6-90D9-4D5A-82F2-852FD4C93964}
 		{867AA047-FCAE-4023-91CE-0A1E753E3C0F} = {90E639F6-90D9-4D5A-82F2-852FD4C93964}
+		{04887BBF-5838-4FBE-99C9-C3171CC8971C} = {A4779A8E-AC1D-41D5-81A0-1DBE33B73987}
+		{ABE243F4-C6A7-44C9-9647-E70B9D824844} = {A4779A8E-AC1D-41D5-81A0-1DBE33B73987}
 	EndGlobalSection
 EndGlobal

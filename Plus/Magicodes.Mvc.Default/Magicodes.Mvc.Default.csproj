@@ -184,8 +184,12 @@
   <ItemGroup>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\IndexController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ODataGridControllers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ODataGridControllers.tt</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Admin\Controllers\PublishVersionController.cs" />
-    <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\SiteLeaveMessageController.cs" />
     <Compile Include="Areas\Admin\Models\AdminViewModel.cs" />
     <Compile Include="BundleConfig.cs" />
@@ -226,6 +230,20 @@
     </Content>
     <Content Include="Areas\Admin\Views\Config\SystemConfigInfo.cshtml">
       <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Controllers\ODataGridControllers.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ODataGridControllers.cs</LastGenOutput>
+      <LastOutputs>.\ODataGridControllers.cs</LastOutputs>
+    </Content>
+    <Content Include="Areas\Admin\Views\ODataGrid\Roles.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Roles.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Admin\Views\ODataGrid\Roles.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Roles.tt</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
@@ -323,11 +341,6 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\DownLoad\Download.cshtml" />
-    <Content Include="Areas\Admin\Views\Roles\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Roles\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Roles\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Roles\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Roles\Index.cshtml" />
     <Content Include="Areas\Admin\Views\UsersAdmin\Create.cshtml" />
     <Content Include="Areas\Admin\Views\UsersAdmin\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\UsersAdmin\Details.cshtml" />
@@ -408,7 +421,8 @@ cd /d $(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)
  del /a /f /s /q *.tt
 
 
-echo f | xcopy "$(ProjectDir)Plus.config" "$(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)\"  /Y</PostBuildEvent>
+echo f | xcopy "$(ProjectDir)Plus.config" "$(SolutionDir)Magicodes.Web\Plus\Plugins\$(ProjectName)\"  /Y
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
