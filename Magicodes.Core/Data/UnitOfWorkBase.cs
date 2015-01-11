@@ -29,27 +29,17 @@ namespace Magicodes.Core.Data
         where TDbContext : DbContext, new()
     {
         protected TDbContext context = new TDbContext();
-        public readonly IDbTransaction transaction;
+        public  IDbTransaction transaction;
 
-        public UnitOfWorkBase(TDbContext dbContext)
-        {
-            context = dbContext;
-        }
         /// <summary>
         /// 开启事务
         /// </summary>
-        /// <param name="dbContext"></param>
-        /// <param name="dbTransaction">为NULL则会启动一个事务</param>
-        public UnitOfWorkBase(TDbContext dbContext, IDbTransaction dbTransaction = null)
+        public void BeginTransaction()
         {
-            context = dbContext;
-            if (dbTransaction == null)
+            if (context.Database.Connection.State != ConnectionState.Open)
             {
-                if (context.Database.Connection.State != ConnectionState.Open)
-                {
-                    context.Database.Connection.Open();
-                    transaction = context.Database.Connection.BeginTransaction();
-                }
+                context.Database.Connection.Open();
+                transaction = context.Database.Connection.BeginTransaction();
             }
         }
         /// <summary>

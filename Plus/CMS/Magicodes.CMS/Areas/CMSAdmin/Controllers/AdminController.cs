@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Magicodes.CMS.UnitOfWork;
 using Magicodes.Core.Web.Controllers;
 using Magicodes.Web.Interfaces.Config.Info;
 
@@ -19,8 +20,18 @@ namespace Magicodes.CMS.Areas.CMSAdmin.Controllers
 {
     public class AdminController : AdminControllerBase
     {
-        //
-        // GET: /CMSAdmin/Admin/
+        private CMS_UnitOfWork unitOfWork;
+        public CMS_UnitOfWork UnitOfWork
+        {
+            get
+            {
+                if (unitOfWork==null)
+                {
+                    unitOfWork=new CMS_UnitOfWork();
+                }
+                return unitOfWork;
+            }
+        }
         public ActionResult Index()
         {
             var siteInfo = ApplicationContext.ConfigManager.GetConfig<SiteConfigInfo>();
@@ -47,6 +58,11 @@ namespace Magicodes.CMS.Areas.CMSAdmin.Controllers
         /// <returns></returns>
         public ActionResult ClassType()
         {
+            ViewBag.ChannelList=UnitOfWork.CMS_ChannelRepository.Get(w => true).Select(s => new SelectListItem()
+            {
+                Text = s.ChannelName,
+                Value = s.Id.ToString()
+            }).ToList();
             return View();
         }
         /// <summary>

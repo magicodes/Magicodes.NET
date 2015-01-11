@@ -22,23 +22,10 @@ using System.Threading.Tasks;
 //======================================================================
 namespace Magicodes.Models.Blog
 {
+    //TODO:需要修改
     public class BlogUnitOfWork : UnitOfWorkBase<BlogDbContext>
     {
-        public BlogUnitOfWork(BlogDbContext dbContext)
-            : base(dbContext)
-        {
 
-        }
-        /// <summary>
-        /// 开启事务
-        /// </summary>
-        /// <param name="dbContext"></param>
-        /// <param name="dbTransaction">为NULL则会启动一个事务</param>
-        public BlogUnitOfWork(BlogDbContext dbContext, IDbTransaction dbTransaction = null)
-            : base(dbContext, dbTransaction)
-        {
-
-        }
         private BlogUserRepository blogUserRepository;
 
         public BlogUserRepository BlogUserRepository
@@ -47,7 +34,7 @@ namespace Magicodes.Models.Blog
             {
                 if (this.blogUserRepository == null)
                 {
-                    this.blogUserRepository = new BlogUserRepository(context);
+                    //this.blogUserRepository = new BlogUserRepository(context);
                 }
                 return blogUserRepository;
             }

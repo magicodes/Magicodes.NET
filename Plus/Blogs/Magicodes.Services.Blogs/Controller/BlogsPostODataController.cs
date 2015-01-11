@@ -32,6 +32,9 @@ namespace Magicodes.Services.Blogs.Controller
     {
         private BlogDbContext db = new BlogDbContext();
         // GET odata/BlogsPost
+
+
+ 
         [ODataRoute]
         [EnableQuery(PageSize = 1000, AllowedQueryOptions = AllowedQueryOptions.All)]
         public IQueryable<BlogPost> Get()

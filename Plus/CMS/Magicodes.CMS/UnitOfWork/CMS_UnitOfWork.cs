@@ -1,31 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Web;
-using Magicodes.CMS.Models;
 using Magicodes.CMS.Repositories;
 using Magicodes.Core.Data;
 
 namespace Magicodes.CMS.UnitOfWork
 {
-    public class CMS_UnitofWork:UnitOfWorkBase<CMSDbContext>
+    public class CMS_UnitOfWork:UnitOfWorkBase<CMSDbContext>
     {
-        public CMS_UnitofWork(CMSDbContext context):base(context)
-        {
-            
-        }
-         /// <summary>
-        /// 开启事务
-        /// </summary>
-        /// <param name="dbContext"></param>
-        /// <param name="dbTransaction">为NULL则会启动一个事务</param>
-        public CMS_UnitofWork(CMSDbContext context, IDbTransaction dbTransaction = null)
-            : base(context, dbTransaction)
-        {
-
-        }
-
         private CMS_ChannelRepository cms_ChannelRepository;
         public CMS_ChannelRepository CMS_ChannelRepository
         {
@@ -79,7 +62,7 @@ namespace Magicodes.CMS.UnitOfWork
         }
 
         private CMS_ContentTagRepository cms_ContentTagRepository;
-        public CMS_ContentTagRepository  CMS_ContentTagRepository
+        public CMS_ContentTagRepository CMS_ContentTagRepository
         {
             get
             {

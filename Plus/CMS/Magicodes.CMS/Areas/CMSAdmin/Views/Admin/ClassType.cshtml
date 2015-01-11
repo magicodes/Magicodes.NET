@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "主页";
+    ViewBag.Title = "分类管理";
 }
 @section HeaderScripts {
     <script type="text/javascript">
@@ -10,19 +10,20 @@
                     //Grid Id
                     gridId: '#dataTable',
                     //目前只支持Odata协议格式的请求
-                    url: '/odata/CMSChannel',
+                    url: '/odata/CMSClassType',
                     //分页数
                     pageSize: 10,
                     //添加模型的默认值
                     addModel: {
-                        ChannelName: '',
-                        Sequence:'',
+                        ChannelId:'',
+                        ClassTypeName: '',
+                        Sequence: '',
                         Deleted: false
                     },
                     //主键字段
                     keyName: "Id",
                     //筛选模板
-                    filterTemplate: "contains(ChannelName,{#txtSearch})",
+                    filterTemplate: "contains(ClassTypeName,{#txtSearch})",
                     //排序
                     $orderby: "CreateTime desc",
                 });
@@ -35,7 +36,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="table-header">
-                        栏目管理
+                        分类管理
                     </div>
                     <div>
                         <div class="dataTables_wrapper form-inline no-footer">
@@ -57,7 +58,7 @@
                                 <div class="col-xs-6">
                                     <div id="sample-table-2_filter" class="dataTables_filter">
                                         <label>
-                                            <input type="search" id="txtSearch" class="form-control input-sm" aria-controls="sample-table-2" placeholder="请输入栏目...">&nbsp;
+                                            <input type="search" id="txtSearch" class="form-control input-sm" aria-controls="sample-table-2" placeholder="请输入分类...">&nbsp;
                                             <button type="button" class="btn btn-purple btn-sm" data-bind="click: filter">
                                                 搜索    <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
                                             </button>
@@ -75,6 +76,7 @@
                                             </label>
                                         </th>
                                         <th>栏目</th>
+                                        <th>类型</th>
                                         <th>排序</th>
                                         <th class="hidden-480">状态</th>
                                         <th>
@@ -130,6 +132,7 @@
                                 </label>
                             </td>
                             <td class="hidden-480" data-bind="text: ChannelName"></td>
+                            <td class="hidden-480" data-bind="text: ClassTypeName"></td>
                             <td class="hidden-480" data-bind="text: Sequence"></td>
                             <td class="hidden-480">
                                 <span data-bind="text: !Deleted ? '正常' : '已删除', css: Deleted ? 'label label-sm label-danger' : 'label label-sm label-success arrowed-in'"></span>
@@ -150,10 +153,20 @@
                                 <div class="col-xs-12">
                                     <form class="form-horizontal" id="editForm" role="form">
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="ChannelName">栏目:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="ClassTypeName">所属栏目:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="ChannelName" id="ChannelName" data-bind="value: ChannelName" placeholder="栏目" class="col-xs-12 col-sm-6" required />
+                                                    @*<input type="text" name="ClassTypeName" id="ClassTypeName" data-bind="value: ClassTypeName" placeholder="栏目" class="col-xs-12 col-sm-6" required />*@
+                                                    @Html.DropDownList("ChannelId", (IEnumerable<SelectListItem>)ViewBag.ChannelList, new { @class = "col-xs-12 col-sm-6", data_bind = "value:ChannelId" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space-2"></div>
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="ClassTypeName">分类:</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <input type="text" name="ClassTypeName" id="ClassTypeName" data-bind="value: ClassTypeName" placeholder="栏目" class="col-xs-12 col-sm-6" required />
                                                 </div>
                                             </div>
                                         </div>
@@ -188,10 +201,20 @@
                                 <div class="col-xs-12">
                                     <form class="form-horizontal" id="editForm" role="form">
                                         <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="ChannelName">栏目:</label>
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="ClassTypeName">所属栏目:</label>
                                             <div class="col-xs-12 col-sm-9">
                                                 <div class="clearfix">
-                                                    <input type="text" name="ChannelName" id="ChannelName" data-bind="value: ChannelName" placeholder="栏目" class="col-xs-12 col-sm-6" required />
+                                                    @*<input type="text" name="ClassTypeName" id="ClassTypeName" data-bind="value: ClassTypeName" placeholder="栏目" class="col-xs-12 col-sm-6" required />*@
+                                                    @Html.DropDownList("ChannelId", (IEnumerable<SelectListItem>)ViewBag.ChannelList, new { @class = "col-xs-12 col-sm-6", data_bind = "value:ChannelId" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space-2"></div>
+                                        <div class="form-group">
+                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="ClassTypeName">分类:</label>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <div class="clearfix">
+                                                    <input type="text" name="ClassTypeName" id="ClassTypeName" data-bind="value: ClassTypeName" placeholder="栏目" class="col-xs-12 col-sm-6" required />
                                                 </div>
                                             </div>
                                         </div>

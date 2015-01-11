@@ -111,6 +111,7 @@
     <Compile Include="Config\ConfigManager.cs" />
     <Compile Include="Data\DataRepositoryBase.cs" />
     <Compile Include="Data\UnitOfWorkBase.cs" />
+    <Compile Include="Data\DbSessionBase.cs" />
     <Compile Include="Handlers\WebHandlersProcess.cs" />
     <Compile Include="Handlers\WebHandlersManager.cs" />
     <Compile Include="Handlers\WebHandlerInfo.cs" />
