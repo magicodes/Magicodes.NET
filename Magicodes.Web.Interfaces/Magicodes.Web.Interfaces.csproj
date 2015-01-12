@@ -119,10 +119,13 @@
     <Compile Include="Strategy\Resource\IScriptMinStrategy.cs" />
     <Compile Include="Strategy\Sesstion\ISessionStrategy.cs" />
     <Compile Include="Strategy\SMS\ISMSStrategy.cs" />
+    <Compile Include="T4\IgnoreParts.cs" />
+    <Compile Include="T4\ReadOnlyTypes.cs" />
     <Compile Include="T4\T4FormGroupAttribute.cs" />
     <Compile Include="T4\T4GenerationIgnoreAttribute.cs" />
     <Compile Include="T4\T4ODataGridAttribute.cs" />
     <Compile Include="T4\T4OnlyVerificationAttribute.cs" />
+    <Compile Include="T4\T4ReadOnlyFieldAttribute.cs" />
     <Compile Include="Themes\ITheme.cs" />
     <Compile Include="Strategy\User\AuthResult.cs" />
     <Compile Include="Strategy\User\IUser.cs" />

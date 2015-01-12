@@ -94,7 +94,7 @@ require.config({
         "bt": ["jquery", 'css!ace/js/styles/bootstrap' + min],
         "jquery.mobile": ["jquery"],
         "fullcalendar": ["jquery", "css!ace/js/styles/fullcalendar" + min],
-        "jquery.gritter": ["jquery", "css!ace/js/styles/jquery.gritter" + min],
+        "jquery.gritter": ["jquery", "css!ace/css/jquery.gritter" + min],
         "dropzone": ["jquery", "css!ace/js/styles/dropzone" + min],
         "jq.colorbox": ["jquery", "css!ace/js/colorbox/colorbox" + min],
         "bootbox": ["jquery"],

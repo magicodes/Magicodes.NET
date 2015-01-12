@@ -17,5 +17,15 @@ namespace Magicodes.Mvc.Default.Areas.Admin.Controllers
 {
     public class ODataGridController : AdminControllerBase
     {
+        // GET: ODataGrid/Roles
+        public ActionResult Roles()
+        {
+            return View();
+        }
+        // GET: ODataGrid/Users
+        public ActionResult Users()
+        {
+            return View();
+        }
     }
 }

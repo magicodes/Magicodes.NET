@@ -1,7 +1,7 @@
 ﻿
 
 @{
-    ViewBag.Title = "角色管理";
+    ViewBag.Title = "用户管理";
 }
 @section HeaderScripts {
     <script type="text/javascript">
@@ -9,7 +9,7 @@
                 magicodes.getModule('odataGrid', function () {
                     var grid = new magicodes.odataGrid({
                         //目前只支持Odata协议格式的请求
-                        url: '/odata/Roles',
+                        url: '/odata/Users',
                         //bindElement: $('#dataTable').get(0),
                         //主键字段
                         keyName: "Id",
@@ -20,7 +20,7 @@
                         //是否启用Html绑定（使用htmlValue）
                         htmlValueBind: false,
                         //添加数据模型
-                        addModel: {"Id":"446c0c4b-67a7-4db0-93f2-2ab235241af8","Name":null},
+                        addModel: {"Id":"76128566-9904-47ba-866d-ce19b3e70406","UserName":null,"DisplayName":null,"Email":null,"PhoneNumber":null},
                         //主键类型
                         keyType: "string",
                         //绑定完成事件
@@ -42,7 +42,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="table-header">
-                        角色管理
+                        用户管理
                     </div>
                     <div>
                         <div class="dataTables_wrapper form-inline no-footer">
@@ -81,7 +81,10 @@
                                                 <span class="lbl"></span>
                                             </label>
                                         </th>
-<th>角色名</th>
+<th>登录名</th>
+<th>昵称</th>
+<th>邮箱</th>
+<th>手机</th>
 
                                         <th>操作</th>
                                     </tr>
@@ -131,7 +134,10 @@
                                     <span class="lbl"></span>
                                 </label>
                             </td>
-<td data-bind="text: Name"></td>
+<td data-bind="text: UserName"></td>
+<td data-bind="text: DisplayName"></td>
+<td data-bind="text: Email"></td>
+<td data-bind="text: PhoneNumber"></td>
 
                             <td>
                                 <div class="hidden-sm hidden-xs btn-group">
@@ -148,10 +154,38 @@
                                 <div class="col-xs-12">
                                     <form class="form-horizontal" id="editForm" role="form">
 <div class="form-group">
-                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Name">角色名：</label>
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="UserName">登录名：</label>
                 <div class="col-xs-12 col-sm-9">
                 <div class="clearfix">
-                <textarea  name="Name" id="Name" data-bind="value: Name,attr:{required:true,readonly:False}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
+                <textarea  name="UserName" id="UserName" data-bind="value: UserName,attr:{required:true,readonly:false}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
+                </div>
+                </div>
+                </div>
+                <div class="space-2"></div>
+<div class="form-group">
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="DisplayName">昵称：</label>
+                <div class="col-xs-12 col-sm-9">
+                <div class="clearfix">
+                <textarea  name="DisplayName" id="DisplayName" data-bind="value: DisplayName,attr:{required:true,readonly:false}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
+                </div>
+                </div>
+                </div>
+                <div class="space-2"></div>
+
+                <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Email">邮箱：</label>
+                <div class="col-xs-12 col-sm-9">
+                <div class="clearfix">
+                <input type="text" name="Email" id="Email" data-bind="value: Email,attr:{required:true,readonly:false" placeholder="" class="col-xs-12 col-sm-6" />
+                </div>
+                </div>
+                </div>
+                <div class="space-2"></div>
+<div class="form-group">
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="PhoneNumber">手机：</label>
+                <div class="col-xs-12 col-sm-9">
+                <div class="clearfix">
+                <textarea  name="PhoneNumber" id="PhoneNumber" data-bind="value: PhoneNumber,attr:{required:true,readonly:false}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
                 </div>
                 </div>
                 </div>
@@ -168,10 +202,38 @@
                                 <div class="col-xs-12">
                                     <form class="form-horizontal" id="editForm" role="form">
 <div class="form-group">
-                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Name">角色名：</label>
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="UserName">登录名：</label>
                 <div class="col-xs-12 col-sm-9">
                 <div class="clearfix">
-                <textarea  name="Name" id="Name" data-bind="value: Name,attr:{required:true,readonly:False}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
+                <textarea  name="UserName" id="UserName" data-bind="value: UserName,attr:{required:true,readonly:true}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
+                </div>
+                </div>
+                </div>
+                <div class="space-2"></div>
+<div class="form-group">
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="DisplayName">昵称：</label>
+                <div class="col-xs-12 col-sm-9">
+                <div class="clearfix">
+                <textarea  name="DisplayName" id="DisplayName" data-bind="value: DisplayName,attr:{required:true,readonly:false}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
+                </div>
+                </div>
+                </div>
+                <div class="space-2"></div>
+
+                <div class="form-group">
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Email">邮箱：</label>
+                <div class="col-xs-12 col-sm-9">
+                <div class="clearfix">
+                <input type="text" name="Email" id="Email" data-bind="value: Email,attr:{required:true,readonly:false" placeholder="" class="col-xs-12 col-sm-6" />
+                </div>
+                </div>
+                </div>
+                <div class="space-2"></div>
+<div class="form-group">
+                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="PhoneNumber">手机：</label>
+                <div class="col-xs-12 col-sm-9">
+                <div class="clearfix">
+                <textarea  name="PhoneNumber" id="PhoneNumber" data-bind="value: PhoneNumber,attr:{required:true,readonly:false}" placeholder="" class="col-xs-12 col-sm-6 limited autosize-transition" />
                 </div>
                 </div>
                 </div>

@@ -3,29 +3,39 @@
 @{
     ViewBag.Title = "<#=            oDataGridHelper.GetValue("_param_title") #>";
 }
-<script type="text/javascript">
-    require(["magicodes"], function () {
-        //初始化grid
-        magicodes.grid.init(
-            {
-                //Grid Id
-                gridId: '#dataTable',
-                //目前只支持Odata协议格式的请求
-                url: '<#=            oDataGridHelper.GetValue("_param_url") #>',
-                //分页数
-                pageSize: 10,
-                //添加模型的默认值
-                addModel: <#= oDataGridHelper.GetValue("_param_addModel")#>,
-                //主键字段
-                keyName: "Id",
-                //筛选模板
-                filterTemplate: "<#=            oDataGridHelper.GetValue("_param_filterTemplate") #>",
-                //排序
-                $orderby: "<#=            oDataGridHelper.GetValue("_param_orderby") #>",
+@section HeaderScripts {
+    <script type="text/javascript">
+            require(["magicodes"], function () {
+                magicodes.getModule('odataGrid', function () {
+                    var grid = new magicodes.odataGrid({
+                        //目前只支持Odata协议格式的请求
+                        url: '<#=            oDataGridHelper.GetValue("_param_url") #>',
+                        //bindElement: $('#dataTable').get(0),
+                        //主键字段
+                        keyName: "<#=            oDataGridHelper.GetValue("_param_key")#>",
+                        //筛选模板
+                        filterTemplate: "<#=            oDataGridHelper.GetValue("_param_filterTemplate") #>",
+                        //排序
+                        $orderby: "<#=            oDataGridHelper.GetValue("_param_orderby") #>",
+                        //是否启用Html绑定（使用htmlValue）
+                        htmlValueBind: false,
+                        //添加数据模型
+                        addModel: <#=            oDataGridHelper.GetValue("_param_addModel")#>,
+                        //主键类型
+                        keyType: "<#=            oDataGridHelper.GetValue("_param_key_type")#>",
+                        //绑定完成事件
+                        onBound: function (vm) {
+                        
+                        },
+                        //编辑模型初始化完毕事件
+                        editAfterRender: function (render) {
+                        
+                        }
+                    });
+                });
             });
-    });
-</script>
-
+    </script>
+}
 <div class="main-container" id="main-container">
     <div>
         <div class="page-content">
@@ -121,7 +131,6 @@
                                 </label>
                             </td>
 <#=            oDataGridHelper.CodeGenerate("_tmp_TD_Dic","_tmp_TD_Default")        #>
-        
                             <td>
                                 <div class="hidden-sm hidden-xs btn-group">
                                     <button class="btn btn-xs btn-info" data-bind="click: $root.edit.bind($data, Id)">
@@ -136,7 +145,7 @@
                             <div class="row" style="margin-left: 0px; margin-right: 0px;">
                                 <div class="col-xs-12">
                                     <form class="form-horizontal" id="editForm" role="form">
-<#=            oDataGridHelper.CodeGenerate("_tmp_Form_Dic","_tmp_Form_Default")        #>                                        
+<#=            oDataGridHelper.CodeGenerate("_tmp_Form_Dic","_tmp_Form_Default","add")        #>    
                                     </form>
                                 </div>
                             </div>
@@ -147,7 +156,7 @@
                             <div class="row" style="margin-left: 0px; margin-right: 0px;">
                                 <div class="col-xs-12">
                                     <form class="form-horizontal" id="editForm" role="form">
-<#=            oDataGridHelper.CodeGenerate("_tmp_Form_Dic","_tmp_Form_Default")        #>    
+<#=            oDataGridHelper.CodeGenerate("_tmp_Form_Dic","_tmp_Form_Default","edit")        #>    
                                     </form>
                                 </div>
                             </div>

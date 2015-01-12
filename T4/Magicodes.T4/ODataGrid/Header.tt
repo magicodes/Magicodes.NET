@@ -28,6 +28,8 @@
             Params = new Dictionary<string, object>();
             Params["_param_title"] = "列表";
             Params["_param_filterTemplate"] = "contains(Name,{#txtSearch})";
+            Params["_param_key"] = "Id";
+            Params["_param_key_type"] = "string";
             var defaultOrderField = "CreateTime";
             if (t4Model.GetProperty("CreateTime") == null)
                 defaultOrderField = "Id";
@@ -44,15 +46,16 @@
                 T4DataType.DateTime,"<td data-bind=\"text: moment({Name}).format('LLLL')\"></td>"},
             };
             Params["_tmp_Form_Default"] =
-                @"<div class=""form-group"">
-                    <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
-                    <div class=""col-xs-12 col-sm-9"">
-                    <div class=""clearfix"">
-                    <input type=""text"" name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required}}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6"" />
-                    </div>
-                    </div>
-                    </div>
-                    <div class=""space-2""></div>";
+                @"
+                <div class=""form-group"">
+                <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
+                <div class=""col-xs-12 col-sm-9"">
+                <div class=""clearfix"">
+                <input type=""text"" name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required},readonly:{ReadOnly}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6"" />
+                </div>
+                </div>
+                </div>
+                <div class=""space-2""></div>";
 
 
             Params["_tmp_Form_Dic"] = new Dictionary<T4DataType, string>(){
@@ -62,7 +65,7 @@
                 <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
                 <div class=""col-xs-12 col-sm-9"">
                 <div class=""clearfix"">
-                <textarea  name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required}}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6 limited autosize-transition"" />
+                <textarea  name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required},readonly:{ReadOnly}}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6 limited autosize-transition"" />
                 </div>
                 </div>
                 </div>
@@ -84,6 +87,14 @@
             return this.T4Model.T4Html(
                  this.GetValue<Dictionary<T4DataType, string>>(dicName),
                  this.GetValue(defaultName)
+             );
+        }
+        public string CodeGenerate(string dicName, string defaultName,string tag)
+        {
+            return this.T4Model.T4Html(
+                 this.GetValue<Dictionary<T4DataType, string>>(dicName),
+                 this.GetValue(defaultName),
+                 tag
              );
         }
     }

@@ -4,9 +4,9 @@
 <#@ import namespace="Magicodes.Mvc.Default.Areas.Admin.Models" #>
 <#@ include file="$(SolutionDir)\T4\Magicodes.T4\ODataGrid\Header.tt" #>
 <#
-    ODataGridHelper oDataGridHelper=new ODataGridHelper(typeof(RoleViewModel));
-    oDataGridHelper.Params["_param_title"]="角色管理";
-    oDataGridHelper.Params["_param_url"]="/odata/Roles";  
-    oDataGridHelper.Params["_param_addModel"]=JsonConvert.SerializeObject(new RoleViewModel(){Id=Guid.NewGuid().ToString()}); 
+    ODataGridHelper oDataGridHelper=new ODataGridHelper(typeof(UserViewModel));
+    oDataGridHelper.Params["_param_title"]="用户管理";
+    oDataGridHelper.Params["_param_url"]="/odata/Users";  
+    oDataGridHelper.Params["_param_addModel"]=JsonConvert.SerializeObject(new UserViewModel(){Id=Guid.NewGuid().ToString()}); 
  #>
 <#@ include file="$(SolutionDir)\T4\Magicodes.T4\ODataGrid\Footer.tt" #>

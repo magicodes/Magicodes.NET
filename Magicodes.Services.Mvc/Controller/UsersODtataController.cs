@@ -20,7 +20,7 @@ using Magicodes.Services.Mvc.ViewModels;
 //        Copyright (C) 2014-2016 Magicodes团队    
 //        All rights reserved
 //
-//        filename :RolesODtataController
+//        filename :UsersODtataController
 //        description :
 //
 //        created by 雪雁 at  2014/10/28 21:44:54
@@ -29,103 +29,103 @@ using Magicodes.Services.Mvc.ViewModels;
 //======================================================================
 namespace Magicodes.Services.Mvc.Controller
 {
-    [ODataRoutePrefix("Roles")]
-    public class RolesODtataController : ODataControllerBase
+    [ODataRoutePrefix("Users")]
+    public class UsersODtataController : ODataControllerBase
     {
         private AppDbContext db = new AppDbContext();
-        RoleManager<AppRole> roleManager;
-        public RolesODtataController()
+        UserManager<AppUser, string> userManager;
+        public UsersODtataController()
         {
-            roleManager = new RoleManager<AppRole>(new AppRoleStore(db));
+            userManager = new UserManager<AppUser, string>(new AppUserStore(db));
         }
-        // GET odata/Roles
-        //[ODataRoute("Roles")]
+        // GET odata/Users
+        //[ODataRoute("Users")]
         [ODataRoute]
         [EnableQuery(PageSize = 1000, AllowedQueryOptions = AllowedQueryOptions.All)]
-        public IQueryable<RoleViewModel> Get()
+        public IQueryable<UserViewModel> Get()
         {
-            return db.Roles.Where(p => !p.Deleted).Select(p => new RoleViewModel() { Id = p.Id, Name = p.Name })
+            return db.Users.Where(p => !p.Deleted).Select(p => new UserViewModel() { Id = p.Id, UserName = p.UserName, DisplayName = p.DisplayName, Email = p.Email, PhoneNumber = p.PhoneNumber })
                 .AsQueryable();
         }
 
-        // GET odata/Roles(5)
+        // GET odata/Users(5)
         [HttpGet]
         [EnableQuery]
         [ODataRoute("({id})")]
         public IHttpActionResult Get([FromODataUri]string id)
         {
-            var m = db.Roles.SingleOrDefault(p => p.Id == id);
-            if (m == null) return NotFound();
-            var role = new RoleViewModel() { Id = m.Id, Name = m.Name };
+            var user = db.Users.SingleOrDefault(p => p.Id == id);
+            if (user == null) return NotFound();
+            var role = new UserViewModel() { Id = user.Id, UserName = user.UserName, DisplayName = user.DisplayName, Email = user.Email, PhoneNumber = user.PhoneNumber };
             return Ok(role);
         }
 
-        // POST odata/Roles
+        // POST odata/Users
         [HttpPost]
-        //[ODataRoute("Roles")]
+        //[ODataRoute("Users")]
         [ODataRoute]
-        public async Task<IHttpActionResult> Post(RoleViewModel m)
+        public async Task<IHttpActionResult> Post(UserViewModel m)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var role = new AppRole()
+            var user = new AppUser()
             {
                 CreateBy = User.Identity.GetUserId(),
                 CreateTime = DateTimeOffset.Now,
                 Deleted = false,
                 Id = Guid.NewGuid().ToString(),
-                Name = m.Name
+                UserName = m.UserName,
+                DisplayName = m.DisplayName,
+                PhoneNumber = m.PhoneNumber,
+                Email = m.Email
             };
-            if (!roleManager.RoleExists(m.Name))
-                roleManager.Create(role);
+            if (!userManager.Users.Any(p => p.Email == m.Email || p.UserName == m.UserName))
+                userManager.Create(user);
             else
             {
-                ModelState.AddModelError("Failure", "该角色已存在。");
+                ModelState.AddModelError("Failure", "该用户已存在（请确定用户名或邮箱唯一）。");
                 return BadRequest(ModelState);
             }
-            return Created<RoleViewModel>(new RoleViewModel() { Id = role.Id, Name = role.Name });
+            return Created<UserViewModel>(new UserViewModel() { Id = user.Id, UserName = user.UserName, DisplayName = user.DisplayName, Email = user.Email, PhoneNumber = user.PhoneNumber });
         }
 
-        // PUT odata/Roles
+        // PUT odata/Users
         [HttpPut]
-        //[ODataRoute("Roles")]
+        //[ODataRoute("Users")]
         [ODataRoute]
-        public async Task<IHttpActionResult> Put(RoleViewModel putModel)
+        public async Task<IHttpActionResult> Put(UserViewModel m)
         {
-
-            if (roleManager.RoleExists(putModel.Name))
-            {
-                ModelState.AddModelError("Failure", "该角色已存在。");
-                return BadRequest(ModelState);
-            }
-            var role = roleManager.FindById(putModel.Id);
-            if (role == null)
+            //不允许通过此接口更新用户名
+            var user = userManager.FindById(m.Id);
+            if (user == null)
                 return NotFound();
             else
             {
-                role.UpdateBy = User.Identity.GetUserId();
-                role.UpdateTime = DateTimeOffset.Now;
-                role.Name = putModel.Name;
+                user.UpdateBy = User.Identity.GetUserId();
+                user.UpdateTime = DateTimeOffset.Now;
+                user.PhoneNumber = m.PhoneNumber;
+                user.Email = m.Email;
+                user.DisplayName = m.DisplayName;
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
-                await roleManager.UpdateAsync(role);
-                return Updated<RoleViewModel>(new RoleViewModel() { Id = role.Id, Name = role.Name });
+                await userManager.UpdateAsync(user);
+                return Updated<UserViewModel>(new UserViewModel() { Id = user.Id, UserName = user.UserName, DisplayName = user.DisplayName, Email = user.Email, PhoneNumber = user.PhoneNumber });
             }
         }
 
-        // DELETE odata/Roles
+        // DELETE odata/Users
         [HttpDelete]
-        //[ODataRoute("Roles")]
+        //[ODataRoute("Users")]
         [ODataRoute("({id})")]
         public async Task<IHttpActionResult> Delete([FromODataUri]string id)
         {
-            var m = db.Roles.Find(id);
+            var m = db.Users.Find(id);
             if (m == null)
                 return NotFound();
             else
             {
                 m.Deleted = true;
-                //db.Roles.Remove(m);
+                //db.Users.Remove(m);
                 await db.SaveChangesAsync();
                 return StatusCode(HttpStatusCode.NoContent);
             }

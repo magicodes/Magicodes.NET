@@ -75,10 +75,21 @@ window.magicodes.dialog = function () {
             });
         },
         confirm: function (setting) {
-            self._bootbox(function () {
-                self.__bootBox.confirm(setting.message, function (result) {
-                    if (result) {
-                        $.isFunction(setting.func) && setting.func();
+            self._bootbox(function (bt) {
+                self.bootbox.bootbox = bt.confirm({
+                    message: setting.message,
+                    buttons: {
+                        confirm: {
+                            label: "确定",
+                            className: "btn-warning btn-sm",
+                        },
+                        cancel: {
+                            label: "取消",
+                            className: "btn-sm",
+                        }
+                    },
+                    callback: function (result) {
+                        result && $.isFunction(setting.func) && setting.func();
                     }
                 });
             });

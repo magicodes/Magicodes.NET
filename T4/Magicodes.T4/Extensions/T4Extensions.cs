@@ -55,6 +55,11 @@ namespace Magicodes.T4.Extensions
             var descriptionAttribute = pro.GetAttribute<DescriptionAttribute>(false);
             t4ProInfo.Description = descriptionAttribute == null ? null : descriptionAttribute.Description;
 
+            //只读
+            var t4ReadOnlyFieldAttribute = pro.GetAttribute<T4ReadOnlyFieldAttribute>(false);
+            t4ProInfo._ReadOnly = t4ReadOnlyFieldAttribute != null;
+            if (t4ProInfo._ReadOnly)
+                t4ProInfo._ReadOnlyType = t4ReadOnlyFieldAttribute.ReadOnlyType;
             return t4ProInfo;
         }
         /// <summary>
@@ -72,6 +77,17 @@ namespace Magicodes.T4.Extensions
                 .GetCustomAttributes(typeof(T), inherit)
                 .OfType<T>()
                 .FirstOrDefault();
+        }
+        /// <summary>
+        /// 检查指定指定类型成员中是否存在指定的Attribute特性
+        /// </summary>
+        /// <typeparam name="T">要检查的Attribute特性类型</typeparam>
+        /// <param name="memberInfo">要检查的类型成员</param>
+        /// <param name="inherit">是否从继承中查找</param>
+        /// <returns>是否存在</returns>
+        public static bool AttributeExists<T>(this ICustomAttributeProvider assembly, bool inherit = false) where T : Attribute
+        {
+            return assembly.GetCustomAttributes(typeof(T), inherit).Any(m => (m as T) != null);
         }
         /// <summary>
         /// 获取数据类型
@@ -191,17 +207,26 @@ namespace Magicodes.T4.Extensions
         /// <returns></returns>
         public static string T4Html(this PropertyInfo pro, Dictionary<T4DataType, string> dic, string defaultHtmlTemplate)
         {
+            return pro.T4Html(dic, defaultHtmlTemplate, "default");
+        }
+        /// <summary>
+        /// 获取数据类型
+        /// </summary>
+        /// <param name="pro"></param>
+        /// <returns></returns>
+        public static string T4Html(this PropertyInfo pro, Dictionary<T4DataType, string> dic, string defaultHtmlTemplate, string tag)
+        {
             var t4ProInfo = pro.GetT4PropertyInfo();
+            t4ProInfo.Tag = tag;
+            //判断是否只读
+            t4ProInfo.ReadOnly =
+                (t4ProInfo._ReadOnly && t4ProInfo._ReadOnlyType == ReadOnlyTypes.All)
+                ||
+                (t4ProInfo.Tag.Equals("add", StringComparison.CurrentCultureIgnoreCase) && t4ProInfo._ReadOnly && (t4ProInfo._ReadOnlyType == ReadOnlyTypes.Add))
+                ||
+                (t4ProInfo.Tag.Equals("edit", StringComparison.CurrentCultureIgnoreCase) && t4ProInfo._ReadOnly && (t4ProInfo._ReadOnlyType == ReadOnlyTypes.Edit));
             if (t4ProInfo.Ignore || t4ProInfo.Name.Equals("id", StringComparison.CurrentCultureIgnoreCase)) return null;
-            var temp = string.Empty;
-            if (dic.ContainsKey(t4ProInfo.DataType))
-            {
-                temp = dic[t4ProInfo.DataType];
-            }
-            else if (!string.IsNullOrWhiteSpace(defaultHtmlTemplate))
-            {
-                temp = defaultHtmlTemplate;
-            }
+            var temp = dic.ContainsKey(t4ProInfo.DataType) ? dic[t4ProInfo.DataType] : defaultHtmlTemplate;
             if (!string.IsNullOrEmpty(temp))
             {
                 var str = temp;
@@ -209,7 +234,8 @@ namespace Magicodes.T4.Extensions
                 {
                     var name = "{" + proInfo.Name + "}";
                     var value = (proInfo.GetValue(t4ProInfo) ?? string.Empty).ToString();
-                    if (proInfo.Name == "Required")
+                    //bool类型小写
+                    if (proInfo.PropertyType == typeof(bool))
                         value = value.ToLower();
                     str = str.Replace(name, value);
                 }
@@ -219,11 +245,15 @@ namespace Magicodes.T4.Extensions
         }
         public static string T4Html(this Type type, Dictionary<T4DataType, string> dic, string defaultHtmlTemplate)
         {
+            return type.T4Html(dic, defaultHtmlTemplate, "default");
+        }
+        public static string T4Html(this Type type, Dictionary<T4DataType, string> dic, string defaultHtmlTemplate, string tag)
+        {
             if (type == null || dic == null) return string.Empty;
             var str = new StringBuilder();
             foreach (PropertyInfo pro in type.GetProperties())
             {
-                var html = pro.T4Html(dic, defaultHtmlTemplate);
+                var html = pro.T4Html(dic, defaultHtmlTemplate, tag);
                 if (!string.IsNullOrEmpty(html))
                     str.AppendLine(html);
             }

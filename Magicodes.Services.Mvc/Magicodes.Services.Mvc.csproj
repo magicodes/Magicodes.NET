@@ -157,6 +157,7 @@
     <Compile Include="Controller\Config\SystemConfigInfoController.cs">
       <DependentUpon>ConfigInfoWebAPIControllerTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controller\UsersODtataController.cs" />
     <Compile Include="Controller\SiteAdminNavigationController.cs" />
     <Compile Include="Controller\MenusController.cs" />
     <Compile Include="Controller\PublishVersionODataController.cs">

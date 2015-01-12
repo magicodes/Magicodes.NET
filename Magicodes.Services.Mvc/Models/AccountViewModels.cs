@@ -17,6 +17,34 @@ using System.Web;
 //======================================================================
 namespace Magicodes.Services.Mvc.ViewModels
 {
+    [Serializable]
+    public class RoleViewModel
+    {
+        public string Id { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        [Display(Name = "角色名")]
+        public string Name { get; set; }
+    }
+
+    [Serializable]
+    public class UserViewModel
+    {
+        public string Id { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        [Display(Name = "登录名")]
+        public string UserName { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        [Display(Name = "昵称")]
+        [MaxLength(50)]
+        public string DisplayName { get; set; }
+        [EmailAddress]
+        [Display(Name = "邮箱")]
+        public string Email { get; set; }
+        [Display(Name = "手机")]
+        public string PhoneNumber { get; set; }
+
+    }
+
     // AccountController 操作返回的模型。
     public class ExternalLoginConfirmationViewModel
     {
