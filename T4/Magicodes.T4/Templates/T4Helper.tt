@@ -1,0 +1,296 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ output encoding="utf-8" extension=".txt" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="EnvDTE" #>
+<#@ assembly name="Microsoft.VisualStudio.OLE.Interop" #>
+<#@ assembly name="Microsoft.VisualStudio.Shell" #>
+<#@ assembly name="Microsoft.VisualStudio.Shell.Interop" #>
+<#@ assembly name="Microsoft.VisualStudio.Shell.Interop.8.0" #>
+<#@ assembly name="Microsoft.VisualStudio.Modeling.Sdk.12.0" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="Microsoft.VisualStudio.Shell" #>
+<#@ import namespace="Microsoft.VisualStudio.Shell.Interop" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating.VSHost" #>
+<#@ import namespace="Microsoft.VisualStudio.Modeling" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\Magicodes.T4.dll" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\Magicodes.Web.Interfaces.dll" #>
+<#@ import namespace="Magicodes.T4.Models" #>
+<#@ import namespace="Magicodes.T4" #>
+<#@ import namespace="Magicodes.T4.Extensions" #>
+<#@ import namespace="Magicodes.Web.Interfaces.T4" #>
+<#
+    initLogPanel();
+    __assemblys=new List<string>(){
+            "Magicodes.T4",
+            "Magicodes.Web.Interfaces"
+            };
+ #>
+<#+
+    List<string> __assemblys;
+    List<string> __savedOutputs = new List<string>();
+    Engine __engine = new Engine();
+    Guid customGuid = new Guid("{B4FDE55D-5AB2-454B-982F-7BD067CDEF19}");
+    string customTitle = "Magicodes.NET 代码生成";
+    IVsOutputWindowPane customPane;
+    IVsOutputWindow outWindow ;
+        
+    void initLogPanel()
+    {
+        outWindow=((IServiceProvider)this.Host).GetCOMService(typeof(SVsOutputWindow)) as IVsOutputWindow;  
+        outWindow.CreatePane( ref customGuid, customTitle, 1, 1 );
+        outWindow.GetPane( ref customGuid, out customPane);
+        customPane.Clear();
+    }
+
+    void Log(string message){
+        customPane.OutputString(message+Environment.NewLine);
+        customPane.Activate(); 
+    }
+    string ProcessTemplate(string templateFilePath)
+    {
+        var sb=new StringBuilder();
+        sb.AppendLine("<"+"#"+"@ template debug=\"true\" hostspecific=\"true\" language=\"C#\" #"+">");
+        foreach (var assembly in __assemblys)
+        {
+            sb.Append("<").Append("#").Append("@ assembly name=\"").Append(this.Host.ResolveAssemblyReference(assembly)).Append("\" #").Append(">").AppendLine();
+        }
+        sb.AppendLine(File.ReadAllText(templateFilePath,Encoding.UTF8));
+        var content=sb.ToString();
+        Log(content);
+        Engine engine = new Engine();
+        return engine.ProcessTemplate(content,this.Host);
+    }
+    string ProcessTemplate(string templateFilePath,string key,object obj)
+    {
+        //TextTemplatingSession session = new TextTemplatingSession();
+        //session[key] = obj;
+        //var sessionHost = (ITextTemplatingSessionHost)this.Host;
+        //sessionHost.Session = session;
+        var sb=new StringBuilder();
+        sb.AppendLine("<"+"#"+"@ template debug=\"true\" hostspecific=\"true\" language=\"C#\" #"+">");
+        foreach (var assembly in __assemblys)
+        {
+            sb.Append("<").Append("#").Append("@ assembly name=\"").Append(assembly).Append("\" #").Append(">").AppendLine();
+        }
+        sb.AppendLine(File.ReadAllText(templateFilePath,Encoding.UTF8));
+        var content=sb.ToString();
+        Log(content);        
+        return new Engine().ProcessTemplate(content, this.Host);
+    }
+    //string ProcessTemplate(string templateFileName,Dictionary<string,dynamic> dic)
+    //{
+    ////string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+    ////string template = File.ReadAllText(Host.ResolvePath(templateFileName));
+    //string template = File.ReadAllText(Host.ResolvePath(templateFileName));
+    //IServiceProvider serviceProvider = (IServiceProvider)this.Host; 
+    //ITextTemplating t4 = serviceProvider.GetService(typeof(STextTemplating)) as ITextTemplating;
+    //ITextTemplatingSessionHost host = t4 as ITextTemplatingSessionHost;
+    //host.Session = host.CreateSession();
+    //if(dic!=null)
+    //{
+    //foreach(var key in dic.Keys)
+    //{
+    //host.Session[key]=dic[key];
+    //}
+    //}
+    ////return t4.ProcessTemplate(templateFileName,template);
+    //return __engine.ProcessTemplate(template, Host);  
+    //}
+
+    void DeleteOldOutputs()
+    {
+        try
+        {
+            EnvDTE.ProjectItem templateProjectItem = __getTemplateProjectItem();
+            foreach (EnvDTE.ProjectItem childProjectItem in templateProjectItem.ProjectItems)
+            {
+                if(childProjectItem==null) continue;
+                var tName=childProjectItem.Name;
+                if (!__savedOutputs.Contains(tName))
+                {
+                    
+                    //Log(childProjectItem.FileNames[0]+"【已删除】");
+                    //childProjectItem.Remove();
+                    //File.Delete(childProjectItem.FileNames[0]);
+                    childProjectItem.Delete();
+                    //Log(tName+"【已删除】");
+                }
+            }
+            
+        }
+        catch(Exception ex)
+        {
+            this.Error(ex.ToString());
+        }
+    }
+
+    void ProcessTemplate(string templateFileName, string outputFileName)
+    {
+        string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+        string outputFilePath = Path.Combine(templateDirectory, outputFileName);
+
+        string template = File.ReadAllText(Host.ResolvePath(templateFileName));
+        string output = __engine.ProcessTemplate(template, Host);
+        File.WriteAllText(outputFilePath, output);
+
+        EnvDTE.ProjectItem templateProjectItem = __getTemplateProjectItem();
+        templateProjectItem.ProjectItems.AddFromFile(outputFilePath);
+
+        __savedOutputs.Add(outputFileName);
+    }
+
+    void SaveOutput(string outputFileName)
+    {
+        try
+        {
+            string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+            string outputFilePath = Path.Combine(templateDirectory, outputFileName);
+            //Log("模板目录："+templateDirectory+"\t模板文件路径"+outputFilePath);
+            File.WriteAllText(outputFilePath, this.GenerationEnvironment.ToString(),Encoding.UTF8);
+            this.GenerationEnvironment = new StringBuilder();
+            //DTE dte = ((IServiceProvider)this.Host).GetCOMService(typeof(DTE)) as DTE;  
+            EnvDTE.ProjectItem templateProjectItem = __getTemplateProjectItem();
+            templateProjectItem.ProjectItems.AddFromFile(outputFilePath);
+
+            __savedOutputs.Add(outputFileName);
+            Log(outputFileName+"【已生成】");
+        }
+        catch(Exception ex)
+        {
+            this.Error(ex.ToString());
+        }
+    }
+
+    EnvDTE.ProjectItem __getTemplateProjectItem()
+    {
+        EnvDTE.Project dteProject = __getTemplateProject();
+        
+        if(string.IsNullOrWhiteSpace(dteProject.FileName))
+        {
+            throw new Exception("项目路径不合法！【"+dteProject.Name+"】");
+        }
+        //Log("项目路径："+dteProject.FileName);
+        IVsProject vsProject = __dteProjectToVsProject(dteProject);
+        int iFound = 0;
+        uint itemId = 0;
+        VSDOCUMENTPRIORITY[] pdwPriority = new VSDOCUMENTPRIORITY[1];
+        int result = vsProject.IsDocumentInProject(Host.TemplateFile, out iFound, pdwPriority, out itemId);
+        if (result != VSConstants.S_OK)
+            throw new Exception("Unexpected error calling IVsProject.IsDocumentInProject");
+        if (iFound == 0)
+            throw new Exception("Cannot retrieve ProjectItem for template file");
+        if (itemId == 0)
+            throw new Exception("Cannot retrieve ProjectItem for template file");
+
+        Microsoft.VisualStudio.OLE.Interop.IServiceProvider itemContext = null;
+        result = vsProject.GetItemContext(itemId, out itemContext);
+        if (result != VSConstants.S_OK)
+            throw new Exception("Unexpected error calling IVsProject.GetItemContext");
+        if (itemContext == null)
+            throw new Exception("IVsProject.GetItemContext returned null");
+    
+        ServiceProvider itemContextService = new ServiceProvider(itemContext);
+        EnvDTE.ProjectItem templateItem = (EnvDTE.ProjectItem)itemContextService.GetService(typeof(EnvDTE.ProjectItem));
+        Debug.Assert(templateItem != null, "itemContextService.GetService returned null");
+
+        return templateItem;
+    }
+
+    EnvDTE.Project __getTemplateProject()
+    {
+        IServiceProvider hostServiceProvider = (IServiceProvider)Host;
+        
+        if (hostServiceProvider == null)
+            throw new Exception("Host property returned unexpected value (null)");
+
+        EnvDTE.DTE dte = (EnvDTE.DTE)hostServiceProvider.GetService(typeof(EnvDTE.DTE));
+        if (dte == null)
+            throw new Exception("Unable to retrieve EnvDTE.DTE");
+        string projectPath = Host.ResolveAssemblyReference("$(ProjectPath)");  
+        //Log("当前项目路径："+projectPath);
+        //获取模板所在项目
+        //var project=  GetProjectByPath(projectPath,dte.Solution.Projects);
+        //if(project!=null ) return project;
+        foreach (Project p in dte.Solution.Projects)
+        {
+            if(p.Collection!=null)
+            {
+                foreach(Project i in p.Collection){
+                    if(i.FullName==projectPath)
+                        return i;
+                }
+            }
+            if(p.FullName==projectPath)
+                return p;
+        }
+        
+        Array activeSolutionProjects = (Array)dte.ActiveSolutionProjects;
+        if (activeSolutionProjects == null)
+            throw new Exception("当前没有可用的项目");
+
+        EnvDTE.Project dteProject = (EnvDTE.Project)activeSolutionProjects.GetValue(0);
+        if (dteProject == null)
+            throw new Exception("DTE.ActiveSolutionProjects[0] returned null");
+
+        return dteProject;
+    }
+    Project GetProjectByPath(string currentProject,Projects projects)
+    {
+        foreach (Project p in projects)
+        {
+            //Log("项目路径："+p.FileName);
+            if(p.FullName.ToLower()==currentProject.ToLower())
+                return p;
+            if(p.Collection!=null)
+            {
+                return GetProjectByPath(currentProject,p.Collection);
+            }
+        }
+        return null;
+    }
+
+    static IVsProject __dteProjectToVsProject(EnvDTE.Project project)
+    {
+        if (project == null) 
+            throw new ArgumentNullException("project");
+            
+        string projectGuid = null;        
+
+        // DTE does not expose the project GUID that exists at in the msbuild project file.        
+        // Cannot use MSBuild object model because it uses a static instance of the Engine,         
+        // and using the Project will cause it to be unloaded from the engine when the         
+        // GC collects the variable that we declare.       
+        using (XmlReader projectReader = XmlReader.Create(project.FileName))
+        {
+            
+            projectReader.MoveToContent();
+            object nodeName = projectReader.NameTable.Add("ProjectGuid");
+            while (projectReader.Read())
+            {
+                if (Object.Equals(projectReader.LocalName, nodeName))
+                {
+                    projectGuid = (string)projectReader.ReadElementContentAsString(); 
+                    break;
+                }
+            }
+        }
+        if (string.IsNullOrEmpty(projectGuid))
+            throw new Exception("Unable to find ProjectGuid element in the project file");
+
+        Microsoft.VisualStudio.OLE.Interop.IServiceProvider dteServiceProvider = 
+            (Microsoft.VisualStudio.OLE.Interop.IServiceProvider)project.DTE;
+        IServiceProvider serviceProvider = new ServiceProvider(dteServiceProvider); 
+        IVsHierarchy vsHierarchy = VsShellUtilities.GetHierarchy(serviceProvider, new Guid(projectGuid));
+            
+        IVsProject vsProject = (IVsProject)vsHierarchy;
+        if (vsProject == null)
+            throw new ArgumentException("Project is not a VS project.");
+        return vsProject;
+    }
+#>
