@@ -43,7 +43,7 @@
     $(function() {
         //实例化编辑器
         window.UEDITOR_HOME_URL = "/Scripts/ueditor/";
-        UE.getEditor('editor').ready(function() {
+        UE.getEditor('editor').ready(function () {
             //this是当前创建的编辑器实例
             this.setContent('内容');
         });
@@ -191,14 +191,8 @@
                                             </div>
                                         </div>
                                         <div class="space-2"></div>
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Content">内容:</label>
-                                            <div class="col-xs-12 col-sm-9">
-                                                <div class="clearfix">
-                                                    @*<input type="text" name="Content" id="Content" data-bind="value: Content" placeholder="内容" class="col-xs-12 col-sm-6" required />*@
-                                                    
-                                                </div>
-                                            </div>
+                                        <div class="form-group" id="addEditorPlace">
+                                          
                                         </div>
                                         <div class="space-2"></div>
                                         <div class="form-group">
@@ -307,5 +301,17 @@
         </div>
     </div>
 </div>
+@*knockout js template 包含scripts tag会报错，故拎出来*@
+<div class="ueditor-details">
+    @*<label class="control-label col-xs-12 col-sm-3 no-padding-right" for="Content">内容:</label>
+    <div class="col-xs-12 col-sm-9">
+        <div class="clearfix">
+            <script id="editor" type="text/plain" style="width:1024px;height:500px;">
+             </script>
+        </div>
+    </div>*@
+</div>
+
 <script id="editor" type="text/plain" style="width:1024px;height:500px;">
 </script>
+
