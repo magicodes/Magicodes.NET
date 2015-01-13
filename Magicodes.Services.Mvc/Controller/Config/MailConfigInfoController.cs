@@ -16,7 +16,7 @@ using System.Web.Http;
 //        filename :MailConfigInfoController
 //        description :邮箱信息配置 WebAPI
 //
-//        created by 雪雁 at  2015/01/05 22:11:25
+//        created by 雪雁 at  2015/01/11 21:18:13
 //        http://www.magicodes.net
 //
 //======================================================================

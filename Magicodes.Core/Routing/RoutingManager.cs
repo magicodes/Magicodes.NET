@@ -40,17 +40,6 @@ namespace Magicodes.Core.Routing
             RouteTable.Routes.RouteExistingFiles = false;
 
             RouteTable.Routes.Add("MagicodesUrlProvider", new MagicodesUrlProvider());
-
-            //GlobalApplicationObject.Current.ApplicationContext.ConfigManager.GetConfigWhenSuccess<RoutingConfigInfo>(config =>
-            //{
-            //    if (config.RoutingInfoList == null) return;
-            //    foreach (var item in config.RoutingInfoList)
-            //    {
-            //        if (item.routeName.IsEmpty() || item.routeUrl.IsEmpty() || item.url.IsEmpty())
-            //            continue;
-            //        Add(item.routeName, item.routeUrl, item.url, item.checkPhysicalUrlAccess, item.defaults, item.constraints, item.dataTokens);
-            //    }
-            //});
         }
 
         public IRoutingManager Add(string routeName, string routeUrl, string url)
@@ -123,10 +112,6 @@ namespace Magicodes.Core.Routing
             return this;
         }
 
-        //public RouteData GetVirtualData()
-        //{
-        //    RouteTable.Routes.GetRouteData(HttpContext.Current);
-        //}
 
         public VirtualPathData GetVirtualPathData(string routingName, RouteValueDictionary parameters)
         {

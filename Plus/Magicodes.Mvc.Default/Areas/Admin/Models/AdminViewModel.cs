@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Magicodes.Web.Interfaces.T4;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,14 +19,39 @@ using System.Web.Mvc;
 //======================================================================
 namespace Magicodes.Mvc.Default.Areas.Admin.Models
 {
+    [T4ODataGridAttribute("Roles")]
+    [Serializable]
     public class RoleViewModel
+    {
+        [T4GenerationIgnoreAttribute]
+        public string Id { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        [Display(Name = "角色名")]
+        public string Name { get; set; }
+    }
+    [T4ODataGridAttribute("Users")]
+    [Serializable]
+    public class UserViewModel
     {
         public string Id { get; set; }
         [Required(AllowEmptyStrings = false)]
-        [Display(Name = "RoleName")]
-        public string Name { get; set; }
-    }
+        [MaxLength(50)]
+        [Display(Name = "登录名")]
+        [T4ReadOnlyFieldAttribute(ReadOnlyTypes.Edit)]
+        public string UserName { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        [Display(Name = "昵称")]
+        [MaxLength(50)]
+        public string DisplayName { get; set; }
+        [EmailAddress]
+        [Display(Name = "邮箱")]
+        [Required(AllowEmptyStrings = false)]
+        public string Email { get; set; }
+        [Display(Name = "手机")]
+        [Required(AllowEmptyStrings = false)]
+        public string PhoneNumber { get; set; }
 
+    }
     public class EditUserViewModel
     {
         public string Id { get; set; }

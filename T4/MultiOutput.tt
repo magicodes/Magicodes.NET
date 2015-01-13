@@ -15,6 +15,7 @@
 <#@ import namespace="Microsoft.VisualStudio.Shell" #>
 <#@ import namespace="Microsoft.VisualStudio.Shell.Interop" #>
 <#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating.VSHost" #>
 <#
     initLogPanel();
  #>
@@ -25,6 +26,7 @@
     string customTitle = "Magicodes.NET 代码生成";
     IVsOutputWindowPane customPane;
     IVsOutputWindow outWindow ;
+    
     void initLogPanel()
     {
         outWindow=((IServiceProvider)this.Host).GetCOMService(typeof(SVsOutputWindow)) as IVsOutputWindow;  
@@ -36,6 +38,26 @@
     void Log(string message){
         customPane.OutputString(message+Environment.NewLine);
         customPane.Activate(); 
+    }
+
+    string ProcessTemplate(string templateFileName,Dictionary<string,dynamic> dic)
+    {
+        //string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+        //string template = File.ReadAllText(Host.ResolvePath(templateFileName));
+        string template = File.ReadAllText(Host.ResolvePath(templateFileName));
+        IServiceProvider serviceProvider = (IServiceProvider)this.Host; 
+        ITextTemplating t4 = serviceProvider.GetService(typeof(STextTemplating)) as ITextTemplating;
+        ITextTemplatingSessionHost host = t4 as ITextTemplatingSessionHost;
+        host.Session = host.CreateSession();
+        if(dic!=null)
+        {
+            foreach(var key in dic.Keys)
+            {
+                host.Session[key]=dic[key];
+            }
+        }
+        //return t4.ProcessTemplate(templateFileName,template);
+        return __engine.ProcessTemplate(template, Host);  
     }
 
     void DeleteOldOutputs()

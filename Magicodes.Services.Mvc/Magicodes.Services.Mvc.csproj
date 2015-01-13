@@ -157,11 +157,13 @@
     <Compile Include="Controller\Config\SystemConfigInfoController.cs">
       <DependentUpon>ConfigInfoWebAPIControllerTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controller\UsersODtataController.cs" />
     <Compile Include="Controller\SiteAdminNavigationController.cs" />
     <Compile Include="Controller\MenusController.cs" />
     <Compile Include="Controller\PublishVersionODataController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controller\RolesODtataController.cs" />
     <Compile Include="Controller\SiteLeaveMessageODtataController.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Plus.cs" />

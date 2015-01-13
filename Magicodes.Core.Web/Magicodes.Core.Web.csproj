@@ -139,6 +139,7 @@
     <Compile Include="Editor\EditorController.cs" />
     <Compile Include="Controllers\JSONActionResult.cs" />
     <Compile Include="Controllers\AdminControllerBase.cs" />
+    <Compile Include="Controllers\AdminODataControllerBase.cs" />
     <Compile Include="Controllers\Viewer\DocumentViewerController.cs" />
     <Compile Include="Controllers\ODataControllerBase.cs" />
     <Compile Include="Controllers\PlusControllerBase.cs" />

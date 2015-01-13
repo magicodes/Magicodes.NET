@@ -168,9 +168,10 @@ namespace Magicodes.Core
                 {
                     PlusManager.CopyToDynamicDirectory(plus);
                     Assembly assembly = Assembly.LoadFrom(plus.FullName);
-
-                    //将程序集添加到当前应用程序域
-                    BuildManager.AddReferencedAssembly(assembly);
+                    var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+                    if (!assemblies.Any(p => p.FullName == assembly.FullName))
+                        //将程序集添加到当前应用程序域
+                        BuildManager.AddReferencedAssembly(assembly);
                 }
 
             }
@@ -223,6 +224,7 @@ namespace Magicodes.Core
                 Text = plusMenu.Text,
                 TextCls = plusMenu.TextCls,
                 Deleted = false,
+                //TODO:设置管理员账号
                 CreateBy = "{B0FBB2AC-3174-4E5A-B772-98CF776BD4B9}",
                 CreateTime = DateTime.Now,
                 PlusId = plusInfo.Id

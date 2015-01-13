@@ -28,6 +28,7 @@ namespace Magicodes.Mvc.Default
         public void Initialize()
         {
             GlobalApplicationObject.Current.EventsManager.OnApplication_InitializeComplete += EventsManager_OnApplication_InitializeComplete;
+            
         }
         void EventsManager_OnApplication_InitializeComplete(object sender, ApplicationArgs e)
         {

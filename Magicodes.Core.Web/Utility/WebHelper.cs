@@ -727,7 +727,7 @@ namespace Magicodes.Core.Web.Utility
                                 {
                                     return reader.ReadToEnd();
                                 }
-                                catch (Exception ex)
+                                catch (Exception)
                                 {
                                     return "close";
                                 }

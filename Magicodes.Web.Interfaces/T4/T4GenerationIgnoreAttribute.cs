@@ -29,7 +29,16 @@ namespace Magicodes.Web.Interfaces.T4
         /// </summary>
         public T4GenerationIgnoreAttribute()
         {
-
+            this.IgnorePart = IgnoreParts.All;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ignorePart"></param>
+        public T4GenerationIgnoreAttribute(IgnoreParts ignorePart)
+        {
+            this.IgnorePart = ignorePart;
+        }
+        public IgnoreParts IgnorePart { get; set; }
     }
 }

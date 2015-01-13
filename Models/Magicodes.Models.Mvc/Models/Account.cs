@@ -1,4 +1,6 @@
 ﻿using Magicodes.Models.Mvc.Models.Menu;
+using Magicodes.Web.Interfaces.Models;
+using Magicodes.Web.Interfaces.T4;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Newtonsoft.Json;
@@ -34,7 +36,8 @@ namespace Magicodes.Models.Mvc.Models.Account
     /// </summary>
     public class AppUser : IdentityUser<string, AppUserLogin, AppUserRole, AppUserClaim>,
     IUser<string>,
-    Magicodes.Web.Interfaces.Strategy.User.IUser<string>
+    Magicodes.Web.Interfaces.Strategy.User.IUser<string>,
+    ICommonBusinessModelBase<string, string>
     {
         /// <summary>
         /// 用户名或昵称
@@ -48,10 +51,6 @@ namespace Magicodes.Models.Mvc.Models.Account
         ///// </summary>
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         //public int UserId { get; set; }
-        /// <summary>
-        /// 是否删除
-        /// </summary>
-        public bool Deleted { get; set; }
         /// <summary>
         /// 是否已经激活
         /// </summary>
@@ -68,6 +67,9 @@ namespace Magicodes.Models.Mvc.Models.Account
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTimeOffset? LastLoginTime { get; set; }
+
+        [NotMapped]
+        public DateTimeOffset LockoutEndDateUtcOffset { get; set; }
         /// <summary>
         /// 头像
         /// </summary>
@@ -82,9 +84,37 @@ namespace Magicodes.Models.Mvc.Models.Account
             // 在此处添加自定义用户声明
             return userIdentity;
         }
+
+        /// <summary>
+        /// 是否删除
+        /// </summary>
+        [Display(Name = "是否删除")]
+        [T4GenerationIgnoreAttribute]
+        public virtual bool Deleted { get; set; }
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        [Display(Name = "创建人")]
+        [T4GenerationIgnoreAttribute]
+        [StringLength(128)]
+        public virtual string CreateBy { get; set; }
+        /// <summary>
+        /// 更新人
+        /// </summary>
+        [Display(Name = "更新人")]
+        [T4GenerationIgnoreAttribute]
+        [StringLength(128)]
+        public virtual string UpdateBy { get; set; }
+
+        /// <summary>
+        /// 修改时间
+        /// </summary>
+        [Display(Name = "修改时间")]
+        [T4GenerationIgnoreAttribute]
+        public virtual DateTimeOffset? UpdateTime { get; set; }
     }
 
-    public class AppRole : IdentityRole<string, AppUserRole>
+    public class AppRole : IdentityRole<string, AppUserRole>, ICommonBusinessModelBase<string, string>
     {
         public AppRole()
             : base()
@@ -93,7 +123,58 @@ namespace Magicodes.Models.Mvc.Models.Account
         /// <summary>
         ///     获取或设置 拥有此菜单的角色信息集合
         /// </summary>
+        [T4GenerationIgnoreAttribute]
         public virtual ICollection<MenuLink> MenuLinks { get; set; }
+        [T4GenerationIgnoreAttribute]
+        public override ICollection<AppUserRole> Users
+        {
+            get
+            {
+                return base.Users;
+            }
+        }
+        ///// <summary>
+        ///// 角色名
+        ///// </summary>
+        //[Display(Name = "角色名")]
+        //public new string Name { get; set; }
+        /// <summary>
+        /// 是否删除
+        /// </summary>
+        [Display(Name = "是否删除")]
+        [T4GenerationIgnoreAttribute]
+        public virtual bool Deleted { get; set; }
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        [Display(Name = "创建人")]
+        [T4GenerationIgnoreAttribute]
+        [StringLength(128)]
+        public virtual string CreateBy { get; set; }
+        /// <summary>
+        /// 更新人
+        /// </summary>
+        [Display(Name = "更新人")]
+        [T4GenerationIgnoreAttribute]
+        [StringLength(128)]
+        public virtual string UpdateBy { get; set; }
+
+        /// <summary>
+        /// 修改时间
+        /// </summary>
+        [Display(Name = "修改时间")]
+        [T4GenerationIgnoreAttribute]
+        public virtual DateTimeOffset? UpdateTime { get; set; }
+
+
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        [DataType(DataType.Date)]
+        [Display(Name = "创建时间")]
+        [T4GenerationIgnoreAttribute]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTimeOffset CreateTime { get; set; }
     }
     public class AppUserLogin : IdentityUserLogin { }
 

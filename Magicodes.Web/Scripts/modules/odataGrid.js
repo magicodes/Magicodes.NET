@@ -10,6 +10,8 @@
         onViewModelCreated: null,
         //主键字段
         keyName: "Id",
+        //主键类型
+        keyType: "string",
         //筛选模板：Demo  contains(Content,{#txtSearch})
         filterTemplate: null,
         //排序
@@ -20,12 +22,10 @@
         onBound: null,
         //是否启用Html绑定（使用htmlValue）
         htmlValueBind: false,
-        //添加模式窗口
-        addModal: '#addModal',
         //添加数据模型
         addModel: {},
         //编辑模型初始化完毕事件
-        editAfterRender:null
+        editAfterRender: null
     };
     this.options = $.extend(defaults, setting);
     var that = this;
@@ -167,7 +167,7 @@
                 message: "确定要删除所选项么？", func: function () {
                     var count = selectedRows.length;
                     $.each(selectedRows, function (i, v) {
-                        var url = that.options.url + '(' + (eval('v.' + that.options.keyName)) + ')';
+                        var url = self.getGetUrl((eval('v.' + that.options.keyName)));
                         window.magicodes.api.request("DELETE", {
                             url: url,
                             data: {},
@@ -189,113 +189,97 @@
         this.getSelectedRows = function () {
             return $.grep(self.gridViewModel.dataRows(), function (a) { return a._selected() });
         };
+        this.getQuotes = function () {
+            return that.options.keyType == "string" ? "'" : "";
+        };
+        this.getGetUrl = function (id) {
+            return that.options.url + '(' + self.getQuotes() + id + self.getQuotes() + ')';
+        };
+        this.form = function (title, model, apiType, templateId, formId) {
+            var dialoger = new magicodes.dialog();
+            dialoger.bootbox.dialog({
+                title: title,
+                message: '<div></div>',
+                buttons:
+                {
+                    "ok":
+                     {
+                         "label": "<i class='ace-icon fa fa-check'></i> 确定",
+                         "className": "btn-sm btn-success",
+                         "callback": function () {
+                             if (self.validator && !self.validator.options.$form.valid())
+                                 return false;
+                             self.loading(true);
+                             window.magicodes.api.request(apiType, {
+                                 url: that.options.url,
+                                 data: ko.mapping.toJS(model),
+                                 func: function (data, statusCode) {
+                                     magicodes.messager.showInfoMessage('温馨提示', '保存成功！');
+                                     dialoger.bootbox.hideAll();
+                                     self.loading(false);
+                                     self.loadData();
+                                 },
+                                 error: function (data, statusCode) {
+                                     self.loading(false);
+                                 }
+                             });
+                             return false;
+                         }
+                     },
+                    "cancel":
+                    {
+                        "label": "取消",
+                        "className": "btn-sm btn-danger",
+                        "callback": function () {
+                        }
+                    }
+                },
+                show: false,
+                func: function () {
+                    dialoger.bootbox.bootbox.on("shown.bs.modal", function () {
+                        var $render = $('.bootbox-body:eq(0)');
+                        //bootbox - body
+                        //data-bind="template: {name: \"addTemplate\", replaceChildren: addModel}"
+                        ko.renderTemplate(
+                            templateId,
+                            model,
+                            {
+                                afterRender: function (renderedElement) {
+                                    self.validator = formId ? new magicodes.validator({ $form: $('#' + formId) }) : new magicodes.validator();
+                                    $.isFunction(that.options.editAfterRender) && that.options.editAfterRender($render);
+                                }
+                            },
+                            $render.get(0), "replaceChildren");
+                    });
+                    dialoger.bootbox.bootbox.modal('show');
+                }
+            });
+        };
         this.edit = function (id, row) {
             self.loading(true);
-            var dialoger = new magicodes.dialog();
             window.magicodes.api.request("GET", {
-                url: that.options.url + '(' + id + ')',
+                url: self.getGetUrl(id),
                 data: {},
                 func: function (data) {
                     self.loading(false);
                     var _eidt = typeof (that.options.eidtModel) == "undefined" ? {} : that.options.eidtModel;
                     // 克隆一个
                     self.eidtModel = ko.mapping.fromJS($.extend(data, _eidt));
-                    dialoger.bootbox.dialog({
-                        title: '编辑',
-                        message: '<div></div>',
-                        buttons:
-                        {
-                            "ok":
-                             {
-                                 "label": "<i class='ace-icon fa fa-check'></i> 确定",
-                                 "className": "btn-sm btn-success",
-                                 "callback": function () {
-                                     if (self.validator && !self.validator.options.$form.valid())
-                                         return false;
-                                     window.magicodes.api.request("PUT", {
-                                         url: that.options.url,
-                                         data: ko.mapping.toJS(self.eidtModel),
-                                         func: function (data, statusCode) {
-                                             magicodes.messager.showInfoMessage('温馨提示', '保存成功！');
-                                             bootbox.hideAll();
-                                             self.loadData();
-                                             self.loading(false);
-                                         },
-                                         error: function (data, statusCode) {
-                                             self.loading(false);
-                                         }
-                                     });
-                                     return false;
-                                 }
-                             },
-                            "cancel":
-                            {
-                                "label": "取消",
-                                "className": "btn-sm btn-danger",
-                                "callback": function () {
-                                }
-                            }
-                        },
-                        show: false,
-                        func: function () {
-                            dialoger.bootbox.bootbox.on("shown.bs.modal", function () {
-                                var $render=$('.bootbox-body:eq(0)');
-                                //bootbox - body
-                                //data-bind="template: {name: \"addTemplate\", replaceChildren: addModel}"
-                                ko.renderTemplate(
-                                    'editTemplate',
-                                    self.eidtModel,
-                                    {
-                                        afterRender: function (renderedElement) {
-                                            self.validator = that.options.editFormId ? new magicodes.validator({ $form: $('#' + that.options.editFormId) }) : new magicodes.validator();
-                                            $.isFunction(that.options.editAfterRender) && that.options.editAfterRender($render);
-                                        }
-                                    },
-                                    $render.get(0), "replaceChildren");
-                            });
-                            dialoger.bootbox.bootbox.modal('show');
-                        }
-                    });
+                    self.form('编辑', self.eidtModel, 'PUT', 'editTemplate', that.options.editFormId);
                 },
                 error: function (data, statusCode) {
                     self.loading(false);
                 }
             });
         };
-        //绑定添加模型
-        this.addModel = ko.mapping.fromJS(that.options.addModel);
-
-        var $addModal = $(that.options.addModal);
         //添加
         this.add = function () {
-            $addModal.modal('show');
+            var _add = typeof (that.options.addModel) == "undefined" ? {} : that.options.addModel;
+            // 克隆一个
+            self.addModel = ko.mapping.fromJS(_add);
+            self.form('新增', self.addModel, 'POST', 'addTemplate', that.options.addFormId);
         };
-        $addModal.find('button[data-action=ok]').on("click", function (e) {
-            self.loading(true);
-            magicodes.api.request("POST", {
-                url: that.options.url,
-                data: ko.mapping.toJS(self.addModel),
-                func: function (data) {
-                    self.loading(false);
-                    magicodes.messager.showInfoMessage('温馨提示', '创建成功！');
-                    $addModal.modal('hide');
-                    self.loadData();
-                },
-                error: function (data, statusCode) {
-                    self.loading(false);
-                }
-            });
-        });
-        $addModal.find('button[data-action=cancel]').on("click", function (e) {
-            $addModal.modal('hide');
-        });
-        //$addModal.on("show", function () {
-        //});
-        //$addModal.on("hide", function () {   
-        //    $addModal.find('button[data-action]').off("click");
-        //});
         this.loadData();
-
         that.options.onViewModelCreated && that.options.onViewModelCreated(self, ko);
     };
     this.bindingModel = function () {
