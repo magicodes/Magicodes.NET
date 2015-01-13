@@ -108,8 +108,7 @@ namespace Magicodes.T4.Extensions
 
             //字符串长度，大于50会生成TextArea，最大值默认4000
             var StringLengthAttribute = GetAttribute<StringLengthAttribute>(pro, false);
-            var maxLength = StringLengthAttribute == null ? 4000 : StringLengthAttribute.MaximumLength;
-
+            var maxLength = StringLengthAttribute == null ? (int?)null : StringLengthAttribute.MaximumLength;
             //是否邮箱地址
             var EmailAddressAttribute = GetAttribute<EmailAddressAttribute>(pro, false);
             var isEmail = EmailAddressAttribute != null;
@@ -182,14 +181,10 @@ namespace Magicodes.T4.Extensions
             {
                 if (proType == typeof(String))
                 {
-                    if (maxLength <= 300)
-                    {
-                        dataType = T4DataType.Text;
-                    }
-                    else
-                    {
+                    if (maxLength == null || maxLength.Value > 50)
                         dataType = T4DataType.MultilineText;
-                    }
+                    else
+                        dataType = T4DataType.Text;
                 }
                 else if (proType == typeof(Boolean))
                     dataType = T4DataType.Bit;
