@@ -1,0 +1,37 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Runtime.Remoting.Messaging"#>
+<#@ output extension=".cshtml" encoding="utf-8" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\Magicodes.Mvc.Default.dll" #>
+<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\T4Helper.tt" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="Magicodes.T4.ODataGrid" #>
+<#
+    var binDirPath=this.Host.ResolveAssemblyReference("$(TargetDir)");
+    var dir=new DirectoryInfo(binDirPath);
+    var dlls=  dir.GetFiles("*.dll");
+    foreach(FileInfo dllFile in dlls)
+    {
+        AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(dllFile.FullName));
+    }
+    
+    var solutionDir=this.Host.ResolveAssemblyReference("$(SolutionDir)");
+    var targetPath=this.Host.ResolveAssemblyReference("$(SolutionDir)\\T4\\Librarys\\Magicodes.Mvc.Default.dll");
+    string path= Path.Combine(solutionDir,"T4//Magicodes.T4//ODataGrid//ODataGrid.txt");  
+    //System.Diagnostics.Debugger.Launch();
+    //System.Diagnostics.Debugger.Break();
+    var ogrid=new ODataGridHelper(typeof(Magicodes.Mvc.Default.Areas.Admin.Models.RoleViewModel));
+    ogrid.Params["_param_title"]="角色管理";
+    ogrid.Params["_param_url"]="/odata/Roles";
+    CallContext.LogicalSetData("oDataGridHelper", ogrid);
+    CallContext.LogicalSetData("libPath", this.Host.ResolveAssemblyReference("$(TargetDir)"));
+    __assemblys.Add(targetPath);
+
+    this.Write(ProcessTemplate(path,"oDataGridHelper",ogrid));   
+    //CallContext.FreeNamedDataSlot("oDataGridHelper");
+ #>
+

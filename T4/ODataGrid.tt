@@ -1,0 +1,273 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Magicodes.Web.Interfaces.Config.Info" #>
+<#@ import namespace="Magicodes.Web.Interfaces.Config" #>
+<#@ import namespace="Magicodes.Web.Interfaces.T4" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.IO" #>
+<#@ output extension=".cshtml" encoding="utf-8" #>
+<#@ assembly name="D:\CloudDriver\Git\Magicodes.NET\Magicodes.Web\bin\Magicodes.Web.Interfaces.dll" #>
+
+<#@ import namespace="System.Reflection" #>
+<#@ assembly name="System.ComponentModel.DataAnnotations.dll" #>
+<#@ import namespace="System.ComponentModel.DataAnnotations" #>
+<#@ import namespace="System.ComponentModel" #>
+<#@ import namespace="Magicodes.Web.Interfaces.T4.Extensions" #>
+<#@ parameter type="System.String" name="param_title" #>
+<#@ parameter type="System.String" name="param_url" #>
+<#@ parameter type="System.String" name="param_filterTemplate" #>
+<#@ parameter type="System.String" name="param_orderby" #>
+<#@ parameter type="System.String" name="param_searchplaceholder" #>
+<#@ parameter type="System.Type" name="param_model_type" #>
+<#@ parameter type="System.String" name="tmp_TH_Default" #>
+<#@ parameter type="System.Collections.Generic.Dictionary<T4DataType, string>" name="tmp_TH_Dic" #>
+<#@ parameter type="System.String" name="tmp_TD_Default" #>
+<#@ parameter type="System.Collections.Generic.Dictionary<T4DataType, string>" name="tmp_TD_Dic" #>
+<#@ parameter type="System.String" name="tmp_Form_Default" #>
+<#@ parameter type="System.Collections.Generic.Dictionary<T4DataType, string>" name="tmp_Form_Dic" #>
+<#@ include file="$(SolutionDir)\T4\MultiOutput.tt" #>
+<#
+    Log(param_title);
+    string _param_title="列表";
+    string _param_url="";
+    string _param_filterTemplate="contains(Name,{#txtSearch})";
+    string _param_orderby="CreateTime Desc";
+    string _param_searchplaceholder="请输入...";
+    var _tmp_TH_Default="<th>{DisplayName}</th>";
+    var _tmp_TH_Time="<th><i class=\"ace-icon fa fa-clock-o bigger-110 hidden-480\"></i>{DisplayName}</th>";
+    var _tmp_TH_Dic=new Dictionary<T4DataType, string>(){
+            {T4DataType.DateTime,_tmp_TH_Time},
+            {T4DataType.Date,_tmp_TH_Time},
+            {T4DataType.Time,_tmp_TH_Time}
+            };
+    var _tmp_TD_Default="<td data-bind=\"text: {Name}\"></td>";
+    var _tmp_TD_Time="<td data-bind=\"text: moment({Name}).format('LLLL')\"></td>";
+    var _tmp_TD_Dic=new Dictionary<T4DataType, string>(){
+            {T4DataType.DateTime,_tmp_TD_Time},
+            {T4DataType.Date,_tmp_TD_Time},
+            {T4DataType.Time,_tmp_TD_Time}
+            };
+    var _tmp_Form_Default=
+        @"<div class=""form-group"">
+        <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
+        <div class=""col-xs-12 col-sm-9"">
+        <div class=""clearfix"">
+        <input type=""text"" name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required}}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6"" />
+        </div>
+        </div>
+        </div>
+        <div class=""space-2""></div>";
+
+    var _tmp_Form_TextArea=
+        @"<div class=""form-group"">
+        <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
+        <div class=""col-xs-12 col-sm-9"">
+        <div class=""clearfix"">
+        <textarea  name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required}}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6 limited autosize-transition"" />
+        </div>
+        </div>
+        </div>
+        <div class=""space-2""></div>";
+    var _tmp_Form_Dic=new Dictionary<T4DataType, string>(){
+            {T4DataType.Html,_tmp_Form_TextArea},
+            {T4DataType.MultilineText,_tmp_Form_TextArea},
+            };
+
+    var solutionPath=this.Host.ResolveAssemblyReference("$(SolutionDir)");
+    
+    if(!string.IsNullOrWhiteSpace(param_filterTemplate))
+        _param_filterTemplate=param_filterTemplate;
+    if(!string.IsNullOrWhiteSpace(param_orderby))
+        _param_orderby=param_orderby;
+    if(!string.IsNullOrWhiteSpace(tmp_TH_Default))
+        _tmp_TH_Default=tmp_TH_Default;
+   
+    if(tmp_TH_Dic!=null && tmp_TH_Dic.Count>0)
+        _tmp_TH_Dic=tmp_TH_Dic;
+    if(!string.IsNullOrWhiteSpace(tmp_TD_Default))
+        _tmp_TD_Default=tmp_TD_Default;
+    
+    if(tmp_TD_Dic!=null)
+        _tmp_TD_Dic=tmp_TD_Dic;
+    if(!string.IsNullOrWhiteSpace(tmp_Form_Default))
+        _tmp_Form_Default=tmp_Form_Default;
+    
+    if(tmp_Form_Dic!=null)
+        _tmp_Form_Dic=tmp_Form_Dic;
+    Log(param_model_type==null?"没有对象":param_model_type.ToString());
+ #>
+@{
+    ViewBag.Title = "<#=        _param_title #>";
+}
+
+<script type="text/javascript">
+    require(["magicodes"], function () {
+        //初始化grid
+        magicodes.grid.init(
+            {
+                //Grid Id
+                gridId: '#dataTable',
+                //目前只支持Odata协议格式的请求
+                url: '<#=        _param_url #>',
+                //分页数
+                pageSize: 10,
+                //添加模型的默认值
+                addModel: {
+                    
+                },
+                //主键字段
+                keyName: "Id",
+                //筛选模板
+                filterTemplate: "<#=        _param_filterTemplate #>",
+                //排序
+                $orderby: "<#=        _param_orderby #>",
+            });
+    });
+</script>
+
+<div class="main-container" id="main-container">
+    <div>
+        <div class="page-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-header">
+                        <#=        _param_title #>
+                    </div>
+                    <div>
+                        <div class="dataTables_wrapper form-inline no-footer">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <button class="btn btn-app btn-light btn-xs" data-bind="click: add">
+                                        <i class="ace-icon fa fa-plus bigger-160"></i>
+                                        新增
+                                    </button>
+                                    <button class="btn btn-app btn-warning btn-xs" data-bind="click: removeSelectedRows">
+                                        <i class="ace-icon fa fa-trash-o bigger-160"></i>
+                                        删除
+                                    </button>
+                                    <button class="btn btn-app btn-light btn-xs" onclick="window.print();">
+                                        <i class="ace-icon fa fa-print bigger-160"></i>
+                                        打印
+                                    </button>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div id="sample-table-2_filter" class="dataTables_filter">
+                                        <label>
+                                            <input type="search" id="txtSearch" class="form-control input-sm" aria-controls="sample-table-2" placeholder="<#=        _param_searchplaceholder #>">&nbsp;
+                                            <button type="button" class="btn btn-purple btn-sm" data-bind="click: filter">
+                                                搜索    <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
+                                            </button>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <table id="dataTable" class="table table-striped table-bordered table-hover" style="margin-bottom: 0px;">
+                                <thead>
+                                    <tr>
+                                        <th class="center">
+                                            <label class="position-relative">
+                                                <input type="checkbox" class="ace" data-bind="checked: isAllSelected" />
+                                                <span class="lbl"></span>
+                                            </label>
+                                        </th>
+<#=
+        param_model_type.T4Html(_tmp_TH_Dic,_tmp_TH_Default)
+        #>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="template: { name: 'rowsTemplate', foreach: gridViewModel.dataRows }"></tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="dataTables_length" id="sample-table-2_length">
+                                        <label>
+                                            分页数：<select name="sample-table-2_length" aria-controls="sample-table-2" class="form-control input-sm" data-bind="value: gridViewModel.pageSize">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div class="dataTables_info" id="sample-table-2_info" role="status" aria-live="polite">当前为第<span data-bind="    text: gridViewModel.currentPageIndex()"></span>页，总共有<span data-bind="    text: getTotalPages()"></span>页</div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <ul class="pagination pull-right no-margin" data-bind="template: { name: 'pagesTemplate', replaceChildren: gridViewModel }"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script id="pagesTemplate" type="text/html">
+                        <li class="prev" data-bind="css: { disabled: $root.gridViewModel.currentPageIndex() <= 1 }, click: function () { $root.previousPage(); }">
+                            <a href="#">
+                                <i class="ace-icon fa fa-angle-double-left"></i>
+                            </a>
+                        </li>
+                        <!-- ko foreach: $root.gridViewModel.pages -->
+                        <li data-bind="css: { active: $data == $root.gridViewModel.currentPageIndex() }"><a href="#" data-bind="    text: $data, click: function () { $root.gridViewModel.currentPageIndex($data); } "></a></li>
+                        <!-- /ko -->
+                        <li class="next" data-bind="css: { disabled: $root.gridViewModel.currentPageIndex() >= $root.getTotalPages() }, click: function () { $root.nextPage(); }">
+                            <a href="#">
+                                <i class="ace-icon fa fa-angle-double-right"></i>
+                            </a>
+                        </li>
+                    </script>
+                    <script id="rowsTemplate" type="text/html">
+                        <tr>
+                            <td class="center">
+                                <label class="position-relative">
+                                    <input type="checkbox" class="ace" value="" data-bind="value: Id, checked: _selected" />
+                                    <span class="lbl"></span>
+                                </label>
+                            </td>
+<#=
+        param_model_type.T4Html(_tmp_TD_Dic,_tmp_TD_Default)
+        #>
+                            <td>
+                                <div class="hidden-sm hidden-xs btn-group">
+                                    <button class="btn btn-xs btn-info" data-bind="click: $root.edit.bind($data, Id)">
+                                        <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </script>
+                    <script id="addTemplate" type="text/html">
+                        <div>
+                            <div class="row" style="margin-left: 0px; margin-right: 0px;">
+                                <div class="col-xs-12">
+                                    <form class="form-horizontal" id="editForm" role="form">
+<#=
+        param_model_type.T4Html(_tmp_Form_Dic,_tmp_Form_Default)
+        #>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                    <script id="editTemplate" type="text/html">
+                        <div>
+                            <div class="row" style="margin-left: 0px; margin-right: 0px;">
+                                <div class="col-xs-12">
+                                    <form class="form-horizontal" id="editForm" role="form">
+<#=
+        param_model_type.T4Html(_tmp_Form_Dic,_tmp_Form_Default)
+        #>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                </div>
+            </div>
+            <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+                <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+            </a>
+        </div>
+    </div>
+</div>
