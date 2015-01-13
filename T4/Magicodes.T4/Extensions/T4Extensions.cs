@@ -107,8 +107,13 @@ namespace Magicodes.T4.Extensions
             var required = requiredAttribute != null;
 
             //字符串长度，大于50会生成TextArea，最大值默认4000
-            var StringLengthAttribute = GetAttribute<StringLengthAttribute>(pro, false);
-            var maxLength = StringLengthAttribute == null ? (int?)null : StringLengthAttribute.MaximumLength;
+            var stringLengthAttribute = GetAttribute<StringLengthAttribute>(pro, false);
+            var maxLength = stringLengthAttribute == null ? (int?)null : stringLengthAttribute.MaximumLength;
+            if (maxLength == null)
+            {
+                var maxLengthAttribute = GetAttribute<MaxLengthAttribute>(pro, false);
+                if (maxLengthAttribute != null) maxLength = maxLengthAttribute.Length;
+            }
             //是否邮箱地址
             var EmailAddressAttribute = GetAttribute<EmailAddressAttribute>(pro, false);
             var isEmail = EmailAddressAttribute != null;

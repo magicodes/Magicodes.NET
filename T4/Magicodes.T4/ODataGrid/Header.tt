@@ -59,86 +59,86 @@
 
 
             Params["_tmp_Form_Dic"] = new Dictionary<T4DataType, string>()
-            {                       
-                {
-                    T4DataType.MultilineText,
-                   @"<div class=""form-group"">
-                    <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
-                    <div class=""col-xs-12 col-sm-9"">
-                    <div class=""clearfix"">
-                    <textarea  name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required},readonly:{ReadOnly}}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6 limited autosize-transition"" />
-                    </div>
-                    </div>
-                    </div>
-                    <div class=""space-2""></div>"
-                },
-                {
-                    T4DataType.Text,
-                    @"
-                    <div class=""form-group"">
-                    <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
-                    <div class=""col-xs-12 col-sm-9"">
-                    <div class=""clearfix"">
-                    <input type=""text"" name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required},readonly:{ReadOnly}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6"" />
-                    </div>
-                    </div>
-                    </div>
-                    <div class=""space-2""></div>"
-                },
-                {
-                    T4DataType.Password,
-                    @"
-                    <div class=""form-group"">
-                    <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
-                    <div class=""col-xs-12 col-sm-9"">
-                    <div class=""clearfix"">
-                    <input type=""password"" name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required},readonly:{ReadOnly}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6"" />
-                    </div>
-                    </div>
-                    </div>
-                    <div class=""space-2""></div>"
-                },
-                {
-                    T4DataType.EmailAddress,
-                    @"
-                    <div class=""form-group"">
-                    <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
-                    <div class=""col-xs-12 col-sm-9"">
-                    <div class=""clearfix"">
-                    <input type=""email"" name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required},readonly:{ReadOnly}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6"" />
-                    </div>
-                    </div>
-                    </div>
-                    <div class=""space-2""></div>"
-                },
-                {
-                    T4DataType.PhoneNumber,
-                    @"
-                    <div class=""form-group"">
-                    <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
-                    <div class=""col-xs-12 col-sm-9"">
-                    <div class=""clearfix"">
-                    <input type=""text"" name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required},readonly:{ReadOnly}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6"" />
-                    </div>
-                    </div>
-                    </div>
-                    <div class=""space-2""></div>"
-                },
-                {
-                    T4DataType.Bit,
-                    @"
-                    <div class=""form-group"">
-                    <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
-                    <div class=""col-xs-12 col-sm-9"">
+                {                       
+                    {
+                        T4DataType.MultilineText,
+                        @"<div class=""form-group"">
+                        <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
+                        <div class=""col-xs-12 col-sm-9"">
+                        <div class=""clearfix"">
+                        <textarea  name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required},readonly:{ReadOnly}}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6 limited autosize-transition"" />
+                        </div>
+                        </div>
+                        </div>
+                        <div class=""space-2""></div>"
+                        },
+                    {
+                        T4DataType.Text,
+                        @"
+                        <div class=""form-group"">
+                        <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
+                        <div class=""col-xs-12 col-sm-9"">
+                        <div class=""clearfix"">
+                        <input type=""text"" name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required},readonly:{ReadOnly}}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6"" />
+                        </div>
+                        </div>
+                        </div>
+                        <div class=""space-2""></div>"
+                        },
+                    {
+                        T4DataType.Password,
+                        @"
+                        <div class=""form-group"">
+                        <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
+                        <div class=""col-xs-12 col-sm-9"">
+                        <div class=""clearfix"">
+                        <input type=""password"" name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required},readonly:{ReadOnly}}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6"" />
+                        </div>
+                        </div>
+                        </div>
+                        <div class=""space-2""></div>"
+                        },
+                    {
+                        T4DataType.EmailAddress,
+                        @"
+                        <div class=""form-group"">
+                        <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
+                        <div class=""col-xs-12 col-sm-9"">
+                        <div class=""clearfix"">
+                        <input type=""email"" name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required},readonly:{ReadOnly}}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6"" />
+                        </div>
+                        </div>
+                        </div>
+                        <div class=""space-2""></div>"
+                        },
+                    {
+                        T4DataType.PhoneNumber,
+                        @"
+                        <div class=""form-group"">
+                        <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
+                        <div class=""col-xs-12 col-sm-9"">
+                        <div class=""clearfix"">
+                        <input type=""text"" name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required},readonly:{ReadOnly}}"" placeholder=""{Description}"" class=""col-xs-12 col-sm-6"" />
+                        </div>
+                        </div>
+                        </div>
+                        <div class=""space-2""></div>"
+                        },
+                        {
+                        T4DataType.Bit,
+                        @"
+                        <div class=""form-group"">
+                        <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
+                        <div class=""col-xs-12 col-sm-9"">
                         <label class=""position-relative"">
-                            <input type=""checkbox"" class=""ace"" name=""{Name}"" id=""{Name}"" data-bind=""checked: {Name},attr:{required:{Required},readonly:{ReadOnly}"" />
-                            <span class=""lbl""></span>
+                        <input type=""checkbox"" class=""ace"" name=""{Name}"" id=""{Name}"" data-bind=""checked: {Name},attr:{required:{Required},readonly:{ReadOnly}}"" />
+                        <span class=""lbl""></span>
                         </label>
-                    </div>
-                    </div>
-                    <div class=""space-2""></div>"
-                },
-            };
+                        </div>
+                        </div>
+                        <div class=""space-2""></div>"
+                        },
+                    };
         }
         public string GetValue(string paramsName)
         {

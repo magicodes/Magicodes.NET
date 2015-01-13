@@ -24,8 +24,11 @@ namespace Magicodes.Core.Web.Controllers
     /// <summary>
     /// 寻找默认的文档加载器
     /// </summary>
+    [RoutePrefix("DocumentViewer")]
     public class DocumentViewerController : PlusControllerBase
     {
+        [Route]
+        [Route("Index")]
         public ActionResult Index()
         {
             //文件路径

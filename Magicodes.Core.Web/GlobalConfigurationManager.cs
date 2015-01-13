@@ -115,12 +115,6 @@ namespace Magicodes.Core.Web
             RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             AreaRegistration.RegisterAllAreas();
 
-            RouteTable.Routes.MapRoute(
-                name: "DocumentViewerController",
-                url: "DocumentViewer",
-                defaults: new { controller = "DocumentViewer", action = "Index", id = UrlParameter.Optional }
-            );
-
             //HttpConfiguration config = (HttpConfiguration)sender;
             foreach (var mvcPlus in MvcConfigManager.MVCPlusList.OrderByDescending(p => p.MvcPlusType))
             {

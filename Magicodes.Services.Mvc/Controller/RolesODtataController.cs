@@ -14,7 +14,7 @@ using System.Net;
 using Magicodes.Core.Web.Controllers;
 using Magicodes.Models.Mvc.Models.Account;
 using Magicodes.Services.Mvc.ViewModels;
-
+using System.Data.Entity;
 //======================================================================
 //
 //        Copyright (C) 2014-2016 Magicodes团队    
@@ -38,8 +38,50 @@ namespace Magicodes.Services.Mvc.Controller
         {
             roleManager = new RoleManager<AppRole>(new AppRoleStore(db));
         }
+        #region 角色成员处理
+        // GET odata/Roles(1)/Users
+        [ODataRoute("({id})/Users")]
+        [EnableQuery(PageSize = 1000, AllowedQueryOptions = AllowedQueryOptions.All)]
+        public IQueryable<UserViewModel> GetUsers([FromODataUri]string id)
+        {
+            var users = db.Users
+                .Where(p => !p.Deleted && p.Roles.Any(p1 => p1.RoleId == id))
+                .Select(p => new UserViewModel() { Id = p.Id, UserName = p.UserName, DisplayName = p.DisplayName, Email = p.Email, PhoneNumber = p.PhoneNumber })
+                .AsQueryable();
+            return users;
+        }
+        //// POST odata/Roles(1)/Users
+        //[HttpPost]
+        //[ODataRoute("({id})/Users")]
+        //public IHttpActionResult AddUserToRole([FromODataUri]string id, [FromBody]UserViewModel user)
+        //{
+        //    var role = db.Roles.SingleOrDefault(p => p.Id == id);
+        //    if (role == null) return NotFound();
+
+        //    var appUser = db.Users.SingleOrDefault(p => p.Id == user.Id);
+        //    if (appUser == null) return NotFound();
+
+        //    if (!role.Users.Any(p => p.UserId == appUser.Id))
+        //        role.Users.Add(appUser);
+        //    return Ok(user);
+        //}
+        //// DELTE odata/Roles(1)/Users(1)
+        //[HttpDelete]
+        //[ODataRoute("({id})/Users({userId})")]
+        //public IHttpActionResult RemoveUserToRole([FromODataUri]string id, [FromODataUri]string userId)
+        //{
+        //    var role = db.Roles.SingleOrDefault(p => p.Id == id);
+        //    if (role == null) return NotFound();
+
+        //    var appUser = db.Users.SingleOrDefault(p => p.Id == user.Id);
+        //    if (appUser == null) return NotFound();
+
+        //    if (role.Users.Any(p => p.UserId == appUser.Id))
+        //        role.Users.Remove(appUser);
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //} 
+        #endregion
         // GET odata/Roles
-        //[ODataRoute("Roles")]
         [ODataRoute]
         [EnableQuery(PageSize = 1000, AllowedQueryOptions = AllowedQueryOptions.All)]
         public IQueryable<RoleViewModel> Get()

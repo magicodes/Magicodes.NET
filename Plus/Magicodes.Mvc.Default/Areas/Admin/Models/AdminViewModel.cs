@@ -49,6 +49,7 @@ namespace Magicodes.Mvc.Default.Areas.Admin.Models
         public string Email { get; set; }
         [Display(Name = "手机")]
         [Required(AllowEmptyStrings = false)]
+        [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
 
     }

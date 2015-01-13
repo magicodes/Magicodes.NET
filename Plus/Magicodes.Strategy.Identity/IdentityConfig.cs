@@ -250,7 +250,7 @@ namespace Magicodes.Strategy.Identity
         public static string PublicClientId { get; private set; }
         static AppAuthConfig()
         {
-            PublicClientId = "Magicodes.Web";
+            PublicClientId = "Magicodes.NET";
 
             OAuthOptions = new OAuthAuthorizationServerOptions
             {

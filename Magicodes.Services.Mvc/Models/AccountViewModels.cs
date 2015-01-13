@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 //======================================================================
 //
@@ -18,29 +19,40 @@ using System.Web;
 namespace Magicodes.Services.Mvc.ViewModels
 {
     [Serializable]
+    [DataContract(Name = "Role")]
     public class RoleViewModel
     {
+        [DataMember]
         public string Id { get; set; }
         [Required(AllowEmptyStrings = false)]
         [Display(Name = "角色名")]
+        [DataMember]
         public string Name { get; set; }
+        [DataMember(Name = "Users")]
+        public virtual ICollection<UserViewModel> Users { get; set; }
     }
 
     [Serializable]
+    [DataContract(Name = "User")]
     public class UserViewModel
     {
+        [DataMember]
         public string Id { get; set; }
+        [DataMember]
         [Required(AllowEmptyStrings = false)]
         [Display(Name = "登录名")]
         public string UserName { get; set; }
         [Required(AllowEmptyStrings = false)]
         [Display(Name = "昵称")]
         [MaxLength(50)]
+        [DataMember]
         public string DisplayName { get; set; }
         [EmailAddress]
         [Display(Name = "邮箱")]
+        [DataMember]
         public string Email { get; set; }
         [Display(Name = "手机")]
+        [DataMember]
         public string PhoneNumber { get; set; }
 
     }

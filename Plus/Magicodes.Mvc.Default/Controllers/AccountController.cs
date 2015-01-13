@@ -53,7 +53,6 @@ namespace Magicodes.Mvc.Default.Controllers
             AuthenticationManager.SignIn(identity);
             return new EmptyResult();
         }
-
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -434,7 +433,6 @@ namespace Magicodes.Mvc.Default.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View(model);
         }
-
         //
         // POST: /Account/LogOff
         [HttpPost]
@@ -442,7 +440,8 @@ namespace Magicodes.Mvc.Default.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToLocal("/");
+            //return RedirectToAction("Index", "Home");
         }
 
         //
@@ -454,6 +453,7 @@ namespace Magicodes.Mvc.Default.Controllers
         }
 
         #region 帮助程序
+
         // 用于在添加外部登录名时提供 XSRF 保护
         private const string XsrfKey = "XsrfId";
 
