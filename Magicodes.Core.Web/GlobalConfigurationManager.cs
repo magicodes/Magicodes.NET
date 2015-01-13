@@ -115,6 +115,12 @@ namespace Magicodes.Core.Web
             RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             AreaRegistration.RegisterAllAreas();
 
+           
+            RouteTable.Routes.MapRoute(
+               name: "EditorController",
+               url: "Editor",
+               defaults: new { controller = "Editor", action = "CentreHandler", id = UrlParameter.Optional }
+           );
             //HttpConfiguration config = (HttpConfiguration)sender;
             foreach (var mvcPlus in MvcConfigManager.MVCPlusList.OrderByDescending(p => p.MvcPlusType))
             {

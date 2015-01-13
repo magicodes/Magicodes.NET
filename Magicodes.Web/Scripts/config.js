@@ -120,10 +120,7 @@ require.config({
         "jq.signalR": ["jquery"],
         "signalR": ["jq.signalR"],
         "bt.Wysiwyg": ["jquery", "ace/js/jquery.hotkeys" + min],
-        "ueditor.all": {
-            deps: ["ueditor.config", "ueditor.lang"],
-            exports: "ueditor.all"
-        }
+        "ueditor.all": ["ueditor.config", "ueditor.lang"]
     },
     map: {
         '*': {

@@ -16,6 +16,8 @@ namespace Magicodes.CMS
             GlobalConfigurationManager.ODataBuilder.EntitySet<CMS_Channel>("CMSChannel");
             GlobalConfigurationManager.ODataBuilder.EntitySet<CMS_ClassType>("CMSClassType");
             GlobalConfigurationManager.ODataBuilder.EntitySet<CMS_ClassTypeInfoViewModel>("CMSClassTypeInfo");
+            GlobalConfigurationManager.ODataBuilder.EntitySet<CMS_Content>("CMSContent");
+            GlobalConfigurationManager.ODataBuilder.EntitySet<CMS_ContentInfoViewModel>("CMS_ContentInfo");
         }
 
         public void Install()

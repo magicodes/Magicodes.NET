@@ -21,7 +21,7 @@ namespace Magicodes.Core.Web.Editor
         private static bool noCache = true;
         private static JObject BuildItems()
         {
-            var json = File.ReadAllText(HttpContext.Current.Server.MapPath("config.json"));
+            var json = File.ReadAllText(HttpContext.Current.Server.MapPath("~/Scripts/ueditor/config.json"));
             return JObject.Parse(json);
         }
         private static JObject _items;

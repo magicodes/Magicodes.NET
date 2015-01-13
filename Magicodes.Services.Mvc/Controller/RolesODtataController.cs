@@ -34,9 +34,11 @@ namespace Magicodes.Services.Mvc.Controller
     {
         private AppDbContext db = new AppDbContext();
         RoleManager<AppRole> roleManager;
+        UserManager<AppUser, string> userManager;
         public RolesODtataController()
         {
             roleManager = new RoleManager<AppRole>(new AppRoleStore(db));
+            userManager = new UserManager<AppUser, string>(new AppUserStore(db));
         }
         #region 角色成员处理
         // GET odata/Roles(1)/Users
@@ -50,36 +52,41 @@ namespace Magicodes.Services.Mvc.Controller
                 .AsQueryable();
             return users;
         }
-        //// POST odata/Roles(1)/Users
-        //[HttpPost]
-        //[ODataRoute("({id})/Users")]
-        //public IHttpActionResult AddUserToRole([FromODataUri]string id, [FromBody]UserViewModel user)
-        //{
-        //    var role = db.Roles.SingleOrDefault(p => p.Id == id);
-        //    if (role == null) return NotFound();
+        // POST odata/Roles(1)/Users
+        [HttpPost]
+        [ODataRoute("({id})/Users")]
+        public IHttpActionResult AddUserToRole([FromODataUri]string id, [FromBody]UserViewModel user)
+        {
+            var role = db.Roles.SingleOrDefault(p => p.Id == id);
+            if (role == null) return NotFound();
+            var result = userManager.AddToRole(user.Id, role.Name);
+            if (result.Succeeded)
+                return Ok(user);
+            else
+            {
+                var str = string.Join("；", result.Errors);
+                ModelState.AddModelError("错误", str);
+                return BadRequest(ModelState);
+            }
+        }
+        // DELTE odata/Roles(1)/Users(1)
+        [HttpDelete]
+        [ODataRoute("({id})/Users({userId})")]
+        public IHttpActionResult RemoveUserToRole([FromODataUri]string id, [FromODataUri]string userId)
+        {
+            var role = db.Roles.SingleOrDefault(p => p.Id == id);
+            if (role == null) return NotFound();
 
-        //    var appUser = db.Users.SingleOrDefault(p => p.Id == user.Id);
-        //    if (appUser == null) return NotFound();
-
-        //    if (!role.Users.Any(p => p.UserId == appUser.Id))
-        //        role.Users.Add(appUser);
-        //    return Ok(user);
-        //}
-        //// DELTE odata/Roles(1)/Users(1)
-        //[HttpDelete]
-        //[ODataRoute("({id})/Users({userId})")]
-        //public IHttpActionResult RemoveUserToRole([FromODataUri]string id, [FromODataUri]string userId)
-        //{
-        //    var role = db.Roles.SingleOrDefault(p => p.Id == id);
-        //    if (role == null) return NotFound();
-
-        //    var appUser = db.Users.SingleOrDefault(p => p.Id == user.Id);
-        //    if (appUser == null) return NotFound();
-
-        //    if (role.Users.Any(p => p.UserId == appUser.Id))
-        //        role.Users.Remove(appUser);
-        //    return StatusCode(HttpStatusCode.NoContent);
-        //} 
+            var result = userManager.RemoveFromRole(userId, role.Name);
+            if (result.Succeeded)
+                return StatusCode(HttpStatusCode.NoContent);
+            else
+            {
+                var str = string.Join("；", result.Errors);
+                ModelState.AddModelError("错误", str);
+                return BadRequest(ModelState);
+            }
+        }
         #endregion
         // GET odata/Roles
         [ODataRoute]

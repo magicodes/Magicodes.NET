@@ -170,6 +170,7 @@
     <Compile Include="Plus.cs" />
     <Compile Include="Services\CMSChannelODataController.cs" />
     <Compile Include="Services\CMSClassTypeODataController.cs" />
+    <Compile Include="Services\CMSContentODataController.cs" />
     <Compile Include="UnitOfWork\CMS_DbSession.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbContext\CMSDbContext.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Repositories\CMS_VideoRepository.cs" />
     <Compile Include="UnitOfWork\CMS_UnitOfWork.cs" />
     <Compile Include="ViewModels\CMS_ClassTypeInfoViewModel.cs" />
+    <Compile Include="ViewModels\CMS_ContentInfoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\CMSAdmin\Views\web.config" />
@@ -206,6 +208,7 @@
     <Content Include="Areas\CMSAdmin\Views\Shared\_SignalRPartial.cshtml" />
     <Content Include="Areas\CMSAdmin\Views\Admin\Channel.cshtml" />
     <Content Include="Areas\CMSAdmin\Views\Admin\ClassType.cshtml" />
+    <Content Include="Areas\CMSAdmin\Views\Admin\Content.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

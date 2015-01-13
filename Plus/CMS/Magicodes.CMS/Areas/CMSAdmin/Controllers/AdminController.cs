@@ -53,7 +53,7 @@ namespace Magicodes.CMS.Areas.CMSAdmin.Controllers
             return View();
         }
         /// <summary>
-        /// 内容分类管理
+        /// 分类管理
         /// </summary>
         /// <returns></returns>
         public ActionResult ClassType()
@@ -61,6 +61,19 @@ namespace Magicodes.CMS.Areas.CMSAdmin.Controllers
             ViewBag.ChannelList=UnitOfWork.CMS_ChannelRepository.Get(w => true).Select(s => new SelectListItem()
             {
                 Text = s.ChannelName,
+                Value = s.Id.ToString()
+            }).ToList();
+            return View();
+        }
+        /// <summary>
+        /// 内容管理
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Content()
+        {
+            ViewBag.ClassTypeList = UnitOfWork.CMS_ClassTypeRepository.Get(w => true).Select(s => new SelectListItem()
+            {
+                Text = s.ClassTypeName,
                 Value = s.Id.ToString()
             }).ToList();
             return View();
