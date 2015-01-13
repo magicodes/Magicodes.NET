@@ -136,7 +136,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\EditorControllerBase.cs" />
+    <Compile Include="Editor\EditorController.cs" />
     <Compile Include="Controllers\JSONActionResult.cs" />
     <Compile Include="Controllers\AdminControllerBase.cs" />
     <Compile Include="Controllers\Viewer\DocumentViewerController.cs" />

@@ -54,7 +54,7 @@ namespace Magicodes.CMS.Models
         public int PvCount { get; set; }
 
         /// <summary>
-        /// 频道类型
+        /// 分类
         /// </summary>
         public int ClassTypeId { get; set; }
         /// <summary>

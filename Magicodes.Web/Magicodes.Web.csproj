@@ -2064,6 +2064,7 @@
     <Content Include="Scripts\ueditor\third-party\video-js\font\vjs.eot" />
     <Content Include="Scripts\ueditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="Scripts\ueditor\third-party\video-js\font\vjs.woff" />
+    <Content Include="Scripts\ueditor\config.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
