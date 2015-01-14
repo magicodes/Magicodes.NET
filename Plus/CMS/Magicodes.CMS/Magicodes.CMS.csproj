@@ -159,6 +159,11 @@
   <ItemGroup>
     <Compile Include="Areas\CMSAdmin\CMSAdminAreaRegistration.cs" />
     <Compile Include="Areas\CMSAdmin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\CMSAdmin\Controllers\ODataGridControllers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ODataGridControllers.tt</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201412310550098_CreateDb.cs" />
     <Compile Include="Migrations\201412310550098_CreateDb.Designer.cs">
       <DependentUpon>201412310550098_CreateDb.cs</DependentUpon>
@@ -194,6 +199,7 @@
     <Compile Include="Repositories\CMS_TagRepository.cs" />
     <Compile Include="Repositories\CMS_VideoRepository.cs" />
     <Compile Include="UnitOfWork\CMS_UnitOfWork.cs" />
+    <Compile Include="ViewModels\CMSViewModel.cs" />
     <Compile Include="ViewModels\CMS_ClassTypeInfoViewModel.cs" />
     <Compile Include="ViewModels\CMS_ContentInfoViewModel.cs" />
   </ItemGroup>
@@ -209,6 +215,20 @@
     <Content Include="Areas\CMSAdmin\Views\Admin\Channel.cshtml" />
     <Content Include="Areas\CMSAdmin\Views\Admin\ClassType.cshtml" />
     <Content Include="Areas\CMSAdmin\Views\Admin\Content.cshtml" />
+    <Content Include="Areas\CMSAdmin\Controllers\ODataGridControllers.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ODataGridControllers.cs</LastGenOutput>
+      <LastOutputs>.\ODataGridControllers.cs</LastOutputs>
+    </Content>
+    <Content Include="Areas\CMSAdmin\Views\ODataGrid\CMSContent.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CMSContent.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="Areas\CMSAdmin\Views\ODataGrid\CMSContent.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMSContent.tt</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -266,6 +286,9 @@
     <EmbeddedResource Include="Migrations\201501080419232_AddChannelId.resx">
       <DependentUpon>201501080419232_AddChannelId.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

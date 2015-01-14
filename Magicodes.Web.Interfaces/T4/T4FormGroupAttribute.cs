@@ -19,9 +19,10 @@ using System.Threading.Tasks;
 namespace Magicodes.Web.Interfaces.T4
 {
     /// <summary>
-    /// T4表单控件组【类】
+    /// T4表单控件组
+    /// 注意：如果需要生成组，则首先需要在相关类添加此特效以表示启用组生成，然后在相关属性上添加此特效以标注此属性的分组
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = true)]
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class, Inherited = true, AllowMultiple = true)]
     public class T4FormGroupAttribute : Attribute
     {
         public T4FormGroupAttribute(string groupName)

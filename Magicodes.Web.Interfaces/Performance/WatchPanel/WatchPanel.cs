@@ -64,7 +64,7 @@ namespace Magicodes.Web.Interfaces.Performance.WatchPanel
         /// </summary>
         /// <param name="tabName"></param>
         /// <returns></returns>
-        public virtual async Task<WatchTab> AddTabAsync(string tabName)
+        public async virtual Task<WatchTab> AddTabAsync(string tabName)
         {
             if (WatchTabs.Any(p => p.TabName == tabName))
                 return null;

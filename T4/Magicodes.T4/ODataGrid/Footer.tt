@@ -1,5 +1,6 @@
 ﻿<#@ output extension=".cshtml" encoding="utf-8" #>
-<#    if(oDataGridHelper!=null){ #>
+<#    if(oDataGridHelper!=null){ 
+#>
 @{
     ViewBag.Title = "<#=            oDataGridHelper.GetValue("_param_title") #>";
 }
@@ -27,14 +28,35 @@
                         onBound: function (vm) {
                         
                         },
+                        //表单提交前事件
+                        beforeSubmit: function (vm, model) {
+<#        foreach(var htmlPro in oDataGridHelper.T4PropertyInfos.Where(p => p.DataType == T4DataType.Html)) {#>
+                            UE.getEditor('<#=                htmlPro.Name #>').ready(function () {
+                                model.<#=                htmlPro.Name #>(this.getContent());
+                            });
+<#        } #>
+
+                        },
                         //编辑模型初始化完毕事件
                         editAfterRender: function (render) {
-                        
+                            //实例化编辑器
+                            window.UEDITOR_HOME_URL = "/Scripts/ueditor/";
+<#        foreach(var htmlPro in oDataGridHelper.T4PropertyInfos.Where(p => p.DataType == T4DataType.Html)) {#>
+                            UE.getEditor('<#=                htmlPro.Name #>');
+<#        } #>
                         }
                     });
                 });
             });
     </script>
+<#        if(oDataGridHelper.T4PropertyInfos.Any(p => p.DataType == T4DataType.Html)) {#>
+@*//TODO:require js报错*@
+@*https://github.com/fex-team/ueditor/issues/1135*@
+
+<script src="/Scripts/ueditor/ueditor.config.js"></script>
+<script src="/Scripts/ueditor/ueditor.all.js"></script>
+<script src="/Scripts/ueditor/lang/zh-cn/zh-cn.js"></script>
+<#        } #>
 }
 <div class="main-container" id="main-container">
     <div>
@@ -140,27 +162,16 @@
                             </td>
                         </tr>
                     </script>
+<#
+        var formHelper=oDataGridHelper.FormHelper;
+        formHelper.Tag="add";
+ #>
                     <script id="addTemplate" type="text/html">
-                        <div>
-                            <div class="row" style="margin-left: 0px; margin-right: 0px;">
-                                <div class="col-xs-12">
-                                    <form class="form-horizontal" id="editForm" role="form">
-<#=            oDataGridHelper.CodeGenerate("_tmp_Form_Dic","_tmp_Form_Default","add")        #>    
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+<#@ include file="$(SolutionDir)\T4\Magicodes.T4\ODataGrid\Form.tt" #>
                     </script>
+<#        formHelper.Tag="edit"; #>
                     <script id="editTemplate" type="text/html">
-                        <div>
-                            <div class="row" style="margin-left: 0px; margin-right: 0px;">
-                                <div class="col-xs-12">
-                                    <form class="form-horizontal" id="editForm" role="form">
-<#=            oDataGridHelper.CodeGenerate("_tmp_Form_Dic","_tmp_Form_Default","edit")        #>    
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+<#@ include file="$(SolutionDir)\T4\Magicodes.T4\ODataGrid\Form.tt" #>
                     </script>
                 </div>
             </div>

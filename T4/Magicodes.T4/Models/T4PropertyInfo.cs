@@ -25,5 +25,9 @@ namespace Magicodes.T4.Models
         public bool _ReadOnly { get; set; }
         public ReadOnlyTypes _ReadOnlyType { get; set; }
         public string Tag { get; set; }
+        /// <summary>
+        /// 组信息
+        /// </summary>
+        public T4GroupInfo T4GroupInfo { get; set; }
     }
 }

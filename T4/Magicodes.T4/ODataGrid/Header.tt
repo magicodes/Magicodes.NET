@@ -14,7 +14,7 @@
     //var dlls=  dir.GetFiles("*.dll");
     //foreach(FileInfo dllFile in dlls)
     //{
-        //AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(dllFile.FullName));
+    //AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(dllFile.FullName));
     //}
  #>
 <#+
@@ -22,9 +22,12 @@
     {
         public Dictionary<string, object> Params { get; set; }
         public Type T4Model { get; set; }
+        public IEnumerable<T4PropertyInfo> T4PropertyInfos{ get; set; }
+        public FormHelper FormHelper{ get; set; }
         public ODataGridHelper(Type t4Model)
         {
             T4Model = t4Model;
+            T4PropertyInfos=T4Model.GetT4PropertyInfos();
             Params = new Dictionary<string, object>();
             Params["_param_title"] = "列表";
             Params["_param_filterTemplate"] = "contains(Name,{#txtSearch})";
@@ -37,14 +40,14 @@
             Params["_param_searchplaceholder"] = "请输入...";
             Params["_tmp_TH_Default"] = "<th>{DisplayName}</th>";
             Params["_tmp_TH_Dic"] = new Dictionary<T4DataType, string>(){
-            {
-                T4DataType.DateTime,"<th><i class=\"ace-icon fa fa-clock-o bigger-110 hidden-480\"></i>{DisplayName}</th>"},
-            };
+                    {
+                        T4DataType.DateTime,"<th><i class=\"ace-icon fa fa-clock-o bigger-110 hidden-480\"></i>{DisplayName}</th>"},
+                    };
             Params["_tmp_TD_Default"] = "<td data-bind=\"text: {Name}\"></td>";
             Params["_tmp_TD_Dic"] = new Dictionary<T4DataType, string>(){
-            {
-                T4DataType.DateTime,"<td data-bind=\"text: moment({Name}).format('LLLL')\"></td>"},
-            };
+                    {
+                        T4DataType.DateTime,"<td data-bind=\"text: moment({Name}).format('LLLL')\"></td>"},
+                    };
             Params["_tmp_Form_Default"] =
                 @"
                 <div class=""form-group"">
@@ -124,7 +127,7 @@
                         </div>
                         <div class=""space-2""></div>"
                         },
-                        {
+                    {
                         T4DataType.Bit,
                         @"
                         <div class=""form-group"">
@@ -138,7 +141,22 @@
                         </div>
                         <div class=""space-2""></div>"
                         },
+                    {
+                        T4DataType.Html,
+                        @"
+                        <div class=""form-group"">
+                        <label class=""col-xs-12 col-sm-11"" for=""{Name}"">{DisplayName}：</label>
+                        <div class=""col-xs-12 col-sm-11"">
+                        <div class=""clearfix"">
+                        <script name=""{Name}"" id=""{Name}"" type=""text/plain"" class=""col-xs-12 col-sm-11"" style=""height:300px;"" data-bind=""htmlValue: {Name}"">
+                        </script>
+                        </div>
+                        </div>
+                        </div>
+                        <div class=""space-2""></div>"
+                        }
                     };
+            this.FormHelper=new FormHelper(this.T4Model,this.GetValue<Dictionary<T4DataType, string>>("_tmp_Form_Dic"),this.GetValue("_tmp_Form_Default"),null);
         }
         public string GetValue(string paramsName)
         {
@@ -153,17 +171,18 @@
         public string CodeGenerate(string dicName, string defaultName)
         {
             return this.T4Model.T4Html(
-                 this.GetValue<Dictionary<T4DataType, string>>(dicName),
-                 this.GetValue(defaultName)
-             );
+                this.GetValue<Dictionary<T4DataType, string>>(dicName),
+                this.GetValue(defaultName)
+                );
         }
         public string CodeGenerate(string dicName, string defaultName,string tag)
         {
             return this.T4Model.T4Html(
-                 this.GetValue<Dictionary<T4DataType, string>>(dicName),
-                 this.GetValue(defaultName),
-                 tag
-             );
+                this.GetValue<Dictionary<T4DataType, string>>(dicName),
+                this.GetValue(defaultName),
+                tag
+                );
         }
+        
     }
  #>

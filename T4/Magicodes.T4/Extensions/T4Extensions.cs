@@ -60,7 +60,37 @@ namespace Magicodes.T4.Extensions
             t4ProInfo._ReadOnly = t4ReadOnlyFieldAttribute != null;
             if (t4ProInfo._ReadOnly)
                 t4ProInfo._ReadOnlyType = t4ReadOnlyFieldAttribute.ReadOnlyType;
+            //组特性
+            var t4FormGroupAttribute = pro.GetAttribute<T4FormGroupAttribute>(false);
+            if (t4FormGroupAttribute != null)
+            {
+                t4ProInfo.T4GroupInfo = new T4.Models.T4GroupInfo()
+                {
+                    Name = t4FormGroupAttribute.GroupName
+                };
+            }
             return t4ProInfo;
+        }
+        /// <summary>
+        /// 获取所有的属性特性
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static IEnumerable<T4PropertyInfo> GetT4PropertyInfos(this Type type)
+        {
+            foreach (PropertyInfo pro in type.GetProperties())
+            {
+                yield return pro.GetT4PropertyInfo();
+            }
+        }
+        /// <summary>
+        /// 获取所有的HTML属性
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static IEnumerable<T4PropertyInfo> GetHtmlT4PropertyInfo(this Type type)
+        {
+            return type.GetT4PropertyInfos().Where(p => p.DataType == T4DataType.Html);
         }
         /// <summary>
         /// 获取程序集属性
@@ -200,6 +230,7 @@ namespace Magicodes.T4.Extensions
                 dataType = T4DataType.Text;
             return dataType.Value;
         }
+
         /// <summary>
         /// 获取数据类型
         /// </summary>

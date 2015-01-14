@@ -1,0 +1,42 @@
+﻿                        <div>
+                            <div class="row" style="margin-left: 0px; margin-right: 0px;">
+                                <div class="col-xs-12">
+                                    <form class="form-horizontal" id="editForm" role="form">
+<#     
+        if(formHelper.IsEnableFormGroup)
+        {
+            //oDataGridHelper.CodeGenerate("_tmp_Form_Dic","_tmp_Form_Default","add")       
+ #>    
+                                        <div class="widget-box transparent">
+                                            <div class="widget-header ui-sortable-handle">
+                                                <h4 class="widget-title lighter"></h4>
+                                                <div class="widget-toolbar no-border">
+                                                    <ul class="nav nav-tabs" id="myTab2">
+<#            for (int i = 0; i < formHelper.Groups.Count; i++){ #>
+                                                        <li class="<#=i==0?"active":"" #>">
+                                                            <a data-toggle="tab" href="#tab_<#=formHelper.Tag #>_<#=i #>"><#=formHelper.Groups[i] #></a>
+                                                        </li>
+<#            } #>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="widget-body">
+                                                <div class="widget-main padding-12 no-padding-left no-padding-right">
+                                                    <div class="tab-content padding-4">
+<#            for (int i = 0; i < formHelper.Groups.Count; i++){ #>
+                                                        <div id="tab_<#=formHelper.Tag #>_<#=i #>" class="tab-pane <#=i==0?" in active":"" #>">
+<#=formHelper.T4Html(formHelper.Groups[i]) #>
+                                                        </div>
+<#            } #>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+<#    } else{#>
+<#=formHelper.T4Html() #>
+<#    } #>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    

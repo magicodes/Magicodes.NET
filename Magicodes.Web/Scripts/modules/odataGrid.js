@@ -25,7 +25,9 @@
         //添加数据模型
         addModel: {},
         //编辑模型初始化完毕事件
-        editAfterRender: null
+        editAfterRender: null,
+        //表单提交前事件
+        beforeSubmit: null
     };
     this.options = $.extend(defaults, setting);
     var that = this;
@@ -209,6 +211,10 @@
                          "callback": function () {
                              if (self.validator && !self.validator.options.$form.valid())
                                  return false;
+                             //调用表单提交前事件
+                             if (that.options.beforeSubmit && $.isFunction(that.options.beforeSubmit)) {
+                                 if (that.options.beforeSubmit(self, model)) return false;
+                             }
                              self.loading(true);
                              window.magicodes.api.request(apiType, {
                                  url: that.options.url,

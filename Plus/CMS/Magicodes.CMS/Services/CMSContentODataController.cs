@@ -17,7 +17,7 @@ using Microsoft.AspNet.Identity;
 namespace Magicodes.CMS.Services
 {
     [ODataRoutePrefix("CMSContent")]
-    public class CMSContentODataController:ODataControllerBase
+    public class CMSContentODataController : ODataControllerBase
     {
         private CMS_UnitOfWork unitOfWork;
         private CMS_UnitOfWork UnitOfWork
@@ -51,15 +51,19 @@ namespace Magicodes.CMS.Services
         }
         [System.Web.Http.HttpPost]
         [ODataRoute]
-        public async Task<IHttpActionResult> Post(CMS_Content cmsContent)
+        public async Task<IHttpActionResult> Post(CMS_ContentInfoViewModel content)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            cmsContent.CreateTime = DateTimeOffset.Now;
-            cmsContent.Id = Guid.NewGuid();
-            cmsContent.CreateBy = User.Identity.GetUserName();
+            CMS_Content cmsContent = new CMS_Content()
+            {
+                Id=Guid.NewGuid(),
+                CreateTime = DateTimeOffset.Now,
+                CreateBy=User.Identity.GetUserName(),
+                Title=content.Title,
+            };
 
             UnitOfWork.CMS_ContentRepository.Add(cmsContent);
             UnitOfWork.SaveChanges();

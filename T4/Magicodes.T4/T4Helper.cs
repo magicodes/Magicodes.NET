@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Magicodes.T4.Extensions;
+using Magicodes.T4.Models;
+using Magicodes.Web.Interfaces.T4;
 //======================================================================
 //
 //        Copyright (C) 2014-2016 Magicodes团队    
@@ -20,23 +22,27 @@ namespace Magicodes.T4
 {
     public class T4Helper
     {
-        //public string ProcessTemplate(string templateFilePath, string key, object obj)
-        //{
-        //    TextTemplatingSession session = new TextTemplatingSession();
-        //    session[key] = obj;
-        //    var sessionHost = (ITextTemplatingSessionHost)this.Host;
-        //    sessionHost.Session = session;
+        public static string T4Html(Type type, Dictionary<T4DataType, string> dic, string defaultHtmlTemplate, string tag)
+        {
+            if (type == null || dic == null) return string.Empty;
+            var str = new StringBuilder();
+            var proInfos = type.GetT4PropertyInfos();
 
-        //    var sb = new StringBuilder();
-        //    sb.AppendLine("<" + "#" + "@ template debug=\"true\" hostspecific=\"true\" language=\"C#\" #" + ">");
-        //    foreach (var assembly in __assemblys)
-        //    {
-        //        sb.Append("<").Append("#").Append("@ assembly name=\"").Append(assembly).Append("\" #").Append(">").AppendLine();
-        //    }
-        //    sb.AppendLine(File.ReadAllText(templateFilePath, Encoding.UTF8));
-        //    var content = sb.ToString();
-        //    Log(content);
-        //    return new Engine().ProcessTemplate(content, this.Host);
-        //}
+            //组特性
+            var t4FormGroupAttribute = type.GetAttribute<T4FormGroupAttribute>(false);
+            var groups = new List<string>();
+
+            foreach (var item in proInfos)
+            {
+
+            }
+            //foreach (PropertyInfo pro in type.GetProperties())
+            //{
+            //    var html = pro.T4Html(dic, defaultHtmlTemplate, tag);
+            //    if (!string.IsNullOrEmpty(html))
+            //        str.AppendLine(html);
+            //}
+            return str.ToString();
+        }
     }
 }
