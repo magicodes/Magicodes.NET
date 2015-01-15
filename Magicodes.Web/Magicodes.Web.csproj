@@ -234,7 +234,6 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\magicodes-blog.css" />
     <Content Include="css\magicodes-home.css" />
-    <Content Include="dev\blog\css\bootstrap.css" />
     <Content Include="dev\blog\css\bootstrap.min.css" />
     <Content Include="dev\blog\css\font-awesome.min.css" />
     <Content Include="dev\blog\css\magicodes-blog.css" />
@@ -245,11 +244,12 @@
     <Content Include="dev\blog\img\icon-128.png" />
     <Content Include="dev\blog\img\logo-l.png" />
     <Content Include="dev\blog\img\logo.png" />
+    <Content Include="dev\blog\index.html" />
     <Content Include="dev\blog\js\bootstrap.min.js" />
     <Content Include="dev\blog\js\jquery-1.11.1.min.js" />
     <Content Include="dev\blog\js\jquery-2.1.1.min.js" />
     <Content Include="dev\blog\js\magicodes-blog.js" />
-    <Content Include="dev\blog\template.html" />
+    <Content Include="dev\blog\list.html" />
     <Content Include="dev\blog\theme\dafault\bg-grain1.png" />
     <Content Include="dev\blog\theme\dafault\bg-grain2.png" />
     <Content Include="dev\blog\theme\dafault\bg-header.png" />
