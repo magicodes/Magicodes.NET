@@ -1,4 +1,13 @@
-@charset "UTF-8";
+/* ==========================================================================
+ * Magicodes.Blog
+ * version 0.0.200: 2015.01.16
+ * ==========================================================================
+ * Copyright Team Magicodes.NET
+ * Licensed under MIT
+ * ========================================================================== */
+
+
+
 
 /* ========================================
  * reset
@@ -45,7 +54,7 @@ html {
 img,
 button,
 fieldset {
-  border:0;
+  border: 0;
 }
 button {
   cursor: pointer;
@@ -77,7 +86,7 @@ ul {
   }
 }
 /* ol: only for firefox */
-@-moz-document url-prefix(){
+@-moz-document url-prefix() {
   ol {
     margin-left: 1.2rem;
   }
@@ -91,7 +100,7 @@ ul {
 input,
 select,
 textarea {
-  border: 1px solid #000;
+  border: 0.1rem solid #000;
   box-shadow: none;
 }
 input:focus,
@@ -145,7 +154,7 @@ span {
 .topbar {
   position: fixed;
   width: 100%;
-  padding: 10px;
+  padding: 1rem;
   background: none;
   z-index: 999;
 }
@@ -155,10 +164,10 @@ span {
 }
 .top-menu > div {
   float: left;
-  margin-right: 30px;
+  margin-right: 3rem;
 }
 .top-menu > div:first-child {
-  margin-right: 15px;
+  margin-right: 1.5rem;
 }
 .top-menu a {
   color: #fff;
@@ -173,10 +182,10 @@ span {
 }
 .top-user-menu > div {
   float: left;
-  margin-right: 10px;
-  padding: 0 10px;
+  margin-right: 1rem;
+  padding: 0 1rem;
   background: rgba(25, 61, 103, 0.8);
-  border-radius: 4px;
+  border-radius: 0.4rem;
 }
 .top-user-menu a {
   color: #ddd;
@@ -206,14 +215,127 @@ span {
 }
 
 
-/* content */
+/* user class emblem */
 
-.page {
-  /* 预留 */
+.emblem {
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.6rem;
+  color: #fff;
+}
+.official {
+  background: #d4ba2b;
+}
+.team {
+  background: #3a61a8;
+}
+.admin {
+  background: #9f0a0a;
+}
+.member {
+  background: #216f04;
 }
 
+
+/* content */
+
+.index {
+  padding-bottom: 8rem;
+}
+.index > h2 {
+  margin-top: 1rem;
+  padding: 1rem 0;
+  font-weight: bold;
+  font-size: 1.6rem;
+  border-bottom: 0.1rem solid #efefef;
+}
+.index > h2:first-child {
+  margin-top: 0;
+}
+.index > h2 > small {
+  margin: 0 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+.index > h2 > .fa-angle-down,
+.index > h2 > .fa-angle-up {
+  cursor: pointer;
+}
+
+.index-list .post-info {
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #aaa;
+}
+.index-list .post-info span {
+  color: #888;
+}
+.index-list > li {
+  margin: 0.5rem 0;
+  padding: 2rem;
+  border: 0.1rem solid #efefef;
+  border-radius: 0.4rem;
+}
+
+/*
+.index-list > li > img {
+}
+*/
+
+.index-list p {
+  line-height: 2.2rem;
+}
+
+.index-stick h3 {
+  font-size: 1.6rem;
+  padding: 2rem 0 1rem 0;
+}
+.index-stick > div {
+  border-top: 1px solid transparent;
+}
+
+.index-stick .post-info {
+  text-align: center;
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #aaa;
+}
+.index-stick .post-info span {
+  color: #ccc;
+}
+.index-stick p {
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+  line-height: 2.0rem;
+}
+
+.index-sticks-hide {
+  display: none;
+}
+
+
+.common-list > li {
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border: 0.1rem solid #efefef;
+  border-radius: 0.4rem;
+}
+.common-list .post-info {
+  font-size: 1.2rem;
+  color: #aaa;
+}
+.common-list .post-info span {
+  color: #ccc;
+}
+.common-list h3 {
+  font-size: 1.4rem;
+}
+.common-list p {
+  font-size: 1.2rem;
+}
+
+
+.page,
 .blog {
-  /* 预留 */
+  padding-bottom: 8rem;
 }
 
 /* content: article style */
@@ -302,24 +424,36 @@ span {
   color: #666;
 }
 .content .post-info span {
+  color: #5e87c9;
+}
+
+.post-info span {
   margin: 0 0.5rem;
-  color: #5e87c9;
   cursor: pointer;
 }
-.content .post-info i {
+.post-info span:first-child {
+  margin-left: 0;
+}
+.post-info span:last-child {
+  margin-right: 0;
+}
+.post-info i {
   cursor: pointer;
 }
-.content .post-info .fa-thumbs-o-up,
-.content .post-info .fa-thumbs-up {
+.post-info .fa-thumbs-o-up,
+.post-info .fa-thumbs-up {
   color: #5e87c9;
 }
-.content .post-info .fa-star-o,
-.content .post-info .fa-star {
+.post-info .fa-star-o,
+.post-info .fa-star {
   color: #debd30;
 }
-.content .post-info .fa-share-square-o {
+.post-info .fa-share-square-o {
   color: #bf4f4f;
 }
+
+
+
 .content .nav-page {
   font-size: 1.0rem;
   padding: 0;
@@ -443,6 +577,7 @@ span {
 .aside > .user-info > .user-head {
   width: 10rem;
   height: 10rem;
+  border-radius: 5rem;
 }
 .aside > .user-info > div {
   padding-left: 1.5rem;
@@ -453,29 +588,14 @@ span {
   font-size: 1.8rem;
   font-weight: bold;
 }
-.aside > .user-info .emblem {
-  padding: 0.2rem 0.6rem;
+.aside .emblem {
   font-size: 0.8rem;
-  border-radius: 0.6rem;
-  color: #fff;
 }
 .aside > .user-info .span {
   display: inline-block;
 }
 .aside > .user-info .user-count {
   padding-top: 1rem;
-}
-.aside .official {
-  background: #d4ba2b;
-}
-.aside .team {
-  background: #3a61a8;
-}
-.aside .admin {
-  background: #9f0a0a;
-}
-.aside .member {
-  background: #216f04;
 }
 .aside .user-area {
   padding: 0 2rem;
@@ -521,12 +641,13 @@ span {
 .aside .posts-following > li {
   list-style: none;
 }
-.aside .posts-following .following-user {
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.4rem;
-  color: #fff;
-  cursor: pointer;
+/*
+.aside .posts-following > li > p > span,
+.aside .posts-following > li > p > a {
+  display: inline-block;
+  vertical-align: middle;
 }
+*/
 .aside .posts-following .post-date a {
   color: #999;
 }
@@ -551,10 +672,10 @@ span {
 }
 .aside .posts-category,
 .aside .posts-archive {
-  column-count: 2;
+          column-count: 2;
   -webkit-column-count: 2;
-  -moz-column-count: 2;
-  -ms-column-count: 2;
+     -moz-column-count: 2;
+      -ms-column-count: 2;
 }
 .aside .posts-category > li {
   list-style: none;
@@ -569,22 +690,22 @@ span {
 /* 底部 */
 
 .footer {
-  padding: 20px 0 0 0;
+  padding: 2rem 0 0 0;
   background: rgba(0, 0, 0, 1);
 }
 .footer > .container {
-  padding-bottom: 60px;
+  padding-bottom: 6rem;
 }
 .footer h2 {
   font-size: 1.8rem;
-  margin-bottom: 10px;
-  padding: 20px 0 10px 0;
+  margin-bottom: 1rem;
+  padding: 2rem 0 1rem 0;
   color: #fff;
-  border-bottom: 1px solid #222;
+  border-bottom: 0.1rem solid #222;
 }
 .footer p {
   font-size: 1.4rem;
-  padding: 5px;
+  padding: 0.5rem;
   color: #ccc;
 }
 .footer a {
@@ -604,7 +725,7 @@ span {
 .footer-sole {
   bottom: 0;
   width: 100%;
-  padding: 10px;
+  padding: 1rem;
   text-align: center;
   font-size: 1.4rem;
   background: rgba(0, 0, 0, 0.8);
@@ -615,30 +736,3 @@ span {
   position: fixed;
   background: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
