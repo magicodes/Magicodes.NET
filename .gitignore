@@ -189,3 +189,4 @@ _Pvt_Extensions/
 ModelManifest.xml
 /Magicodes.Web/Plus/Plugins/
 /Magicodes.Web/bin/
+*.DS_Store
