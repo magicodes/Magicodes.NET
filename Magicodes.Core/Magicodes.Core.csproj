@@ -112,9 +112,6 @@
     <Compile Include="Data\DataRepositoryBase.cs" />
     <Compile Include="Data\UnitOfWorkBase.cs" />
     <Compile Include="Data\DbSessionBase.cs" />
-    <Compile Include="Handlers\WebHandlersProcess.cs" />
-    <Compile Include="Handlers\WebHandlersManager.cs" />
-    <Compile Include="Handlers\WebHandlerInfo.cs" />
     <Compile Include="Performance\Watch\CodeWatch.cs" />
     <Compile Include="Plus\AssemblyManager.cs" />
     <Compile Include="Plus\PlusAssemblys.cs" />
@@ -122,13 +119,8 @@
     <Compile Include="Plus\PlusManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Res\ManifestResourceManager.cs" />
-    <Compile Include="Res\ResourceHelper.cs" />
-    <Compile Include="Res\ResourceManager.cs" />
-    <Compile Include="Res\ResourceMinHelper.cs" />
-    <Compile Include="Res\ResourceUrl.cs" />
     <Compile Include="Routing\CoreModule.cs" />
     <Compile Include="Routing\MagicCodeUrlProvider.cs" />
-    <Compile Include="Routing\RouteHandler.cs" />
     <Compile Include="Routing\RoutingManager.cs" />
     <Compile Include="Starter.cs" />
     <Compile Include="Strategy\Email\EmailStrategy.cs" />

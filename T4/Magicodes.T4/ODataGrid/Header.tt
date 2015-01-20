@@ -142,6 +142,19 @@
                         <div class=""space-2""></div>"
                         },
                     {
+                        T4DataType.Select,
+                        @"
+                        <div class=""form-group"">
+                        <label class=""control-label col-xs-12 col-sm-3 no-padding-right"" for=""{Name}"">{DisplayName}：</label>
+                        <div class=""col-xs-12 col-sm-9"">
+                        <div class=""clearfix"">
+                        <select class=""col-xs-12 col-sm-6""  name=""{Name}"" id=""{Name}"" data-bind=""value: {Name},attr:{required:{Required},readonly:{ReadOnly}}"" ></select>
+                        </div>
+                        </div>
+                        </div>
+                        <div class=""space-2""></div>"
+                        },
+                    {
                         T4DataType.Html,
                         @"
                         <div class=""form-group"">

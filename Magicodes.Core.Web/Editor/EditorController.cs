@@ -9,8 +9,14 @@ using Magicodes.Core.Web.Controllers;
 
 namespace Magicodes.Core.Web.Editor
 {
+    /// <summary>
+    /// 配置默认的文档加载器
+    /// </summary>
+    [RoutePrefix("Editor")]
     public class EditorController:Controller
     {
+        [Route]
+        [Route("CentreHandler")]
         public void CentreHandler()
         {
             Handler action = null;

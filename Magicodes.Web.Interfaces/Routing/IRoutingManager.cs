@@ -1,5 +1,4 @@
-﻿using Magicodes.Web.Interfaces.WebHandler;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +8,6 @@ namespace Magicodes.Web.Interfaces.Routing
 {
     public interface IRoutingManager
     {
-        List<RouteWebHandlerInfo> RouteWebHandlerInfoList { get; set; }
         /// <summary>
         /// 添加路由
         /// </summary>
@@ -66,14 +64,6 @@ namespace Magicodes.Web.Interfaces.Routing
         /// <param name="url">要忽略的 URL 模式。</param>
         /// <param name="constraints"> 附加条件，用于确定是否忽略匹配 URL 模式的请求。</param>
         IRoutingManager Ignore(string url, object constraints);
-        /// <summary>
-        /// 添加路由
-        /// </summary>
-        /// <param name="routeName"></param>
-        /// <param name="url"></param>
-        /// <param name="webHandler"></param>
-        /// <returns></returns>
-        IRoutingManager Add<T>(string routeName, string url) where T : IWebHandler;
         /// <summary>
         /// 初始化
         /// </summary>

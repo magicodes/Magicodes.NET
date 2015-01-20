@@ -6,8 +6,6 @@ using System.IO;
 using System.Web.Security;
 using Magicodes.Web.Interfaces;
 using Magicodes.Utility;
-using Magicodes.Core.Handlers;
-using Magicodes.Web.Interfaces.WebHandler;
 using Magicodes.Web.Interfaces.Strategy.Logger;
 using Magicodes.Web.Interfaces.Paths;
 using Magicodes.Web.Interfaces.Events;

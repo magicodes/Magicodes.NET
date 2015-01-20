@@ -95,7 +95,6 @@
     <Compile Include="Performance\WatchPanel\WatchTab.cs" />
     <Compile Include="Plus\PlusManagerBase.cs" />
     <Compile Include="Routing\IRoutingManager.cs" />
-    <Compile Include="Routing\RouteWebHandlerInfo.cs" />
     <Compile Include="Routing\RoutingDictonaryInfo.cs" />
     <Compile Include="Routing\RoutingInfo.cs" />
     <Compile Include="Strategy\Email\IMailStrategy.cs" />
@@ -126,20 +125,12 @@
     <Compile Include="T4\T4ODataGridAttribute.cs" />
     <Compile Include="T4\T4OnlyVerificationAttribute.cs" />
     <Compile Include="T4\T4ReadOnlyFieldAttribute.cs" />
+    <Compile Include="T4\T4SelectAttribute.cs" />
     <Compile Include="Themes\ITheme.cs" />
     <Compile Include="Strategy\User\AuthResult.cs" />
     <Compile Include="Strategy\User\IUser.cs" />
     <Compile Include="Strategy\User\IUserAuthenticationStrategy.cs" />
     <Compile Include="WebContextBase.cs" />
-    <Compile Include="WebHandler\JSON\JSONFormatHanding.cs" />
-    <Compile Include="WebHandler\Resource\IResourceMin.cs" />
-    <Compile Include="WebHandler\WebHandlerTypes.cs" />
-    <Compile Include="WebHandler\IWebHandlerInfo.cs" />
-    <Compile Include="WebHandler\JSON\JSONDataReturnValueBase.cs" />
-    <Compile Include="WebHandler\JSON\IJSONHandler.cs" />
-    <Compile Include="WebHandler\IWebHandler.cs" />
-    <Compile Include="WebHandler\Resource\IResourceHandler.cs" />
-    <Compile Include="WebHandler\Resource\WebResourceReturnValueBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

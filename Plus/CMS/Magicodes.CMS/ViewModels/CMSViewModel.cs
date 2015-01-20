@@ -45,6 +45,10 @@ namespace Magicodes.CMS.ViewModels
         /// 类型名称
         /// </summary>
         [T4GenerationIgnore()]
+        [T4FormGroup("基础信息")]
+        [Display(Name = "所属类型")]
+        //[DataType(DataType.Custom)]
+        [T4SelectAttribute(DataUrl = "/", DisplayField = "Name", ValueField = "Id", Root = "")]
         public int ClassTypeId { get; set; }
         /// <summary>
         /// 类型名称
@@ -62,7 +66,7 @@ namespace Magicodes.CMS.ViewModels
         [MaxLength(200)]
         [T4FormGroup("SEO")]
         [Display(Name = "关键字")]
-        public string Keywords { get; set; } 
+        public string Keywords { get; set; }
         #endregion
 
         #region 内容

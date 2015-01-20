@@ -51,10 +51,41 @@ namespace Magicodes.Core.Web.Controllers
         }
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {
-            if(!AuthHelper.IsAllowEnterAdminPlatform)
+            if (!AuthHelper.IsAllowEnterAdminPlatform)
             {
+
                 throw new HttpException(401, "您没有权限进行此操作！");
             }
         }
+        /// <summary>
+        /// 异常处理
+        /// </summary>
+        /// <param name="filterContext">当前请求</param>
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            Exception exception = filterContext.Exception;
+            string message;
+            if (filterContext.HttpContext.Request.IsAjaxRequest())
+            {
+                if (exception is HttpAntiForgeryException)
+                {
+                   
+                }
+                //filterContext.Result = Json(new AjaxResult(message, AjaxResultType.Error));
+                //filterContext.ExceptionHandled = true;
+            }
+            else
+            {
+
+                var error = new HandleErrorInfo(
+                    exception,
+                    filterContext.RouteData.Values["controller"].ToString(),
+                    filterContext.RouteData.Values["action"].ToString());
+
+                filterContext.Result = View("Error", error);
+                filterContext.ExceptionHandled = true;
+            }
+        }
+
     }
 }

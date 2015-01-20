@@ -1,0 +1,176 @@
+﻿@model Magicodes.Admin.SiteAdminNavigation
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Delete</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("List", "Index")
+            </li>
+            <li class="active">
+                <strong>Delete</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+			@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary"})
+        </div>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>SiteAdminNavigation</h5>
+                </div>
+                <div class="ibox-content">
+				<h4 class="text-danger">Are you sure you want to delete this?</h4>
+				 <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Href)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Href)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IconCls)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IconCls)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TextCls)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TextCls)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsShowBadge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsShowBadge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MenuBadgeType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MenuBadgeType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BadgeRequestUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BadgeRequestUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlusId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlusId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SortNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SortNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateBy)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-white"})
+        </div>
+    }
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+

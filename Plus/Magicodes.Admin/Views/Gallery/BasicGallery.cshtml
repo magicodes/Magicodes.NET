@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "BasicGallery";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Basic Gallery</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Dashboard_1", "Dashboards")">Home</a>
+            </li>
+            <li>
+                <a>Gallery</a>
+            </li>
+            <li class="active">
+                <strong>Basic Gallery</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Basic Table <small>http://fancybox.net/</small></h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
+                    <a class="fancybox" href="~/Images/p1.jpg" title="Picture 1">
+                        <img alt="image" src="~/Images/p1.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p2.jpg" title="Picture 2">
+                        <img alt="image" src="~/Images/p2.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p3.jpg" title="Picture 3">
+                        <img alt="image" src="~/Images/p3.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p1.jpg" title="Picture 4">
+                        <img alt="image" src="~/Images/p4.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p2.jpg" title="Picture 5">
+                        <img alt="image" src="~/Images/p5.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p3.jpg" title="Picture 6">
+                        <img alt="image" src="~/Images/p6.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p1.jpg" title="Picture 7">
+                        <img alt="image" src="~/Images/p7.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p2.jpg" title="Picture 8">
+                        <img alt="image" src="~/Images/p8.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p1.jpg" title="Picture 9">
+                        <img alt="image" src="~/Images/p1.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p2.jpg" title="Picture 10">
+                        <img alt="image" src="~/Images/p2.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p3.jpg" title="Picture 11">
+                        <img alt="image" src="~/Images/p3.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p1.jpg" title="Picture 12">
+                        <img alt="image" src="~/Images/p4.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p2.jpg" title="Picture 13">
+                        <img alt="image" src="~/Images/p5.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p3.jpg" title="Picture 14">
+                        <img alt="image" src="~/Images/p6.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p1.jpg" title="Picture 15">
+                        <img alt="image" src="~/Images/p7.jpg" />
+                    </a>
+                    <a class="fancybox" href="~/Images/p2.jpg" title="Picture 16">
+                        <img alt="image" src="~/Images/p8.jpg" />
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/plugins/fancyboxStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/fancybox")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.fancybox').fancybox({
+                openEffect: 'none',
+                closeEffect: 'none'
+            });
+
+        });
+    </script>
+}

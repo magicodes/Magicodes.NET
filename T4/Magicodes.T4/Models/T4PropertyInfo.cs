@@ -29,5 +29,6 @@ namespace Magicodes.T4.Models
         /// 组信息
         /// </summary>
         public T4GroupInfo T4GroupInfo { get; set; }
+        public T4SelectAttribute T4Select { get; set; }
     }
 }

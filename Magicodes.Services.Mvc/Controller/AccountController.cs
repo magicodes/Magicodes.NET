@@ -5,7 +5,6 @@ using Magicodes.Services.Mvc.ViewModels;
 using Magicodes.Strategy.Identity;
 using Magicodes.Web.Interfaces;
 using Magicodes.Web.Interfaces.Strategy.User;
-using Magicodes.Web.Interfaces.WebHandler.JSON;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;

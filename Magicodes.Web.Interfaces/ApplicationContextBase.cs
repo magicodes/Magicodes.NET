@@ -8,8 +8,6 @@ using Magicodes.Web.Interfaces.Routing;
 using Magicodes.Web.Interfaces.Strategy;
 using Magicodes.Web.Interfaces.Strategy.Logger;
 using Magicodes.Web.Interfaces.Themes;
-using Magicodes.Web.Interfaces.WebHandler;
-using Magicodes.Web.Interfaces.WebHandler.Resource;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -74,10 +72,6 @@ namespace Magicodes.Web.Interfaces
         /// 默认主题
         /// </summary>
         public virtual ITheme DefaultTheme { get; set; }
-        /// <summary>
-        /// WebHandler列表
-        /// </summary>
-        public virtual List<IWebHandlerInfo> WebHandlerList { get; set; }
 
         /// <summary>
         /// 插件列表
@@ -87,10 +81,6 @@ namespace Magicodes.Web.Interfaces
         /// 路由管理器
         /// </summary>
         public IRoutingManager RoutingManager { get; set; }
-        /// <summary>
-        /// 资源压缩辅助类
-        /// </summary>
-        public IResourceMin ResourceMinHelper { get; set; }
         /// <summary>
         /// 插件管理器
         /// </summary>

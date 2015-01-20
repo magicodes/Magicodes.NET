@@ -258,12 +258,8 @@ namespace Magicodes.Core
             //【优先加载框架策略】加载框架策略作为默认策略，如果插件实现了该策略，则会被覆盖
             //默认集成了日志策略
             PlusManager.LoadPlusStrategys(this.GetType().Assembly);
-            //初始化资源压缩类
-            ResourceMinHelper = new ResourceMinHelper();
             //初始化嵌入资源管理器
             ManifestResourceManager = new ManifestResourceManager();
-            //初始化资源管理辅助类
-            CurrentResourceHelper = new ResourceHelper();
             //初始化配置管理器
             ConfigManager = new ConfigManager();
             //加载程序集

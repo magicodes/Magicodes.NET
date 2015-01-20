@@ -109,6 +109,10 @@ namespace Magicodes.T4.Models
         /// <summary>
         /// 单选框列表
         /// </summary>
-        RadioBoxList = 22
+        RadioBoxList = 22,
+        /// <summary>
+        /// 下拉列表
+        /// </summary>
+        Select = 23
     }
 }
