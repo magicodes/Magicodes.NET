@@ -72,6 +72,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librarys", "Librarys", "{ABE243F4-C6A7-44C9-9647-E70B9D824844}"
 	ProjectSection(SolutionItems) = preProject
 		T4\Librarys\Magicodes.T4.dll = T4\Librarys\Magicodes.T4.dll
+		T4\Librarys\Magicodes.Web.Interfaces.dll = T4\Librarys\Magicodes.Web.Interfaces.dll
 		T4\Librarys\Newtonsoft.Json.dll = T4\Librarys\Newtonsoft.Json.dll
 	EndProjectSection
 EndProject

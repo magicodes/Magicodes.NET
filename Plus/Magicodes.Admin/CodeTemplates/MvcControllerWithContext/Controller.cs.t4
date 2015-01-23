@@ -1,18 +1,10 @@
 ﻿<#@ template language="C#" HostSpecific="True" Debug="True" #>
 <#@ output extension="cs" #>
-<#@ assembly name="System.ComponentModel.DataAnnotations" #>
 <#@ assembly name="System.Core" #>
 <#@ assembly name="System.Data.Entity" #>
 <#@ assembly name="System.Data.Linq" #>
-<#@ assembly name="EnvDTE" #>
 <#@ ScaffoldingAssembly Processor="ScaffoldingAssemblyLoader" #>
-<#
-var routePrefix = String.Empty;
-if (!String.IsNullOrWhiteSpace(AreaName)) {
-    routePrefix = "/" + AreaName;
-}
-routePrefix += "/" + ControllerRootName + "/";
-#>
+<#@ import namespace="System" #>
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Linq" #>
@@ -25,11 +17,19 @@ routePrefix += "/" + ControllerRootName + "/";
 <#@ parameter type="System.String" name="ModelTypeName" #>
 <#@ parameter type="System.String" name="ModelVariable" #>
 <#@ parameter type="Microsoft.AspNet.Scaffolding.Core.Metadata.ModelMetadata" name="ModelMetadata" #>
+<#@ parameter type="System.String" name="EntitySetVariable" #>
 <#@ parameter type="System.Boolean" name="UseAsync" #>
 <#@ parameter type="System.Boolean" name="IsOverpostingProtectionRequired" #>
 <#@ parameter type="System.String" name="BindAttributeIncludeText" #>
 <#@ parameter type="System.String" name ="OverpostingWarningMessage" #>
 <#@ parameter type="System.Collections.Generic.HashSet<System.String>" name="RequiredNamespaces" #>
+<#
+var routePrefix = String.Empty;
+if (!String.IsNullOrWhiteSpace(AreaName)) {
+    routePrefix = AreaName + "/";
+}
+routePrefix += ControllerRootName;
+#>
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -50,12 +50,11 @@ namespace <#= Namespace #>
 <#
     var contextTypeName = ContextTypeName;
     var entitySetName = ModelMetadata.EntitySetName;
-    var entitySetVariable = entitySetName.ToLowerInvariant();
+    var entitySetVar = EntitySetVariable ?? (String.IsNullOrEmpty(entitySetName) ? entitySetName : (entitySetName.Substring(0, length:1).ToLowerInvariant() + entitySetName.Substring(1)));
     var primaryKeyName = ModelMetadata.PrimaryKeys[0].PropertyName;
     var primaryKeyShortTypeName = ModelMetadata.PrimaryKeys[0].ShortTypeName;
     var primaryKeyDefaultValue = ModelMetadata.PrimaryKeys[0].DefaultValue;
     var primaryKeyType = ModelMetadata.PrimaryKeys[0].TypeName;
-    var primaryKeyNullableTypeName = GetNullableTypeName(primaryKeyType, primaryKeyShortTypeName);
     var lambdaVar = ModelVariable[0];
     var relatedProperties = ModelMetadata.RelatedEntities.ToDictionary(item => item.AssociationPropertyName);
 
@@ -69,26 +68,35 @@ namespace <#= Namespace #>
         bindAttribute = String.Empty;
     }
 #>
+<#
+if (!String.IsNullOrWhiteSpace(AreaName)) {
+#>
+    [RouteArea("<#= AreaName #>")]
+<#
+}
+#>
+    [RoutePrefix("<#= ControllerRootName #>")]
+    [Route("{action}/{id}")]
     public class <#= ControllerName #> : Controller
     {
         private <#= ContextTypeName #> db = new <#= ContextTypeName #>();
 
         // GET: <#= routePrefix #>
+        [Route]
 <# if (UseAsync) { #>
         public async Task<ActionResult> Index()
 <# } else { #>
         public ActionResult Index()
 <# } #>
         {
-<#  var includeExpressions = "";
-        includeExpressions = String.Join("", relatedProperties.Values.Select(property => String.Format(".Include({0} => {0}.{1})", lambdaVar, property.AssociationPropertyName)));
+<#  var includeExpressions = String.Join("", relatedProperties.Values.Select(property => String.Format(".Include({0} => {0}.{1})", lambdaVar, property.AssociationPropertyName)));
 #>
 <# if(!String.IsNullOrEmpty(includeExpressions)) { #>
-            var <#= entitySetVariable #> = db.<#= entitySetName #><#= includeExpressions #>;
+            var <#= entitySetVar #> = db.<#= entitySetName #><#= includeExpressions #>;
 <#		if (UseAsync) { #>
-            return View(await <#= entitySetVariable #>.ToListAsync());
+            return View(await <#= entitySetVar #>.ToListAsync());
 <#		} else { #>
-            return View(<#= entitySetVariable #>.ToList());
+            return View(<#= entitySetVar #>.ToList());
 <#		} #>
 <# } else { #>
 <#		if (UseAsync) { #>
@@ -99,17 +107,13 @@ namespace <#= Namespace #>
 <# } #>
         }
 
-        // GET: <#= routePrefix #>Details/5
+        // GET: <#= routePrefix #>/Details/5
 <# if (UseAsync) { #>
-        public async Task<ActionResult> Details(<#= primaryKeyNullableTypeName #> id)
+        public async Task<ActionResult> Details(<#= primaryKeyShortTypeName #> id)
 <# } else { #>
-        public ActionResult Details(<#= primaryKeyNullableTypeName #> id)
+        public ActionResult Details(<#= primaryKeyShortTypeName #> id)
 <# } #>
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
 <# if (UseAsync) { #>
             <#= ModelTypeName #> <#= ModelVariable #> = await db.<#= entitySetName #>.FindAsync(id);
 <# } else { #>
@@ -122,7 +126,8 @@ namespace <#= Namespace #>
             return View(<#= ModelVariable #>);
         }
 
-        // GET: <#= routePrefix #>Create
+        // GET: <#= routePrefix #>/Create
+        [Route("Create")]
         public ActionResult Create()
         {
 <# foreach (var property in relatedProperties.Values) { #>
@@ -131,13 +136,14 @@ namespace <#= Namespace #>
             return View();
         }
 
-        // POST: <#= routePrefix #>Create
+        // POST: <#= routePrefix #>/Create
 <# if (IsOverpostingProtectionRequired) {
     foreach (var line in OverpostingWarningMessage.Split(new string[] { Environment.NewLine }, StringSplitOptions.None)) { 
 #>
         // <#= line #>
 <# } } #>
         [HttpPost]
+        [Route("Create")]
         [ValidateAntiForgeryToken]
 <# if (UseAsync) { #>
         public async Task<ActionResult> Create(<#= bindAttribute #><#= ModelTypeName #> <#= ModelVariable #>)
@@ -165,17 +171,13 @@ namespace <#= Namespace #>
             return View(<#= ModelVariable #>);
         }
 
-        // GET: <#= routePrefix #>Edit/5
+        // GET: <#= routePrefix #>/Edit/5
 <# if (UseAsync) { #>
-        public async Task<ActionResult> Edit(<#= primaryKeyNullableTypeName #> id)
+        public async Task<ActionResult> Edit(<#= primaryKeyShortTypeName #> id)
 <# } else { #>
-        public ActionResult Edit(<#= primaryKeyNullableTypeName #> id)
+        public ActionResult Edit(<#= primaryKeyShortTypeName #> id)
 <# } #>
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
 <# if (UseAsync) { #>
             <#= ModelTypeName #> <#= ModelVariable #> = await db.<#= entitySetName #>.FindAsync(id);
 <# } else { #>
@@ -191,7 +193,7 @@ namespace <#= Namespace #>
             return View(<#= ModelVariable #>);
         }
 
-        // POST: <#= routePrefix #>Edit/5
+        // POST: <#= routePrefix #>/Edit/5
 <# if (IsOverpostingProtectionRequired) {
     foreach (var line in OverpostingWarningMessage.Split(new string[] { Environment.NewLine }, StringSplitOptions.None)) { 
 #>
@@ -221,17 +223,13 @@ namespace <#= Namespace #>
             return View(<#= ModelVariable #>);
         }
 
-        // GET: <#= routePrefix #>Delete/5
+        // GET: <#= routePrefix #>/Delete/5
 <# if (UseAsync) { #>
-        public async Task<ActionResult> Delete(<#= primaryKeyNullableTypeName #> id)
+        public async Task<ActionResult> Delete(<#= primaryKeyShortTypeName #> id)
 <# } else { #>
-        public ActionResult Delete(<#= primaryKeyNullableTypeName #> id)
+        public ActionResult Delete(<#= primaryKeyShortTypeName #> id)
 <# } #>
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
 <# if (UseAsync) { #>
             <#= ModelTypeName #> <#= ModelVariable #> = await db.<#= entitySetName #>.FindAsync(id);
 <# } else { #>
@@ -244,7 +242,7 @@ namespace <#= Namespace #>
             return View(<#= ModelVariable #>);
         }
 
-        // POST: <#= routePrefix #>Delete/5
+        // POST: <#= routePrefix #>/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
 <# if (UseAsync) { #>
@@ -277,29 +275,3 @@ namespace <#= Namespace #>
         }
     }
 }
-<#+
-// This function converts the primary key short type name to its nullable equivalent when possible. This is required to make
-// sure that an HTTP 400 error is thrown when the user tries to access the edit, delete, or details action with null values.
-    string GetNullableTypeName(string typeName, string shortTypeName)
-    {
-        // The exceptions are caught because if for any reason the type is user defined, then the short type name will be used.
-        // In that case the user will receive a server error if null is passed to the edit, delete, or details actions.
-        Type primaryKeyType = null;
-        try
-        {
-            primaryKeyType = Type.GetType(typeName);
-        }
-        catch
-        {
-        }
-        if (primaryKeyType != null && (primaryKeyType.IsPrimitive || IsGuid(typeName)))
-        {
-            return shortTypeName + "?";
-        }
-        return shortTypeName;
-    }
-
-    bool IsGuid(string typeName) {
-        return String.Equals("System.Guid", typeName, StringComparison.OrdinalIgnoreCase);
-    }
-#>

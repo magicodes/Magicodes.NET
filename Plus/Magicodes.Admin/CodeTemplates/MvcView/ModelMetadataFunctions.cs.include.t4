@@ -39,4 +39,5 @@ string GetPrimaryKeyName() {
 bool IsPropertyGuid(PropertyMetadata property) {
     return String.Equals("System.Guid", property.TypeName, StringComparison.OrdinalIgnoreCase);
 }
+
 #>

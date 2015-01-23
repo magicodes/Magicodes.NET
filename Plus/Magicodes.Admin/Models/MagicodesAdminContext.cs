@@ -21,7 +21,7 @@ namespace Magicodes.Admin.Models
         {
         }
 
-        public System.Data.Entity.DbSet<Magicodes.Admin.SiteAdminNavigation> SiteAdminNavigations { get; set; }
+        public System.Data.Entity.DbSet<SiteAdminNavigation> SiteAdminNavigations { get; set; }
     
     }
 }

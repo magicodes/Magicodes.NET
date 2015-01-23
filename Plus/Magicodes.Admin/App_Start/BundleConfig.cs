@@ -9,8 +9,9 @@ namespace Magicodes.Admin
         public static void RegisterBundles(BundleCollection bundles)
         {
             //~/plus/Plugins/Magicodes.Admin
-            var plusPath = "~/plus/Plugins/Magicodes.Admin";
-            var plusName = "~/Magicodes.Admin";
+            var plusPath = "~" + Starter.PlusPath;
+            //var plusPath = "~/" + Starter.PlusName;
+            var plusName = "~/" + Starter.PlusName;
             // CSS style (bootstrap/inspinia)
             bundles.Add(new StyleBundle(plusName + "/Content/css").Include(
                       plusPath + "/Content/bootstrap.min.css",

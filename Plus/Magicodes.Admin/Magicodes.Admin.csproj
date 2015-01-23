@@ -152,6 +152,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Images\Thumbs.db" />
     <Content Include="Plus.config" />
+    <Content Include="CodeTemplates\MvcControllerWithActions\Controller.cs.t4" />
+    <Content Include="CodeTemplates\MvcControllerEmpty\Controller.cs.t4" />
+    <Content Include="CodeTemplates\ApiControllerEmpty\Controller.cs.t4" />
+    <Content Include="CodeTemplates\ApiControllerWithActions\Controller.cs.t4" />
+    <Content Include="CodeTemplates\ApiControllerWithContext\Controller.cs.t4" />
+    <Content Include="CodeTemplates\ApiDependencyCodeGenerator\Global.asax.cs.t4" />
+    <Content Include="CodeTemplates\ApiDependencyCodeGenerator\Global.cs.t4" />
+    <Content Include="CodeTemplates\ApiDependencyCodeGenerator\WebApiConfig.cs.t4" />
+    <Content Include="CodeTemplates\MvcArea\Area.cs.t4" />
+    <Content Include="CodeTemplates\MvcArea\web.cs.t4" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -162,11 +172,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\plugins\justified-gallery\README.md" />
-    <Content Include="Views\SiteAdminNavigations\Create.cshtml" />
-    <Content Include="Views\SiteAdminNavigations\Delete.cshtml" />
-    <Content Include="Views\SiteAdminNavigations\Details.cshtml" />
-    <Content Include="Views\SiteAdminNavigations\Edit.cshtml" />
-    <Content Include="Views\SiteAdminNavigations\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -289,7 +294,9 @@
     <Content Include="Scripts\app\skin.config.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -701,82 +708,16 @@
     <Content Include="Scripts\plugins\velocity\velocity.ui.min.js" />
     <Content Include="Scripts\plugins\video\responsible-video.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\AppViews\Calendar.cshtml" />
-    <Content Include="Views\AppViews\Contacts.cshtml" />
-    <Content Include="Views\AppViews\FAQ.cshtml" />
-    <Content Include="Views\AppViews\FileManager.cshtml" />
-    <Content Include="Views\AppViews\PinBoard.cshtml" />
-    <Content Include="Views\AppViews\Profile.cshtml" />
-    <Content Include="Views\AppViews\ProjectDetail.cshtml" />
-    <Content Include="Views\AppViews\Projects.cshtml" />
-    <Content Include="Views\AppViews\Timeline.cshtml" />
-    <Content Include="Views\CSSAnimations\Index.cshtml" />
-    <Content Include="Views\Dashboards\Dashboard_1.cshtml" />
-    <Content Include="Views\Dashboards\Dashboard_2.cshtml" />
-    <Content Include="Views\Dashboards\Dashboard_3.cshtml" />
-    <Content Include="Views\Forms\Advanced.cshtml" />
-    <Content Include="Views\Forms\BasicFroms.cshtml" />
-    <Content Include="Views\Forms\FileUpload.cshtml" />
-    <Content Include="Views\Forms\TextEditor.cshtml" />
-    <Content Include="Views\Forms\Wizard.cshtml" />
-    <Content Include="Views\Gallery\BasicGallery.cshtml" />
-    <Content Include="Views\Gallery\BootstrapCarusela.cshtml" />
-    <Content Include="Views\Graphs\Chartjs.cshtml" />
-    <Content Include="Views\Graphs\Flot.cshtml" />
-    <Content Include="Views\Graphs\Morris.cshtml" />
-    <Content Include="Views\Graphs\Peity.cshtml" />
-    <Content Include="Views\Graphs\Rickshaw.cshtml" />
-    <Content Include="Views\Graphs\Sparkline.cshtml" />
-    <Content Include="Views\GridOptions\Index.cshtml" />
-    <Content Include="Views\Json\Index.cshtml" />
-    <Content Include="Views\Mailbox\AlertEmail.cshtml" />
-    <Content Include="Views\Mailbox\BasicActionEmail.cshtml" />
-    <Content Include="Views\Mailbox\BillingEmail.cshtml" />
-    <Content Include="Views\Mailbox\ComposeEmail.cshtml" />
-    <Content Include="Views\Mailbox\EmailTemplates.cshtml" />
-    <Content Include="Views\Mailbox\EmailView.cshtml" />
-    <Content Include="Views\Mailbox\Inbox.cshtml" />
-    <Content Include="Views\Miscellaneous\CodeEditor.cshtml" />
-    <Content Include="Views\Miscellaneous\Forum_post_view.cshtml" />
-    <Content Include="Views\Miscellaneous\Forum_view.cshtml" />
-    <Content Include="Views\Miscellaneous\GoogleMaps.cshtml" />
-    <Content Include="Views\Miscellaneous\ModalWindow.cshtml" />
-    <Content Include="Views\Miscellaneous\NestableList.cshtml" />
-    <Content Include="Views\Miscellaneous\Notification.cshtml" />
-    <Content Include="Views\Miscellaneous\Timeline_second_version.cshtml" />
-    <Content Include="Views\Miscellaneous\Validation.cshtml" />
-    <Content Include="Views\Pages\EmptyPage.cshtml" />
-    <Content Include="Views\Pages\InternalServerError.cshtml" />
-    <Content Include="Views\Pages\Invoice.cshtml" />
-    <Content Include="Views\Pages\InvoicePrint.cshtml" />
-    <Content Include="Views\Pages\LockScreen.cshtml" />
-    <Content Include="Views\Pages\Login.cshtml" />
-    <Content Include="Views\Pages\NotFoundError.cshtml" />
-    <Content Include="Views\Pages\Register.cshtml" />
-    <Content Include="Views\Pages\SearchResults.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Shared\_SkinConfig.cshtml" />
     <Content Include="Views\Shared\_TopNavbar.cshtml" />
-    <Content Include="Views\Tables\DataTables.cshtml" />
-    <Content Include="Views\Tables\jqGrid.cshtml" />
-    <Content Include="Views\Tables\StaticTables.cshtml" />
-    <Content Include="Views\UIElements\BadgesLabelsProgress.cshtml" />
-    <Content Include="Views\UIElements\Buttons.cshtml" />
-    <Content Include="Views\UIElements\DraggablePanels.cshtml" />
-    <Content Include="Views\UIElements\Icons.cshtml" />
-    <Content Include="Views\UIElements\NotificationsTooltips.cshtml" />
-    <Content Include="Views\UIElements\TablesPanels.cshtml" />
-    <Content Include="Views\UIElements\Typography.cshtml" />
-    <Content Include="Views\UIElements\Video.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Widgets\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Controllers\SiteAdminNavigationsController.cs" />
     <Compile Include="Helpers\HMTLHelperExtensions.cs" />
     <Compile Include="Helpers\Scripts.cs" />
     <Compile Include="Helpers\Styles.cs" />
@@ -795,7 +736,10 @@
       <Name>Magicodes.Web.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

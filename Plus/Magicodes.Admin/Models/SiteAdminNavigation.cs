@@ -1,4 +1,5 @@
 ﻿using Magicodes.Web.Interfaces.Data.API.SiteNavs;
+using Magicodes.Web.Interfaces.T4.DataTable;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,15 +20,14 @@ using System.Threading.Tasks;
 //        http://www.magicodes.net
 //
 //======================================================================
-namespace Magicodes.Admin
+namespace Magicodes.Admin.Models
 {
     /// <summary>
     /// 后台导航菜单信息
     /// </summary>
-    [Description("后台导航菜单信息")]
     [Table("Nav_SiteAdminNavigation")]
+    [T4DataTable(Title = "后台导航菜单管理", Description = "后台导航菜单来自插件配置文件，请确保已经配置了相关菜单。")]
     public class SiteAdminNavigation : SiteAdminNavigationBase<string>
     {
-
     }
 }

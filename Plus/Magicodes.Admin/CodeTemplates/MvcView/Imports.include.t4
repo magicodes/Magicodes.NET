@@ -7,6 +7,14 @@
 <#@ import namespace="System.Data.Linq.Mapping" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="Microsoft.AspNet.Scaffolding.Core.Metadata" #>
+
+<#@ assembly name="Magicodes.T4" #>
+<#@ assembly name="Magicodes.Web.Interfaces" #>
+<#@ import namespace="Magicodes.T4.Models" #>
+<#@ import namespace="Magicodes.T4" #>
+<#@ import namespace="Magicodes.T4.Extensions" #>
+<#@ import namespace="Magicodes.Web.Interfaces.T4" #>
+
 <#@ parameter type="System.String" name="ViewDataTypeName" #>
 <#@ parameter type="System.String" name="ViewDataTypeShortName" #>
 <#@ parameter type="System.Boolean" name="IsPartialView" #>
@@ -17,3 +25,5 @@
 <#@ parameter type="System.String" name="LayoutPageFile" #>
 <#@ parameter type="System.String" name="JQueryVersion" #>
 <#@ parameter type="Microsoft.AspNet.Scaffolding.Core.Metadata.ModelMetadata" name="ModelMetadata" #>
+
+
