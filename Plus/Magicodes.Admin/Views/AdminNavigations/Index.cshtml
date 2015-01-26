@@ -1,0 +1,149 @@
+﻿
+
+
+@model IEnumerable<Magicodes.Admin.Models.SiteAdminNavigation>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Index</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <strong>SiteAdminNavigation</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>SiteAdminNavigation</h5>
+					<div class="ibox-tools">
+						@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btn-xs"})
+					</div>
+                </div>
+                <div class="ibox-content">
+
+<table class="table table-striped" style="overflow-x:scroll">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ParentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Href)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IconCls)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TextCls)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsShowBadge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MenuBadgeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BadgeRequestUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlusId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SortNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParentId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Href)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IconCls)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TextCls)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsShowBadge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MenuBadgeType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BadgeRequestUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlusId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SortNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateBy)
+        </td>
+        <td>
+			@Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "btn btn-primary btn-sm"})
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-white btn-sm"})
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "btn btn-white btn-sm"})
+        </td>
+    </tr>
+}
+
+</table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+

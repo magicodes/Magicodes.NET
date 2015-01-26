@@ -74,6 +74,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librarys", "Librarys", "{AB
 		T4\Librarys\Magicodes.T4.dll = T4\Librarys\Magicodes.T4.dll
 		T4\Librarys\Magicodes.Web.Interfaces.dll = T4\Librarys\Magicodes.Web.Interfaces.dll
 		T4\Librarys\Newtonsoft.Json.dll = T4\Librarys\Newtonsoft.Json.dll
+		T4\Librarys\System.Web.Mvc.dll = T4\Librarys\System.Web.Mvc.dll
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magicodes.Admin", "Plus\Magicodes.Admin\Magicodes.Admin.csproj", "{FCB79998-C325-4C06-8D45-65954B201B67}"

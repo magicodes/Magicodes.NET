@@ -11,6 +11,8 @@
     <AssemblyName>Magicodes.T4</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,6 +38,12 @@
     <AssemblyOriginatorKeyFile>Magicodes.T4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.TextTemplating.Modeling.12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -49,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityKeyHelper.cs" />
     <Compile Include="Extensions\T4Extensions.cs" />
     <Compile Include="FormHelper.cs" />
     <Compile Include="Models\T4DataType.cs" />
@@ -61,12 +70,19 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="Magicodes.T4.snk" />
     <None Include="ODataGrid\Footer.tt" />
     <None Include="ODataGrid\Form.tt">
       <LastGenOutput>Form.txt</LastGenOutput>
     </None>
     <None Include="ODataGrid\Header.tt" />
+    <Content Include="Templates\Manager.ttinclude" />
+    <Content Include="Templates\DbHelper.ttinclude" />
+    <Content Include="Templates\MVC\Controller\Controller.cs.t4" />
+    <Content Include="Templates\MVC\Imports.include.t4" />
+    <Content Include="Templates\MVC\Pamas.include.t4" />
+    <None Include="packages.config" />
     <None Include="Templates\T4Helper.tt" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +90,9 @@
       <Project>{a6c24c78-7185-4a57-ae23-9e12e5c30118}</Project>
       <Name>Magicodes.Web.Interfaces</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Templates\MVC\Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -93,5 +112,12 @@ echo f | xcopy "$(TargetPath)" %25targetDir%25 /Y
   <PropertyGroup>
     <T4LibFolder>$(MSBuildProjectDirectory)..\Librarys</T4LibFolder>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。启用“NuGet 程序包还原”可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- 启用该属性: -->
 </Project>

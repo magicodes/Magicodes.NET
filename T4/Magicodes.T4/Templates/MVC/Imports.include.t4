@@ -1,0 +1,89 @@
+﻿<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data.Entity" #>
+<#@ assembly name="System.Data.Linq" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.Linq.Mapping" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\Magicodes.T4.dll" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\Magicodes.Web.Interfaces.dll" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\System.Web.Mvc.dll" #>
+<#@ import namespace="System.Web.Mvc" #>
+<#+
+    //======================================================================
+    //
+    //        Copyright (C) 2014-2016 Magicodes团队    
+    //        All rights reserved
+    //
+    //        filename :MVCGenerateHelper
+    //        description :
+    //
+    //        created by 雪雁 at  2015/1/25 15:12:55
+    //        http://www.magicodes.net
+    //
+    //======================================================================
+    public class MVCGenerateInfo
+    {
+        public MVCGenerateInfo()
+        {
+            RequiredNamespaces=new List<string>();
+            ControllerRootName=string.Empty;
+            IsOverpostingProtectionRequired=true;
+        }
+        /// <summary>
+        /// 区域名称
+        /// </summary>
+        public string AreaName { get; set; }
+        /// <summary>
+        /// 控制器根名称
+        /// </summary>
+        public string ControllerRootName { get; set; }
+        /// <summary>
+        /// 是否异步
+        /// </summary>
+        public bool UseAsync { get; set; }
+        /// <summary>
+        /// 必须的命名空间
+        /// </summary>
+        public List<string> RequiredNamespaces { get; set; }
+        /// <summary>
+        /// 当前命名空间
+        /// </summary>
+        public string Namespace { get; set; }
+        /// <summary>
+        /// 当前DbContext
+        /// </summary>
+        public string ContextTypeName { get; set; }
+        /// <summary>
+        /// 实体名称
+        /// </summary>
+        public string EntitySetName { get; set; }
+        /// <summary>
+        /// 控制器名称
+        /// </summary>
+        public string ControllerName { get; set; }
+        /// <summary>
+        /// 主键名称
+        /// </summary>
+        public string PrimaryKeyName { get; set; }
+        /// <summary>
+        /// 主键类型简称
+        /// </summary>
+        public string PrimaryKeyShortType { get; set; }
+        /// <summary>
+        /// 主键类型
+        /// </summary>
+        public string PrimaryKeyType { get; set; }
+        /// <summary>
+        /// 参数列表
+        /// </summary>
+        public List<Object> Params { get; set; }
+        /// <summary>
+        /// 模型类型名称
+        /// </summary>
+        public string ModelTypeName{get;set;}
+        public bool IsOverpostingProtectionRequired{get;set;}
+    }
+    MVCGenerateInfo MVCGenerateParams=new MVCGenerateInfo();
+ #>

@@ -1,0 +1,18 @@
+﻿<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Imports.include.t4" #>
+<#
+    MVCGenerateParams.UseAsync=true;
+    //MVCGenerateParams.AreaName="";
+    //MVCGenerateParams.ControllerRootName="";
+    MVCGenerateParams.RequiredNamespaces=new List<string>(){
+            "Magicodes.Admin.Models"
+            };
+    MVCGenerateParams.Namespace="Magicodes.Admin.Controllers";
+    MVCGenerateParams.ContextTypeName="MagicodesAdminContext";
+    MVCGenerateParams.EntitySetName="SiteAdminNavigations";
+    MVCGenerateParams.ControllerName="SiteAdminNavigations";
+    MVCGenerateParams.PrimaryKeyName="Id";
+    MVCGenerateParams.PrimaryKeyType="System.Guid";
+    MVCGenerateParams.PrimaryKeyShortType="Guid";
+    MVCGenerateParams.ModelTypeName="SiteAdminNavigation";
+ #>
+<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Controller\Controller.cs.t4" #>

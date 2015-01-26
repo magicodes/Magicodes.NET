@@ -39,23 +39,27 @@ namespace Magicodes.Web.Interfaces.Models
         [Key]
         [Display(Name = "主键Id")]
         [T4GenerationIgnoreAttribute]
+        [ReadOnly(true)]
         public virtual TKey Id { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>
         [Display(Name = "创建时间")]
+        [ReadOnly(true)]
         [T4GenerationIgnoreAttribute]
         public virtual DateTimeOffset CreateTime { get; set; }
         /// <summary>
         /// 修改时间
         /// </summary>
         [Display(Name = "修改时间")]
+        [ReadOnly(true)]
         [T4GenerationIgnoreAttribute]
         public virtual DateTimeOffset? UpdateTime { get; set; }
         /// <summary>
         /// 是否删除
         /// </summary>
         [Display(Name = "是否删除")]
+        [ReadOnly(true)]
         [T4GenerationIgnoreAttribute]
         public virtual bool Deleted { get; set; }
         /// <summary>
@@ -63,6 +67,7 @@ namespace Magicodes.Web.Interfaces.Models
         /// </summary>
         [Display(Name = "创建人")]
         [T4GenerationIgnoreAttribute]
+        [ReadOnly(true)]
         [StringLength(128)]
         public virtual TUserKeyType CreateBy { get; set; }
         /// <summary>
@@ -70,6 +75,7 @@ namespace Magicodes.Web.Interfaces.Models
         /// </summary>
         [Display(Name = "更新人")]
         [T4GenerationIgnoreAttribute]
+        [ReadOnly(true)]
         [StringLength(128)]
         public virtual TUserKeyType UpdateBy { get; set; }
     }

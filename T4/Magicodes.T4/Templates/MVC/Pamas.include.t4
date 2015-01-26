@@ -1,0 +1,56 @@
+﻿<#
+    /// <summary>
+    /// 区域名称
+    /// </summary>
+    string AreaName =MVCGenerateParams.AreaName;
+    /// <summary>
+    /// 控制器根名称
+    /// </summary>
+    string ControllerRootName =MVCGenerateParams.ControllerRootName;
+    /// <summary>
+    /// 是否异步
+    /// </summary>
+    bool UseAsync =MVCGenerateParams.UseAsync;
+    /// <summary>
+    /// 必须的命名空间
+    /// </summary>
+    List<string> RequiredNamespaces =MVCGenerateParams.RequiredNamespaces;
+    /// <summary>
+    /// 当前命名空间
+    /// </summary>
+    string Namespace =MVCGenerateParams.Namespace;
+    /// <summary>
+    /// 当前DbContext
+    /// </summary>
+    string ContextTypeName =MVCGenerateParams.ContextTypeName;
+    /// <summary>
+    /// 实体名称
+    /// </summary>
+    string EntitySetName  =MVCGenerateParams.EntitySetName;
+    /// <summary>
+    /// 控制器名称
+    /// </summary>
+    string ControllerName  =MVCGenerateParams.ControllerName;
+    /// <summary>
+    /// 参数列表
+    /// </summary>
+    List<Object> Params =MVCGenerateParams.Params;
+
+    /// <summary>
+    /// 主键名称
+    /// </summary>
+    string PrimaryKeyName =MVCGenerateParams.PrimaryKeyName;
+    /// <summary>
+    /// 主键类型简称
+    /// </summary>
+    string PrimaryKeyShortType =MVCGenerateParams.PrimaryKeyShortType;
+    /// <summary>
+    /// 主键类型
+    /// </summary>
+    string PrimaryKeyType =MVCGenerateParams.PrimaryKeyType;
+    /// <summary>
+    /// 模型类型名称
+    /// </summary>
+    string ModelTypeName=MVCGenerateParams.ModelTypeName;
+    bool IsOverpostingProtectionRequired=MVCGenerateParams.IsOverpostingProtectionRequired;
+ #>

@@ -1,0 +1,237 @@
+﻿<#@ template language="C#" HostSpecific="True" Debug="True" #>
+<#@ output extension="cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data.Entity" #>
+<#@ assembly name="System.Data.Linq" #>
+<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Pamas.include.t4" #>
+<#
+    var routePrefix = String.Empty;
+    if (!String.IsNullOrWhiteSpace(AreaName)) {
+        routePrefix = AreaName + "/";
+}
+    routePrefix += ControllerRootName;
+#>
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+<#    if (UseAsync) { #>
+using System.Threading.Tasks;
+<#    } #>
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+<#    foreach (var namespaceName in RequiredNamespaces) { #>
+using <#=            namespaceName #>;
+<#    } #>
+
+namespace <#=        Namespace #>
+{
+<#
+    //var ModelMetadata=ModelMetadataProviders.Current.GetMetadataForType(null,Type.GetType(ModelTypeName));
+    //var meta=System.Web.Mvc
+    var contextTypeName = ContextTypeName;
+    var entitySetName = EntitySetName;
+    var entitySetVar = "dbContext";
+    var primaryKeyName = PrimaryKeyName;
+    var primaryKeyShortTypeName = PrimaryKeyShortType;
+    var primaryKeyType = PrimaryKeyType;
+    var ModelVariable="model";
+
+    string bindAttribute=String.Empty;
+    //if (IsOverpostingProtectionRequired)
+    //{
+    //bindAttribute = String.Format("[Bind(Include=\"{0}\")] ", BindAttributeIncludeText);
+    //}
+#>
+<#
+    if (!String.IsNullOrWhiteSpace(AreaName)) {
+#>
+    [RouteArea("<#=            AreaName #>")]
+<#
+    }
+#>
+<#
+    if(!String.IsNullOrWhiteSpace(ControllerRootName))
+    {
+ #>
+    [RoutePrefix("<#=        ControllerRootName #>")]
+<#    } #>
+    [Route("{action}/{id}")]
+    public class <#=        ControllerName #> : Controller
+    {
+        private <#=        ContextTypeName #> db = new <#=        ContextTypeName #>();
+
+        // GET: <#=        routePrefix #>
+        [Route]
+<#    if (UseAsync) { #>
+        public async Task<ActionResult> Index()
+<#    } else { #>
+        public ActionResult Index()
+<#    } #>
+        {
+<#    var includeExpressions = string.Empty;
+//String.Join("", relatedProperties.Values.Select(property => String.Format(".Include({0} => {0}.{1})", lambdaVar, property.AssociationPropertyName)));
+#>
+<#    if(!String.IsNullOrEmpty(includeExpressions)) { #>
+            var <#=            entitySetVar #> = db.<#=            entitySetName #><#=            includeExpressions #>;
+<#        if (UseAsync) { #>
+            return View(await <#=                entitySetVar #>.ToListAsync());
+<#        } else { #>
+            return View(<#=                entitySetVar #>.ToList());
+<#        } #>
+<#    } else { #>
+<#        if (UseAsync) { #>
+            return View(await db.<#=                entitySetName #><#=                includeExpressions #>.ToListAsync());
+<#        } else { #>
+            return View(db.<#=                entitySetName #><#=                includeExpressions #>.ToList());
+<#        } #>
+<#    } #>
+        }
+
+        // GET: <#=        routePrefix #>/Details/5
+<#    if (UseAsync) { #>
+        public async Task<ActionResult> Details(<#=            primaryKeyShortTypeName #> id)
+<#    } else { #>
+        public ActionResult Details(<#=            primaryKeyShortTypeName #> id)
+<#    } #>
+        {
+<#    if (UseAsync) { #>
+            <#=            ModelTypeName #> <#=            ModelVariable #> = await db.<#=            entitySetName #>.FindAsync(id);
+<#    } else { #>
+            <#=            ModelTypeName #> <#=            ModelVariable #> = db.<#=            entitySetName #>.Find(id);
+<#    } #>
+            if (<#=        ModelVariable #> == null)
+            {
+                return HttpNotFound();
+            }
+            return View(<#=        ModelVariable #>);
+        }
+
+        // GET: <#=        routePrefix #>/Create
+        [Route("Create")]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: <#=        routePrefix #>/Create
+        [HttpPost]
+        [Route("Create")]
+        [ValidateAntiForgeryToken]
+<#    if (UseAsync) { #>
+        public async Task<ActionResult> Create(<#=            bindAttribute #><#=            ModelTypeName #> <#=            ModelVariable #>)
+<#    } else { #>
+        public ActionResult Create(<#=            bindAttribute #><#=            ModelTypeName #> <#=            ModelVariable #>)
+<#    } #>
+        {
+            if (ModelState.IsValid)
+            {
+<#    if(!String.IsNullOrEmpty(primaryKeyType) && String.Equals("System.Guid", primaryKeyType, StringComparison.OrdinalIgnoreCase)) { #>
+                <#=            ModelVariable #>.<#=            primaryKeyName #> = Guid.NewGuid();
+<#    } #>
+                db.<#=        entitySetName #>.Add(<#=        ModelVariable #>);
+<#    if (UseAsync) {#>
+                await db.SaveChangesAsync();
+<#    } else { #>
+                db.SaveChanges();
+<#    } #>
+                return RedirectToAction("Index");
+            }
+            return View(<#=        ModelVariable #>);
+        }
+
+        // GET: <#=        routePrefix #>/Edit/5
+<#    if (UseAsync) { #>
+        public async Task<ActionResult> Edit(<#=            primaryKeyShortTypeName #> id)
+<#    } else { #>
+        public ActionResult Edit(<#=            primaryKeyShortTypeName #> id)
+<#    } #>
+        {
+<#    if (UseAsync) { #>
+            <#=            ModelTypeName #> <#=            ModelVariable #> = await db.<#=            entitySetName #>.FindAsync(id);
+<#    } else { #>
+            <#=            ModelTypeName #> <#=            ModelVariable #> = db.<#=            entitySetName #>.Find(id);
+<#    } #>
+            if (<#=        ModelVariable #> == null)
+            {
+                return HttpNotFound();
+            }
+            return View(<#=        ModelVariable #>);
+        }
+
+        // POST: <#=        routePrefix #>/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+<#    if (UseAsync) { #>
+        public async Task<ActionResult> Edit(<#=            bindAttribute #><#=            ModelTypeName #> <#=            ModelVariable #>)
+<#    } else { #>
+        public ActionResult Edit(<#=            bindAttribute #><#=            ModelTypeName #> <#=            ModelVariable #>)
+<#    } #>
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(<#=        ModelVariable #>).State = EntityState.Modified;
+<#    if (UseAsync) { #>
+                await db.SaveChangesAsync();
+<#    } else { #>
+                db.SaveChanges();
+<#    } #>
+                return RedirectToAction("Index");
+            }
+            return View(<#=        ModelVariable #>);
+        }
+
+        // GET: <#=        routePrefix #>/Delete/5
+<#    if (UseAsync) { #>
+        public async Task<ActionResult> Delete(<#=            primaryKeyShortTypeName #> id)
+<#    } else { #>
+        public ActionResult Delete(<#=            primaryKeyShortTypeName #> id)
+<#    } #>
+        {
+<#    if (UseAsync) { #>
+            <#=            ModelTypeName #> <#=            ModelVariable #> = await db.<#=            entitySetName #>.FindAsync(id);
+<#    } else { #>
+            <#=            ModelTypeName #> <#=            ModelVariable #> = db.<#=            entitySetName #>.Find(id);
+<#    } #>
+            if (<#=        ModelVariable #> == null)
+            {
+                return HttpNotFound();
+            }
+            return View(<#=        ModelVariable #>);
+        }
+
+        // POST: <#=        routePrefix #>/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+<#    if (UseAsync) { #>
+        public async Task<ActionResult> DeleteConfirmed(<#=            primaryKeyShortTypeName #> id)
+<#    } else { #>
+        public ActionResult DeleteConfirmed(<#=            primaryKeyShortTypeName #> id)
+<#    } #>
+        {
+<#    if (UseAsync) { #>
+            <#=            ModelTypeName #> <#=            ModelVariable #> = await db.<#=            entitySetName #>.FindAsync(id);
+<#    } else { #>
+            <#=            ModelTypeName #> <#=            ModelVariable #> = db.<#=            entitySetName #>.Find(id);
+<#    } #>
+            db.<#=        entitySetName #>.Remove(<#=        ModelVariable #>);
+<#    if (UseAsync) { #>
+            await db.SaveChangesAsync();
+<#    } else { #>
+            db.SaveChanges();
+<#    } #>
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}
