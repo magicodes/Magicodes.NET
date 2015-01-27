@@ -5,11 +5,16 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Data.Linq.Mapping" #>
 <#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ assembly name="$(SolutionDir)\T4\Librarys\Magicodes.T4.dll" #>
 <#@ assembly name="$(SolutionDir)\T4\Librarys\Magicodes.Web.Interfaces.dll" #>
 <#@ assembly name="$(SolutionDir)\T4\Librarys\System.Web.Mvc.dll" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\EntityFramework.dll" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\EntityFramework.SqlServer.dll" #>
 <#@ import namespace="System.Web.Mvc" #>
+<#@ import namespace="System.Data.Entity" #>
+<#@ import namespace="Magicodes.T4" #>
 <#+
     //======================================================================
     //
@@ -23,14 +28,31 @@
     //        http://www.magicodes.net
     //
     //======================================================================
-    public class MVCGenerateInfo
+    public class MVCGenerateInfo<T,TDbContext> 
+        where T:class
+        where TDbContext:DbContext
     {
         public MVCGenerateInfo()
         {
-            RequiredNamespaces=new List<string>();
+            RequiredNamespaces=new List<string>(){typeof(TDbContext).Namespace};
             ControllerRootName=string.Empty;
             IsOverpostingProtectionRequired=true;
+            ContextTypeName=typeof(TDbContext).Name;
+            ModelTypeName=typeof(T).Name;
+            var modelNamespace=typeof(T).Namespace;
+            if(!RequiredNamespaces.Contains(modelNamespace))
+                RequiredNamespaces.Add(modelNamespace);
+            var db= (DbContext)Activator.CreateInstance(typeof(TDbContext),
+                "Data Source=.;Initial Catalog=Magicodes.Models.Mvc;Integrated Security=True");
+            this.EntitySetName=db.GetEntitySetName<T>();
+            var keyTypes=db.GetKeysTypes<T>();
+            this.PrimaryKeyName=db.GetKeyNames<T>().First();
+            this.PrimaryKeyType=keyTypes.First().FullName;
+            this.PrimaryKeyShortType=keyTypes.First().Name;
         }
+        
+        public T Model{get;set;}
+        public TDbContext DbContext{get;set;}
         /// <summary>
         /// 区域名称
         /// </summary>
@@ -84,6 +106,6 @@
         /// </summary>
         public string ModelTypeName{get;set;}
         public bool IsOverpostingProtectionRequired{get;set;}
+        public bool IsAdminController{get;set;}
     }
-    MVCGenerateInfo MVCGenerateParams=new MVCGenerateInfo();
  #>

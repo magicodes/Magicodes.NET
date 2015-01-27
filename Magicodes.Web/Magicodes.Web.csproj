@@ -2012,11 +2012,6 @@
     <Content Include="Scripts\util\browsers.min.js">
       <DependentUpon>browsers.js</DependentUpon>
     </Content>
-    <Content Include="theme\dafault\bg-grain1.png" />
-    <Content Include="theme\dafault\bg-grain2.png" />
-    <Content Include="theme\dafault\bg-header.png" />
-    <Content Include="theme\dafault\blog-theme.css" />
-    <Content Include="theme\dafault\blog-theme.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

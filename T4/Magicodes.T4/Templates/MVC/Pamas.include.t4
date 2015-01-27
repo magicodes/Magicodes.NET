@@ -53,4 +53,5 @@
     /// </summary>
     string ModelTypeName=MVCGenerateParams.ModelTypeName;
     bool IsOverpostingProtectionRequired=MVCGenerateParams.IsOverpostingProtectionRequired;
+    bool  IsAdminController=MVCGenerateParams.IsAdminController;
  #>

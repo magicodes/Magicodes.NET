@@ -57,7 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityKeyHelper.cs" />
+    <Compile Include="EntityHelper.cs" />
     <Compile Include="Extensions\T4Extensions.cs" />
     <Compile Include="FormHelper.cs" />
     <Compile Include="Models\T4DataType.cs" />

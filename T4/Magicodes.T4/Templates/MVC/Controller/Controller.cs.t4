@@ -25,21 +25,32 @@ using System.Web.Mvc;
 <#    foreach (var namespaceName in RequiredNamespaces) { #>
 using <#=            namespaceName #>;
 <#    } #>
-
+<#    if(IsAdminController) {#>
+using Magicodes.Core.Web.Controllers;
+<#    } #>
+//======================================================================
+//
+//        Copyright (C) 2014-2016 Magicodes团队    
+//        All rights reserved
+//
+//        filename :ConfigController
+//        description :本控制器代码为自动生成，如需更改，请先删除父级T4模板
+//
+//        created by 雪雁 at  <#=        DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") #>
+//        http://www.magicodes.net
+//
+//======================================================================
 namespace <#=        Namespace #>
 {
 <#
-    //var ModelMetadata=ModelMetadataProviders.Current.GetMetadataForType(null,Type.GetType(ModelTypeName));
-    //var meta=System.Web.Mvc
     var contextTypeName = ContextTypeName;
     var entitySetName = EntitySetName;
     var entitySetVar = "dbContext";
-    var primaryKeyName = PrimaryKeyName;
     var primaryKeyShortTypeName = PrimaryKeyShortType;
     var primaryKeyType = PrimaryKeyType;
     var ModelVariable="model";
-
     string bindAttribute=String.Empty;
+    //var pros=EntityHelper.GetProperies<>
     //if (IsOverpostingProtectionRequired)
     //{
     //bindAttribute = String.Format("[Bind(Include=\"{0}\")] ", BindAttributeIncludeText);
@@ -59,7 +70,7 @@ namespace <#=        Namespace #>
     [RoutePrefix("<#=        ControllerRootName #>")]
 <#    } #>
     [Route("{action}/{id}")]
-    public class <#=        ControllerName #> : Controller
+    public class <#=        ControllerName #> : <#= IsAdminController?"AdminControllerBase":"Controller" #>
     {
         private <#=        ContextTypeName #> db = new <#=        ContextTypeName #>();
 
@@ -98,9 +109,9 @@ namespace <#=        Namespace #>
 <#    } #>
         {
 <#    if (UseAsync) { #>
-            <#=            ModelTypeName #> <#=            ModelVariable #> = await db.<#=            entitySetName #>.FindAsync(id);
+            var <#=            ModelVariable #> = await db.<#=            entitySetName #>.FindAsync(id);
 <#    } else { #>
-            <#=            ModelTypeName #> <#=            ModelVariable #> = db.<#=            entitySetName #>.Find(id);
+            var <#=            ModelVariable #> = db.<#=            entitySetName #>.Find(id);
 <#    } #>
             if (<#=        ModelVariable #> == null)
             {
@@ -129,7 +140,7 @@ namespace <#=        Namespace #>
             if (ModelState.IsValid)
             {
 <#    if(!String.IsNullOrEmpty(primaryKeyType) && String.Equals("System.Guid", primaryKeyType, StringComparison.OrdinalIgnoreCase)) { #>
-                <#=            ModelVariable #>.<#=            primaryKeyName #> = Guid.NewGuid();
+                <#=            ModelVariable #>.<#=            PrimaryKeyName #> = Guid.NewGuid();
 <#    } #>
                 db.<#=        entitySetName #>.Add(<#=        ModelVariable #>);
 <#    if (UseAsync) {#>
@@ -150,9 +161,9 @@ namespace <#=        Namespace #>
 <#    } #>
         {
 <#    if (UseAsync) { #>
-            <#=            ModelTypeName #> <#=            ModelVariable #> = await db.<#=            entitySetName #>.FindAsync(id);
+            var <#=            ModelVariable #> = await db.<#=            entitySetName #>.FindAsync(id);
 <#    } else { #>
-            <#=            ModelTypeName #> <#=            ModelVariable #> = db.<#=            entitySetName #>.Find(id);
+            var <#=            ModelVariable #> = db.<#=            entitySetName #>.Find(id);
 <#    } #>
             if (<#=        ModelVariable #> == null)
             {
@@ -191,9 +202,9 @@ namespace <#=        Namespace #>
 <#    } #>
         {
 <#    if (UseAsync) { #>
-            <#=            ModelTypeName #> <#=            ModelVariable #> = await db.<#=            entitySetName #>.FindAsync(id);
+            var <#=            ModelVariable #> = await db.<#=            entitySetName #>.FindAsync(id);
 <#    } else { #>
-            <#=            ModelTypeName #> <#=            ModelVariable #> = db.<#=            entitySetName #>.Find(id);
+            var <#=            ModelVariable #> = db.<#=            entitySetName #>.Find(id);
 <#    } #>
             if (<#=        ModelVariable #> == null)
             {
@@ -212,9 +223,9 @@ namespace <#=        Namespace #>
 <#    } #>
         {
 <#    if (UseAsync) { #>
-            <#=            ModelTypeName #> <#=            ModelVariable #> = await db.<#=            entitySetName #>.FindAsync(id);
+            var <#=            ModelVariable #> = await db.<#=            entitySetName #>.FindAsync(id);
 <#    } else { #>
-            <#=            ModelTypeName #> <#=            ModelVariable #> = db.<#=            entitySetName #>.Find(id);
+            var <#=            ModelVariable #> = db.<#=            entitySetName #>.Find(id);
 <#    } #>
             db.<#=        entitySetName #>.Remove(<#=        ModelVariable #>);
 <#    if (UseAsync) { #>

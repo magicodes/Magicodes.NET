@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
+
 namespace Magicodes.Admin.Models
 {
     public class MagicodesAdminContext : DbContext
@@ -19,9 +20,15 @@ namespace Magicodes.Admin.Models
         public MagicodesAdminContext()
             : base(GlobalApplicationObject.Current.ConnectionStringName)
         {
+
+        }
+        public MagicodesAdminContext(string coon)
+            : base(coon)
+        {
+
         }
 
         public System.Data.Entity.DbSet<SiteAdminNavigation> SiteAdminNavigations { get; set; }
-    
+
     }
 }

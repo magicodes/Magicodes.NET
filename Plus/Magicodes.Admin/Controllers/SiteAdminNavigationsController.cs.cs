@@ -9,11 +9,23 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Magicodes.Admin.Models;
-
+using Magicodes.Core.Web.Controllers;
+//======================================================================
+//
+//        Copyright (C) 2014-2016 Magicodes团队    
+//        All rights reserved
+//
+//        filename :ConfigController
+//        description :本控制器代码为自动生成，如需更改，请先删除父级T4模板
+//
+//        created by 雪雁 at  2015/01/26 21:32:01
+//        http://www.magicodes.net
+//
+//======================================================================
 namespace Magicodes.Admin.Controllers
 {
     [Route("{action}/{id}")]
-    public class SiteAdminNavigations : Controller
+    public class SiteAdminNavigations : AdminControllerBase
     {
         private MagicodesAdminContext db = new MagicodesAdminContext();
 
@@ -27,7 +39,7 @@ namespace Magicodes.Admin.Controllers
         // GET: /Details/5
         public async Task<ActionResult> Details(Guid id)
         {
-            SiteAdminNavigation model = await db.SiteAdminNavigations.FindAsync(id);
+            var model = await db.SiteAdminNavigations.FindAsync(id);
             if (model == null)
             {
                 return HttpNotFound();
@@ -61,7 +73,7 @@ namespace Magicodes.Admin.Controllers
         // GET: /Edit/5
         public async Task<ActionResult> Edit(Guid id)
         {
-            SiteAdminNavigation model = await db.SiteAdminNavigations.FindAsync(id);
+            var model = await db.SiteAdminNavigations.FindAsync(id);
             if (model == null)
             {
                 return HttpNotFound();
@@ -86,7 +98,7 @@ namespace Magicodes.Admin.Controllers
         // GET: /Delete/5
         public async Task<ActionResult> Delete(Guid id)
         {
-            SiteAdminNavigation model = await db.SiteAdminNavigations.FindAsync(id);
+            var model = await db.SiteAdminNavigations.FindAsync(id);
             if (model == null)
             {
                 return HttpNotFound();
@@ -99,7 +111,7 @@ namespace Magicodes.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(Guid id)
         {
-            SiteAdminNavigation model = await db.SiteAdminNavigations.FindAsync(id);
+            var model = await db.SiteAdminNavigations.FindAsync(id);
             db.SiteAdminNavigations.Remove(model);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
