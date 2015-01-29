@@ -1,8 +1,9 @@
 ﻿<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Imports.include.t4" #>
-<#@ assembly name="$(TargetPath)" #>
 <#@ import namespace="Magicodes.Admin.Models" #>
 <#
-    MVCGenerateInfo<SiteAdminNavigation,MagicodesAdminContext> MVCGenerateParams=new MVCGenerateInfo<SiteAdminNavigation,MagicodesAdminContext>();
+    //System.Diagnostics.Debugger.Break();
+    //System.Diagnostics.Debugger.Launch();
+    var MVCGenerateParams=new T4MVCGenerateInfo<SiteAdminNavigation,AdminContext>();
     MVCGenerateParams.UseAsync=true;
     //MVCGenerateParams.AreaName="";
     //MVCGenerateParams.ControllerRootName="";
@@ -11,3 +12,12 @@
     MVCGenerateParams.IsAdminController=true;
  #>
 <#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Controller\Controller.cs.t4" #>
+<#   
+    SaveOutput("file1.txt"); 
+    ClearIndent();
+#>
+<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Views\List.cs.t4" #>
+<#    
+    SaveOutput("file2.txt"); 
+    ClearIndent();
+#>

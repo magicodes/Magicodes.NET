@@ -119,6 +119,12 @@
     <Content Include="CodeTemplates\MvcView\ModelMetadataFunctions.cs.include.t4" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Controllers\file1.txt">
+      <DependentUpon>SiteAdminNavigationsController.cs.t4</DependentUpon>
+    </Content>
+    <Content Include="Controllers\file2.txt">
+      <DependentUpon>SiteAdminNavigationsController.cs.t4</DependentUpon>
+    </Content>
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -738,7 +744,7 @@
     <Compile Include="Helpers\HMTLHelperExtensions.cs" />
     <Compile Include="Helpers\Scripts.cs" />
     <Compile Include="Helpers\Styles.cs" />
-    <Compile Include="Models\MagicodesAdminContext.cs" />
+    <Compile Include="Models\AdminContext.cs" />
     <Compile Include="Models\SiteAdminNavigation.cs" />
     <Compile Include="Starter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

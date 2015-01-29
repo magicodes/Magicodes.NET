@@ -1,0 +1,90 @@
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ output extension=".cshtml" #>
+<#
+    if(IsPartialView) {
+#>
+
+<#
+    } else if(UseLayoutPage){
+#>
+@{
+    ViewBag.Title = "<#=            Title#>";
+<#        if(!String.IsNullOrEmpty(LayoutPageFile)) {#>
+    Layout = "<#=                LayoutPageFile#>";
+<#        } #>
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2><#=            Title#></h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <strong><#=            Title #></strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<#
+    } else {
+#>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title><#=            Title #></title>
+</head>
+<body>
+<#
+        PushIndent("    ");
+    }
+#>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5><#= Title #></h5>
+					<div class="ibox-tools">
+						@Html.ActionLink("新建", "Create", null, new { @class = "btn btn-primary btn-xs"})
+					</div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped" style="overflow-x:scroll">
+                        <tr>
+                    <#
+                        foreach (var property in Propertys) {      
+                    #>
+                            <th>
+                                @Html.DisplayNameFor(model => model.<#=            GetValueExpression(property) #>)
+                            </th>
+                    <#
+                        }
+                    #>
+                            <th></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+<#
+    if(!IsPartialView && !UseLayoutPage) {
+        ClearIndent();
+#>
+</body>
+</html>
+<#
+    }
+#>

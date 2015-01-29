@@ -15,7 +15,7 @@ namespace Magicodes.Admin.Controllers
     [Route("{action}/{id}")]
     public class AdminNavigationsController : Controller
     {
-        private MagicodesAdminContext db = new MagicodesAdminContext();
+        private AdminContext db = new AdminContext();
 
         // GET: AdminNavigations
         [Route]

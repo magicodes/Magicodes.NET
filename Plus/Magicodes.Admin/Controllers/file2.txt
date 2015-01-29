@@ -1,0 +1,89 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>导航菜单管理</title>
+</head>
+<body>
+    
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>导航菜单管理</h5>
+    					<div class="ibox-tools">
+    						@Html.ActionLink("新建", "Create", null, new { @class = "btn btn-primary btn-xs"})
+    					</div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-striped" style="overflow-x:scroll">
+                            <tr>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.ParentId)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.Text)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.Href)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.IconCls)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.TextCls)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.IsShowBadge)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.MenuBadgeType)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.BadgeRequestUrl)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.PlusId)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.SortNo)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.Id)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.CreateTime)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.UpdateTime)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.Deleted)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.CreateBy)
+                                </th>
+                                                    <th>
+                                    @Html.DisplayNameFor(model => model.UpdateBy)
+                                </th>
+                                                    <th></th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+    
+    
+    
+    
+</body>
+</html>

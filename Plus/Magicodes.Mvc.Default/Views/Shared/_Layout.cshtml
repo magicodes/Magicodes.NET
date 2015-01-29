@@ -78,7 +78,10 @@
             </li>
             <li>
                 <i class="fa fa-dollar fa-fw"></i>
-                <a href="http://meiweihezi.com/dashang/dashang.php?id=ZGsyNDg=">赞助</a>
+                <a href="javascript:void(0)" onclick="$('#dinggou').submit();">赞助</a>
+                <form action="https://shenghuo.alipay.com/send/payment/fill.htm" accept-charset="gbk" id="dinggou" method="post" name="dinggou" target="_blank">
+                    <input name="optEmail" type="hidden" value="codelove1314@live.cn" /> <input name="memo" type="hidden" value="小哥，写的不错，大爷赏你的" /> <input id="payAmount" name="payAmount" type="hidden" value="30" /> <input id="title" name="title" type="hidden" value="打赏" />
+                </form>
                 @*<a href="http://shop113059108.taobao.com/shop/view_shop.htm?spm=a1z0e.1.10010.4.jsfP12">赞助</a>*@
             </li>
         </ul>

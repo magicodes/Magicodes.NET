@@ -54,4 +54,9 @@
     string ModelTypeName=MVCGenerateParams.ModelTypeName;
     bool IsOverpostingProtectionRequired=MVCGenerateParams.IsOverpostingProtectionRequired;
     bool  IsAdminController=MVCGenerateParams.IsAdminController;
+    string Title=MVCGenerateParams.Title;
+    IEnumerable<T4PropertyInfo> Propertys=MVCGenerateParams.Propertys;
+    bool IsPartialView=MVCGenerateParams.IsPartialView;
+    string LayoutPageFile=MVCGenerateParams.LayoutPageFile;
+    bool UseLayoutPage=MVCGenerateParams.UseLayoutPage;
  #>

@@ -26,6 +26,7 @@ namespace Magicodes.Admin.Models
     /// 后台导航菜单信息
     /// </summary>
     [Table("Nav_SiteAdminNavigation")]
+    [DisplayName("导航菜单管理")]
     [T4DataTable(Title = "后台导航菜单管理", Description = "后台导航菜单来自插件配置文件，请确保已经配置了相关菜单。")]
     public class SiteAdminNavigation : SiteAdminNavigationBase<string>
     {

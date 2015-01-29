@@ -27,6 +27,26 @@ namespace Magicodes.T4.Extensions
     public static class T4Extensions
     {
         /// <summary>
+        /// 获取显示名
+        /// </summary>
+        /// <param name="customAttributeProvider"></param>
+        /// <param name="inherit"></param>
+        /// <returns></returns>
+        public static string GetDisplayName(this ICustomAttributeProvider customAttributeProvider, bool inherit = false)
+        {
+            string displayName = null;
+            var displayAttribute = customAttributeProvider.GetAttribute<DisplayAttribute>(false);
+            if (displayAttribute != null) displayName = displayAttribute.Name;
+            else
+            {
+                var displayNameAttribute = customAttributeProvider.GetAttribute<DisplayNameAttribute>(false);
+                if (displayNameAttribute != null)
+                    displayName = displayNameAttribute.DisplayName;
+            }
+            return displayName;
+
+        }
+        /// <summary>
         /// 获取T4生成特性
         /// </summary>
         /// <param name="pro"></param>

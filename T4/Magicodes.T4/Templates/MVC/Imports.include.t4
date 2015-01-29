@@ -1,20 +1,23 @@
-﻿<#@ assembly name="System.Core" #>
-<#@ assembly name="System.Data.Entity" #>
+﻿<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\T4Helper.tt" #>
+<#@ assembly name="System.Core" #>
 <#@ assembly name="System.Data.Linq" #>
-<#@ import namespace="System" #>
-<#@ import namespace="System.Collections.Generic" #>
+<#@ assembly name="System.Data.Entity" #>
+<#@ assembly name="System.ComponentModel.DataAnnotations" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\System.Web.Mvc.dll" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\EntityFramework.dll" #>
+<#@ assembly name="$(SolutionDir)\T4\Librarys\EntityFramework.SqlServer.dll" #>
 <#@ import namespace="System.Data.Linq.Mapping" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Reflection" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#@ assembly name="$(SolutionDir)\T4\Librarys\Magicodes.T4.dll" #>
-<#@ assembly name="$(SolutionDir)\T4\Librarys\Magicodes.Web.Interfaces.dll" #>
-<#@ assembly name="$(SolutionDir)\T4\Librarys\System.Web.Mvc.dll" #>
-<#@ assembly name="$(SolutionDir)\T4\Librarys\EntityFramework.dll" #>
-<#@ assembly name="$(SolutionDir)\T4\Librarys\EntityFramework.SqlServer.dll" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Text" #>
 <#@ import namespace="System.Web.Mvc" #>
 <#@ import namespace="System.Data.Entity" #>
-<#@ import namespace="Magicodes.T4" #>
+<#@ import namespace="System.ComponentModel" #>
+<#@ import namespace="System.ComponentModel.DataAnnotations" #>
+<#@ assembly name="$(TargetPath)" #>
 <#+
     //======================================================================
     //
@@ -28,30 +31,34 @@
     //        http://www.magicodes.net
     //
     //======================================================================
-    public class MVCGenerateInfo<T,TDbContext> 
-        where T:class
+    public class T4MVCGenerateInfo<TModel,TDbContext> 
+        where TModel:class
         where TDbContext:DbContext
     {
-        public MVCGenerateInfo()
+        public T4MVCGenerateInfo()
         {
+            //设置必须的命名空间
             RequiredNamespaces=new List<string>(){typeof(TDbContext).Namespace};
             ControllerRootName=string.Empty;
             IsOverpostingProtectionRequired=true;
             ContextTypeName=typeof(TDbContext).Name;
-            ModelTypeName=typeof(T).Name;
-            var modelNamespace=typeof(T).Namespace;
+            ModelTypeName=typeof(TModel).Name;
+            var modelNamespace=typeof(TModel).Namespace;
+            //设置模型的命名空间
             if(!RequiredNamespaces.Contains(modelNamespace))
                 RequiredNamespaces.Add(modelNamespace);
             var db= (DbContext)Activator.CreateInstance(typeof(TDbContext),
                 "Data Source=.;Initial Catalog=Magicodes.Models.Mvc;Integrated Security=True");
-            this.EntitySetName=db.GetEntitySetName<T>();
-            var keyTypes=db.GetKeysTypes<T>();
-            this.PrimaryKeyName=db.GetKeyNames<T>().First();
+            this.EntitySetName=db.GetEntitySetName<TModel>();
+            var keyTypes=db.GetKeysTypes<TModel>();
+            this.PrimaryKeyName=db.GetKeyNames<TModel>().First();
             this.PrimaryKeyType=keyTypes.First().FullName;
             this.PrimaryKeyShortType=keyTypes.First().Name;
+            this.Title= typeof(TModel).GetDisplayName();
+            this.Propertys=typeof(TModel).GetT4PropertyInfos();
         }
         
-        public T Model{get;set;}
+        public TModel Model{get;set;}
         public TDbContext DbContext{get;set;}
         /// <summary>
         /// 区域名称
@@ -107,5 +114,14 @@
         public string ModelTypeName{get;set;}
         public bool IsOverpostingProtectionRequired{get;set;}
         public bool IsAdminController{get;set;}
+        public bool IsPartialView{get;set;}
+        public string LayoutPageFile{get;set;}
+        public string Title{get;set;}
+        public bool UseLayoutPage{get;set;}
+        public IEnumerable<T4PropertyInfo> Propertys{get;set;}
+    }
+    string GetValueExpression(T4PropertyInfo property) {
+        //TODO:导航属性判断
+        return property.Name;
     }
  #>

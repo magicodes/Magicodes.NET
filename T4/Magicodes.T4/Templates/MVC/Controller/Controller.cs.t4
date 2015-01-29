@@ -1,8 +1,4 @@
-﻿<#@ template language="C#" HostSpecific="True" Debug="True" #>
-<#@ output extension="cs" #>
-<#@ assembly name="System.Core" #>
-<#@ assembly name="System.Data.Entity" #>
-<#@ assembly name="System.Data.Linq" #>
+﻿<#@ output extension="cs" #>
 <#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Pamas.include.t4" #>
 <#
     var routePrefix = String.Empty;
@@ -10,6 +6,7 @@
         routePrefix = AreaName + "/";
 }
     routePrefix += ControllerRootName;
+    ClearIndent();
 #>
 using System;
 using System.Collections.Generic;
