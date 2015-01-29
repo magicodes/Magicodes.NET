@@ -741,7 +741,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SiteAdminNavigationsController.cs.t4</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\HMTLHelperExtensions.cs" />
+    <Compile Include="Helpers\HMTLHelperExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Helpers\Scripts.cs" />
     <Compile Include="Helpers\Styles.cs" />
     <Compile Include="Models\AdminContext.cs" />
