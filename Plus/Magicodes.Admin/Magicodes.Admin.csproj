@@ -736,11 +736,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\AdminNavigationsController.cs" />
-    <Compile Include="Controllers\SiteAdminNavigationsController.cs.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SiteAdminNavigationsController.cs.t4</DependentUpon>
-    </Compile>
     <Compile Include="Helpers\HMTLHelperExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
