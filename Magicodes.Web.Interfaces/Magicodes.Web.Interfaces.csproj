@@ -116,7 +116,7 @@
     <Compile Include="Strategy\Logger\LoggerLevels.cs" />
     <Compile Include="Strategy\StrategyManagerBase.cs" />
     <Compile Include="Strategy\Resource\IScriptMinStrategy.cs" />
-    <Compile Include="Strategy\Sesstion\ISessionStrategy.cs" />
+    <Compile Include="Strategy\Session\ISessionStrategy.cs" />
     <Compile Include="Strategy\SMS\ISMSStrategy.cs" />
     <Compile Include="T4\DataTable\T4DataTableAttribute.cs" />
     <Compile Include="T4\IgnoreParts.cs" />

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Magicodes.Web.Interfaces.Strategy.Sesstion
+namespace Magicodes.Web.Interfaces.Strategy.Session
 {
     /// <summary>
     /// 会话状态策略接口
