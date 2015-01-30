@@ -22,7 +22,7 @@ namespace Magicodes.Web.Interfaces
     public class MagicodesException : ApplicationException
     {
         /// <summary>
-        /// 异常关键字
+        /// 异常关键字，便于查找问题
         /// </summary>
         public string KeyWord { get; set; }
         public MagicodesException() { }
