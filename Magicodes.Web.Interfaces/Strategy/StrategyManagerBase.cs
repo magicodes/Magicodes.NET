@@ -1,7 +1,7 @@
 ﻿using Magicodes.Web.Interfaces.Strategy.Cache;
 using Magicodes.Web.Interfaces.Strategy.Email;
 using Magicodes.Web.Interfaces.Strategy.Logger;
-using Magicodes.Web.Interfaces.Strategy.Sesstion;
+using Magicodes.Web.Interfaces.Strategy.Session;
 using Magicodes.Web.Interfaces.Strategy.SMS;
 using Magicodes.Web.Interfaces.Strategy.User;
 using System;

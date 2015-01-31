@@ -26,7 +26,10 @@ namespace Magicodes.Web.Interfaces
         /// </summary>
         public string KeyWord { get; set; }
         public MagicodesException() { }
-
+        /// <summary>
+        /// Magicodes.NET框架异常
+        /// </summary>
+        /// <param name="message">异常消息以及关键字（建议不要添加特殊字符）</param>
         public MagicodesException(string message) : base(message) {
             KeyWord = message;
         }
