@@ -1,9 +1,10 @@
 ﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Pamas.include.t4" #>
 <#@ output extension=".cshtml" #>
+@model IEnumerable<<#= ModelTypeFullName #>>
 <#
     if(IsPartialView) {
 #>
-
 <#
     } else if(UseLayoutPage){
 #>
@@ -23,15 +24,12 @@
         </ol>
     </div>
 </div>
-
 <#
     } else {
 #>
-
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -50,7 +48,7 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5><#= Title #></h5>
+                    <h5><#=        Title #></h5>
 					<div class="ibox-tools">
 						@Html.ActionLink("新建", "Create", null, new { @class = "btn btn-primary btn-xs"})
 					</div>
@@ -59,13 +57,13 @@
                     <table class="table table-striped" style="overflow-x:scroll">
                         <tr>
                     <#
-                        foreach (var property in Propertys) {      
+    foreach (var property in Propertys) {      
                     #>
                             <th>
                                 @Html.DisplayNameFor(model => model.<#=            GetValueExpression(property) #>)
                             </th>
                     <#
-                        }
+    }
                     #>
                             <th></th>
                         </tr>
@@ -75,10 +73,6 @@
         </div>
     </div>
  </div>
-
-
-
-
 <#
     if(!IsPartialView && !UseLayoutPage) {
         ClearIndent();
@@ -87,4 +81,7 @@
 </html>
 <#
     }
+    var viewDirPath=  Magicodes.T4.Templates.MVC.T4MvcHelper.CreateMvcViewsDirectoryIfNotExist(Host.TemplateFile,ControllerName);
+    var path=System.IO.Path.Combine(viewDirPath,"Index.cshtml");
+    SaveOutput(path); 
 #>

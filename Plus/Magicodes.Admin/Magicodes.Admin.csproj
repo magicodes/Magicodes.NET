@@ -108,23 +108,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CodeTemplates\MvcControllerWithContext\Controller.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\Create.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\Delete.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\Details.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\Edit.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\Empty.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\Imports.include.t4" />
-    <Content Include="CodeTemplates\MvcView\List.cs.t4" />
-    <Content Include="CodeTemplates\MvcView\ModelMetadataFunctions.cs.include.t4" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Controllers\file1.txt">
-      <DependentUpon>SiteAdminNavigationsController.cs.t4</DependentUpon>
-    </Content>
-    <Content Include="Controllers\file2.txt">
-      <DependentUpon>SiteAdminNavigationsController.cs.t4</DependentUpon>
-    </Content>
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -160,19 +145,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Images\Thumbs.db" />
     <Content Include="Plus.config" />
-    <Content Include="CodeTemplates\MvcControllerWithActions\Controller.cs.t4" />
-    <Content Include="CodeTemplates\MvcControllerEmpty\Controller.cs.t4" />
-    <Content Include="CodeTemplates\ApiControllerEmpty\Controller.cs.t4" />
-    <Content Include="CodeTemplates\ApiControllerWithActions\Controller.cs.t4" />
-    <Content Include="CodeTemplates\ApiControllerWithContext\Controller.cs.t4" />
-    <Content Include="CodeTemplates\ApiDependencyCodeGenerator\Global.asax.cs.t4" />
-    <Content Include="CodeTemplates\ApiDependencyCodeGenerator\Global.cs.t4" />
-    <Content Include="CodeTemplates\ApiDependencyCodeGenerator\WebApiConfig.cs.t4" />
-    <Content Include="CodeTemplates\MvcArea\Area.cs.t4" />
-    <Content Include="CodeTemplates\MvcArea\web.cs.t4" />
-    <Content Include="Controllers\SiteAdminNavigationsController.cs.t4">
+    <Content Include="Controllers\SiteAdminNavigationsController.t4">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SiteAdminNavigationsController.cs.cs</LastGenOutput>
+      <LastGenOutput>SiteAdminNavigationsController.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -185,17 +160,13 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\plugins\justified-gallery\README.md" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\AdminNavigations\Create.cshtml" />
-    <Content Include="Views\AdminNavigations\Delete.cshtml" />
-    <Content Include="Views\AdminNavigations\Details.cshtml" />
-    <Content Include="Views\AdminNavigations\Edit.cshtml" />
-    <Content Include="Views\AdminNavigations\Index.cshtml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
+    <Content Include="Views\SiteAdminNavigations\Index.cshtml" />
+    <Content Include="Views\SiteAdminNavigations\Empty.cshtml" />
+    <Content Include="Views\SiteAdminNavigations\Create.cshtml" />
+    <Content Include="Views\SiteAdminNavigations\Edit.cshtml" />
+    <Content Include="Views\SiteAdminNavigations\Details.cshtml" />
+    <Content Include="Views\SiteAdminNavigations\Delete.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\animate.css" />
@@ -724,7 +695,6 @@
     <Content Include="Scripts\plugins\velocity\velocity.min.js" />
     <Content Include="Scripts\plugins\velocity\velocity.ui.min.js" />
     <Content Include="Scripts\plugins\video\responsible-video.js" />
-    <Content Include="Web.config" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
@@ -735,7 +705,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Controllers\AdminNavigationsController.cs" />
+    <Compile Include="Controllers\SiteAdminNavigationsController.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SiteAdminNavigationsController.t4</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\HMTLHelperExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -755,9 +729,14 @@
       <Project>{a6c24c78-7185-4a57-ae23-9e12e5c30118}</Project>
       <Name>Magicodes.Web.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\T4\Magicodes.T4\Magicodes.T4.csproj">
+      <Project>{04887bbf-5838-4fbe-99c9-c3171cc8971c}</Project>
+      <Name>Magicodes.T4</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Magicodes.Templates\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

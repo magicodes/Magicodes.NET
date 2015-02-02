@@ -3,7 +3,7 @@
 @using System.Linq;
 @using Magicodes.Admin.Models;
 @{
-    var db = new MagicodesAdminContext();
+    var db = new AdminContext();
     var menus = db.SiteAdminNavigations.Where(p => !p.Deleted).OrderBy(p => p.SortNo).ToList();
     var levelsCss = new string[] { "nav-second-level", "nav-third-level" };
 }

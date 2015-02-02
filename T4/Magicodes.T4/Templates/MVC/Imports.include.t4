@@ -6,6 +6,7 @@
 <#@ assembly name="$(SolutionDir)\T4\Librarys\System.Web.Mvc.dll" #>
 <#@ assembly name="$(SolutionDir)\T4\Librarys\EntityFramework.dll" #>
 <#@ assembly name="$(SolutionDir)\T4\Librarys\EntityFramework.SqlServer.dll" #>
+<#@ assembly name="$(TargetPath)" #>
 <#@ import namespace="System.Data.Linq.Mapping" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Reflection" #>
@@ -17,109 +18,8 @@
 <#@ import namespace="System.Data.Entity" #>
 <#@ import namespace="System.ComponentModel" #>
 <#@ import namespace="System.ComponentModel.DataAnnotations" #>
-<#@ assembly name="$(TargetPath)" #>
+
 <#+
-    //======================================================================
-    //
-    //        Copyright (C) 2014-2016 Magicodes团队    
-    //        All rights reserved
-    //
-    //        filename :MVCGenerateHelper
-    //        description :
-    //
-    //        created by 雪雁 at  2015/1/25 15:12:55
-    //        http://www.magicodes.net
-    //
-    //======================================================================
-    public class T4MVCGenerateInfo<TModel,TDbContext> 
-        where TModel:class
-        where TDbContext:DbContext
-    {
-        public T4MVCGenerateInfo()
-        {
-            //设置必须的命名空间
-            RequiredNamespaces=new List<string>(){typeof(TDbContext).Namespace};
-            ControllerRootName=string.Empty;
-            IsOverpostingProtectionRequired=true;
-            ContextTypeName=typeof(TDbContext).Name;
-            ModelTypeName=typeof(TModel).Name;
-            var modelNamespace=typeof(TModel).Namespace;
-            //设置模型的命名空间
-            if(!RequiredNamespaces.Contains(modelNamespace))
-                RequiredNamespaces.Add(modelNamespace);
-            var db= (DbContext)Activator.CreateInstance(typeof(TDbContext),
-                "Data Source=.;Initial Catalog=Magicodes.Models.Mvc;Integrated Security=True");
-            this.EntitySetName=db.GetEntitySetName<TModel>();
-            var keyTypes=db.GetKeysTypes<TModel>();
-            this.PrimaryKeyName=db.GetKeyNames<TModel>().First();
-            this.PrimaryKeyType=keyTypes.First().FullName;
-            this.PrimaryKeyShortType=keyTypes.First().Name;
-            this.Title= typeof(TModel).GetDisplayName();
-            this.Propertys=typeof(TModel).GetT4PropertyInfos();
-        }
-        
-        public TModel Model{get;set;}
-        public TDbContext DbContext{get;set;}
-        /// <summary>
-        /// 区域名称
-        /// </summary>
-        public string AreaName { get; set; }
-        /// <summary>
-        /// 控制器根名称
-        /// </summary>
-        public string ControllerRootName { get; set; }
-        /// <summary>
-        /// 是否异步
-        /// </summary>
-        public bool UseAsync { get; set; }
-        /// <summary>
-        /// 必须的命名空间
-        /// </summary>
-        public List<string> RequiredNamespaces { get; set; }
-        /// <summary>
-        /// 当前命名空间
-        /// </summary>
-        public string Namespace { get; set; }
-        /// <summary>
-        /// 当前DbContext
-        /// </summary>
-        public string ContextTypeName { get; set; }
-        /// <summary>
-        /// 实体名称
-        /// </summary>
-        public string EntitySetName { get; set; }
-        /// <summary>
-        /// 控制器名称
-        /// </summary>
-        public string ControllerName { get; set; }
-        /// <summary>
-        /// 主键名称
-        /// </summary>
-        public string PrimaryKeyName { get; set; }
-        /// <summary>
-        /// 主键类型简称
-        /// </summary>
-        public string PrimaryKeyShortType { get; set; }
-        /// <summary>
-        /// 主键类型
-        /// </summary>
-        public string PrimaryKeyType { get; set; }
-        /// <summary>
-        /// 参数列表
-        /// </summary>
-        public List<Object> Params { get; set; }
-        /// <summary>
-        /// 模型类型名称
-        /// </summary>
-        public string ModelTypeName{get;set;}
-        public bool IsOverpostingProtectionRequired{get;set;}
-        public bool IsAdminController{get;set;}
-        public bool IsPartialView{get;set;}
-        public string LayoutPageFile{get;set;}
-        public string Title{get;set;}
-        public bool UseLayoutPage{get;set;}
-        public IEnumerable<T4PropertyInfo> Propertys{get;set;}
-    }
     string GetValueExpression(T4PropertyInfo property) {
         //TODO:导航属性判断
         return property.Name;

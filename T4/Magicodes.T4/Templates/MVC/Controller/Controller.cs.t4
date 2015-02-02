@@ -1,5 +1,4 @@
-﻿<#@ output extension="cs" #>
-<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Pamas.include.t4" #>
+﻿<#@ output extension=".cs" #>
 <#
     var routePrefix = String.Empty;
     if (!String.IsNullOrWhiteSpace(AreaName)) {
@@ -67,7 +66,7 @@ namespace <#=        Namespace #>
     [RoutePrefix("<#=        ControllerRootName #>")]
 <#    } #>
     [Route("{action}/{id}")]
-    public class <#=        ControllerName #> : <#= IsAdminController?"AdminControllerBase":"Controller" #>
+    public class <#=        ControllerName #>Controller : <#= IsAdminController?"AdminControllerBase":"Controller" #>
     {
         private <#=        ContextTypeName #> db = new <#=        ContextTypeName #>();
 

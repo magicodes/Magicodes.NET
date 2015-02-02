@@ -59,4 +59,5 @@
     bool IsPartialView=MVCGenerateParams.IsPartialView;
     string LayoutPageFile=MVCGenerateParams.LayoutPageFile;
     bool UseLayoutPage=MVCGenerateParams.UseLayoutPage;
+    var ModelTypeFullName=MVCGenerateParams.ModelTypeFullName;
  #>

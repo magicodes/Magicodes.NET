@@ -1,0 +1,14 @@
+﻿<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Imports.include.t4" #>
+<#@ output extension=".cs" #>
+<#@ import namespace="Magicodes.Admin.Models" #>
+<#
+    var MVCGenerateParams=new T4MVCGenerateInfo<SiteAdminNavigation,AdminContext>();
+    MVCGenerateParams.UseAsync=true;
+    //MVCGenerateParams.AreaName="";
+    //MVCGenerateParams.ControllerRootName="";
+    MVCGenerateParams.Namespace="Magicodes.Admin.Controllers";
+    MVCGenerateParams.ControllerName="SiteAdminNavigations";
+    MVCGenerateParams.IsAdminController=true;
+    MVCGenerateParams.UseLayoutPage=true;
+ #>
+<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Generate.include.t4" #>

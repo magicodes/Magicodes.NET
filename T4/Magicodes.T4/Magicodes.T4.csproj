@@ -62,15 +62,16 @@
     <Compile Include="FormHelper.cs" />
     <Compile Include="Models\T4DataType.cs" />
     <Compile Include="Models\T4GroupInfo.cs" />
+    <Compile Include="Models\T4MVCGenerateInfo.cs" />
     <Compile Include="Models\T4PropertyInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T4Helper.cs" />
+    <Compile Include="Templates\MVC\T4MvcHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="Magicodes.T4.snk" />
     <None Include="ODataGrid\Footer.tt" />
     <None Include="ODataGrid\Form.tt">
@@ -84,6 +85,12 @@
     <Content Include="Templates\MVC\Pamas.include.t4" />
     <None Include="packages.config" />
     <Content Include="Templates\MVC\Views\List.cs.t4" />
+    <Content Include="Templates\MVC\Views\Create.cs.t4" />
+    <Content Include="Templates\MVC\Views\Delete.cs.t4" />
+    <Content Include="Templates\MVC\Views\Details.cs.t4" />
+    <Content Include="Templates\MVC\Views\Edit.cs.t4" />
+    <Content Include="Templates\MVC\Views\Empty.cs.t4" />
+    <Content Include="Templates\MVC\Generate.include.t4" />
     <None Include="Templates\T4Helper.tt" />
   </ItemGroup>
   <ItemGroup>

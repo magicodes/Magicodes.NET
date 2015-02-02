@@ -19,7 +19,7 @@ using Magicodes.Web.Interfaces.Plus.Info;
 using Magicodes.Web.Interfaces.Strategy;
 using Magicodes.Web.Interfaces.Strategy.Cache;
 using Magicodes.Web.Interfaces.Strategy.Email;
-using Magicodes.Web.Interfaces.Strategy.Sesstion;
+using Magicodes.Web.Interfaces.Strategy.Session;
 using Magicodes.Web.Interfaces.Strategy.SMS;
 using Magicodes.Core.Config;
 using Magicodes.Web.Interfaces.Strategy.User;
@@ -50,10 +50,10 @@ namespace Magicodes.Core
             GlobalConfigurationManager.Config();
             using (var watch = new CodeWatch("Initialize", 20000))
             {
-                #region 处理插件
+                #region 【废弃】处理插件
                 using (new CodeWatch("LoadPlusAndPlusResource", 5000))
                 {
-                    var taskDoingList = new List<Task>();
+                    //var taskDoingList = new List<Task>();
                     #region 【废弃】加载程序集资源
                     //foreach (var plus in PlusManager.InstalledPluginsList)
                     //{
@@ -155,7 +155,7 @@ namespace Magicodes.Core
             //var appDomain = AppDomain.CreateDomain("Magicodes.Core.Domain", null, setup);
             CurrentAppDomain = AppDomain.CurrentDomain;
             if (!CurrentAppDomain.IsFullyTrusted)
-                throw new MagicodesException("请将当前应用程序信任级别设置为完全信任。");
+                throw new MagicodesException("请将当前应用程序信任级别设置为完全信任");
 
             #endregion
             var binDir = new DirectoryInfo(SitePaths.SiteRootBinDirPath);
