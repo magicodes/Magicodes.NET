@@ -11,4 +11,4 @@
     MVCGenerateParams.IsAdminController=true;
     MVCGenerateParams.UseLayoutPage=true;
  #>
-<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Generate.include.t4" #>
+<#@ include file="$(ProjectDir)Magicodes.Templates\Generate.include.t4" #>

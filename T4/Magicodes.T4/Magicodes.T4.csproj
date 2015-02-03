@@ -84,13 +84,6 @@
     <Content Include="Templates\MVC\Imports.include.t4" />
     <Content Include="Templates\MVC\Pamas.include.t4" />
     <None Include="packages.config" />
-    <Content Include="Templates\MVC\Views\List.cs.t4" />
-    <Content Include="Templates\MVC\Views\Create.cs.t4" />
-    <Content Include="Templates\MVC\Views\Delete.cs.t4" />
-    <Content Include="Templates\MVC\Views\Details.cs.t4" />
-    <Content Include="Templates\MVC\Views\Edit.cs.t4" />
-    <Content Include="Templates\MVC\Views\Empty.cs.t4" />
-    <Content Include="Templates\MVC\Generate.include.t4" />
     <None Include="Templates\T4Helper.tt" />
   </ItemGroup>
   <ItemGroup>

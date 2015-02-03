@@ -1,7 +1,0 @@
-﻿<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Views\List.cs.t4" #>
-<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Views\Empty.cs.t4" #>
-<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Views\Create.cs.t4" #>
-<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Views\Edit.cs.t4" #>
-<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Views\Details.cs.t4" #>
-<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Views\Delete.cs.t4" #>
-<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Controller\Controller.cs.t4" #>

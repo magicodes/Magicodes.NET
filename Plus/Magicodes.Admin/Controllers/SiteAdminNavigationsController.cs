@@ -17,7 +17,7 @@ using Magicodes.Core.Web.Controllers;
 //        filename :ConfigController
 //        description :本控制器代码为自动生成，如需更改，请先删除父级T4模板
 //
-//        created by 雪雁 at  2015/02/02 18:55:54
+//        created by 雪雁 at  2015/02/03 11:34:15
 //        http://www.magicodes.net
 //
 //======================================================================

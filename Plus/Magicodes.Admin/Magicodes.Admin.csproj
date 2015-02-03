@@ -149,6 +149,13 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SiteAdminNavigationsController.cs</LastGenOutput>
     </Content>
+    <Content Include="Magicodes.Templates\Views\Create.cs.t4" />
+    <Content Include="Magicodes.Templates\Views\Delete.cs.t4" />
+    <Content Include="Magicodes.Templates\Views\Details.cs.t4" />
+    <Content Include="Magicodes.Templates\Views\Edit.cs.t4" />
+    <Content Include="Magicodes.Templates\Views\Empty.cs.t4" />
+    <Content Include="Magicodes.Templates\Views\List.cs.t4" />
+    <Content Include="Magicodes.Templates\Generate.include.t4" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -736,7 +743,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Magicodes.Templates\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
