@@ -1,0 +1,32 @@
+﻿<#@ output extension=".cs" #>
+<#
+    ClearIndent();
+#>
+
+
+    [ODataRoutePrefix("<#=ControllerName #>")]
+    public class <#=ControllerName #>ODtataController :  <#= IsAdminController?"ODataAdminControllerbase":"ODataControllerBase" #>
+    {
+        private <#=        ContextTypeName #> db = new <#=        ContextTypeName #>();
+
+        // GET odata/<#=ControllerName #>
+        [ODataRoute]
+        [EnableQuery(PageSize = 1000, AllowedQueryOptions = AllowedQueryOptions.All)]
+        public IQueryable<<#=ModelTypeFullName #>> Get()
+        {
+            return db.<#=entitySetName #>.AsQueryable();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (db != null)
+                {
+                    db.Dispose();
+                    db = null;
+                }
+            }
+            base.Dispose(disposing);
+        }
+    }

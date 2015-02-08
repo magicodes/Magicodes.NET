@@ -148,7 +148,6 @@
     <Compile Include="Editor\EditorController.cs" />
     <Compile Include="Controllers\JSONActionResult.cs" />
     <Compile Include="Controllers\AdminControllerBase.cs" />
-    <Compile Include="Controllers\AdminODataControllerBase.cs" />
     <Compile Include="Controllers\Viewer\DocumentViewerController.cs" />
     <Compile Include="Controllers\ODataControllerBase.cs" />
     <Compile Include="Controllers\PlusControllerBase.cs" />
@@ -166,6 +165,7 @@
     <Compile Include="Mvc\MvcConfigManager.cs" />
     <Compile Include="Mvc\PluginControllerFactory.cs" />
     <Compile Include="Mvc\PluginRazorViewEngine.cs" />
+    <Compile Include="OData\ODataAdminControllerbase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\AntiXssAttribute.cs" />
     <Compile Include="Security\AuthHelper.cs" />

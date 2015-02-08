@@ -52,6 +52,15 @@
       <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.OData.Core">
+      <HintPath>..\..\packages\Microsoft.OData.Core.6.9.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm">
+      <HintPath>..\..\packages\Microsoft.OData.Edm.6.9.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial">
+      <HintPath>..\..\packages\Microsoft.Spatial.6.9.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -59,6 +68,11 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.7\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -73,9 +87,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.OData, Version=5.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.OData.5.3.1\lib\net45\System.Web.OData.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Optimization">
       <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
@@ -110,6 +132,32 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\plugins\blueimp\css\blueimp-gallery-indicator.css" />
+    <Content Include="Content\plugins\blueimp\css\blueimp-gallery-video.css" />
+    <Content Include="Content\plugins\blueimp\css\blueimp-gallery.css" />
+    <Content Include="Content\plugins\blueimp\css\blueimp-gallery.min.css" />
+    <Content Include="Content\plugins\blueimp\css\demo.css" />
+    <Content Include="Content\plugins\blueimp\img\error.png" />
+    <Content Include="Content\plugins\blueimp\img\error.svg" />
+    <Content Include="Content\plugins\blueimp\img\loading.gif" />
+    <Content Include="Content\plugins\blueimp\img\play-pause.png" />
+    <Content Include="Content\plugins\blueimp\img\play-pause.svg" />
+    <Content Include="Content\plugins\blueimp\img\video-play.png" />
+    <Content Include="Content\plugins\blueimp\img\video-play.svg" />
+    <Content Include="Content\plugins\bootstrap-rtl\bootstrap-rtl.css" />
+    <Content Include="Content\plugins\bootstrap-rtl\bootstrap-rtl.min.css" />
+    <Content Include="Content\plugins\jquery.colorbox\theme3\colorbox.css" />
+    <Content Include="Content\plugins\jquery.colorbox\theme3\colorbox.min.css">
+      <DependentUpon>colorbox.css</DependentUpon>
+    </Content>
+    <Content Include="Content\plugins\jquery.colorbox\theme3\images\controls.png" />
+    <Content Include="Content\plugins\jquery.colorbox\theme3\images\loading.gif" />
+    <Content Include="Content\plugins\jsTree\32px.png" />
+    <Content Include="Content\plugins\jsTree\39px.png" />
+    <Content Include="Content\plugins\jsTree\40px.png" />
+    <Content Include="Content\plugins\jsTree\style.css" />
+    <Content Include="Content\plugins\jsTree\style.min.css" />
+    <Content Include="Content\plugins\jsTree\throbber.gif" />
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -143,19 +191,57 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Images\dashbard4_1.jpg" />
+    <Content Include="Images\dashbard4_2.jpg" />
+    <Content Include="Images\gallery\1.jpg" />
+    <Content Include="Images\gallery\10.jpg" />
+    <Content Include="Images\gallery\10s.jpg" />
+    <Content Include="Images\gallery\11.jpg" />
+    <Content Include="Images\gallery\11s.jpg" />
+    <Content Include="Images\gallery\12.jpg" />
+    <Content Include="Images\gallery\12s.jpg" />
+    <Content Include="Images\gallery\1s.jpg" />
+    <Content Include="Images\gallery\2.jpg" />
+    <Content Include="Images\gallery\2s.jpg" />
+    <Content Include="Images\gallery\3.jpg" />
+    <Content Include="Images\gallery\3s.jpg" />
+    <Content Include="Images\gallery\4.jpg" />
+    <Content Include="Images\gallery\4s.jpg" />
+    <Content Include="Images\gallery\5.jpg" />
+    <Content Include="Images\gallery\5s.jpg" />
+    <Content Include="Images\gallery\6.jpg" />
+    <Content Include="Images\gallery\6s.jpg" />
+    <Content Include="Images\gallery\7.jpg" />
+    <Content Include="Images\gallery\7s.jpg" />
+    <Content Include="Images\gallery\8.jpg" />
+    <Content Include="Images\gallery\8s.jpg" />
+    <Content Include="Images\gallery\9.jpg" />
+    <Content Include="Images\gallery\9s.jpg" />
     <Content Include="Images\Thumbs.db" />
+    <Content Include="Magicodes.Templates\Generate.include.t4" />
     <Content Include="Plus.config" />
     <Content Include="Controllers\SiteAdminNavigationsController.t4">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SiteAdminNavigationsController.cs</LastGenOutput>
     </Content>
-    <Content Include="Magicodes.Templates\Views\Create.cs.t4" />
     <Content Include="Magicodes.Templates\Views\Delete.cs.t4" />
     <Content Include="Magicodes.Templates\Views\Details.cs.t4" />
-    <Content Include="Magicodes.Templates\Views\Edit.cs.t4" />
     <Content Include="Magicodes.Templates\Views\Empty.cs.t4" />
     <Content Include="Magicodes.Templates\Views\List.cs.t4" />
-    <Content Include="Magicodes.Templates\Generate.include.t4" />
+    <Content Include="Content\plugins\bootstrap-rtl\bootstrap-rtl.css.map" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\font-awesome\less\animated.less" />
+    <Content Include="fonts\font-awesome\scss\_animated.scss" />
+    <Content Include="Magicodes.Templates\Views\Form.cs.t4" />
+    <Content Include="Controllers\ConfigController.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ConfigController.cshtml</LastGenOutput>
+    </Content>
+    <Content Include="Controllers\ConfigController.cshtml">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigController.tt</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -165,8 +251,72 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\plugins\blueimp\jquery.blueimp-gallery.min.js" />
+    <Content Include="Scripts\plugins\flot\jquery.flot.time.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-ar.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-bg.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-bn.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-ca.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-cs.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-da.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-de.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-es.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-et.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-fa.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-fi.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-fr.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-gl.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-gr.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-he.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-hr.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-hu.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-id.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-it.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-ja.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-kr.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-lt.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-lv.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-my.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-nl.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-no.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-pl.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-pt-BR.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-ro.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-ru.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-si.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-sk.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-sr.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-sv.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-tr.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-uk.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-zh-CN.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\i18n\jquery.colorbox-zh-TW.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\jquery.colorbox.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox\jquery.colorbox.min.js">
+      <DependentUpon>jquery.colorbox.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\jsTree\jstree.min.js" />
     <Content Include="Scripts\plugins\justified-gallery\README.md" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\plugins\knockout\knockout.debug.js" />
+    <Content Include="Scripts\plugins\knockout\knockout.js" />
+    <Content Include="Scripts\plugins\knockout\knockout.mapping.js" />
+    <Content Include="Scripts\plugins\knockout\knockout.mapping.min.js">
+      <DependentUpon>knockout.mapping.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\knockout\knockout.min.js">
+      <DependentUpon>knockout.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\knockout\moment\locales.js" />
+    <Content Include="Scripts\plugins\knockout\moment\locales.min.js" />
+    <Content Include="Scripts\plugins\knockout\moment\moment-with-locales.js" />
+    <Content Include="Scripts\plugins\knockout\moment\moment-with-locales.min.js" />
+    <Content Include="Scripts\plugins\knockout\moment\moment.js" />
+    <Content Include="Scripts\plugins\knockout\moment\moment.min.js" />
+    <Content Include="Scripts\plugins\knockout\moment\zh-cn.js" />
+    <Content Include="Scripts\plugins\knockout\moment\zh-cn.min.js">
+      <DependentUpon>zh-cn.js</DependentUpon>
+    </Content>
     <Content Include="Views\SiteAdminNavigations\Index.cshtml" />
     <Content Include="Views\SiteAdminNavigations\Empty.cshtml" />
     <Content Include="Views\SiteAdminNavigations\Create.cshtml" />
@@ -174,6 +324,25 @@
     <Content Include="Views\SiteAdminNavigations\Details.cshtml" />
     <Content Include="Views\SiteAdminNavigations\Delete.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Scripts\plugins\jquery.colorbox\jquery.colorbox.min.js.map">
+      <DependentUpon>jquery.colorbox.min.js</DependentUpon>
+    </Content>
+    <Content Include="web.config" />
+    <Content Include="Scripts\plugins\knockout\knockout.min.js.map">
+      <DependentUpon>knockout.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\knockout\knockout.mapping.min.js.map">
+      <DependentUpon>knockout.mapping.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\plugins\knockout\moment\zh-cn.min.js.map">
+      <DependentUpon>zh-cn.min.js</DependentUpon>
+    </Content>
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\animate.css" />

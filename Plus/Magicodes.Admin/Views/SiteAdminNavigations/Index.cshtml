@@ -5,6 +5,7 @@
 @{
     ViewBag.Title = "导航菜单管理";
 }
+
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-sm-4">
         <h2>导航菜单管理</h2>
@@ -15,7 +16,34 @@
         </ol>
     </div>
 </div>
-
+<script id="rowsTemplate" type="text/html">
+    <tr>
+        <td><input type="checkbox" class="i-checks" data-bind="checked: _selected"></td>
+                            <td data-bind="text: typeof(ParentId)!=='undefined'?ParentId:''"></td>
+                            <td data-bind="text: typeof(Text)!=='undefined'?Text:''"></td>
+                            <td data-bind="text: typeof(Href)!=='undefined'?Href:''"></td>
+                            <td data-bind="text: typeof(IconCls)!=='undefined'?IconCls:''"></td>
+                            <td data-bind="text: typeof(TextCls)!=='undefined'?TextCls:''"></td>
+                            <td data-bind="text: typeof(IsShowBadge)!=='undefined'?IsShowBadge:''"></td>
+                            <td data-bind="text: typeof(MenuBadgeType)!=='undefined'?MenuBadgeType:''"></td>
+                            <td data-bind="text: typeof(BadgeRequestUrl)!=='undefined'?BadgeRequestUrl:''"></td>
+                            <td data-bind="text: typeof(PlusId)!=='undefined'?PlusId:''"></td>
+                            <td data-bind="text: typeof(SortNo)!=='undefined'?SortNo:''"></td>
+                            <td data-bind="text: typeof(Id)!=='undefined'?Id:''"></td>
+                            <td data-bind="text: typeof(CreateTime)!=='undefined'?CreateTime:''"></td>
+                            <td data-bind="text: typeof(UpdateTime)!=='undefined'?UpdateTime:''"></td>
+                            <td data-bind="text: typeof(Deleted)!=='undefined'?Deleted:''"></td>
+                            <td data-bind="text: typeof(CreateBy)!=='undefined'?CreateBy:''"></td>
+                            <td data-bind="text: typeof(UpdateBy)!=='undefined'?UpdateBy:''"></td>
+                        </tr>
+</script>
+<script id="pagesTemplate" type="text/html">
+    <button type="button" class="btn btn-white" data-bind="css: { disabled: $root.gridViewModel.currentPageIndex() <= 1 }, click: function () { $root.previousPage(); }"><i class="fa fa-chevron-left"></i></button>
+    <!-- ko foreach: $root.gridViewModel.pages -->
+    <button class="btn btn-white" data-bind="css: { active: $data == $root.gridViewModel.currentPageIndex() },text: $data, click: function () { $root.gridViewModel.currentPageIndex($data); }">1</button>
+    <!-- /ko -->
+    <button type="button" class="btn btn-white" data-bind="css: { disabled: $root.gridViewModel.currentPageIndex() >= $root.getTotalPages() }, click: function () { $root.nextPage(); }"><i class="fa fa-chevron-right"></i> </button>
+</script>
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -23,12 +51,13 @@
                 <div class="ibox-title">
                     <h5>导航菜单管理</h5>
 					<div class="ibox-tools">
-						@Html.ActionLink("新建", "Create", null, new { @class = "btn btn-primary btn-xs"})
+                         <a class="btn btn-primary " href="SiteAdminNavigations/Create" id="btnAdd"><i class="fa fa-plus"></i>&nbsp;新建</a>
 					</div>
                 </div>
                 <div class="ibox-content">
                     <table class="table table-striped" style="overflow-x:scroll">
                         <tr>
+                            <th><input type="checkbox" class="i-checks" data-bind="checked: isAllSelected"></input></th>
                                                 <th>
                                 @Html.DisplayNameFor(model => model.ParentId)
                             </th>
@@ -77,11 +106,56 @@
                                                 <th>
                                 @Html.DisplayNameFor(model => model.UpdateBy)
                             </th>
-                                                <th></th>
-                        </tr>
+                                            </tr>
+                        <tbody data-bind="template: { name: 'rowsTemplate', foreach: gridViewModel.dataRows }"></tbody>
+
                     </table>
                 </div>
+                <form class="form-horizontal" style="margin-top:10px">
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            <label class="col-sm-3 control-label">分页数：</label>
+                            <div class="col-sm-4">
+                                <select class="form-control m-b" data-bind="value: gridViewModel.pageSize">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            <div>当前为第<span data-bind="    text: gridViewModel.currentPageIndex()"></span>页，总共有<span data-bind="    text: getTotalPages()"></span>页</div>
+                        </div>
+
+                        <div class="col-sm-8">
+                            <div class="btn-group pull-right" data-bind="template: { name: 'pagesTemplate', replaceChildren: gridViewModel }"></div>
+                        </div>
+
+                    </div>
+                </form>
             </div>
         </div>
     </div>
  </div>
+@section Scripts {
+    @Scripts.Render("~/Scripts/plugins/iCheck/icheck.min.js")
+    @Scripts.Render("~/Scripts/plugins/knockout/knockout.min.js")
+    @Scripts.Render("~/Scripts/plugins/knockout/knockout.mapping.min.js")
+    @Scripts.Render("~/Scripts/app/odataGrid.min.js")
+    <script type="text/javascript">
+        $(document).ready(function () {
+             var odataGridViewModel = new magicodes.odataGrid({
+                //数据加载Url
+                url: "/OData/SiteAdminNavigations",    
+                filterTemplate : "Deleted eq false",
+                $orderby : "Id desc"
+            });
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+}
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/custom.css")
+}

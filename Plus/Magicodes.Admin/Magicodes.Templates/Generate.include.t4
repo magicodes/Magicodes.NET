@@ -1,0 +1,15 @@
+﻿<#@ include file="$(ProjectDir)Magicodes.Templates\Views\List.cs.t4" #>
+<#@ include file="$(ProjectDir)Magicodes.Templates\Views\Empty.cs.t4" #>
+<#
+    var FormTitle="新建";
+    var FormType="Create";
+ #>
+<#@ include file="$(ProjectDir)Magicodes.Templates\Views\Form.cs.t4" #>
+<#
+   FormTitle="编辑";
+   FormType="Edit";
+ #>
+<#@ include file="$(ProjectDir)Magicodes.Templates\Views\Form.cs.t4" #>
+<#@ include file="$(ProjectDir)Magicodes.Templates\Views\Details.cs.t4" #>
+<#@ include file="$(ProjectDir)Magicodes.Templates\Views\Delete.cs.t4" #>
+<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Controller\Controller.cs.t4" #>

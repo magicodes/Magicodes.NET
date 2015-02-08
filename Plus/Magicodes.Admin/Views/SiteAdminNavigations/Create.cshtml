@@ -1,24 +1,27 @@
-﻿@model SiteAdminNavigation
+﻿@model Magicodes.Admin.Models.SiteAdminNavigation
 
 @{
-    ViewBag.Title = "导航菜单管理";
+    ViewBag.Title = "导航菜单管理 | 新建";
 }
+
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-sm-4">
-        <h2>导航菜单管理</h2>
+        <h2>新建</h2>
         <ol class="breadcrumb">
             <li>
-                @Html.ActionLink("返回列表", "Index")
+                @Html.ActionLink("导航菜单管理", "Index")
             </li>
             <li class="active">
-                <strong>导航菜单管理</strong>
+                <strong>新建</strong>
             </li>
         </ol>
     </div>
     <div class="col-sm-8">
         <div class="title-action">
-			@Html.ActionLink("返回列表", "Index", null, new { @class = "btn btn-primary"})
+            <input type="button" value="保存" class="btn btn-primary" onclick="$('form').submit();" />
+			@Html.ActionLink("取消", "Index", null, new { @class = "btn btn-white"})
+			@Html.ActionLink("返回", "Index", null, new { @class = "btn btn-primary"})
         </div>
     </div>
 </div>
@@ -28,73 +31,144 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>导航菜单管理 /h5>
+                    <h5>导航菜单管理 | 新建 </h5>
                 </div>
                 <div class="ibox-content">
-
 				@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        @Html.ValidationSummary(true)
-@Html.LabelFor(model => model.ParentId, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.ParentId)
-@Html.ValidationMessageFor(model => model.ParentId)
-@Html.LabelFor(model => model.Text, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.Text)
-@Html.ValidationMessageFor(model => model.Text)
-@Html.LabelFor(model => model.Href, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.Href)
-@Html.ValidationMessageFor(model => model.Href)
-@Html.LabelFor(model => model.IconCls, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.IconCls)
-@Html.ValidationMessageFor(model => model.IconCls)
-@Html.LabelFor(model => model.TextCls, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.TextCls)
-@Html.ValidationMessageFor(model => model.TextCls)
-@Html.LabelFor(model => model.IsShowBadge, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.IsShowBadge)
-@Html.ValidationMessageFor(model => model.IsShowBadge)
-@Html.LabelFor(model => model.MenuBadgeType, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.MenuBadgeType)
-@Html.ValidationMessageFor(model => model.MenuBadgeType)
-@Html.LabelFor(model => model.BadgeRequestUrl, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.BadgeRequestUrl)
-@Html.ValidationMessageFor(model => model.BadgeRequestUrl)
-@Html.LabelFor(model => model.PlusId, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.PlusId)
-@Html.ValidationMessageFor(model => model.PlusId)
-@Html.LabelFor(model => model.SortNo, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.SortNo)
-@Html.ValidationMessageFor(model => model.SortNo)
-@Html.LabelFor(model => model.Id, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.Id)
-@Html.ValidationMessageFor(model => model.Id)
-@Html.LabelFor(model => model.CreateTime, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.CreateTime)
-@Html.ValidationMessageFor(model => model.CreateTime)
-@Html.LabelFor(model => model.UpdateTime, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.UpdateTime)
-@Html.ValidationMessageFor(model => model.UpdateTime)
-@Html.LabelFor(model => model.Deleted, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.Deleted)
-@Html.ValidationMessageFor(model => model.Deleted)
-@Html.LabelFor(model => model.CreateBy, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.CreateBy)
-@Html.ValidationMessageFor(model => model.CreateBy)
-@Html.LabelFor(model => model.UpdateBy, new { @class = "control-label col-md-2" })
-@Html.EditorFor(model => model.UpdateBy)
-@Html.ValidationMessageFor(model => model.UpdateBy)
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
-				@Html.ActionLink("取消", "Index", null, new { @class = "btn btn-white"})
-            </div>
-        </div>
-    </div>
-}
-
+                {
+                    @Html.AntiForgeryToken()
+                                        <div class="form-horizontal">
+                        @Html.ValidationSummary(true)
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.ParentId, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.ParentId, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.ParentId)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.Text, new { @class = "control-label col-md-2 label label-warning" })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.Text, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.Text)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.Href, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.Href, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.Href)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.IconCls, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.IconCls, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.IconCls)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.TextCls, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.TextCls, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.TextCls)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.IsShowBadge, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            <div class="checkbox i-checks"><label>@Html.EditorFor(model => model.IsShowBadge, new { @class = "form-control" })<i></i></label></div>
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.IsShowBadge)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.MenuBadgeType, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.MenuBadgeType, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.MenuBadgeType)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.BadgeRequestUrl, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.BadgeRequestUrl, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.BadgeRequestUrl)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.PlusId, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.PlusId, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none">为插件唯一标识，请不要更改。</span>
+                                                                                <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.PlusId)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.SortNo, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.SortNo, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none">排序号，越小越靠前。</span>
+                                                                                <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.SortNo)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.CreateTime, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.CreateTime, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.CreateTime)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.UpdateTime, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.UpdateTime, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.UpdateTime)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.Deleted, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            <div class="checkbox i-checks"><label>@Html.EditorFor(model => model.Deleted, new { @class = "form-control" })<i></i></label></div>
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.Deleted)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.CreateBy, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.CreateBy, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.CreateBy)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.UpdateBy, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.UpdateBy, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.UpdateBy)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="保存" class="btn btn-primary" />
+				                @Html.ActionLink("取消", "Index", null, new { @class = "btn btn-white"})
+                            </div>
+                        </div>
+                    </div>
+                }
                 </div>
             </div>
         </div>
@@ -102,7 +176,17 @@
  </div>
 
  
-
 @section Scripts {
-    
+    @Scripts.Render("~/Scripts/plugins/iCheck/icheck.min.js")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+}
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/custom.css")
 }

@@ -14,6 +14,7 @@ using System.Net;
 using Magicodes.Core.Web.Controllers;
 using Magicodes.Models.Mvc.Models.Account;
 using Magicodes.Services.Mvc.ViewModels;
+using Magicodes.Core.Web.OData;
 
 //======================================================================
 //
@@ -30,7 +31,7 @@ using Magicodes.Services.Mvc.ViewModels;
 namespace Magicodes.Services.Mvc.Controller
 {
     [ODataRoutePrefix("Users")]
-    public class UsersODtataController : ODataControllerBase
+    public class UsersODtataController : ODataAdminControllerbase
     {
         private AppDbContext db = new AppDbContext();
         UserManager<AppUser, string> userManager;

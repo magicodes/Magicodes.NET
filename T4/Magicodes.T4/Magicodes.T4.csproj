@@ -84,6 +84,7 @@
     <Content Include="Templates\MVC\Imports.include.t4" />
     <Content Include="Templates\MVC\Pamas.include.t4" />
     <None Include="packages.config" />
+    <Content Include="Templates\MVC\Controller\ODataController.cs.t4" />
     <None Include="Templates\T4Helper.tt" />
   </ItemGroup>
   <ItemGroup>

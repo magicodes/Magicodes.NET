@@ -1,31 +1,28 @@
-﻿using Magicodes.Web.Interfaces;
+﻿using Magicodes.Core.Web.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.OData;
-using Microsoft.AspNet.Identity;
-using System.Web.Mvc;
-using Magicodes.Core.Web.Security;
-using System.Web;
-using System.Net;
+using System.Web.Http;
+
 //======================================================================
 //
 //        Copyright (C) 2014-2016 Magicodes团队    
 //        All rights reserved
 //
-//        filename :ODataControllerBase
+//        filename :ODataBaseControllerbase
 //        description :
 //
-//        created by 雪雁 at  2014/11/12 22:20:56
+//        created by 雪雁 at  2015/2/6 14:04:20
 //        http://www.magicodes.net
 //
 //======================================================================
-namespace Magicodes.Core.Web.Controllers
+namespace Magicodes.Core.Web.OData
 {
-    public class AdminODataControllerBase : ODataControllerBase
+    [Authorize]
+    public class ODataAdminControllerbase : ODataControllerBase
     {
-        
+       
     }
 }

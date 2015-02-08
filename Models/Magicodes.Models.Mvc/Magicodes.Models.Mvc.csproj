@@ -105,6 +105,10 @@
     <Compile Include="Migrations\201501060829405_alter_Account.Designer.cs">
       <DependentUpon>201501060829405_alter_Account.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502050820575_Alter_Nav.cs" />
+    <Compile Include="Migrations\201502050820575_Alter_Nav.Designer.cs">
+      <DependentUpon>201502050820575_Alter_Nav.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Menu.cs" />
@@ -146,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501060829405_alter_Account.resx">
       <DependentUpon>201501060829405_alter_Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502050820575_Alter_Nav.resx">
+      <DependentUpon>201502050820575_Alter_Nav.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Plus.config" />
   </ItemGroup>

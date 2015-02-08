@@ -10,8 +10,8 @@ namespace Magicodes.Admin
         {
             //~/plus/Plugins/Magicodes.Admin
             var plusPath = "~" + Starter.PlusPath;
-            //var plusPath = "~/" + Starter.PlusName;
-            var plusName = "~/" + Starter.PlusName;
+            //~/Magicodes.Admin/bundles
+            var plusName = "~/" + Starter.PlusName + "/bundles";
             // CSS style (bootstrap/inspinia)
             bundles.Add(new StyleBundle(plusName + "/Content/css").Include(
                       plusPath + "/Content/bootstrap.min.css",
@@ -19,33 +19,33 @@ namespace Magicodes.Admin
                       plusPath + "/Content/style.css"));
 
             // Font Awesome icons
-            bundles.Add(new StyleBundle(plusName + "/font-awesome/css").Include(
-                      plusPath + "/fonts/font-awesome/css/font-awesome.min.css"));
+            //bundles.Add(new StyleBundle(plusName + "/font-awesome/css").Include(
+            //          plusPath + "/fonts/font-awesome/css/font-awesome.min.css"));
 
             // jQuery
-            bundles.Add(new ScriptBundle(plusName + "/bundles/jquery").Include(
+            bundles.Add(new ScriptBundle(plusName + "/jquery").Include(
                         plusPath + "/Scripts/jquery-2.1.1.min.js"));
 
             // jQueryUI CSS
-            bundles.Add(new ScriptBundle(plusName + "/bundles/jqueryuiStyles").Include(
+            bundles.Add(new ScriptBundle(plusName + "/jqueryuiStyles").Include(
                         plusPath + "/Scripts/plugins/jquery-ui/jquery-ui.min.css"));
 
             // jQueryUI 
-            bundles.Add(new StyleBundle(plusName + "/bundles/jqueryui").Include(
+            bundles.Add(new StyleBundle(plusName + "/jqueryui").Include(
                         plusPath + "/Scripts/plugins/jquery-ui/jquery-ui.min.js"));
 
             // Bootstrap
-            bundles.Add(new ScriptBundle(plusName + "/bundles/bootstrap").Include(
+            bundles.Add(new ScriptBundle(plusName + "/bootstrap").Include(
                       plusPath + "/Scripts/bootstrap.min.js"));
 
             // Inspinia script
-            bundles.Add(new ScriptBundle(plusName + "/bundles/inspinia").Include(
+            bundles.Add(new ScriptBundle(plusName + "/inspinia").Include(
                       plusPath + "/Scripts/plugins/metisMenu/metisMenu.min.js",
                       plusPath + "/Scripts/plugins/pace/pace.min.js",
                       plusPath + "/Scripts/app/inspinia.min.js"));
 
             // Inspinia skin config script
-            bundles.Add(new ScriptBundle(plusName + "/bundles/skinConfig").Include(
+            bundles.Add(new ScriptBundle(plusName + "/skinConfig").Include(
                       plusPath + "/Scripts/app/skin.config.min.js"));
 
             // SlimScroll

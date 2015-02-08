@@ -2045,7 +2045,7 @@
     <Content Include="Scripts\knockout\knockout.mapping.min.js.map">
       <DependentUpon>knockout.mapping.min.js</DependentUpon>
     </Content>
-    <Content Include="Upload\Magicodes.NET框架说明文档.pdf" />
+    <Content Include="Scripts\Upload\Magicodes.NET框架说明文档.pdf" />
     <Content Include="Scripts\knockout\knockout.min.js.map">
       <DependentUpon>knockout.min.js</DependentUpon>
     </Content>

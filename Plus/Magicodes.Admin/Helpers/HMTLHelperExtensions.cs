@@ -33,7 +33,7 @@ namespace Magicodes.Admin
         }
         public static string GetImageSrc(this HtmlHelper html, string str)
         {
-            return str.Replace("~/", "/Magicodes.Admin/");
+            return str.Replace("~/", "/" + Starter.PlusName + "/");
         }
 
     }

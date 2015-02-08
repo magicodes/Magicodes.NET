@@ -15,7 +15,7 @@ namespace Magicodes.Admin
         /// <returns></returns>
         public static IHtmlString Render(params string[] paths)
         {
-            var strs = paths.Select(p => p.Replace("~/", "~/Magicodes.Admin/")).ToArray();
+            var strs = paths.Select(p => p.Replace("~/", "~/" + Starter.PlusName + "/")).ToArray();
             return System.Web.Optimization.Scripts.Render(strs);
         }
     }

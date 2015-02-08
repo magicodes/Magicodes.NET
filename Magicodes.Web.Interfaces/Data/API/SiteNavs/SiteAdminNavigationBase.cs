@@ -1,6 +1,7 @@
 ﻿using Magicodes.Web.Interfaces.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -29,12 +30,14 @@ namespace Magicodes.Web.Interfaces.Data.API.SiteNavs
         /// <summary>
         /// 父级Id
         /// </summary>
+        [Display(Name = "父级Id")]
         public Guid? ParentId { get; set; }
         /// <summary>
         /// 显示名称
         /// </summary>
         [MaxLength(100)]
         [Display(Name = "显示文本")]
+        [Required]
         public string Text { get; set; }
         /// <summary>
         /// 菜单链接
@@ -74,11 +77,14 @@ namespace Magicodes.Web.Interfaces.Data.API.SiteNavs
         /// 插件Id
         /// </summary>
         [Display(Name = "插件Id")]
+        [Description("为插件唯一标识，请不要更改。")]
+        [ReadOnly(true)]
         public Guid? PlusId { get; set; }
         /// <summary>
         /// 排序号
         /// </summary>
         [Display(Name = "排序号")]
+        [Description("排序号，越小越靠前。")]
         public int SortNo { get; set; }
     }
 }

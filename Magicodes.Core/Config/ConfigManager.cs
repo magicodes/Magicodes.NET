@@ -72,6 +72,7 @@ namespace Magicodes.Core.Config
             lock (_locker)
             {
                 var path = Path.Combine(GlobalApplicationObject.Current.ApplicationContext.SitePaths.SiteConfigDirPath, typeof(T).Name + ".config");
+                configType.UpdateTime = DateTime.Now;
                 SerializeHelper.Save(configType, path);
                 //Configs.AddOrUpdate(typeof(T), configType, (tKey, existingVal) => { return configType; });
             }

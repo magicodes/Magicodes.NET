@@ -1,6 +1,6 @@
 ﻿<#@ template language="C#" HostSpecific="True" #>
 <#@ output extension=".cshtml" #>
-@model <#= ModelTypeName #>
+@model <#= ModelTypeFullName #>
 <#
 // The following chained if-statement outputs the file header code and markup for a partial view, a view using a layout page, or a regular view.
 if(IsPartialView) {

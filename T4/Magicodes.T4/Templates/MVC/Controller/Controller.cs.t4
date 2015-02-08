@@ -23,7 +23,12 @@ using <#=            namespaceName #>;
 <#    } #>
 <#    if(IsAdminController) {#>
 using Magicodes.Core.Web.Controllers;
+using Magicodes.Core.Web.OData;
 <#    } #>
+//OData
+using System.Web.OData;
+using System.Web.OData.Query;
+using System.Web.OData.Routing;
 //======================================================================
 //
 //        Copyright (C) 2014-2016 Magicodes团队    
@@ -241,4 +246,5 @@ namespace <#=        Namespace #>
             base.Dispose(disposing);
         }
     }
+<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\MVC\Controller\ODataController.cs.t4" #>
 }

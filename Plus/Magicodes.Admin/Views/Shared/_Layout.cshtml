@@ -1,17 +1,31 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INSPINIA | @ViewBag.Title</title>
+    <title>Magicodes.NET | @ViewBag.Title</title>
     <!-- Add local styles, mostly for plugins css file -->
     @if (IsSectionDefined("Styles"))
-        {@RenderSection("Styles", required: false)}
-     
-    <!-- Primary Inspinia style -->     
-    @Styles.Render("~/font-awesome/css")                                                
-    @Styles.Render("~/Content/css")
+    {@RenderSection("Styles", required: false)}
+
+    <!-- Primary Inspinia style -->
+    @Styles.Render("~/fonts/font-awesome/css/font-awesome.min.css")
+    @Styles.Render("~/bundles/Content/css")
+    <style type="text/css">
+        table.table th {
+            white-space: nowrap;
+        }
+
+        .ibox-content {
+            overflow-x: scroll;
+        }
+
+        .ibox-title {
+            padding: 10px 15px 7px;
+            height: 50px;
+        }
+    </style>
 </head>
 <body>
 
@@ -22,9 +36,15 @@
     <!-- PageClass give you ability to specify custom style for specific view based on action -->
     <div id="wrapper" class="@Html.PageClass()">
 
-        <!-- Navigation -->
-        @Html.Partial("_Navigation")
-
+        @if (!IsSectionDefined("Navigation"))
+        {
+            <!-- Navigation -->
+            @Html.Partial("_Navigation")
+        }
+        else
+        {
+            @RenderSection("Navigation", required: false)
+        }
         <!-- Page wraper -->
         <div id="page-wrapper" class="gray-bg @ViewBag.SpecialClass">
 
@@ -42,11 +62,10 @@
 
     </div>
     <!-- End wrapper-->
-
     <!-- Section for main scripts render -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/plugins/slimScroll")
+    @Scripts.Render("~/bundles/plugins/slimScroll")
     @Scripts.Render("~/bundles/inspinia")
 
     <!-- Skin config script - only for demo purpose-->

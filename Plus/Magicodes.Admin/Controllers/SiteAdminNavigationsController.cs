@@ -9,6 +9,11 @@ using System.Web;
 using System.Web.Mvc;
 using Magicodes.Admin.Models;
 using Magicodes.Core.Web.Controllers;
+using Magicodes.Core.Web.OData;
+//OData
+using System.Web.OData;
+using System.Web.OData.Query;
+using System.Web.OData.Routing;
 //======================================================================
 //
 //        Copyright (C) 2014-2016 Magicodes团队    
@@ -17,7 +22,7 @@ using Magicodes.Core.Web.Controllers;
 //        filename :ConfigController
 //        description :本控制器代码为自动生成，如需更改，请先删除父级T4模板
 //
-//        created by 雪雁 at  2015/02/03 11:34:15
+//        created by 雪雁 at  2015/02/06 17:20:01
 //        http://www.magicodes.net
 //
 //======================================================================
@@ -121,6 +126,34 @@ namespace Magicodes.Admin.Controllers
             if (disposing)
             {
                 db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+
+
+    [ODataRoutePrefix("SiteAdminNavigations")]
+    public class SiteAdminNavigationsODtataController :  ODataAdminControllerbase
+    {
+        private AdminContext db = new AdminContext();
+
+        // GET odata/SiteAdminNavigations
+        [ODataRoute]
+        [EnableQuery(PageSize = 1000, AllowedQueryOptions = AllowedQueryOptions.All)]
+        public IQueryable<Magicodes.Admin.Models.SiteAdminNavigation> Get()
+        {
+            return db.SiteAdminNavigations.AsQueryable();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (db != null)
+                {
+                    db.Dispose();
+                    db = null;
+                }
             }
             base.Dispose(disposing);
         }

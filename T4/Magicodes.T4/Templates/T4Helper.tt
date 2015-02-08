@@ -1,5 +1,6 @@
 ﻿<#@ template language="C#" hostspecific="True" #>
 <#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Core" #>
 <#@ assembly name="EnvDTE" #>
 <#@ assembly name="Microsoft.VisualStudio.OLE.Interop" #>
 <#@ assembly name="Microsoft.VisualStudio.Shell" #>
@@ -10,8 +11,10 @@
 <#@ import namespace="System.Diagnostics" #>
 <#@ import namespace="System.IO" #>
 <#@ import namespace="System.Text" #>
+<#@ import namespace="System.Linq" #>
 <#@ import namespace="EnvDTE" #>
 <#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Reflection" #>
 <#@ import namespace="Microsoft.VisualStudio.Shell" #>
 <#@ import namespace="Microsoft.VisualStudio.Shell.Interop" #>
 <#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>

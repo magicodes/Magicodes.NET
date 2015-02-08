@@ -12,6 +12,9 @@ using System.Web.Mvc;
 using System.Web.OData.Builder;
 using System.Web.Routing;
 using System.Web.OData.Extensions;
+using Magicodes.Web.Interfaces;
+using System.Web;
+using System.Text.RegularExpressions;
 
 //======================================================================
 //
@@ -129,7 +132,6 @@ namespace Magicodes.Core.Web
                         break;
                     case MvcPlusTypes.MVC:
                         {
-                            //var pluginNameSuffix = mvcPlus.PlusName.StartsWith("magicodes.", StringComparison.CurrentCultureIgnoreCase) ? mvcPlus.PlusName.Substring(10) : mvcPlus.PlusName;
                             RouteTable.Routes.MapRoute(name: "MCV_" + mvcPlus.PlusName, url: "_{pluginName}/{controller}/{action}/{id}", defaults: new { action = "Index", id = UrlParameter.Optional, pluginName = mvcPlus.PlusName });
                         }
                         break;
@@ -138,6 +140,49 @@ namespace Magicodes.Core.Web
                 }
 
             }
+            //注册请求事件，处理插件资源加载问题
+            GlobalApplicationObject.Current.EventsManager.BeginRequest += (requestSender,arg) =>
+            {
+                //应用程序对象
+                var application = (HttpApplication)requestSender;
+                //HTTP上下文对象
+                var context = application.Context;
+                #region 如果非站内请求，随它去吧
+                if (!context.Request.IsLocal)
+                    return; 
+                #endregion
+                #region 如果非插件类请求，随它去吧
+                if (!context.Request.Url.AbsolutePath.StartsWith("/Magicodes.", StringComparison.CurrentCultureIgnoreCase))
+                    return; 
+                #endregion
+                foreach (var plusItem in MvcConfigManager.MVCPlusList)
+                {
+                    //插件名称
+                    var plusName = plusItem.PlusName;
+                    //插件路径
+                    var plusPath = "/plus/Plugins/" + plusName;
+                    //匹配当前插件路径
+                    if (context.Request.Url.AbsolutePath.StartsWith("/" + plusName + "/", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        //非bundles路径，则跳转到相应插件目录加载资源
+                        if (!context.Request.Url.AbsolutePath.StartsWith("/" + plusName + "/bundles", StringComparison.CurrentCultureIgnoreCase))
+                        {
+                            var url = Regex.Replace(context.Request.Url.AbsolutePath, "/" + plusName + "/", plusPath + "/", RegexOptions.IgnoreCase);
+                            context.Response.Redirect(url);
+                        }
+                        else
+                        {
+                            //如果Accept不为*/*或者text/css（脚本和样式）,则去掉bundles进行跳转
+                            if (!context.Request.AcceptTypes.Any(t => t.Equals("text/css", StringComparison.OrdinalIgnoreCase) || t.Equals("*/*", StringComparison.OrdinalIgnoreCase)))
+                            {
+                                var url = Regex.Replace(context.Request.Url.AbsolutePath, "/" + plusName + "/bundles/", plusPath + "/", RegexOptions.IgnoreCase);
+                                context.Response.Redirect(url);
+                            }
+                        }
+                        return;
+                    }
+                }
+            };
         }
         static void GlobalConfigurationManager_OnConfiguration_Config_WEBAPI(object sender, EventArgs e)
         {
