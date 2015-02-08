@@ -8,4 +8,7 @@ Magicodes —— 意为“Magic Codes”。代码就如同魔术，每一个代�
 <br />
 <h2>如果碰到问题，请阅读此链接：<a href="https://github.com/magicodes/Magicodes.NET/issues?q=is%3Aissue+label%3AFAQ">FAQ</a></h2>
 <h2 style="color:blue">所有有关Magicodes.NET的问题，请在此 https://github.com/magicodes/Magicodes.NET/issues?q=is%3Aissue 页面根据类型提交相应Issues，群内不再作解答。QQ群仅限技术交流，谢谢合作。</h2>
+<h2>如果碰到问题，请阅读此链接：<a href="https://github.com/magicodes/Magicodes.NET/issues?q=is%3Aissue+label%3AFAQ" target="_blank">FAQ</a></h2>
+<h2 style="color:blue">框架RodeMap（需要注册）：<a href="https://worktile.com/project/4a961c1c28cf4b07bdb4a07f661c7fcf/task" target="_blank">点此查看【需要注册】</a>（如果无法打开，请复制下面链接https://worktile.com/project/4a961c1c28cf4b07bdb4a07f661c7fcf/task）</h2>
+
 
