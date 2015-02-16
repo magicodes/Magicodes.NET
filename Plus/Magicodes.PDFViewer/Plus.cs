@@ -23,15 +23,6 @@ namespace Magicodes.PDFViewer
     {
         public void Initialize()
         {
-            var protocols = GlobalApplicationObject.Current.ApplicationContext.DocumentsOpenProtocolManager.DocumentOpenProtocols;
-            if (!protocols.Any(p => p.ContentType.Equals("application/pdf", StringComparison.CurrentCultureIgnoreCase)))
-            {
-                protocols.Add(new DocumentOpenProtocol()
-                {
-                    ContentType = "application/pdf",
-                    ViewerUrl = "/plus/Plugins/Magicodes.PDFViewer/Views/PDFViewer/Index.cshtml"
-                });
-            }
         }
 
         public void Install()

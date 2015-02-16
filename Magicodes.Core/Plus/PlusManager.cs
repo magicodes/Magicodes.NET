@@ -134,10 +134,10 @@ namespace Magicodes.Core.Plus
                 case Magicodes.Web.Interfaces.Plus.Info.AssemblyTypes.Models:
                     break;
                 case Magicodes.Web.Interfaces.Plus.Info.AssemblyTypes.MVC:
-                case Magicodes.Web.Interfaces.Plus.Info.AssemblyTypes.MVCHome:
                     {
                         //配置插件路由
-                        MvcConfigManager.Config(assembly, plusInfo.PlusConfigInfo.AssemblyType);
+                        MvcConfigManager.Config(assembly, plusInfo.PlusConfigInfo);
+                        break;
                     }
                     break;
                 default:

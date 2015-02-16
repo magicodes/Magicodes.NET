@@ -64,7 +64,9 @@
     <Compile Include="Data\API\SiteNavs\SiteAdminNavigationRepositoryBase.cs" />
     <Compile Include="Data\IUnitOfWorkManager.cs" />
     <Compile Include="Data\PagedList.cs" />
+    <Compile Include="Plus\Info\MvcPlusTypes.cs" />
     <Compile Include="Plus\Info\PlusMenu.cs" />
+    <Compile Include="Plus\Mvc\IMVCPlusInfo.cs" />
     <Compile Include="Strategy\User\LoginStatus.cs" />
     <Compile Include="ApplicationContextBase.cs" />
     <Compile Include="ApplicationModes.cs" />
@@ -78,8 +80,8 @@
     <Compile Include="Data\IDataRepository.cs" />
     <Compile Include="Data\IPagedList.cs" />
     <Compile Include="Data\IUnitOfWork.cs" />
-    <Compile Include="DocumentProtocols\DocumentsOpenProtocolManager.cs" />
-    <Compile Include="DocumentProtocols\DocumentOpenProtocol.cs" />
+    <Compile Include="DocumentProtocols\IDocumentsOpenProtocolManager.cs" />
+    <Compile Include="DocumentProtocols\IDocumentOpenProtocol.cs" />
     <Compile Include="Events\ApplicationArgs.cs" />
     <Compile Include="Events\ApplicationEvents.cs" />
     <Compile Include="Events\EventsManager.cs" />

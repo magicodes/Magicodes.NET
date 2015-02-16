@@ -1,0 +1,67 @@
+﻿
+<#//------------------------------------------------控制器生成------------------------------------------------------------ #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Magicodes.Core.Web.Controllers;
+using System.Threading.Tasks;
+//======================================================================
+//
+//        Copyright (C) 2014-2016 Magicodes.NET团队    
+//        All rights reserved
+//
+//        filename :ConfigController
+//        description :配置视图 控制器
+//
+//        created by 雪雁 at  <#=        DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") #>
+//        http://www.magicodes.net
+//
+//======================================================================
+namespace Magicodes.Admin.Controllers
+{
+    /// <summary>
+    /// 配置页面控制器
+    /// </summary>
+    public class ConfigController : AdminControllerBase
+    {
+<# 
+    foreach(var config in types)
+    {
+        //是否忽略生成此类
+        var T4GenerationIgnoreAttribute=config.GetAttribute<Magicodes.Web.Interfaces.T4.T4GenerationIgnoreAttribute>(false);
+        if(T4GenerationIgnoreAttribute!=null) continue;
+        var descriptionAttr=config.GetAttribute<System.ComponentModel.DescriptionAttribute>(false);
+        var title=descriptionAttr == null ? "" : descriptionAttr.Description;
+        var name=config.Name;
+        var typeFullName=config.FullName;
+        
+#>
+        /// <summary>
+        /// <#=            title #>
+        /// </summary>
+        /// <returns><#=            title #>配置视图</returns>
+        [HttpGet]
+        public ActionResult <#=            name #>()
+        {
+            var model = ApplicationContext.ConfigManager.GetConfig<<#=            typeFullName #>>();
+            return View(model);
+        }
+        /// <summary>
+        /// 保存<#=            title #>
+        /// </summary>
+        /// <returns><#=            title #></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> <#=            name #>(<#=            typeFullName #> model)
+        {
+            ApplicationContext.ConfigManager.SaveConfig<<#=            typeFullName #>>(model);
+            return View(model);
+        }
+
+<#
+    }
+#>
+    }
+}

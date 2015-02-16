@@ -112,6 +112,8 @@
     <Compile Include="Data\DataRepositoryBase.cs" />
     <Compile Include="Data\UnitOfWorkBase.cs" />
     <Compile Include="Data\DbSessionBase.cs" />
+    <Compile Include="DocumentProtocols\DocumentOpenProtocol.cs" />
+    <Compile Include="DocumentProtocols\DocumentsOpenProtocolManager.cs" />
     <Compile Include="Performance\Watch\CodeWatch.cs" />
     <Compile Include="Plus\AssemblyManager.cs" />
     <Compile Include="Plus\PlusAssemblys.cs" />

@@ -21,7 +21,7 @@ namespace Magicodes.Web.Interfaces.DocumentProtocols
     /// <summary>
     /// 文档打开协议
     /// </summary>
-    public class DocumentOpenProtocol
+    public class IDocumentOpenProtocol
     {
         /// <summary>
         /// contentType:内容类型（MIME 类型）。

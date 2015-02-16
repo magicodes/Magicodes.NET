@@ -182,23 +182,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\IndexController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ODataGridControllers.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ODataGridControllers.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Admin\Controllers\PublishVersionController.cs" />
-    <Compile Include="Areas\Admin\Controllers\SiteLeaveMessageController.cs" />
-    <Compile Include="Areas\Admin\Models\AdminViewModel.cs" />
     <Compile Include="BundleConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ConfigController.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ConfigController.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\DownLoadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -206,11 +191,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\Config\ConfigInfosTemplate.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -219,41 +199,6 @@
     <Content Include="Plus.config" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Areas\Admin\Views\Config\AdminSiteConfigInfo.cshtml">
-      <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
-    </Content>
-    <Content Include="Areas\Admin\Views\Config\MailConfigInfo.cshtml">
-      <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
-    </Content>
-    <Content Include="Areas\Admin\Views\Config\SiteConfigInfo.cshtml">
-      <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
-    </Content>
-    <Content Include="Areas\Admin\Views\Config\SystemConfigInfo.cshtml">
-      <DependentUpon>ConfigInfosTemplate.tt</DependentUpon>
-    </Content>
-    <Content Include="Areas\Admin\Controllers\ODataGridControllers.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ODataGridControllers.cs</LastGenOutput>
-      <LastOutputs>.\ODataGridControllers.cs</LastOutputs>
-    </Content>
-    <Content Include="Areas\Admin\Views\ODataGrid\Roles.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Roles.cshtml</LastGenOutput>
-    </Content>
-    <Content Include="Areas\Admin\Views\ODataGrid\Roles.cshtml">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Roles.tt</DependentUpon>
-    </Content>
-    <Content Include="Areas\Admin\Views\ODataGrid\Users.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Users.cshtml</LastGenOutput>
-    </Content>
-    <Content Include="Areas\Admin\Views\ODataGrid\Users.cshtml">
-      <DependentUpon>Users.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -331,39 +276,13 @@
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Config\ConfigInfosTemplate.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ConfigInfosTemplate.txt</LastGenOutput>
-    </Content>
-    <Content Include="Areas\Admin\Controllers\ConfigController.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ConfigController.cs</LastGenOutput>
-    </Content>
     <Content Include="Views\Shared\_SignalRPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Index\Index.cshtml">
-      <SubType>
-      </SubType>
-    </Content>
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_SignalRPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
-    <Content Include="Areas\Admin\Views\Index\Dashboard.cshtml" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\VersionHistory.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\DownLoad\Download.cshtml" />
-    <Content Include="Areas\Admin\Views\UsersAdmin\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\UsersAdmin\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\UsersAdmin\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\UsersAdmin\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\UsersAdmin\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\SiteLeaveMessage\Index.cshtml" />
     <Content Include="Views\Home\License.cshtml" />
-    <Content Include="Areas\Admin\Views\PublishVersion\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.mobile.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

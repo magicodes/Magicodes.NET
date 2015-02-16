@@ -235,12 +235,7 @@
     <Content Include="Magicodes.Templates\Views\Form.cs.t4" />
     <Content Include="Controllers\ConfigController.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ConfigController.cshtml</LastGenOutput>
-    </Content>
-    <Content Include="Controllers\ConfigController.cshtml">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ConfigController.tt</DependentUpon>
+      <LastGenOutput>ConfigController.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -337,6 +332,11 @@
     <Content Include="Scripts\plugins\knockout\moment\zh-cn.min.js.map">
       <DependentUpon>zh-cn.min.js</DependentUpon>
     </Content>
+    <Content Include="Views\Config\AdminSiteConfigInfo.cshtml" />
+    <Content Include="Views\Config\MailConfigInfo.cshtml" />
+    <Content Include="Views\Config\SiteConfigInfo.cshtml" />
+    <Content Include="Views\Config\SystemConfigInfo.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -881,6 +881,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ConfigController.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigController.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\SiteAdminNavigationsController.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

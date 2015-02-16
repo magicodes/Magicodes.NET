@@ -29,11 +29,6 @@ namespace Magicodes.Web.Interfaces
         /// </summary>
         readonly Lazy<SitePaths> sitePaths = new Lazy<SitePaths>(() => new SitePaths());
 
-        /// <summary>
-        /// 文档打开协议管理器
-        /// </summary>
-        readonly Lazy<DocumentsOpenProtocolManager> documentsOpenProtocolManager = new Lazy<DocumentsOpenProtocolManager>(() => new DocumentsOpenProtocolManager());
-
         #region 属性
         /// <summary>
         /// 网站路径
@@ -42,7 +37,7 @@ namespace Magicodes.Web.Interfaces
         /// <summary>
         /// 文档打开协议管理器
         /// </summary>
-        public DocumentsOpenProtocolManager DocumentsOpenProtocolManager { get { return documentsOpenProtocolManager.Value; } }
+        public IDocumentsOpenProtocolManager DocumentsOpenProtocolManager { get;set; }
         /// <summary>
         /// 应用程序日志对象
         /// </summary>

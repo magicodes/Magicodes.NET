@@ -1,188 +1,11 @@
 ﻿<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\T4Helper.tt" #>
 <#@ import namespace="Magicodes.Web.Interfaces.Config" #>
 <#@ import namespace="Magicodes.Web.Interfaces.Config.Info" #>
-<#@ template language="C#" HostSpecific="True" #>
-<#@ output extension=".cshtml" #>
-<#//------------------------------------------------视图生成------------------------------------------------------------ #>
-@model <#=        ModelTypeFullName #>
+<#@ output extension=".cs" encoding="utf-8" #>
 <#
-    if(IsPartialView) {
-#>
-
-<#
-    } else if(UseLayoutPage) {
-#>
-
-@{
-    ViewBag.Title = "<#=            Title+" | "+ FormTitle #>";
-<#
-        if (!String.IsNullOrEmpty(LayoutPageFile)) {
-#>
-    Layout = "<#=                LayoutPageFile#>";
-<#
-        }
-#>
-}
-
-
-<div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-sm-4">
-        <h2><#=  FormTitle #></h2>
-        <ol class="breadcrumb">
-            <li>
-                @Html.ActionLink("<#=            Title#>", "Index")
-            </li>
-            <li class="active">
-                <strong><#=            FormTitle#></strong>
-            </li>
-        </ol>
-    </div>
-    <div class="col-sm-8">
-        <div class="title-action">
-            <input type="button" value="保存" class="btn btn-primary" onclick="$('form').submit();" />
-			@Html.ActionLink("取消", "Index", null, new { @class = "btn btn-white"})
-			@Html.ActionLink("返回", "Index", null, new { @class = "btn btn-primary"})
-        </div>
-    </div>
-</div>
-
-<#
-    } else {
-#>
-
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title><#=            Title+" | "+ FormTitle #></title>
-</head>
-<body>
-<#
-        PushIndent("    ");
-    }
-#>
-<div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5><#=        Title+" | "+ FormTitle #> </h5>
-                </div>
-                <div class="ibox-content">
-				@using (Html.BeginForm()) 
-                {
-                    @Html.AntiForgeryToken()
-                    <#    if(FormType=="Edit") {#>
-                    @Html.HiddenFor(model => model.<#=            PrimaryKeyName #>)
-                    <#    } #>
-                    <div class="form-horizontal">
-                        @Html.ValidationSummary(true)
-                        <#
-                            foreach (var property in Propertys) {     
-                                if(property.Ignore && property.Name==PrimaryKeyName)
-                                    continue;
-                        #>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.<#=            property.Name #>, new { @class = "control-label col-md-2 <#=property.Required?"label label-warning":"" #>" })
-                                    <div class="col-sm-10">
-                                        <#        if(property.DataType==T4DataType.Bit){ #>
-                                                    <div class="checkbox i-checks"><label>@Html.EditorFor(model => model.<#=                property.Name #>, new { @class = "form-control" })<i></i></label></div>
-                                        <#        }else{ #>
-                                                    @Html.EditorFor(model => model.<#=                property.Name #>, new { @class = "form-control" })
-                                        <#        } #>
-                                        <#        if(property.Description!=null){ #>
-                                        <span class="help-block m-b-none"><#=                property.Description#></span>
-                                        <#        } #>
-                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.<#=            property.Name #>)</span>
-                                    </div>
-                                </div>
-                                <div class="hr-line-dashed"></div>
-                        <#
-                            }
-                         #>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="保存" class="btn btn-primary" />
-				                @Html.ActionLink("取消", "Index", null, new { @class = "btn btn-white"})
-                            </div>
-                        </div>
-                    </div>
-                }
-                </div>
-            </div>
-        </div>
-    </div>
- </div>
-
- 
-<#
-    if(UseLayoutPage) {
-#>
-@section Scripts {
-    @Scripts.Render("~/Scripts/plugins/iCheck/icheck.min.js")
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.i-checks').iCheck({
-                checkboxClass: 'icheckbox_square-green',
-                radioClass: 'iradio_square-green',
-            });
-        });
-    </script>
-}
-@section Styles {
-    @Styles.Render("~/Content/plugins/iCheck/custom.css")
-}
-<#
-    }
-#>
-<#
-    if(!IsPartialView && !UseLayoutPage) {
-        ClearIndent();
-#>
-</body>
-</html>
-<#
-    }
-#>
-<#
-    path=System.IO.Path.Combine(viewDirPath,FormType+".cshtml");
-    SaveOutput(path); 
- #>
-<#//------------------------------------------------控制器生成------------------------------------------------------------ #>
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Magicodes.Core.Web.Controllers;
-using System.Threading.Tasks;
-//======================================================================
-//
-//        Copyright (C) 2014-2016 Magicodes.NET团队    
-//        All rights reserved
-//
-//        filename :ConfigController
-//        description :配置视图 控制器
-//
-//        created by 雪雁 at  <#=        DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") #>
-//        http://www.magicodes.net
-//
-//======================================================================
-namespace Magicodes.Admin.Controllers
-{
-    /// <summary>
-    /// 配置页面控制器
-    /// </summary>
-    public class ConfigController : AdminControllerBase
-    {
-<# 
     var assembly=typeof(SiteConfigInfo).Assembly;
     var types=assembly.GetTypes().Where(p => p.IsClass && p.IsSubclassOf(typeof(ConfigBase)));
+    var viewDirPath=  Magicodes.T4.Templates.MVC.T4MvcHelper.CreateMvcViewsDirectoryIfNotExist(Host.TemplateFile,"Config");
     foreach(var config in types)
     {
         //是否忽略生成此类
@@ -190,32 +13,13 @@ namespace Magicodes.Admin.Controllers
         if(T4GenerationIgnoreAttribute!=null) continue;
         var descriptionAttr=config.GetAttribute<System.ComponentModel.DescriptionAttribute>(false);
         var title=descriptionAttr == null ? "" : descriptionAttr.Description;
-        var name=config.Name;
+        var typeName=config.Name;
         var typeFullName=config.FullName;
-    
-#>
-        /// <summary>
-        /// <#=            title #>
-        /// </summary>
-        /// <returns><#=            title #>配置视图</returns>
-        [HttpGet]
-        public ActionResult <#=            name #>()
-        {
-            return View();
-        }
-        /// <summary>
-        /// 保存<#=            title #>
-        /// </summary>
-        /// <returns><#=            title #></returns>
-        [HttpPost]
-        public async Task<ActionResult> <#=            name #>(<#=            typeFullName #> model)
-        {
-            ApplicationContext.ConfigManager.SaveConfig<<#=            typeFullName #>>(model);
-            return View(model);
-        }
-
+        var Propertys=config.GetT4PropertyInfos();
+        #>
+        <#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\Config\Views.tt" #>
 <#
     }
-#>
-    }
-}
+ #>
+<#@ include file="$(SolutionDir)\T4\Magicodes.T4\Templates\Config\Controller.tt" #>
+

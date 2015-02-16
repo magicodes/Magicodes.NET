@@ -157,13 +157,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\CMSAdmin\CMSAdminAreaRegistration.cs" />
-    <Compile Include="Areas\CMSAdmin\Controllers\AdminController.cs" />
-    <Compile Include="Areas\CMSAdmin\Controllers\ODataGridControllers.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ODataGridControllers.tt</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201412310550098_CreateDb.cs" />
     <Compile Include="Migrations\201412310550098_CreateDb.Designer.cs">
       <DependentUpon>201412310550098_CreateDb.cs</DependentUpon>
@@ -204,31 +197,6 @@
     <Compile Include="ViewModels\CMS_ContentInfoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\CMSAdmin\Views\web.config" />
-    <Content Include="Areas\CMSAdmin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\CMSAdmin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\CMSAdmin\Views\Admin\Index.cshtml" />
-    <Content Include="Areas\CMSAdmin\Views\Admin\Dashboard.cshtml" />
-    <Content Include="Areas\CMSAdmin\Views\Shared\Error.cshtml" />
-    <Content Include="Areas\CMSAdmin\Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Areas\CMSAdmin\Views\Shared\_SignalRPartial.cshtml" />
-    <Content Include="Areas\CMSAdmin\Views\Admin\Channel.cshtml" />
-    <Content Include="Areas\CMSAdmin\Views\Admin\ClassType.cshtml" />
-    <Content Include="Areas\CMSAdmin\Views\Admin\Content.cshtml" />
-    <Content Include="Areas\CMSAdmin\Controllers\ODataGridControllers.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ODataGridControllers.cs</LastGenOutput>
-      <LastOutputs>.\ODataGridControllers.cs</LastOutputs>
-    </Content>
-    <Content Include="Areas\CMSAdmin\Views\ODataGrid\CMSContent.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CMSContent.cshtml</LastGenOutput>
-    </Content>
-    <Content Include="Areas\CMSAdmin\Views\ODataGrid\CMSContent.cshtml">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CMSContent.tt</DependentUpon>
-    </Content>
     <Content Include="CodeTemplates\ApiControllerEmpty\Controller.cs.t4" />
     <Content Include="CodeTemplates\ApiControllerWithActions\Controller.cs.t4" />
     <Content Include="CodeTemplates\ApiControllerWithContext\Controller.cs.t4" />
@@ -279,7 +247,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
-    <Folder Include="Areas\CMSAdmin\Models\" />
     <Folder Include="Controllers\" />
     <Folder Include="Views\CMSClassTypeOData\" />
     <Folder Include="Views\CMS_ChannelOData\" />

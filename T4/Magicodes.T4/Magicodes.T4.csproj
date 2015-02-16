@@ -78,6 +78,9 @@
       <LastGenOutput>Form.txt</LastGenOutput>
     </None>
     <None Include="ODataGrid\Header.tt" />
+    <Content Include="Templates\Config\Controller.tt">
+      <LastGenOutput>Controller.cs</LastGenOutput>
+    </Content>
     <Content Include="Templates\Manager.ttinclude" />
     <Content Include="Templates\DbHelper.ttinclude" />
     <Content Include="Templates\MVC\Controller\Controller.cs.t4" />
@@ -85,6 +88,9 @@
     <Content Include="Templates\MVC\Pamas.include.t4" />
     <None Include="packages.config" />
     <Content Include="Templates\MVC\Controller\ODataController.cs.t4" />
+    <Content Include="Templates\Config\Views.tt">
+      <LastGenOutput>ConfigController.cshtml</LastGenOutput>
+    </Content>
     <None Include="Templates\T4Helper.tt" />
   </ItemGroup>
   <ItemGroup>

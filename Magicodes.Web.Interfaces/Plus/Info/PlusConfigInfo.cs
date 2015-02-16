@@ -1,4 +1,5 @@
 ﻿using Magicodes.Web.Interfaces.Config;
+using Magicodes.Web.Interfaces.DocumentProtocols;
 using Magicodes.Web.Interfaces.T4;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,18 @@ namespace Magicodes.Web.Interfaces.Plus.Info
     public class PlusConfigInfo : ConfigBase
     {
         public AssemblyTypes AssemblyType { get; set; }
+        /// <summary>
+        /// MVC插件类型
+        /// </summary>
+        public MvcPlusTypes MvcPlusType { get; set; }
         [XmlArray("PlusAdminMenus")]
         [XmlArrayItem("Menu")]
-        public PlusMenu[] PlusMenus { get; set; } 
+        public PlusMenu[] PlusMenus { get; set; }
+        /// <summary>
+        /// 文档协议
+        /// </summary>
+        [XmlArray("DocumentOpenProtocols")]
+        [XmlArrayItem("DocumentOpenProtocol")]
+        public IDocumentOpenProtocol[] DocumentOpenProtocols { get; set; }
     }
 }

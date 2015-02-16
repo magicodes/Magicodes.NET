@@ -29,6 +29,7 @@ using Magicodes.Core.Web.Mvc;
 using Magicodes.Core.Web;
 using Magicodes.Web.Interfaces.Data.API.SiteNavs;
 using Magicodes.Web.Interfaces.Data.API;
+using Magicodes.Core.DocumentProtocols;
 
 namespace Magicodes.Core
 {
@@ -260,6 +261,8 @@ namespace Magicodes.Core
             PlusManager.LoadPlusStrategys(this.GetType().Assembly);
             //初始化嵌入资源管理器
             ManifestResourceManager = new ManifestResourceManager();
+            //初始化文档协议管理器
+            DocumentsOpenProtocolManager = new DocumentsOpenProtocolManager();
             //初始化配置管理器
             ConfigManager = new ConfigManager();
             //加载程序集

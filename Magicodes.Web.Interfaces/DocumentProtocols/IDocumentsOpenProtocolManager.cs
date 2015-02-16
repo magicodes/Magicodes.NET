@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Magicodes.Web.Interfaces.Plus.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,21 +22,16 @@ namespace Magicodes.Web.Interfaces.DocumentProtocols
     /// <summary>
     /// 文档打开协议管理器
     /// </summary>
-    public class DocumentsOpenProtocolManager
+    public interface IDocumentsOpenProtocolManager
     {
         /// <summary>
         /// 协议列表
         /// </summary>
-        Lazy<List<DocumentOpenProtocol>> documentOpenProtocols = new Lazy<List<DocumentOpenProtocol>>(() => new List<DocumentOpenProtocol>());
+        List<IDocumentOpenProtocol> DocumentOpenProtocols { get; set; }
         /// <summary>
-        /// 协议列表
+        /// 注册插件文件协议
         /// </summary>
-        public List<DocumentOpenProtocol> DocumentOpenProtocols
-        {
-            get
-            {
-                return documentOpenProtocols.Value;
-            }
-        }
+        /// <param name="mvcPlus"></param>
+        void RegisterDocumentsOpenProtocols(IMVCPlusInfo mvcPlus);
     }
 }

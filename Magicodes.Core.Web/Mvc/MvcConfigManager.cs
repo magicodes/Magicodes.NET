@@ -1,4 +1,5 @@
 ﻿using Magicodes.Web.Interfaces.Plus.Info;
+using Magicodes.Web.Interfaces.Plus.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,40 +24,35 @@ using System.Web.Routing;
 //======================================================================
 namespace Magicodes.Core.Web.Mvc
 {
-    /// <summary>
-    /// MVC插件类型
-    /// </summary>
-    public enum MvcPlusTypes
-    {
-        MVCHome = 1,
-        MVC = 2
-    }
-    public class MVCPlusInfo
+    public class MVCPlusInfo : IMVCPlusInfo
     {
         public string PlusName { get; set; }
+        public string PlusFullName { get; set; }
         public MvcPlusTypes MvcPlusType { get; set; }
+        public PlusConfigInfo PlusConfigInfo { get; set; }
     }
     public class MvcConfigManager
     {
         static MvcConfigManager()
         {
-            MVCPlusList = new List<MVCPlusInfo>();
         }
         /// <summary>
         /// Mvc插件列表
         /// </summary>
-        public static List<MVCPlusInfo> MVCPlusList { get; set; }
+        public static List<MVCPlusInfo> MVCPlusList = new List<MVCPlusInfo>();
         /// <summary>
         /// 配置MVC插件程序集路由
         /// </summary>
         /// <param name="mvcPlus"></param>
-        public static void Config(Assembly mvcPlus, AssemblyTypes assType)
+        public static void Config(Assembly mvcPlus, PlusConfigInfo plusInfo)
         {
             MVCPlusList.Add(
                 new MVCPlusInfo()
                 {
                     PlusName = mvcPlus.GetName().Name,
-                    MvcPlusType = assType == AssemblyTypes.MVCHome ? MvcPlusTypes.MVCHome : MvcPlusTypes.MVC
+                    PlusFullName = mvcPlus.FullName,
+                    PlusConfigInfo = plusInfo,
+                    MvcPlusType = plusInfo.MvcPlusType == null ? MvcPlusTypes.MVC : plusInfo.MvcPlusType
                 });
         }
 

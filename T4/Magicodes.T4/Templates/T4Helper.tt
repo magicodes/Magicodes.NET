@@ -140,6 +140,8 @@
                 templateProjectItem=  __getTemplateProjectItem();
             else
                 templateProjectItem = FindFolderInProject(__getTemplateProject().ProjectItems,Path.GetDirectoryName(outputFilePath));
+            if(templateProjectItem==null)
+                templateProjectItem = FindFolderInProject(__getTemplateProject().ProjectItems,new DirectoryInfo(Path.GetDirectoryName(outputFilePath)).Parent.FullName);
             templateProjectItem.ProjectItems.AddFromFile(outputFilePath);
 
             __savedOutputs.Add(outputFileName);

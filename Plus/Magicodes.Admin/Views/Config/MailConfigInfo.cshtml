@@ -1,0 +1,136 @@
+﻿
+        @model Magicodes.Web.Interfaces.Config.Info.MailConfigInfo
+
+
+@{
+    ViewBag.Title = "邮箱信息配置";
+}
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>邮箱信息配置</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("配置管理", "Index")
+            </li>
+            <li class="active">
+                <strong>邮箱信息配置</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+            <input type="button" value="保存" class="btn btn-primary" onclick="$('form').submit();" />
+			@Html.ActionLink("取消", "Index", null, new { @class = "btn btn-white"})
+			@Html.ActionLink("返回", "Index", null, new { @class = "btn btn-primary"})
+        </div>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>邮箱信息配置 </h5>
+                </div>
+                <div class="ibox-content">
+				@using (Html.BeginForm()) 
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true)
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.SmtpServer, new { @class = "control-label col-md-2 label label-warning" })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.SmtpServer, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.SmtpServer)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.SmtpPort, new { @class = "control-label col-md-2 label label-warning" })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.SmtpPort, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.SmtpPort)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.EnableSsl, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            <div class="checkbox i-checks"><label>@Html.EditorFor(model => model.EnableSsl, new { @class = "form-control" })<i></i></label></div>
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.EnableSsl)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.MailFrom, new { @class = "control-label col-md-2 label label-warning" })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.MailFrom, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.MailFrom)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.FromNickName, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.FromNickName, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.FromNickName)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.UserName, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.UserName)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.Password, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.Password)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                        <div class="form-group">
+                                    @Html.LabelFor(model => model.Domain, new { @class = "control-label col-md-2 " })
+                                    <div class="col-sm-10">
+                                                                                            @Html.EditorFor(model => model.Domain, new { @class = "form-control" })
+                                                                                                                        <span class="help-block m-b-none text-danger">@Html.ValidationMessageFor(model => model.Domain)</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                                <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="保存" class="btn btn-primary" />
+				                @Html.ActionLink("取消", "Index", null, new { @class = "btn btn-white"})
+                            </div>
+                        </div>
+                    </div>
+                }
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/plugins/iCheck/icheck.min.js")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+}
+@section Styles {
+    @Styles.Render("~/Content/plugins/iCheck/custom.css")
+}
+

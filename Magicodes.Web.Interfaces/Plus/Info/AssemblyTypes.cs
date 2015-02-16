@@ -34,10 +34,6 @@ namespace Magicodes.Web.Interfaces.Plus.Info
         /// <summary>
         /// MVC：MVC程序集
         /// </summary>
-        MVC = 6,
-        /// <summary>
-        /// MVC门户程序集
-        /// </summary>
-        MVCHome = 7
+        MVC = 6
     }
 }

@@ -15,6 +15,8 @@ using System.Web.OData.Extensions;
 using Magicodes.Web.Interfaces;
 using System.Web;
 using System.Text.RegularExpressions;
+using Magicodes.Web.Interfaces.Plus.Info;
+using Magicodes.Core.Web.Route;
 
 //======================================================================
 //
@@ -115,33 +117,20 @@ namespace Magicodes.Core.Web
         }
         static void GlobalConfigurationManager_OnConfiguration_Config_MVC(object sender, EventArgs e)
         {
-            RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            AreaRegistration.RegisterAllAreas();
-
+            //检查MVC插件
+            CheckMvcPlus();
+            var documentsOpenProtocolManager = GlobalApplicationObject.Current.ApplicationContext.DocumentsOpenProtocolManager;
+            //注册插件路由
             foreach (var mvcPlus in MvcConfigManager.MVCPlusList.OrderByDescending(p => p.MvcPlusType))
             {
-                switch (mvcPlus.MvcPlusType)
-                {
-                    case MvcPlusTypes.MVCHome:
-                        {
-                            RouteTable.Routes.MapRoute(
-                                name: "MCV_" + mvcPlus.PlusName,
-                                url: "{controller}/{action}/{id}",
-                                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, pluginName = mvcPlus.PlusName });
-                        }
-                        break;
-                    case MvcPlusTypes.MVC:
-                        {
-                            RouteTable.Routes.MapRoute(name: "MCV_" + mvcPlus.PlusName, url: "_{pluginName}/{controller}/{action}/{id}", defaults: new { action = "Index", id = UrlParameter.Optional, pluginName = mvcPlus.PlusName });
-                        }
-                        break;
-                    default:
-                        break;
-                }
-
+                RouteHelper.MapRouteMVCPlus(mvcPlus);
+                documentsOpenProtocolManager.RegisterDocumentsOpenProtocols(mvcPlus);                
             }
+            RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            AreaRegistration.RegisterAllAreas();
+            #region 注册请求事件，处理插件资源加载问题
             //注册请求事件，处理插件资源加载问题
-            GlobalApplicationObject.Current.EventsManager.BeginRequest += (requestSender,arg) =>
+            GlobalApplicationObject.Current.EventsManager.BeginRequest += (requestSender, arg) =>
             {
                 //应用程序对象
                 var application = (HttpApplication)requestSender;
@@ -149,11 +138,11 @@ namespace Magicodes.Core.Web
                 var context = application.Context;
                 #region 如果非站内请求，随它去吧
                 if (!context.Request.IsLocal)
-                    return; 
+                    return;
                 #endregion
                 #region 如果非插件类请求，随它去吧
                 if (!context.Request.Url.AbsolutePath.StartsWith("/Magicodes.", StringComparison.CurrentCultureIgnoreCase))
-                    return; 
+                    return;
                 #endregion
                 foreach (var plusItem in MvcConfigManager.MVCPlusList)
                 {
@@ -182,7 +171,26 @@ namespace Magicodes.Core.Web
                         return;
                     }
                 }
-            };
+            }; 
+            #endregion
+        }
+
+        
+        /// <summary>
+        /// 检查MVC程序集的正确性
+        /// </summary>
+        private static void CheckMvcPlus()
+        {
+            var count = MvcConfigManager.MVCPlusList.Where(p => p.MvcPlusType == MvcPlusTypes.MVCAdmin).Count();
+            if (count > 1 || count == 0)
+            {
+                throw new MagicodesException(count > 1 ? "后台程序集只允许存在一个" : "当前环境并不存在后台程序集，请下载");
+            }
+            count = MvcConfigManager.MVCPlusList.Where(p => p.MvcPlusType == MvcPlusTypes.MVCHome).Count();
+            if (count > 1 || count == 0)
+            {
+                throw new MagicodesException(count > 1 ? "首页程序集只允许存在一个" : "当前环境并不存在首页程序集，请下载");
+            }
         }
         static void GlobalConfigurationManager_OnConfiguration_Config_WEBAPI(object sender, EventArgs e)
         {
