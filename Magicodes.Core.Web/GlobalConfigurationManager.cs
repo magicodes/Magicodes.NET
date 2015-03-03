@@ -126,8 +126,16 @@ namespace Magicodes.Core.Web
                 RouteHelper.MapRouteMVCPlus(mvcPlus);
                 documentsOpenProtocolManager.RegisterDocumentsOpenProtocols(mvcPlus);                
             }
+            RouteHelper.RouteEnd();
             RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             AreaRegistration.RegisterAllAreas();
+            RegisterBundlesRequest();
+        }
+        /// <summary>
+        /// 注册插件Bundles请求（只接受以下链接的请求：/{插件名}/bundles/{Bundle名}
+        /// </summary>
+        private static void RegisterBundlesRequest()
+        {
             #region 注册请求事件，处理插件资源加载问题
             //注册请求事件，处理插件资源加载问题
             GlobalApplicationObject.Current.EventsManager.BeginRequest += (requestSender, arg) =>
@@ -171,7 +179,7 @@ namespace Magicodes.Core.Web
                         return;
                     }
                 }
-            }; 
+            };
             #endregion
         }
 

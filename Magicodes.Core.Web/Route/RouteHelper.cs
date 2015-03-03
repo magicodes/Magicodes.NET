@@ -25,19 +25,29 @@ namespace Magicodes.Core.Web.Route
 {
     public class RouteHelper
     {
+        /// <summary>
+        /// 路由结束方法
+        /// </summary>
+        public static void RouteEnd()
+        {
+            //最后注册门户MVC插件
+            var mvcHomePlus = MvcConfigManager.MVCPlusList.First(p => p.MvcPlusType == MvcPlusTypes.MVCHome);
+            RouteTable.Routes.MapRoute(
+                           name: "MCV_" + mvcHomePlus.PlusName,
+                           url: "{controller}/{action}/{id}",
+                           defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, pluginName = mvcHomePlus.PlusName });
+        }
+        /// <summary>
+        /// 映射MVC插件路由
+        /// </summary>
+        /// <param name="mvcPlus"></param>
         public static void MapRouteMVCPlus(IMVCPlusInfo mvcPlus)
         {
             switch (mvcPlus.MvcPlusType)
             {
-                //此类型插件只支持一个
-                case MvcPlusTypes.MVCHome:
-                    {
-                        RouteTable.Routes.MapRoute(
-                            name: "MCV_" + mvcPlus.PlusName,
-                            url: "{controller}/{action}/{id}",
-                            defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, pluginName = mvcPlus.PlusName });
-                    }
-                    break;
+                ////此类型插件只支持一个
+                //case MvcPlusTypes.MVCHome:
+                //    break;
                 case MvcPlusTypes.MVC:
                     {
                         RouteTable.Routes.MapRoute(

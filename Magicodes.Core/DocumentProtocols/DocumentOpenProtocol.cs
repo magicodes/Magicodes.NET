@@ -29,8 +29,16 @@ namespace Magicodes.Core.DocumentProtocols
         /// </summary>
         public string ContentType { get; set; }
         /// <summary>
-        /// 查看器路径
+        /// 控制器
         /// </summary>
-        public string ViewerUrl { get; set; }
+        public string Controller { get; set; }
+        /// <summary>
+        /// 操作
+        /// </summary>
+        public string Action { get; set; }
+        /// <summary>
+        /// 插件名
+        /// </summary>
+        public string PluginName { get; set; }
     }
 }

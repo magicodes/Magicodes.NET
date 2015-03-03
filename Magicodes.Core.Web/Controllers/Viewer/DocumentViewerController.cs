@@ -43,8 +43,9 @@ namespace Magicodes.Core.Web.Controllers
             var protocol = ApplicationContext.DocumentsOpenProtocolManager.DocumentOpenProtocols.FirstOrDefault(p => p.ContentType.Equals(contentType, StringComparison.CurrentCultureIgnoreCase));
             if (protocol != null)
             {
-                //return RedirectToAction(protocol.ViewerUrl, new { FilePath = filePath });
-                return View(protocol.ViewerUrl, new DocumentProtocolInfo() { FilePath = filePath, ContentType = contentType });
+                TempData["DocumentProtocolInfo"] = new DocumentProtocolInfo() { FilePath = filePath, ContentType = contentType };
+                //return RedirectToAction("Index", "PDFViewer", new { FilePath = filePath, ContentType = contentType, pluginName = "Magicodes.PDFViewer" });
+                return RedirectToAction(protocol.Action, protocol.Controller, new { pluginName = protocol.PluginName });
             }
             //如果不存在，则下载
             return File(filePath, contentType);

@@ -204,7 +204,7 @@
 
                                     <div class="feed-element">
                                         <a href="@Url.Action("Profile", "AppViews")" class="pull-left">
-                                            <img alt="image" class="img-circle" src="~/Images/profile.jpg">
+                                            <img alt="image" class="img-circle" src="@Html.GetImageSrc("~/Images/profile.jpg")">
                                         </a>
                                         <div class="media-body ">
                                             <small class="pull-right">5m ago</small>
@@ -216,7 +216,7 @@
 
                                     <div class="feed-element">
                                         <a href="@Url.Action("Profile", "AppViews")" class="pull-left">
-                                            <img alt="image" class="img-circle" src="~/Images/a2.jpg">
+                                            <img alt="image" class="img-circle" src="@Html.GetImageSrc("~/Images/a2.jpg")">
                                         </a>
                                         <div class="media-body ">
                                             <small class="pull-right">2h ago</small>
@@ -226,7 +226,7 @@
                                     </div>
                                     <div class="feed-element">
                                         <a href="@Url.Action("Profile", "AppViews")" class="pull-left">
-                                            <img alt="image" class="img-circle" src="~/Images/a3.jpg">
+                                            <img alt="image" class="img-circle" src="@Html.GetImageSrc("~/Images/a3.jpg")">
                                         </a>
                                         <div class="media-body ">
                                             <small class="pull-right">2h ago</small>
@@ -236,7 +236,7 @@
                                     </div>
                                     <div class="feed-element">
                                         <a href="@Url.Action("Profile", "AppViews")" class="pull-left">
-                                            <img alt="image" class="img-circle" src="~/Images/a4.jpg">
+                                            <img alt="image" class="img-circle" src="@Html.GetImageSrc("~/Images/a4.jpg")">
                                         </a>
                                         <div class="media-body ">
                                             <small class="pull-right text-navy">5h ago</small>
@@ -250,7 +250,7 @@
                                     </div>
                                     <div class="feed-element">
                                         <a href="@Url.Action("Profile", "AppViews")" class="pull-left">
-                                            <img alt="image" class="img-circle" src="~/Images/a5.jpg">
+                                            <img alt="image" class="img-circle" src="@Html.GetImageSrc("~/Images/a5.jpg")">
                                         </a>
                                         <div class="media-body ">
                                             <small class="pull-right">2h ago</small>
@@ -267,7 +267,7 @@
                                     </div>
                                     <div class="feed-element">
                                         <a href="@Url.Action("Profile", "AppViews")" class="pull-left">
-                                            <img alt="image" class="img-circle" src="~/Images/profile.jpg">
+                                            <img alt="image" class="img-circle" src="@Html.GetImageSrc("~/Images/profile.jpg")">
                                         </a>
                                         <div class="media-body ">
                                             <small class="pull-right">23h ago</small>
@@ -277,7 +277,7 @@
                                     </div>
                                     <div class="feed-element">
                                         <a href="@Url.Action("Profile", "AppViews")" class="pull-left">
-                                            <img alt="image" class="img-circle" src="~/Images/a7.jpg">
+                                            <img alt="image" class="img-circle" src="@Html.GetImageSrc("~/Images/a7.jpg")">
                                         </a>
                                         <div class="media-body ">
                                             <small class="pull-right">46h ago</small>
@@ -442,10 +442,10 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/plugins/flot")
-    @Scripts.Render("~/plugins/sparkline")
-    @Scripts.Render("~/plugins/chartJs")
-    @Scripts.Render("~/plugins/peity")
+    @Scripts.Render("~/bundles/plugins/flot")
+    @Scripts.Render("~/bundles/plugins/sparkline")
+    @Scripts.Render("~/bundles/plugins/chartJs")
+    @Scripts.Render("~/bundles/plugins/peity")
 
     <script type="text/javascript">
         $(document).ready(function () {
