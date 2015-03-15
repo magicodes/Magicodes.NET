@@ -184,24 +184,26 @@ namespace Magicodes.Core
             }
             #endregion
             #region 添加插件菜单
-            var r = APIContext<string>.Current.SiteAdminNavigationRepository;
-            if (r == null) return;
+            var siteAdminNavigationRepository = APIContext<string>.Current.SiteAdminNavigationRepository;
+            if (siteAdminNavigationRepository == null) return;
+            #region 移除所有的插件菜单
+            if (siteAdminNavigationRepository.GetQueryable().Any())
+            {
+                siteAdminNavigationRepository.RemoveRange(siteAdminNavigationRepository.GetQueryable());
+                siteAdminNavigationRepository.SaveChanges();
+            }
+            #endregion
             foreach (var plusInfo in PlusManager.PluginsList)
             {
                 if (plusInfo.PlusConfigInfo != null && plusInfo.PlusConfigInfo.PlusMenus != null && plusInfo.PlusConfigInfo.PlusMenus.Length > 0)
                 {
-                    if (r.GetQueryable().Any(p => p.PlusId == plusInfo.Id))
-                    {
-                        r.RemoveRange(r.GetQueryable().Where(p => p.PlusId == plusInfo.Id));
-                        r.SaveChanges();
-                    }
                     foreach (var plusMenu in plusInfo.PlusConfigInfo.PlusMenus)
                     {
-                        AddPlusMenu(plusInfo, r, plusMenu, null);
+                        AddPlusMenu(plusInfo, siteAdminNavigationRepository, plusMenu, null);
                     }
-                    r.SaveChanges();
                 }
             }
+            siteAdminNavigationRepository.SaveChanges();
             #endregion
         }
         /// <summary>

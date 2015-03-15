@@ -217,6 +217,7 @@
     <Content Include="Images\gallery\8s.jpg" />
     <Content Include="Images\gallery\9.jpg" />
     <Content Include="Images\gallery\9s.jpg" />
+    <Content Include="Images\profile_small.png" />
     <Content Include="Images\Thumbs.db" />
     <Content Include="Magicodes.Templates\Generate.include.t4" />
     <Content Include="Plus.config" />
@@ -337,6 +338,11 @@
     <Content Include="Views\Config\SiteConfigInfo.cshtml" />
     <Content Include="Views\Config\SystemConfigInfo.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\Mailbox\Index.cshtml" />
+    <Content Include="Views\Mailbox\ComposeEmail.cshtml" />
+    <Content Include="Views\Mailbox\EmailView.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -887,6 +893,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConfigController.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\MailboxController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SiteAdminNavigationsController.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

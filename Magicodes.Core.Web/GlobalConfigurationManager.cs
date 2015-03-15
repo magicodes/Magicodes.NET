@@ -203,7 +203,6 @@ namespace Magicodes.Core.Web
         static void GlobalConfigurationManager_OnConfiguration_Config_WEBAPI(object sender, EventArgs e)
         {
             HttpConfiguration config = (HttpConfiguration)sender;
-
             // Web API 配置和服务
             // 将 Web API 配置为仅使用不记名令牌身份验证。
             //config.SuppressDefaultHostAuthentication();

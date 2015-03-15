@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "新邮件";
+}
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content mailbox-content">
+                    <div class="file-manager">
+                        <a class="btn btn-block btn-primary compose-mail" href="@Url.Action("ComposeEmail", "Mailbox")">新邮件</a>
+                        <div class="space-25"></div>
+                        <h5>文件夹</h5>
+                        <ul class="folder-list m-b-md" style="padding: 0">
+                            <li><a href="@Url.Action("Inbox", "Mailbox")"> <i class="fa fa-inbox "></i> 收件箱 <span class="label label-warning pull-right">16</span> </a></li>
+                            <li><a href="@Url.Action("Inbox", "Mailbox")"> <i class="fa fa-envelope-o"></i> 发件箱</a></li>
+                            <li><a href="@Url.Action("Inbox", "Mailbox")"> <i class="fa fa-certificate"></i> 重要邮件</a></li>
+                            <li><a href="@Url.Action("Inbox", "Mailbox")"> <i class="fa fa-file-text-o"></i> 草稿箱 <span class="label label-danger pull-right">2</span></a></li>
+                            <li><a href="@Url.Action("Inbox", "Mailbox")"> <i class="fa fa-trash-o"></i> 垃圾箱</a></li>
+                        </ul>
+                        <h5>类别</h5>
+                        <ul class="category-list" style="padding: 0">
+                            <li><a href="#"> <i class="fa fa-circle text-navy"></i> 工作 </a></li>
+                            <li><a href="#"> <i class="fa fa-circle text-danger"></i> 文档</a></li>
+                            <li><a href="#"> <i class="fa fa-circle text-primary"></i> 社交</a></li>
+                            <li><a href="#"> <i class="fa fa-circle text-info"></i> 广告</a></li>
+                            <li><a href="#"> <i class="fa fa-circle text-warning"></i> 客户端</a></li>
+                        </ul>
+
+                        <h5 class="tag-title">标签</h5>
+                        <ul class="tag-list" style="padding: 0">
+                            <li><a href=""><i class="fa fa-tag"></i> 家庭</a></li>
+                            <li><a href=""><i class="fa fa-tag"></i> 工作</a></li>
+                            <li><a href=""><i class="fa fa-tag"></i> 孩子们</a></li>
+                            <li><a href=""><i class="fa fa-tag"></i> 假日</a></li>
+                            <li><a href=""><i class="fa fa-tag"></i> 音乐</a></li>
+                            <li><a href=""><i class="fa fa-tag"></i> 摄影</a></li>
+                            <li><a href=""><i class="fa fa-tag"></i> 影片</a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 animated fadeInRight">
+            <div class="mail-box-header">
+                <div class="pull-right tooltip-demo">
+                    <a href="@Url.Action("Index", "Mailbox")" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="保存草稿"><i class="fa fa-pencil"></i> 保存草稿</a>
+                    <a href="@Url.Action("Index", "Mailbox")" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="放弃"><i class="fa fa-times"></i> 放弃</a>
+                </div>
+                <h2>
+                    新邮件
+                </h2>
+            </div>
+            <div class="mail-box">
+
+
+                <div class="mail-body">
+
+                    <form class="form-horizontal" method="get">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">收件人：</label>
+
+                            <div class="col-sm-10"><input type="text" class="form-control" value="alex.smith@corporat.com"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">主题：</label>
+
+                            <div class="col-sm-10"><input type="text" class="form-control" value=""></div>
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="mail-text h-200">
+
+                    <div class="summernote">
+                        <h3>Hello Jonathan! </h3>
+                        dummy text of the printing and typesetting industry. <strong>Lorem Ipsum has been the industry's</strong> standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                        typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                        <br />
+                        <br />
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mail-body text-right tooltip-demo">
+                    <a href="@Url.Action("Index", "Mailbox")" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-reply"></i> 发送</a>
+                    <a href="@Url.Action("Index", "Mailbox")" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Discard email"><i class="fa fa-times"></i> 放弃</a>
+                    <a href="@Url.Action("Index", "Mailbox")" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to draft folder"><i class="fa fa-pencil"></i> 保存草稿</a>
+                </div>
+                <div class="clearfix"></div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/bundles/plugins/summernoteStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/plugins/summernote")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.summernote').summernote();
+
+        });
+
+    </script>
+}

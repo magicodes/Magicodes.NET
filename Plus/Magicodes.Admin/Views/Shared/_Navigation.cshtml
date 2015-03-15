@@ -1,6 +1,7 @@
 ﻿@using System.Data;
 @using System.Data.Entity;
 @using System.Linq;
+@using Magicodes.Core.Web.Utility
 @using Magicodes.Admin.Models;
 @{
     var db = new AdminContext();
@@ -39,21 +40,21 @@
             <li class="nav-header">
                 <div class="dropdown profile-element">
                     <span>
-                        <img alt="image" class="img-circle" src="@Html.GetImageSrc("~/Images/profile_small.jpg")" />
+                        <img alt="image" class="img-circle" src="@Html.GetImageSrc("~/Images/profile_small.png")" />
                     </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear">
                             <span class="block m-t-xs">
-                                <strong class="font-bold">David Williams</strong>
-                            </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
+                                <strong class="font-bold">@(User.Identity.GetUserDisplayName<string>())</strong>
+                            </span> <span class="text-muted text-xs block">系统管理员 <b class="caret"></b></span>
                         </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="@Url.Action("Profile", "AppViews")">Profile</a></li>
-                        <li><a href="@Url.Action("Contacts", "AppViews")">Contacts</a></li>
-                        <li><a href="@Url.Action("Inbox", "Mailbox")">Mailbox</a></li>
+                        <li><a href="/admin/Profile">个人主页</a></li>
+                        <li><a href="/admin/Contacts">通讯录</a></li>
+                        <li><a href="/admin/Mailbox">收件箱</a></li>
                         <li class="divider"></li>
-                        <li><a href="@Url.Action("Login", "Pages")">Logout</a></li>
+                        <li><a href="@Url.Action("LogOff", "Account")">退出登录</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">
