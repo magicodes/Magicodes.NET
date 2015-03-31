@@ -113,9 +113,12 @@
 
 
             <li>
-                <a href="@Url.Action("LogOff", "Account")">
-                    <i class="fa fa-sign-out"></i> 退出
-                </a>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "" }))
+                {
+                @Html.AntiForgeryToken()
+
+                }
+                <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out"></i> 退出</a>
             </li>
         </ul>
     </nav>
