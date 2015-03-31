@@ -119,6 +119,7 @@ namespace Magicodes.Core.Web
         {
             //检查MVC插件
             CheckMvcPlus();
+            RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             var documentsOpenProtocolManager = GlobalApplicationObject.Current.ApplicationContext.DocumentsOpenProtocolManager;
             //注册插件路由
             foreach (var mvcPlus in MvcConfigManager.MVCPlusList.OrderByDescending(p => p.MvcPlusType))
@@ -127,7 +128,7 @@ namespace Magicodes.Core.Web
                 documentsOpenProtocolManager.RegisterDocumentsOpenProtocols(mvcPlus);                
             }
             RouteHelper.RouteEnd();
-            RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            
             AreaRegistration.RegisterAllAreas();
             RegisterBundlesRequest();
         }

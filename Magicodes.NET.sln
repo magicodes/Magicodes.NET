@@ -81,6 +81,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librarys", "Librarys", "{AB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magicodes.Admin", "Plus\Magicodes.Admin\Magicodes.Admin.csproj", "{FCB79998-C325-4C06-8D45-65954B201B67}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Test", "4.Test", "{740CFD59-3C7A-454D-8221-32CE9B8118C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

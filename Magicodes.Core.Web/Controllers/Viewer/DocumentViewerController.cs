@@ -45,7 +45,7 @@ namespace Magicodes.Core.Web.Controllers
             {
                 TempData["DocumentProtocolInfo"] = new DocumentProtocolInfo() { FilePath = filePath, ContentType = contentType };
                 //return RedirectToAction("Index", "PDFViewer", new { FilePath = filePath, ContentType = contentType, pluginName = "Magicodes.PDFViewer" });
-                return RedirectToAction(protocol.Action, protocol.Controller, new { pluginName = protocol.PluginName });
+                return RedirectToAction(protocol.Action, protocol.Controller, new { pluginName = protocol.PluginName, filePath = filePath, contentType = contentType });
             }
             //如果不存在，则下载
             return File(filePath, contentType);
